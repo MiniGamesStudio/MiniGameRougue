@@ -98,10 +98,6 @@ System.register(["cc"], function (_export, _context) {
 
         chckCollision(selfCollider, otherCollider) {
           if (otherCollider) {
-            if (this.m_FlowerTag == otherCollider.tag) {
-              return;
-            }
-
             var light = otherCollider.node.getChildByName("FlowerRootLight");
 
             if (light) {

@@ -70,10 +70,6 @@ export class Flower extends Component {
 
     chckCollision(selfCollider: Collider2D, otherCollider: Collider2D):void {
         if(otherCollider){ 
-            if(this.m_FlowerTag == otherCollider.tag){
-                return;
-            }
-
             var light = otherCollider.node.getChildByName("FlowerRootLight");
             if(light){
                 var imgPos = this.checkImgPos(selfCollider, otherCollider);
