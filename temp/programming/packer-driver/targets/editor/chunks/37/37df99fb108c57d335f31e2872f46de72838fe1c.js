@@ -48,6 +48,11 @@ System.register(["cc"], function (_export, _context) {
           this.m_BoxCollider2D = null;
           this.m_RigidBody2D = null;
           this.m_FlowerTag = 0;
+          this.m_IsChangePot = false;
+          this.m_TempImgPos = 1;
+          this.m_TempFlowerStartPos = Vec3.ZERO;
+          this.m_TempFlowerRoot = null;
+          this.m_TempFlowerTag = 0;
         }
 
         //imgPos: 0-中间 1-右边 -1-左边
@@ -96,25 +101,31 @@ System.register(["cc"], function (_export, _context) {
               var left = light.getChildByName("Left");
 
               if (left.children.length <= 0) {
-                this.m_ImgPos = -1;
-                this.m_FlowerStartPos = left.getWorldPosition();
-                this.m_FlowerRoot = left;
+                this.m_IsChangePot = true;
+                this.m_TempImgPos = -1;
+                this.m_TempFlowerStartPos = left.getWorldPosition();
+                this.m_TempFlowerRoot = left;
+                this.m_TempFlowerTag = otherCollider.tag;
               }
 
               var right = light.getChildByName("Right");
 
               if (right.children.length <= 0) {
-                this.m_ImgPos = 1;
-                this.m_FlowerStartPos = right.getWorldPosition();
-                this.m_FlowerRoot = right;
+                this.m_IsChangePot = true;
+                this.m_TempImgPos = 1;
+                this.m_TempFlowerStartPos = right.getWorldPosition();
+                this.m_TempFlowerRoot = right;
+                this.m_TempFlowerTag = otherCollider.tag;
               }
 
               var mid = light.getChildByName("Mid");
 
               if (mid.children.length <= 0) {
-                this.m_ImgPos = 0;
-                this.m_FlowerStartPos = mid.getWorldPosition();
-                this.m_FlowerRoot = mid;
+                this.m_IsChangePot = true;
+                this.m_TempImgPos = 0;
+                this.m_TempFlowerStartPos = mid.getWorldPosition();
+                this.m_TempFlowerRoot = mid;
+                this.m_TempFlowerTag = otherCollider.tag;
               }
             }
           }
@@ -122,7 +133,8 @@ System.register(["cc"], function (_export, _context) {
 
         onEndContact(selfCollider, otherCollider, contact) {
           // 只在两个碰撞体结束接触时被调用一次
-          console.log('onEndContact'); //this.m_FlowerStartPos = this.m_FlowerRoot.getWorldPosition(); 
+          console.log('onEndContact');
+          this.m_IsChangePot = false;
         }
 
         onTouchStart(event) {
@@ -175,6 +187,14 @@ System.register(["cc"], function (_export, _context) {
           }
 
           if (event.target) {
+            if (this.m_IsChangePot) {
+              this.m_IsChangePot = false;
+              this.m_ImgPos = this.m_TempImgPos;
+              this.m_FlowerStartPos = this.m_TempFlowerStartPos;
+              this.m_FlowerRoot = this.m_TempFlowerRoot;
+              this.m_FlowerTag = this.m_TempFlowerTag;
+            }
+
             var flowerEndPos = event.target.getWorldPosition();
             this.m_IsFlowerDoAni = true;
             var temp = Math.abs(this.m_FlowerStartPos.x - flowerEndPos.x) + Math.abs(this.m_FlowerStartPos.y - flowerEndPos.y);
