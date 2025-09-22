@@ -1246,7 +1246,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 236,
+      "width": 200,
       "height": 168
     },
     "_anchorPoint": {
@@ -1288,7 +1288,7 @@
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 0,
+    "_sizeMode": 1,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -1411,7 +1411,7 @@
     "_paddingRight": 0,
     "_paddingTop": 0,
     "_paddingBottom": 0,
-    "_spacingX": -50,
+    "_spacingX": -80,
     "_spacingY": 0,
     "_verticalDirection": 1,
     "_horizontalDirection": 0,
