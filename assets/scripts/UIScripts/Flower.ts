@@ -283,8 +283,6 @@ export class Flower extends Component {
                 this.m_BoxCollider2D.offset = new Vec2(0, this.m_FlowerUITransform.contentSize.y / 2);
                 this.m_BoxCollider2D.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
                 this.m_BoxCollider2D.on(Contact2DType.END_CONTACT, this.onEndContact, this);
-                this.m_BoxCollider2D.enabled = false;
-                this.m_BoxCollider2D.enabled = true;
             }
         }
 
