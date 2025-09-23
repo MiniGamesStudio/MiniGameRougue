@@ -34,6 +34,8 @@ export class Flower extends Component {
     m_FlowerId:string = "";
     m_IsBlack:boolean = false;
 
+    m_ContactArr:number[] = [];
+
     public getFlowerID():string{
         return this.m_FlowerId;
     }
@@ -52,6 +54,7 @@ export class Flower extends Component {
         this.m_ImgPos = imgPos;
         this.m_RotationLeft = rLeft;
         this.m_RotationRight = rRight;
+        this.m_ContactArr = [];
     }
 
     start() {
@@ -79,8 +82,9 @@ export class Flower extends Component {
 
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体开始接触时被调用一次
-        //console.log('onBeginContact: selfname = ' + selfCollider.name + " othername = " + otherCollider.name);
+        //console.log('onBeginContact: otherCollider.tag = ' + otherCollider.tag);
 
+        this.m_ContactArr.push(otherCollider.tag);
         this.m_SelfCollider = selfCollider;
         this.m_OtherCollider = otherCollider;
         this.chckCollision(selfCollider, otherCollider);
@@ -94,7 +98,7 @@ export class Flower extends Component {
 
                 if(imgPos == -1){
                     var left = light.getChildByName("Left");
-                    if(left.children.length <= 0){                    
+                    if(left.children.length <= 0){      
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = -1;
                         this.m_TempFlowerStartPos = left.getWorldPosition();
@@ -104,7 +108,7 @@ export class Flower extends Component {
                     }
 
                     var right = light.getChildByName("Right");
-                    if(right.children.length <= 0){      
+                    if(right.children.length <= 0){    
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = 1;
                         this.m_TempFlowerStartPos = right.getWorldPosition();
@@ -125,7 +129,7 @@ export class Flower extends Component {
                 }
                 else if(imgPos == 1){
                     var right = light.getChildByName("Right");
-                    if(right.children.length <= 0){      
+                    if(right.children.length <= 0){     
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = 1;
                         this.m_TempFlowerStartPos = right.getWorldPosition();
@@ -135,7 +139,7 @@ export class Flower extends Component {
                     }
 
                     var mid = light.getChildByName("Mid");
-                    if(mid.children.length <= 0){
+                    if(mid.children.length <= 0){   
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = 0;
                         this.m_TempFlowerStartPos = mid.getWorldPosition();
@@ -145,7 +149,7 @@ export class Flower extends Component {
                     }
                     
                     var left = light.getChildByName("Left");
-                    if(left.children.length <= 0){                    
+                    if(left.children.length <= 0){       
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = -1;
                         this.m_TempFlowerStartPos = left.getWorldPosition();
@@ -154,9 +158,9 @@ export class Flower extends Component {
                         return;
                     }
                 }
-                else{
+                else{   
                     var mid = light.getChildByName("Mid");
-                    if(mid.children.length <= 0){
+                    if(mid.children.length <= 0){   
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = 0;
                         this.m_TempFlowerStartPos = mid.getWorldPosition();
@@ -166,7 +170,7 @@ export class Flower extends Component {
                     }
                     
                     var left = light.getChildByName("Left");
-                    if(left.children.length <= 0){                    
+                    if(left.children.length <= 0){         
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = -1;
                         this.m_TempFlowerStartPos = left.getWorldPosition();
@@ -176,7 +180,7 @@ export class Flower extends Component {
                     }
                     
                     var right = light.getChildByName("Right");
-                    if(right.children.length <= 0){      
+                    if(right.children.length <= 0){        
                         this.m_IsChangePot = true;
                         this.m_TempImgPos = 1;
                         this.m_TempFlowerStartPos = right.getWorldPosition();
@@ -228,10 +232,25 @@ export class Flower extends Component {
 
     onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
-        //console.log('onEndContact');
-        this.m_SelfCollider = null;
-        this.m_OtherCollider = null;
-        this.m_IsChangePot = false; 
+        //console.log('onEndContact otherCollider.tag = ' + otherCollider.tag);
+        var temp = true;
+        this.m_ContactArr.forEach((value, idx)=>{
+            if(value == otherCollider.tag){
+                this.m_ContactArr[idx] = -1;
+            }
+            else{
+                if(value > 0){
+                    temp = false;
+                }
+            }
+        });
+
+        if(temp){
+            this.m_ContactArr = [];
+            this.m_SelfCollider = null;
+            this.m_OtherCollider = null;
+            this.m_IsChangePot = false; 
+        }
     }
 
     onTouchStart(event: EventTouch){
@@ -291,7 +310,7 @@ export class Flower extends Component {
             return;
         }
         
-        if(event.target){   
+        if(event.target){  
             var flowerTagTemp = this.m_FlowerTag;
             if(this.m_IsChangePot){
                 this.m_IsChangePot = false;

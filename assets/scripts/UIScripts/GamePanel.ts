@@ -1,4 +1,4 @@
-import { __private, _decorator, Button, Component, instantiate, JsonAsset, Layout, Node, PageView, Prefab, ProgressBar, resources, Slider, SpriteFrame, UITransform } from 'cc';
+import { __private, _decorator, Button, Component, EPhysics2DDrawFlags, instantiate, JsonAsset, Layout, Node, PageView, PhysicsSystem2D, Prefab, ProgressBar, resources, Slider, SpriteFrame, UITransform } from 'cc';
 import { UIBase } from '../Core/UIBase';
 import { UIManager } from '../Core/UIManager';
 import { UIID } from './UIData';
@@ -89,7 +89,16 @@ export class GamePanel extends UIBase {
         this.initGameLevel(this.m_CurLv);
     }
 
-    initGameLevel(level:number): void {
+    initGameLevel(level:number): void {      
+        /*  
+        PhysicsSystem2D.instance.enable = true;
+        PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
+        EPhysics2DDrawFlags.Pair |
+        EPhysics2DDrawFlags.CenterOfMass |
+        EPhysics2DDrawFlags.Joint |
+        EPhysics2DDrawFlags.Shape;
+        */
+
         this.m_CurLv = level;
         resources.load("levelData/level_" + level, JsonAsset, (err, jsonAsset)=>{
             if(err){
