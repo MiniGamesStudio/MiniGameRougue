@@ -65,7 +65,7 @@ export class GamePanel extends UIBase {
                 return;
             }
 
-            var temp = fPlatform.isVictory();
+            var temp = fPlatform.checkVictory();
             if(temp){
                 vCount += 1;
             }
