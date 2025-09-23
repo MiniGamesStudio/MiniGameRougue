@@ -23,9 +23,11 @@ System.register(["cc"], function (_export, _context) {
       } = _decorator);
 
       _export("UIID", UIID = /*#__PURE__*/function (UIID) {
-        UIID[UIID["LoadingPanel"] = 0] = "LoadingPanel";
-        UIID[UIID["MainPanel"] = 1] = "MainPanel";
-        UIID[UIID["GamePanel"] = 2] = "GamePanel";
+        UIID[UIID["None"] = 0] = "None";
+        UIID[UIID["LoadingPanel"] = 1] = "LoadingPanel";
+        UIID[UIID["MainPanel"] = 2] = "MainPanel";
+        UIID[UIID["GamePanel"] = 3] = "GamePanel";
+        UIID[UIID["VictoryPanel"] = 4] = "VictoryPanel";
         return UIID;
       }({}));
 
@@ -52,6 +54,7 @@ System.register(["cc"], function (_export, _context) {
           this.InitUI(UIID.LoadingPanel, "LoadingPanel", "ui/LoadingPanel");
           this.InitUI(UIID.MainPanel, "MainPanel", "ui/MainPanel");
           this.InitUI(UIID.GamePanel, "GamePanel", "ui/GamePanel");
+          this.InitUI(UIID.VictoryPanel, "VictoryPanel", "ui/VictoryPanel");
         }
 
         static InitUI(id, uiName, path, cacheCount = 1) {

@@ -26,7 +26,14 @@ export class FlowerPlatform extends Component {
     private m_FlowerPotTagIndexMap:Map<number, number> = new Map();
     private m_FlowerPotTagDataMap:Map<number, any> = new Map();
 
+    private m_IsVictory:boolean = false;
+
+    public isVictory():boolean{
+        return this.m_IsVictory;
+    }
+
     protected start(): void {        
+        EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
         EventManager.getInstance().on(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
     }
 
@@ -113,7 +120,8 @@ export class FlowerPlatform extends Component {
 
         var isVictory = this.checkVictory();
         if(isVictory){
-            console.log("Victory!");
+            this.m_IsVictory = true;
+            EventManager.getInstance().emit(CustomClientEvent.CheckVictory);
         }
     }
 
@@ -149,6 +157,7 @@ export class FlowerPlatform extends Component {
     }
 
     public InitPlatForm(raw:number, platFormNum:number, data:any, flowerMoveRoot:Node):void {
+        this.m_IsVictory = false;
         this.m_FlowerPotMap.clear();
         this.m_FlowerPotTagIndexMap.clear();
         this.m_FlowerPotTagDataMap.clear();

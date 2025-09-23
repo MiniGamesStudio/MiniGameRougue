@@ -78,9 +78,19 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           this.m_FlowerPotMap = new Map();
           this.m_FlowerPotTagIndexMap = new Map();
           this.m_FlowerPotTagDataMap = new Map();
+          this.m_IsVictory = false;
+        }
+
+        isVictory() {
+          return this.m_IsVictory;
         }
 
         start() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
           (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
             error: Error()
           }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
@@ -193,7 +203,12 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           var isVictory = this.checkVictory();
 
           if (isVictory) {
-            console.log("Victory!");
+            this.m_IsVictory = true;
+            (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+              error: Error()
+            }), EventManager) : EventManager).getInstance().emit((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+              error: Error()
+            }), CustomClientEvent) : CustomClientEvent).CheckVictory);
           }
         }
 
@@ -228,6 +243,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
         }
 
         InitPlatForm(raw, platFormNum, data, flowerMoveRoot) {
+          this.m_IsVictory = false;
           this.m_FlowerPotMap.clear();
           this.m_FlowerPotTagIndexMap.clear();
           this.m_FlowerPotTagDataMap.clear();

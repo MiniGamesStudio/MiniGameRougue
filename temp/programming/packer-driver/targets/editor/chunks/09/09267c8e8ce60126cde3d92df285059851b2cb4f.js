@@ -24,6 +24,9 @@ System.register(["cc"], function (_export, _context) {
 
       _export("CustomClientEvent", CustomClientEvent = /*#__PURE__*/function (CustomClientEvent) {
         CustomClientEvent["FlowerDissolve"] = "FlowerDissolve";
+        CustomClientEvent["CheckVictory"] = "CheckVictory";
+        CustomClientEvent["RetryLevel"] = "RetryLevel";
+        CustomClientEvent["NextLevel"] = "NextLevel";
         return CustomClientEvent;
       }({}));
 

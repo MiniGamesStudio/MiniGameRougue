@@ -1,7 +1,7 @@
-System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4"], function (_export, _context) {
+System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4", "__unresolved_5", "__unresolved_6"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Button, instantiate, JsonAsset, Node, Prefab, resources, UIBase, UIManager, UIID, FlowerPlatform, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, GamePanel;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Button, instantiate, JsonAsset, Node, Prefab, resources, UIBase, UIManager, UIID, FlowerPlatform, EventManager, CustomClientEvent, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, GamePanel;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -23,6 +23,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
   function _reportPossibleCrUseOfFlowerPlatform(extras) {
     _reporterNs.report("FlowerPlatform", "./FlowerPlatform", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfEventManager(extras) {
+    _reporterNs.report("EventManager", "../Core/EventManager", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfCustomClientEvent(extras) {
+    _reporterNs.report("CustomClientEvent", "../Config/Config", _context.meta, extras);
   }
 
   return {
@@ -47,6 +55,10 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       UIID = _unresolved_4.UIID;
     }, function (_unresolved_5) {
       FlowerPlatform = _unresolved_5.FlowerPlatform;
+    }, function (_unresolved_6) {
+      EventManager = _unresolved_6.EventManager;
+    }, function (_unresolved_7) {
+      CustomClientEvent = _unresolved_7.CustomClientEvent;
     }],
     execute: function () {
       _crd = true;
@@ -73,13 +85,84 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           _initializerDefineProperty(this, "m_FlowerImgMoveRoot", _descriptor3, this);
 
           _initializerDefineProperty(this, "m_LevelData", _descriptor4, this);
+
+          this.m_FlowerPlatformArr = null;
+          this.m_CurLevelData = null;
+          this.m_CurLv = 1;
         }
 
         onOpen() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).CheckVictory, this.onCheckVictory, this);
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).RetryLevel, this.onRetryLevel, this);
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).NextLevel, this.onNextLevel, this);
           this.initUI();
         }
 
-        onClose() {}
+        onClose() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).CheckVictory, this.onCheckVictory, this);
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).RetryLevel, this.onRetryLevel, this);
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).NextLevel, this.onNextLevel, this);
+        }
+
+        onNextLevel() {
+          this.initGameLevel(this.m_CurLv + 1);
+        }
+
+        onRetryLevel() {
+          this.initGameLevel(this.m_CurLv);
+        }
+
+        onCheckVictory(args) {
+          if (!this.m_CurLevelData) {
+            return;
+          }
+
+          var vCount = 0;
+          this.m_FlowerPlatformArr.forEach(fPlatform => {
+            if (!fPlatform) {
+              return;
+            }
+
+            var temp = fPlatform.isVictory();
+
+            if (temp) {
+              vCount += 1;
+            }
+          });
+
+          if (vCount == this.m_FlowerPlatformArr.length) {
+            //Victory
+            (_crd && UIManager === void 0 ? (_reportPossibleCrUseOfUIManager({
+              error: Error()
+            }), UIManager) : UIManager).GetInstance().OpenPanel((_crd && UIID === void 0 ? (_reportPossibleCrUseOfUIID({
+              error: Error()
+            }), UIID) : UIID).VictoryPanel, true);
+          }
+        }
 
         initUI() {
           this.m_CloseBtn.node.on('click', () => {
@@ -87,30 +170,32 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
               error: Error()
             }), UIManager) : UIManager).GetInstance().ClosePanel((_crd && UIID === void 0 ? (_reportPossibleCrUseOfUIID({
               error: Error()
-            }), UIID) : UIID).GamePanel);
+            }), UIID) : UIID).VictoryPanel);
             (_crd && UIManager === void 0 ? (_reportPossibleCrUseOfUIManager({
               error: Error()
             }), UIManager) : UIManager).GetInstance().OpenPanel((_crd && UIID === void 0 ? (_reportPossibleCrUseOfUIID({
               error: Error()
-            }), UIID) : UIID).MainPanel);
+            }), UIID) : UIID).VictoryPanel);
           });
-          this.initGameLevel();
+          this.initGameLevel(this.m_CurLv);
         }
 
-        initGameLevel() {
-          resources.load("levelData/level_1", JsonAsset, (err, jsonAsset) => {
+        initGameLevel(level) {
+          resources.load("levelData/level_" + level, JsonAsset, (err, jsonAsset) => {
             if (err) {
               return;
             }
 
-            var levelData = jsonAsset.json;
+            this.m_CurLevelData = jsonAsset.json;
+            this.m_LevelRoot.removeAllChildren();
             resources.load("ui/FlowerPlatform", Prefab, (err, prefab) => {
               if (prefab) {
                 (_crd && FlowerPlatform === void 0 ? (_reportPossibleCrUseOfFlowerPlatform({
                   error: Error()
                 }), FlowerPlatform) : FlowerPlatform).s_FlowerPotTag = 0;
+                this.m_FlowerPlatformArr = [];
 
-                for (var i = 0; i < levelData.FlowerRow; ++i) {
+                for (var i = 0; i < this.m_CurLevelData.FlowerRow; ++i) {
                   var temp = instantiate(prefab);
 
                   if (temp) {
@@ -120,7 +205,8 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
                     }), FlowerPlatform) : FlowerPlatform);
 
                     if (tScript) {
-                      tScript.InitPlatForm(i, levelData.FlowerPlatform[i], levelData, this.m_FlowerImgMoveRoot);
+                      tScript.InitPlatForm(i, this.m_CurLevelData.FlowerPlatform[i], this.m_CurLevelData, this.m_FlowerImgMoveRoot);
+                      this.m_FlowerPlatformArr.push(tScript);
                     }
                   }
                 }

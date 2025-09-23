@@ -130,6 +130,8 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
             }), UIBase) : UIBase);
 
             if (uiScript) {
+              uiScript.m_PanelID = this.m_PanelID;
+              uiScript.m_UIID = id;
               uiScript.onOpen(...args);
             }
 
@@ -169,6 +171,8 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
                 }), UIBase) : UIBase);
 
                 if (uiScript) {
+                  uiScript.m_PanelID = panelID;
+                  uiScript.m_UIID = id;
                   uiScript.onOpen();
                 }
 

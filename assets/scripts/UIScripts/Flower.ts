@@ -57,7 +57,8 @@ export class Flower extends Component {
     start() {
         this.m_FlowerUITransform = this.node.getComponent(UITransform);
 
-        if(!this.m_IsBlack){
+        if(!this.m_IsBlack){   
+            this.offNodeEvent();
             this.node.on(Node.EventType.TOUCH_START, this.onTouchStart, this, true);
             this.node.on(Node.EventType.TOUCH_MOVE, this.onTouchMove, this, true);
             this.node.on(Node.EventType.TOUCH_END, this.onTouchEnd, this, true);

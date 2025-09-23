@@ -1,0 +1,141 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "level_2",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "levelID": 1,
+    "levelName": "关卡1",
+    "FlowerRow": 4,
+    "FlowerPlatform": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "FlowerPot": [
+      [
+        1,
+        2
+      ],
+      4,
+      4,
+      4
+    ],
+    "FlowerArr": [
+      [
+        [
+          [
+            {
+              "mid": "flower03"
+            },
+            {
+              "mid": "flower03",
+              "right": "flower04"
+            }
+          ],
+          [
+            {
+              "left": "flower05",
+              "mid": "flower05",
+              "right": "flower06"
+            }
+          ]
+        ]
+      ],
+      [
+        [
+          [],
+          [
+            {
+              "left": "flower03",
+              "right": "flower04"
+            }
+          ],
+          [
+            {
+              "mid": "flower04",
+              "right": "flower05"
+            }
+          ],
+          [
+            {
+              "left": "flower06",
+              "mid": "flower07",
+              "right": "flower07"
+            }
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            {
+              "left": "flower08",
+              "mid": "flower09",
+              "right": "flower06"
+            }
+          ],
+          [
+            {
+              "left": "flower07",
+              "mid": "flower01",
+              "right": "flower02"
+            },
+            {
+              "left": "flower08",
+              "mid": "flower05",
+              "right": "flower04"
+            }
+          ],
+          [
+            {
+              "left": "flower08",
+              "mid": "flower03",
+              "right": "flower01"
+            }
+          ],
+          [
+            {
+              "left": "flower04",
+              "mid": "flower04",
+              "right": "flower09"
+            }
+          ]
+        ]
+      ],
+      [
+        [
+          [
+            {
+              "left": "flower01",
+              "mid": "flower02",
+              "right": "flower03"
+            }
+          ],
+          [
+            {
+              "left": "flower02",
+              "mid": "flower03",
+              "right": "flower08"
+            }
+          ],
+          [
+            {
+              "left": "flower05",
+              "mid": "flower08",
+              "right": "flower09"
+            }
+          ],
+          [
+            {
+              "left": "flower05",
+              "mid": "flower08"
+            }
+          ]
+        ]
+      ]
+    ]
+  }
+}

@@ -77,6 +77,8 @@ export class UIManager {
             uiNode.parent = this.m_UIRoot;
             var uiScript = uiNode.getComponent(UIBase);
             if(uiScript){
+                uiScript.m_PanelID = this.m_PanelID;
+                uiScript.m_UIID = id;
                 uiScript.onOpen(...args);
             }
 
@@ -112,6 +114,8 @@ export class UIManager {
                     panelNode.active = true;
                     var uiScript = panelNode.getComponent(UIBase);
                     if(uiScript){
+                        uiScript.m_PanelID = panelID;
+                        uiScript.m_UIID = id;
                         uiScript.onOpen();
                     }
                     return panelID;

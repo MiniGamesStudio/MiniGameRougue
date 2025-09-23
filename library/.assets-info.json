@@ -57,7 +57,7 @@
       "uuid": "34d9b340-0ce8-45ee-9a90-5de71fd1411d"
     },
     "scripts\\Launcher.ts": {
-      "time": 1758603742071.4868,
+      "time": 1758605879095.8662,
       "uuid": "6bd473a9-b885-4cf7-ad19-f480985edc0e"
     },
     "scripts\\ScreenAdapter.ts": {
@@ -75,21 +75,21 @@
       "time": 1758007090304.988
     },
     "scripts\\Core\\UIBase.ts": {
-      "time": 1758022617984.0088,
+      "time": 1758607416061.577,
       "uuid": "f7720628-4c1f-434d-9153-bbb12c81315f"
     },
     "scripts\\Core\\UIManager.ts.meta": {
       "time": 1758007289658.1162
     },
     "scripts\\Core\\UIManager.ts": {
-      "time": 1758072044973.435,
+      "time": 1758607500293.8328,
       "uuid": "42236225-285e-4698-aa5c-ca8c6f50a69e"
     },
     "resources\\ui.meta": {
       "time": 1758010346379.3704
     },
     "resources\\ui": {
-      "time": 1758336263911.1506,
+      "time": 1758606149266.7922,
       "uuid": "6c60be67-475a-43dc-a592-251e41add936"
     },
     "resources\\ui\\LoadingPanel.prefab.meta": {
@@ -103,7 +103,7 @@
       "time": 1758011478640.107
     },
     "scripts\\UIScripts": {
-      "time": 1758504843088.9673,
+      "time": 1758606202284.5093,
       "uuid": "eca477c0-8cbc-4a97-8e49-bb7201cd9023"
     },
     "scripts\\UIScripts\\LoadingPanel.ts.meta": {
@@ -117,7 +117,7 @@
       "time": 1758007973225.042
     },
     "scripts\\UIScripts\\UIData.ts": {
-      "time": 1758167082236.2065,
+      "time": 1758607325559.6514,
       "uuid": "39190ce7-9db7-407c-acf6-f67473bfbf69"
     },
     "resources\\ui\\MainPanel.prefab.meta": {
@@ -285,7 +285,7 @@
       "time": 1758167219787.6826
     },
     "scripts\\UIScripts\\GamePanel.ts": {
-      "time": 1758592647806.7546,
+      "time": 1758609589067.799,
       "uuid": "ea5e5989-57b5-4e56-bec1-1988a2f4a889"
     },
     "resources\\ui\\FlowerPlatform.prefab.meta": {
@@ -299,7 +299,7 @@
       "time": 1758263557481.9304
     },
     "scripts\\UIScripts\\FlowerPlatform.ts": {
-      "time": 1758605526681.1538,
+      "time": 1758610033377.0515,
       "uuid": "1d917e78-c927-49ad-8418-7a1e1e5ee711"
     },
     "scripts\\Config.meta": {
@@ -313,7 +313,7 @@
       "time": 1758273698262.2737
     },
     "scripts\\Config\\Config.ts": {
-      "time": 1758592690277.0115,
+      "time": 1758609506455.447,
       "uuid": "00a66e36-6ce7-4999-9f5d-382904b450e6"
     },
     "resources\\texture\\Slider_BasicTrapezoid01_Fill_Blue.png.meta": {
@@ -544,7 +544,7 @@
       "time": 1758504843095.9443
     },
     "scripts\\UIScripts\\Flower.ts": {
-      "time": 1758604036341.2097,
+      "time": 1758610094907.4373,
       "uuid": "c50538aa-7778-4ac9-9299-be20c356b8ad"
     },
     "resources\\flowers\\flowerAtlas.pac.meta": {
@@ -558,7 +558,7 @@
       "time": 1758508663115.357
     },
     "resources\\levelData": {
-      "time": 1758509397609.0183,
+      "time": 1758609622735.36,
       "uuid": "4d536a9d-5411-449b-99d3-4d77286ddc04"
     },
     "resources\\levelData\\level_1.json.meta": {
@@ -574,6 +574,27 @@
     "scripts\\Core\\EventManager.ts": {
       "time": 1758593303373.1392,
       "uuid": "e4080dc7-3bc3-46a0-bcd9-2dc05c0cf460"
+    },
+    "resources\\ui\\VictoryPanel.prefab.meta": {
+      "time": 1758606149272.7722
+    },
+    "resources\\ui\\VictoryPanel.prefab": {
+      "time": 1758609331583.5237,
+      "uuid": "34c81461-0e6d-453c-bb3a-4f55bfe90ec1"
+    },
+    "scripts\\UIScripts\\VictoryPanel.ts.meta": {
+      "time": 1758606202291.4868
+    },
+    "scripts\\UIScripts\\VictoryPanel.ts": {
+      "time": 1758609763905.139,
+      "uuid": "bebe4ada-b043-4aa6-8c74-933a4773746c"
+    },
+    "resources\\levelData\\level_2.json.meta": {
+      "time": 1758609622748.317
+    },
+    "resources\\levelData\\level_2.json": {
+      "time": 1758609673791.047,
+      "uuid": "65f4ab0b-c229-49f9-b5d5-43ccec50f7a5"
     }
   },
   "missing": {}

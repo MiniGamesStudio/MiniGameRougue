@@ -3,9 +3,11 @@ import { UIBase } from '../Core/UIBase';
 const { ccclass, property } = _decorator;
 
 export enum UIID{
+    None,
     LoadingPanel,
     MainPanel,
     GamePanel,
+    VictoryPanel,
 }
 
 @ccclass('UIData')
@@ -32,6 +34,7 @@ export class UIDataSet {
         this.InitUI(UIID.LoadingPanel, "LoadingPanel", "ui/LoadingPanel");
         this.InitUI(UIID.MainPanel, "MainPanel", "ui/MainPanel");
         this.InitUI(UIID.GamePanel, "GamePanel", "ui/GamePanel");
+        this.InitUI(UIID.VictoryPanel, "VictoryPanel", "ui/VictoryPanel");
     }
 
     static InitUI(id:UIID, uiName:string, path:string, cacheCount:number = 1){

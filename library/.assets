@@ -83,7 +83,10 @@
             "scripts\\UIScripts\\GamePanel.ts",
             "scripts\\UIScripts\\LoadingPanel.ts",
             "scripts\\UIScripts\\MainPanel.ts",
-            "scripts\\UIScripts\\UIData.ts"
+            "scripts\\UIScripts\\UIData.ts",
+            "resources\\ui\\VictoryPanel.prefab",
+            "scripts\\UIScripts\\VictoryPanel.ts",
+            "resources\\levelData\\level_2.json"
         ]
     }
 }

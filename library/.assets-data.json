@@ -2846,5 +2846,38 @@
     "url": "db://assets/scripts/Core/EventManager.ts",
     "value": {},
     "versionCode": 1
+  },
+  "34c81461-0e6d-453c-bb3a-4f55bfe90ec1": {
+    "url": "db://assets/resources/ui/VictoryPanel.prefab",
+    "value": {
+      "depends": [
+        "3bf25aa3-df77-4011-a29d-020e61ca8403@f9941",
+        "a4840e4c-51eb-40b5-ae6f-035d58ec0152@f9941",
+        "45f26b7b-2c39-469f-8d8a-7ef51ccf6bd6@f9941",
+        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
+        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
+        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
+        "ac2c590c-5e3f-4ca5-a253-5c9ea1d35cdc@f9941",
+        "2cfb15e5-2c31-43db-870c-f84dddd475a7@f9941",
+        "78abede0-5663-400f-bdec-8c2042d3c8bd@f9941",
+        "fd3a19d6-81ed-4efa-84d3-7d8c045fa7aa@f9941"
+      ],
+      "dependScripts": [
+        "bebe4ada-b043-4aa6-8c74-933a4773746c"
+      ]
+    },
+    "versionCode": 1
+  },
+  "bebe4ada-b043-4aa6-8c74-933a4773746c": {
+    "url": "db://assets/scripts/UIScripts/VictoryPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "65f4ab0b-c229-49f9-b5d5-43ccec50f7a5": {
+    "url": "db://assets/resources/levelData/level_2.json",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
   }
 }
