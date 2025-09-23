@@ -82,7 +82,8 @@
             "scripts\\UIScripts\\Flower.ts",
             "resources\\flowers\\flowerAtlas.pac",
             "resources\\levelData",
-            "resources\\levelData\\level_1.json"
+            "resources\\levelData\\level_1.json",
+            "scripts\\Core\\EventManager.ts"
         ]
     }
 }

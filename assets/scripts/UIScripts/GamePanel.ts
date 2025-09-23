@@ -3,7 +3,6 @@ import { UIBase } from '../Core/UIBase';
 import { UIManager } from '../Core/UIManager';
 import { UIID } from './UIData';
 import { FlowerPlatform } from './FlowerPlatform';
-import { FlowerConfig } from '../Config/Config';
 const { ccclass, property } = _decorator;
 
 @ccclass('GamePanel')
@@ -45,6 +44,7 @@ export class GamePanel extends UIBase {
 
             resources.load("ui/FlowerPlatform", Prefab, (err, prefab)=>{
                 if(prefab){
+                    FlowerPlatform.s_FlowerPotTag = 0;
                     for(var i:number = 0; i < levelData.FlowerRow; ++i){
                         var temp = instantiate(prefab);
                         if(temp){
@@ -57,83 +57,6 @@ export class GamePanel extends UIBase {
                     }
                 }
             });
-        });
-
-        return;
-        var gameData:object[] = [   
-            [
-                [
-                    FlowerConfig.Flower01,
-                    FlowerConfig.Flower01,
-                    FlowerConfig.Flower02,
-                ]
-            ],     
-            [
-                [
-                    FlowerConfig.Flower02,
-                    FlowerConfig.Flower03,
-                    FlowerConfig.Flower05,
-                ],
-                [
-                    FlowerConfig.Flower02,
-                    FlowerConfig.Flower01,
-                    FlowerConfig.Flower07,
-                ],
-            ],  
-            [
-                [
-                    FlowerConfig.Flower01,
-                    FlowerConfig.Flower01,
-                    FlowerConfig.Flower08,
-                ],
-                [
-                    FlowerConfig.Flower04,
-                    FlowerConfig.Flower05,
-                    FlowerConfig.Flower05,
-                ],
-                [                
-                    FlowerConfig.Flower07,
-                    FlowerConfig.Flower02,
-                    FlowerConfig.Flower03,
-                ]
-            ],  
-            [
-                [
-                    FlowerConfig.Flower04,
-                    FlowerConfig.Flower05,
-                    FlowerConfig.Flower06,
-                ],
-                [
-                    FlowerConfig.Flower08,
-                    FlowerConfig.Flower05,
-                    FlowerConfig.Flower06,
-                ],
-                [                
-                    FlowerConfig.Flower03,
-                    FlowerConfig.Flower06,
-                    FlowerConfig.Flower06,
-                ],
-                [                
-                    FlowerConfig.Flower07,
-                    FlowerConfig.Flower07,
-                    FlowerConfig.Flower08,
-                ]
-            ]
-        ];
-
-        resources.load("ui/FlowerPlatform", Prefab, (err, prefab)=>{
-            if(prefab){
-                for(var i:number = 0; i < gameData.length; ++i){
-                    var temp = instantiate(prefab);
-                    if(temp){
-                        this.m_LevelRoot.addChild(temp);
-                        var tScript = temp.getComponent(FlowerPlatform);
-                        if(tScript){
-                            tScript.InitPlatForm(gameData[i], this.m_FlowerImgMoveRoot);                            
-                        }
-                    }
-                }
-            }
         });
     }
 }

@@ -1,4 +1,6 @@
 import { _decorator, BoxCollider2D, Collider2D, Component, Contact2DType, EPhysics2DDrawFlags, EventTouch, IPhysics2DContact, Node, PhysicsSystem2D, RigidBody2D, tween, UITransform, Vec2, Vec3 } from 'cc';
+import { CustomClientEvent } from '../Config/Config';
+import { EventManager } from '../Core/EventManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('Flower')
@@ -29,8 +31,15 @@ export class Flower extends Component {
     m_SelfCollider: Collider2D = null;
     m_OtherCollider: Collider2D = null;
 
+    m_FlowerId:string = "";
+
+    public getFlowerID():string{
+        return this.m_FlowerId;
+    }
+
     //imgPos: 0-中间 1-右边 -1-左边
-    init(flowerRoot : Node, flowerMoveRoot : Node, imgPos:number, rLeft:Vec3, rRight:Vec3, tag:number){
+    init(imgId:string, flowerRoot : Node, flowerMoveRoot : Node, imgPos:number, rLeft:Vec3, rRight:Vec3, tag:number){
+        this.m_FlowerId = imgId;
         this.m_FlowerTag = tag;
         this.m_IsDragingFlower = false;
         this.m_FlowerRoot = flowerRoot;
@@ -61,7 +70,7 @@ export class Flower extends Component {
 
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体开始接触时被调用一次
-        console.log('onBeginContact: selfname = ' + selfCollider.name + " othername = " + otherCollider.name);
+        //console.log('onBeginContact: selfname = ' + selfCollider.name + " othername = " + otherCollider.name);
 
         this.m_SelfCollider = selfCollider;
         this.m_OtherCollider = otherCollider;
@@ -210,7 +219,7 @@ export class Flower extends Component {
 
     onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
         // 只在两个碰撞体结束接触时被调用一次
-        console.log('onEndContact');
+        //console.log('onEndContact');
         this.m_SelfCollider = null;
         this.m_OtherCollider = null;
         this.m_IsChangePot = false; 
@@ -302,6 +311,8 @@ export class Flower extends Component {
                 this.node.parent = this.m_FlowerRoot;
                 this.node.setPosition(Vec3.ZERO);
                 this.m_FlowerRoot.active = true;
+
+                EventManager.getInstance().emit(CustomClientEvent.FlowerDissolve, this.m_FlowerTag);
             }).start();
         }
         else{

@@ -1,5 +1,7 @@
 import { _decorator, BoxCollider2D, Camera, Component, director, EventTouch, Input, input, instantiate, Node, resources, Scene, Sprite, SpriteFrame, sys, tween, UIOpacity, UITransform, Vec2, Vec3 } from 'cc';
 import { Flower } from './Flower';
+import { CustomClientEvent } from '../Config/Config';
+import { EventManager } from '../Core/EventManager';
 const { ccclass, property } = _decorator;
 
 export enum FlowerName{
@@ -15,20 +17,76 @@ export class FlowerPlatform extends Component {
 
     static s_FlowerPotTag:number = 0;
 
-    m_RotationLeft:Vec3 = new Vec3(0, 0, 25);
-    m_RotationRight:Vec3 = new Vec3(0, 0, -25);
+    m_RotationLeft:Vec3 = new Vec3(0, 0, 30);
+    m_RotationRight:Vec3 = new Vec3(0, 0, -30);
 
     m_FlowerMoveRoot:Node = null;
 
+    private m_FlowerPotMap:Map<number, Node> = new Map();
+
     protected start(): void {        
-        
+        EventManager.getInstance().on(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
     }
 
     protected onDestroy(): void {
+        EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
+    }
 
+    onCheckFlowerDissolve(args:any):void {
+        console.log("onCheckFlowerDissolve");
+        if(!args){
+            return;
+        }
+
+        var flowerTag = args;
+        var flowerpot = this.m_FlowerPotMap.get(flowerTag);
+        if(!flowerpot){
+            return;
+        }
+
+        var flowerRoot = flowerpot.getChildByName("FlowerRootLight");
+        var flowers = flowerRoot.getComponentsInChildren(Flower);
+        if(!flowers){
+            return;
+        }
+
+        if(flowers.length < 3){
+            return;
+        }
+
+        var isSame = true;
+        var tempFlowerTag = "";
+        for(var i:number = 0; i < flowers.length; ++i){
+            var flower = flowers[i];
+            if(flower){
+                var temp = flower.getFlowerID();
+                if(tempFlowerTag == ""){
+                    tempFlowerTag = temp;
+                }
+                else if(tempFlowerTag != temp){
+                    isSame = false;
+                    break
+                }
+            }
+        }
+
+        if(isSame){
+            for(var i:number = 0; i < flowers.length; ++i){
+                var flowerNode = flowers[i].node;
+                if(flowerNode){
+                    tween(flowerNode).to(0.3, {angle : 0}, {onComplete:(target:Node)=>{
+                        if(target){
+                            target.removeFromParent();
+                            target.destroy();
+                        }
+                    }}).start();
+                }
+            }
+        }
     }
 
     public InitPlatForm(raw:number, platFormNum:number, data:any, flowerMoveRoot:Node):void {
+        this.m_FlowerPotMap.clear();
         this.m_FlowerMoveRoot = flowerMoveRoot;
         if(data){
             this.m_PlatFormRoot.active = false;
@@ -62,6 +120,9 @@ export class FlowerPlatform extends Component {
                             FlowerPlatform.s_FlowerPotTag += 1;
                             collider.tag = FlowerPlatform.s_FlowerPotTag;
                         }
+
+                        this.m_FlowerPotMap.set(collider.tag, flowerPotLayoutClone);
+
                         this.InitFlowers(collider.tag, data[i], flowerPotLayoutClone);                        
                         flowerPotLayoutClone.active = true;
                         flowerPotRoot.addChild(flowerPotLayoutClone);
@@ -174,7 +235,7 @@ export class FlowerPlatform extends Component {
                         if(flowerScript == null || flowerScript == undefined){
                             flowerScript = imgNode.addComponent(Flower);                
                         }  
-                        flowerScript.init(root, this.m_FlowerMoveRoot, imgPos, this.m_RotationLeft, this.m_RotationRight, tag);
+                        flowerScript.init(imgId, root, this.m_FlowerMoveRoot, imgPos, this.m_RotationLeft, this.m_RotationRight, tag);
 
                         imgNode.active = true;
                     });

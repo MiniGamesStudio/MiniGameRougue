@@ -1,7 +1,7 @@
 System.register(["cc"], function (_export, _context) {
   "use strict";
 
-  var _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, _crd, ccclass, property, FlowerConfig;
+  var _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, _crd, ccclass, property, CustomClientEvent;
 
   return {
     setters: [function (_cc) {
@@ -22,17 +22,9 @@ System.register(["cc"], function (_export, _context) {
         property
       } = _decorator);
 
-      _export("FlowerConfig", FlowerConfig = /*#__PURE__*/function (FlowerConfig) {
-        FlowerConfig["Flower01"] = "flower01";
-        FlowerConfig["Flower02"] = "flower02";
-        FlowerConfig["Flower03"] = "flower03";
-        FlowerConfig["Flower04"] = "flower04";
-        FlowerConfig["Flower05"] = "flower05";
-        FlowerConfig["Flower06"] = "flower06";
-        FlowerConfig["Flower07"] = "flower07";
-        FlowerConfig["Flower08"] = "flower08";
-        FlowerConfig["Flower09"] = "flower09";
-        return FlowerConfig;
+      _export("CustomClientEvent", CustomClientEvent = /*#__PURE__*/function (CustomClientEvent) {
+        CustomClientEvent["FlowerDissolve"] = "FlowerDissolve";
+        return CustomClientEvent;
       }({}));
 
       _cclegacy._RF.pop();

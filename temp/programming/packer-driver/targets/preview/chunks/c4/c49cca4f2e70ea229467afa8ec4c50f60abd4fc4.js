@@ -1,7 +1,7 @@
-System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _context) {
+System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, BoxCollider2D, Component, instantiate, Node, resources, Sprite, SpriteFrame, UITransform, Vec3, Flower, _dec, _dec2, _class, _class2, _descriptor, _class3, _crd, ccclass, property, FlowerName, FlowerPlatform;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, BoxCollider2D, Component, instantiate, Node, resources, Sprite, SpriteFrame, tween, UITransform, Vec3, Flower, CustomClientEvent, EventManager, _dec, _dec2, _class, _class2, _descriptor, _class3, _crd, ccclass, property, FlowerName, FlowerPlatform;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -11,6 +11,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
 
   function _reportPossibleCrUseOfFlower(extras) {
     _reporterNs.report("Flower", "./Flower", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfCustomClientEvent(extras) {
+    _reporterNs.report("CustomClientEvent", "../Config/Config", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfEventManager(extras) {
+    _reporterNs.report("EventManager", "../Core/EventManager", _context.meta, extras);
   }
 
   return {
@@ -28,10 +36,15 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
       resources = _cc.resources;
       Sprite = _cc.Sprite;
       SpriteFrame = _cc.SpriteFrame;
+      tween = _cc.tween;
       UITransform = _cc.UITransform;
       Vec3 = _cc.Vec3;
     }, function (_unresolved_2) {
       Flower = _unresolved_2.Flower;
+    }, function (_unresolved_3) {
+      CustomClientEvent = _unresolved_3.CustomClientEvent;
+    }, function (_unresolved_4) {
+      EventManager = _unresolved_4.EventManager;
     }],
     execute: function () {
       _crd = true;
@@ -58,16 +71,95 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
 
           _initializerDefineProperty(this, "m_PlatFormRoot", _descriptor, this);
 
-          this.m_RotationLeft = new Vec3(0, 0, 25);
-          this.m_RotationRight = new Vec3(0, 0, -25);
+          this.m_RotationLeft = new Vec3(0, 0, 30);
+          this.m_RotationRight = new Vec3(0, 0, -30);
           this.m_FlowerMoveRoot = null;
+          this.m_FlowerPotMap = new Map();
         }
 
-        start() {}
+        start() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
+        }
 
-        onDestroy() {}
+        onDestroy() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
+        }
+
+        onCheckFlowerDissolve(args) {
+          console.log("onCheckFlowerDissolve");
+
+          if (!args) {
+            return;
+          }
+
+          var flowerTag = args;
+          var flowerpot = this.m_FlowerPotMap.get(flowerTag);
+
+          if (!flowerpot) {
+            return;
+          }
+
+          var flowerRoot = flowerpot.getChildByName("FlowerRootLight");
+          var flowers = flowerRoot.getComponentsInChildren(_crd && Flower === void 0 ? (_reportPossibleCrUseOfFlower({
+            error: Error()
+          }), Flower) : Flower);
+
+          if (!flowers) {
+            return;
+          }
+
+          if (flowers.length < 3) {
+            return;
+          }
+
+          var isSame = true;
+          var tempFlowerTag = "";
+
+          for (var i = 0; i < flowers.length; ++i) {
+            var flower = flowers[i];
+
+            if (flower) {
+              var temp = flower.getFlowerID();
+
+              if (tempFlowerTag == "") {
+                tempFlowerTag = temp;
+              } else if (tempFlowerTag != temp) {
+                isSame = false;
+                break;
+              }
+            }
+          }
+
+          if (isSame) {
+            for (var i = 0; i < flowers.length; ++i) {
+              var flowerNode = flowers[i].node;
+
+              if (flowerNode) {
+                tween(flowerNode).to(0.3, {
+                  angle: 0
+                }, {
+                  onComplete: target => {
+                    if (target) {
+                      target.removeFromParent();
+                      target.destroy();
+                    }
+                  }
+                }).start();
+              }
+            }
+          }
+        }
 
         InitPlatForm(raw, platFormNum, data, flowerMoveRoot) {
+          this.m_FlowerPotMap.clear();
           this.m_FlowerMoveRoot = flowerMoveRoot;
 
           if (data) {
@@ -110,6 +202,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
                     collider.tag = FlowerPlatform.s_FlowerPotTag;
                   }
 
+                  this.m_FlowerPotMap.set(collider.tag, flowerPotLayoutClone);
                   this.InitFlowers(collider.tag, data[i], flowerPotLayoutClone);
                   flowerPotLayoutClone.active = true;
                   flowerPotRoot.addChild(flowerPotLayoutClone);
@@ -237,7 +330,7 @@ System.register(["__unresolved_0", "cc", "__unresolved_1"], function (_export, _
                     }), Flower) : Flower);
                   }
 
-                  flowerScript.init(root, this.m_FlowerMoveRoot, imgPos, this.m_RotationLeft, this.m_RotationRight, tag);
+                  flowerScript.init(imgId, root, this.m_FlowerMoveRoot, imgPos, this.m_RotationLeft, this.m_RotationRight, tag);
                   imgNode.active = true;
                 });
               }

@@ -2841,5 +2841,10 @@
       "depends": []
     },
     "versionCode": 1
+  },
+  "e4080dc7-3bc3-46a0-bcd9-2dc05c0cf460": {
+    "url": "db://assets/scripts/Core/EventManager.ts",
+    "value": {},
+    "versionCode": 1
   }
 }

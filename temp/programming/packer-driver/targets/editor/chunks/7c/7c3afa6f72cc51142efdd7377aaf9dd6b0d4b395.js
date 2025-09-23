@@ -1,7 +1,7 @@
-System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4", "__unresolved_5"], function (_export, _context) {
+System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Button, instantiate, JsonAsset, Node, Prefab, resources, UIBase, UIManager, UIID, FlowerPlatform, FlowerConfig, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, GamePanel;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Button, instantiate, JsonAsset, Node, Prefab, resources, UIBase, UIManager, UIID, FlowerPlatform, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, GamePanel;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -23,10 +23,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
   function _reportPossibleCrUseOfFlowerPlatform(extras) {
     _reporterNs.report("FlowerPlatform", "./FlowerPlatform", _context.meta, extras);
-  }
-
-  function _reportPossibleCrUseOfFlowerConfig(extras) {
-    _reporterNs.report("FlowerConfig", "../Config/Config", _context.meta, extras);
   }
 
   return {
@@ -51,8 +47,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
       UIID = _unresolved_4.UIID;
     }, function (_unresolved_5) {
       FlowerPlatform = _unresolved_5.FlowerPlatform;
-    }, function (_unresolved_6) {
-      FlowerConfig = _unresolved_6.FlowerConfig;
     }],
     execute: function () {
       _crd = true;
@@ -112,6 +106,10 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             var levelData = jsonAsset.json;
             resources.load("ui/FlowerPlatform", Prefab, (err, prefab) => {
               if (prefab) {
+                (_crd && FlowerPlatform === void 0 ? (_reportPossibleCrUseOfFlowerPlatform({
+                  error: Error()
+                }), FlowerPlatform) : FlowerPlatform).s_FlowerPotTag = 0;
+
                 for (var i = 0; i < levelData.FlowerRow; ++i) {
                   var temp = instantiate(prefab);
 
@@ -128,86 +126,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
                 }
               }
             });
-          });
-          return;
-          var gameData = [[[(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower01, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower01, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower02]], [[(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower02, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower03, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower05], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower02, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower01, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower07]], [[(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower01, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower01, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower08], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower04, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower05, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower05], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower07, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower02, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower03]], [[(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower04, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower05, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower06], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower08, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower05, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower06], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower03, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower06, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower06], [(_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower07, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower07, (_crd && FlowerConfig === void 0 ? (_reportPossibleCrUseOfFlowerConfig({
-            error: Error()
-          }), FlowerConfig) : FlowerConfig).Flower08]]];
-          resources.load("ui/FlowerPlatform", Prefab, (err, prefab) => {
-            if (prefab) {
-              for (var i = 0; i < gameData.length; ++i) {
-                var temp = instantiate(prefab);
-
-                if (temp) {
-                  this.m_LevelRoot.addChild(temp);
-                  var tScript = temp.getComponent(_crd && FlowerPlatform === void 0 ? (_reportPossibleCrUseOfFlowerPlatform({
-                    error: Error()
-                  }), FlowerPlatform) : FlowerPlatform);
-
-                  if (tScript) {
-                    tScript.InitPlatForm(gameData[i], this.m_FlowerImgMoveRoot);
-                  }
-                }
-              }
-            }
           });
         }
 

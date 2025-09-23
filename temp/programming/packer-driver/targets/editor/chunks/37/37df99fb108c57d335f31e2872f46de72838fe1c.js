@@ -1,10 +1,20 @@
-System.register(["cc"], function (_export, _context) {
+System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], function (_export, _context) {
   "use strict";
 
-  var _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, BoxCollider2D, Component, Contact2DType, Node, tween, UITransform, Vec2, Vec3, _dec, _class, _crd, ccclass, property, Flower;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, BoxCollider2D, Component, Contact2DType, Node, tween, UITransform, Vec2, Vec3, CustomClientEvent, EventManager, _dec, _class, _crd, ccclass, property, Flower;
+
+  function _reportPossibleCrUseOfCustomClientEvent(extras) {
+    _reporterNs.report("CustomClientEvent", "../Config/Config", _context.meta, extras);
+  }
+
+  function _reportPossibleCrUseOfEventManager(extras) {
+    _reporterNs.report("EventManager", "../Core/EventManager", _context.meta, extras);
+  }
 
   return {
-    setters: [function (_cc) {
+    setters: [function (_unresolved_) {
+      _reporterNs = _unresolved_;
+    }, function (_cc) {
       _cclegacy = _cc.cclegacy;
       __checkObsolete__ = _cc.__checkObsolete__;
       __checkObsoleteInNamespace__ = _cc.__checkObsoleteInNamespace__;
@@ -17,6 +27,10 @@ System.register(["cc"], function (_export, _context) {
       UITransform = _cc.UITransform;
       Vec2 = _cc.Vec2;
       Vec3 = _cc.Vec3;
+    }, function (_unresolved_2) {
+      CustomClientEvent = _unresolved_2.CustomClientEvent;
+    }, function (_unresolved_3) {
+      EventManager = _unresolved_3.EventManager;
     }],
     execute: function () {
       _crd = true;
@@ -55,10 +69,16 @@ System.register(["cc"], function (_export, _context) {
           this.m_TempFlowerTag = 0;
           this.m_SelfCollider = null;
           this.m_OtherCollider = null;
+          this.m_FlowerId = "";
         }
 
-        //imgPos: 0-中间 1-右边 -1-左边
-        init(flowerRoot, flowerMoveRoot, imgPos, rLeft, rRight, tag) {
+        getFlowerID() {
+          return this.m_FlowerId;
+        } //imgPos: 0-中间 1-右边 -1-左边
+
+
+        init(imgId, flowerRoot, flowerMoveRoot, imgPos, rLeft, rRight, tag) {
+          this.m_FlowerId = imgId;
           this.m_FlowerTag = tag;
           this.m_IsDragingFlower = false;
           this.m_FlowerRoot = flowerRoot;
@@ -90,7 +110,7 @@ System.register(["cc"], function (_export, _context) {
 
         onBeginContact(selfCollider, otherCollider, contact) {
           // 只在两个碰撞体开始接触时被调用一次
-          console.log('onBeginContact: selfname = ' + selfCollider.name + " othername = " + otherCollider.name);
+          //console.log('onBeginContact: selfname = ' + selfCollider.name + " othername = " + otherCollider.name);
           this.m_SelfCollider = selfCollider;
           this.m_OtherCollider = otherCollider;
           this.chckCollision(selfCollider, otherCollider);
@@ -242,7 +262,7 @@ System.register(["cc"], function (_export, _context) {
 
         onEndContact(selfCollider, otherCollider, contact) {
           // 只在两个碰撞体结束接触时被调用一次
-          console.log('onEndContact');
+          //console.log('onEndContact');
           this.m_SelfCollider = null;
           this.m_OtherCollider = null;
           this.m_IsChangePot = false;
@@ -331,6 +351,11 @@ System.register(["cc"], function (_export, _context) {
               this.node.parent = this.m_FlowerRoot;
               this.node.setPosition(Vec3.ZERO);
               this.m_FlowerRoot.active = true;
+              (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+                error: Error()
+              }), EventManager) : EventManager).getInstance().emit((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+                error: Error()
+              }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.m_FlowerTag);
             }).start();
           } else {
             this.m_IsDragingFlower = false;
