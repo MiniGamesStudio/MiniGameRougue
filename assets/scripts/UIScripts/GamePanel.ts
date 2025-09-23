@@ -23,6 +23,7 @@ export class GamePanel extends UIBase {
     m_CurLv:number = 1;
 
     onOpen(...args: any[]): void {
+        EventManager.getInstance().on(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
         EventManager.getInstance().on(CustomClientEvent.CheckVictory, this.onCheckVictory, this);
         EventManager.getInstance().on(CustomClientEvent.RetryLevel, this.onRetryLevel, this);
         EventManager.getInstance().on(CustomClientEvent.NextLevel, this.onNextLevel, this);
@@ -30,6 +31,7 @@ export class GamePanel extends UIBase {
     }
 
     onClose(): void {
+        EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
         EventManager.getInstance().off(CustomClientEvent.CheckVictory, this.onCheckVictory, this);
         EventManager.getInstance().off(CustomClientEvent.RetryLevel, this.onRetryLevel, this);
         EventManager.getInstance().off(CustomClientEvent.NextLevel, this.onNextLevel, this);
@@ -41,6 +43,14 @@ export class GamePanel extends UIBase {
 
     onRetryLevel():void {
         this.initGameLevel(this.m_CurLv);
+    }
+
+    onCheckFlowerDissolve(args:any):void {
+        if(this.m_FlowerPlatformArr && this.m_FlowerPlatformArr.length > 0){
+            this.m_FlowerPlatformArr.forEach((fPlatform)=>{
+                fPlatform.checkFlowerDissolve(args);
+            });
+        }
     }
 
     onCheckVictory(args:any):void {
@@ -87,13 +97,6 @@ export class GamePanel extends UIBase {
             }
 
             this.m_CurLevelData = jsonAsset.json;
-
-            if(this.m_FlowerPlatformArr && this.m_FlowerPlatformArr.length > 0){
-                this.m_FlowerPlatformArr.forEach((fPlatform)=>{
-                    fPlatform.offNodeEvent();
-                });
-            }
-
             this.m_LevelRoot.removeAllChildren();
             resources.load("ui/FlowerPlatform", Prefab, (err, prefab)=>{
                 if(prefab){

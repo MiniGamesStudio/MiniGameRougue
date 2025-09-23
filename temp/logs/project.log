@@ -1,72 +1,77 @@
-2025-9-23 12:00:56 - log: Load engine in C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine
-2025-9-23 12:00:57 - log: Register native engine in C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine\native
-2025-9-23 12:00:57 - log: Request namespace: device-list
-2025-9-23 12:01:03 - info: [PreviewInEditor] 预览环境初始化完毕
-2025-9-23 12:01:08 - log: [Scene] meshopt wasm decoder initialized
-2025-9-23 12:01:08 - log: [Scene] [bullet]:bullet wasm lib loaded.
-2025-9-23 12:01:08 - log: [Scene] [box2d]:box2d wasm lib loaded.
-2025-9-23 12:01:08 - log: [Scene] [PHYSICS]: using builtin.
-2025-9-23 12:01:08 - log: [Scene] Cocos Creator v3.8.7
-2025-9-23 12:01:08 - log: [Scene] Using custom pipeline: Builtin
-2025-9-23 12:01:21 - log: [PreviewInEditor] meshopt wasm decoder initialized
-2025-9-23 12:01:21 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
-2025-9-23 12:01:21 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
-2025-9-23 12:01:21 - log: [PreviewInEditor] [PHYSICS]: using builtin.
-2025-9-23 12:01:21 - log: [PreviewInEditor] Cocos Creator v3.8.7
-2025-9-23 12:01:21 - log: [PreviewInEditor] Using custom pipeline: Builtin
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:26 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:30 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:36 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:40 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:42 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:43 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
-2025-9-23 12:01:44 - log: [PreviewInEditor] onCheckFlowerDissolve
+2025-9-23 15:40:34 - log: Load engine in C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine
+2025-9-23 15:40:35 - log: Register native engine in C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine\native
+2025-9-23 15:40:35 - log: Request namespace: device-list
+2025-9-23 15:40:41 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:40:44 - log: [Scene] meshopt wasm decoder initialized
+2025-9-23 15:40:44 - log: [Scene] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:40:44 - log: [Scene] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:40:44 - log: [Scene] [PHYSICS]: using builtin.
+2025-9-23 15:40:45 - log: [Scene] Cocos Creator v3.8.7
+2025-9-23 15:40:46 - log: [Scene] Using custom pipeline: Builtin
+2025-9-23 15:40:52 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:40:52 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:40:52 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:40:52 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:40:52 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:40:52 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:48:49 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:48:49 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:48:49 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:48:49 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:48:49 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:48:49 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:48:49 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:52:49 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+    at console.warn (C:\ProgramData\cocos\editors\Creator\3.8.7\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
+    at IpcRenderer.<anonymous> (C:\ProgramData\cocos\editors\Creator\3.8.7\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
+    at IpcRenderer.emit (node:events:519:28)
+    at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
+2025-9-23 15:52:50 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:52:50 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:52:50 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:52:50 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:52:50 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:52:50 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:52:50 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:54:30 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:54:30 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:54:30 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:54:30 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:54:30 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:54:30 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:54:30 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:55:23 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:55:23 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:55:23 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:55:23 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:55:23 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:55:23 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:55:24 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:55:39 - error: [PreviewInEditor] fPlatform.offNodeEvent is not a functionTypeError: fPlatform.offNodeEvent is not a function
+    at forEach (file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/7c/file:/D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts:103:31)
+    at Array.forEach (<anonymous>)
+    at file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/7c/file:/D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts:102:42
+    at eval (C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:135368:9)
+    at eval (C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:169410:9)
+    at sentryWrapped (C:\ProgramData\cocos\editors\Creator\3.8.7\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2025-9-23 15:55:54 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:55:54 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:55:54 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:55:54 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:55:54 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:55:54 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:55:55 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:56:31 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:56:31 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:56:31 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:56:31 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:56:31 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:56:31 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:56:31 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2025-9-23 15:56:57 - info: [PreviewInEditor] 预览环境初始化完毕
+2025-9-23 15:56:57 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2025-9-23 15:56:57 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2025-9-23 15:56:57 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2025-9-23 15:56:57 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2025-9-23 15:56:57 - log: [PreviewInEditor] Cocos Creator v3.8.7
+2025-9-23 15:56:57 - log: [PreviewInEditor] Using custom pipeline: Builtin

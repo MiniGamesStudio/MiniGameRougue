@@ -1,27 +1,27 @@
-12:01:02.644 debug: 2025/9/23 12:01:02
-12:01:02.645 debug: Project: D:\Works\Cocos\WxMiniGames\FlowersArrangement
-12:01:02.645 debug: Targets: editor,preview
-12:01:02.648 debug: Incremental file seems great.
-12:01:02.649 debug: Engine path: C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine
-12:01:02.663 debug: Initializing target [Editor]
-12:01:02.664 debug: Loading cache
-12:01:02.665 debug: Loading cache costs 1.2435000000004948ms.
-12:01:02.665 debug: Engine features shipped in editor: base,gfx-webgl,gfx-webgl2,gfx-empty,gfx-webgpu,3d,animation,skeletal-animation,2d,rich-text,mask,graphics,ui-skew,ui,affine-transform,sorting-2d,particle,particle-2d,physics-framework,physics-cannon,physics-physx,physics-ammo,physics-builtin,physics-2d-framework,physics-2d-box2d-jsb,physics-2d-box2d,physics-2d-builtin,physics-2d-box2d-wasm,intersection-2d,primitive,profiler,occlusion-query,geometry-renderer,debug-renderer,audio,video,xr,light-probe,terrain,webview,tween,tiled-map,vendor-google,spine-3.8,spine-4.2,dragon-bones,marionette,procedural-animation,custom-pipeline,custom-pipeline-builtin-scripts,custom-pipeline-post-process,legacy-pipeline,websocket,websocket-server,meshopt
-12:01:02.666 debug: Our import map(foo:/bar): {
+15:40:40.372 debug: 2025/9/23 15:40:40
+15:40:40.373 debug: Project: D:\Works\Cocos\WxMiniGames\FlowersArrangement
+15:40:40.373 debug: Targets: editor,preview
+15:40:40.383 debug: Incremental file seems great.
+15:40:40.384 debug: Engine path: C:\ProgramData\cocos\editors\Creator\3.8.7\resources\resources\3d\engine
+15:40:40.399 debug: Initializing target [Editor]
+15:40:40.399 debug: Loading cache
+15:40:40.401 debug: Loading cache costs 1.2447000000001935ms.
+15:40:40.401 debug: Engine features shipped in editor: base,gfx-webgl,gfx-webgl2,gfx-empty,gfx-webgpu,3d,animation,skeletal-animation,2d,rich-text,mask,graphics,ui-skew,ui,affine-transform,sorting-2d,particle,particle-2d,physics-framework,physics-cannon,physics-physx,physics-ammo,physics-builtin,physics-2d-framework,physics-2d-box2d-jsb,physics-2d-box2d,physics-2d-builtin,physics-2d-box2d-wasm,intersection-2d,primitive,profiler,occlusion-query,geometry-renderer,debug-renderer,audio,video,xr,light-probe,terrain,webview,tween,tiled-map,vendor-google,spine-3.8,spine-4.2,dragon-bones,marionette,procedural-animation,custom-pipeline,custom-pipeline-builtin-scripts,custom-pipeline-post-process,legacy-pipeline,websocket,websocket-server,meshopt
+15:40:40.401 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc"
   }
 }
-12:01:02.666 debug: Initializing target [Preview]
-12:01:02.666 debug: Loading cache
-12:01:02.668 debug: Loading cache costs 1.2179999999998472ms.
-12:01:02.668 debug: Our import map(foo:/bar): {
+15:40:40.401 debug: Initializing target [Preview]
+15:40:40.402 debug: Loading cache
+15:40:40.403 debug: Loading cache costs 1.256199999999808ms.
+15:40:40.403 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc"
   }
 }
-12:01:02.713 debug: Sync engine features: 2d,affine-transform,animation,audio,base,custom-pipeline,dragon-bones,gfx-webgl,gfx-webgl2,graphics,intersection-2d,mask,particle-2d,physics-2d-builtin,profiler,rich-text,spine-3.8,tiled-map,tween,ui,video,webview
-12:01:02.716 debug: Reset databases. Enumerated domains: [
+15:40:40.452 debug: Sync engine features: 2d,affine-transform,animation,audio,base,custom-pipeline,dragon-bones,gfx-webgl,gfx-webgl2,graphics,intersection-2d,mask,particle-2d,physics-2d-builtin,profiler,rich-text,spine-3.8,tiled-map,tween,ui,video,webview
+15:40:40.456 debug: Reset databases. Enumerated domains: [
   {
     "root": "db://internal/",
     "physical": "C:\\ProgramData\\cocos\\editors\\Creator\\3.8.7\\resources\\resources\\3d\\engine\\editor\\assets"
@@ -31,170 +31,430 @@
     "physical": "D:\\Works\\Cocos\\WxMiniGames\\FlowersArrangement\\assets"
   }
 ]
-12:01:02.716 debug: Our import map(foo:/bar): {
+15:40:40.456 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc",
     "db://internal/": "file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/",
     "db://assets/": "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/"
   }
 }
-12:01:02.717 debug: Our import map(foo:/bar): {
+15:40:40.457 debug: Our import map(foo:/bar): {
   "imports": {
     "cc": "cce:/internal/x/cc",
     "db://internal/": "file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/",
     "db://assets/": "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/"
   }
 }
-12:01:02.718 debug: Pulling asset-db.
-12:01:02.720 debug: Fetch asset-db cost: 2.376299999999901ms.
-12:01:02.722 debug: Build iteration starts.
+15:40:40.458 debug: Pulling asset-db.
+15:40:40.460 debug: Fetch asset-db cost: 2.19419999999991ms.
+15:40:40.461 debug: Build iteration starts.
 Number of accumulated asset changes: 0
 Feature changed: false
-12:01:02.722 debug: Target(editor) build started.
-12:01:02.725 debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 08:00:04 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
-12:01:02.725 debug: Inspect cce:/internal/x/cc
-12:01:02.794 debug: transform url: 'cce:/internal/x/cc' costs: 69.00 ms
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/base from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/base.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl2 from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl2.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/gfx-empty from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-empty.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/gfx-webgpu from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgpu.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/3d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/3d.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/animation.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/skeletal-animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/skeletal-animation.
-12:01:02.795 debug: Resolve cce:/internal/x/cc-fu/2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/2d.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/sorting from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/rich-text from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/rich-text.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/mask from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/mask.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/graphics from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/graphics.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/ui-skew from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui-skew.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/ui from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/affine-transform from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/affine-transform.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/sorting-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting-2d.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/particle from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/particle-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle-2d.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-framework.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-cannon from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-cannon.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-physx from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-physx.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-ammo from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-ammo.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-builtin.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-2d-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-framework.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d-jsb from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d-jsb.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-2d-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-builtin.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d-wasm from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d-wasm.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/intersection-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/intersection-2d.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/primitive from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/primitive.
-12:01:02.796 debug: Resolve cce:/internal/x/cc-fu/profiler from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/profiler.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/geometry-renderer from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/geometry-renderer.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/audio from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/audio.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/video from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/video.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/xr from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/xr.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/light-probe from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/light-probe.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/terrain from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/terrain.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/webview from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/webview.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/tween from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tween.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/tiled-map from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tiled-map.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/vendor-google from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/vendor-google.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/spine from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/spine.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/dragon-bones from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/dragon-bones.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline-post-process from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline-post-process.
-12:01:02.797 debug: Resolve cce:/internal/x/cc-fu/legacy-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/legacy-pipeline.
-12:01:02.797 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Fri Jan 02 1970 10:41:35 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
-12:01:02.797 debug: Inspect cce:/internal/x/prerequisite-imports
-12:01:02.814 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 16.60 ms
-12:01:02.839 debug: Target(editor) ends with cost 116.9339ms.
-12:01:02.839 debug: Target(preview) build started.
-12:01:02.841 debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 15:12:26 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
-12:01:02.841 debug: Inspect cce:/internal/x/cc
-12:01:02.877 debug: transform url: 'cce:/internal/x/cc' costs: 35.30 ms
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/2d.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/sorting from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/affine-transform from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/affine-transform.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/animation.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/audio from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/audio.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/base from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/base.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline.
-12:01:02.877 debug: Resolve cce:/internal/x/cc-fu/dragon-bones from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/dragon-bones.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl2 from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl2.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/graphics from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/graphics.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/intersection-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/intersection-2d.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/mask from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/mask.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/particle-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle-2d.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/physics-2d-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-builtin.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/physics-2d-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-framework.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/profiler from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/profiler.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/rich-text from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/rich-text.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/spine from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/spine.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/tiled-map from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tiled-map.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/tween from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tween.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/ui from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/video from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/video.
-12:01:02.878 debug: Resolve cce:/internal/x/cc-fu/webview from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/webview.
-12:01:02.879 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Fri Jan 02 1970 10:41:36 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
-12:01:02.879 debug: Inspect cce:/internal/x/prerequisite-imports
-12:01:02.892 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 12.90 ms
-12:01:02.895 debug: Target(preview) ends with cost 56.17709999999988ms.
-12:01:08.154 debug: Pulling asset-db.
-12:01:08.576 debug: Fetch asset-db cost: 421.7664999999997ms.
-12:01:08.578 debug: Build iteration starts.
-Number of accumulated asset changes: 20
+15:40:40.461 debug: Target(editor) build started.
+15:40:40.476 debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
+15:40:40.477 debug: Inspect cce:/internal/x/cc
+15:40:40.550 debug: transform url: 'cce:/internal/x/cc' costs: 72.90 ms
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/base from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/base.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl2 from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl2.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/gfx-empty from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-empty.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/gfx-webgpu from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgpu.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/3d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/3d.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/animation.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/skeletal-animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/skeletal-animation.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/2d.
+15:40:40.551 debug: Resolve cce:/internal/x/cc-fu/sorting from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/rich-text from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/rich-text.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/mask from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/mask.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/graphics from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/graphics.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/ui-skew from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui-skew.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/ui from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/affine-transform from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/affine-transform.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/sorting-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting-2d.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/particle from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/particle-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle-2d.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-framework.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-cannon from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-cannon.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-physx from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-physx.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-ammo from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-ammo.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-builtin.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-2d-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-framework.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d-jsb from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d-jsb.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-2d-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-builtin.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/physics-2d-box2d-wasm from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-box2d-wasm.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/intersection-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/intersection-2d.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/primitive from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/primitive.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/profiler from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/profiler.
+15:40:40.552 debug: Resolve cce:/internal/x/cc-fu/geometry-renderer from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/geometry-renderer.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/audio from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/audio.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/video from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/video.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/xr from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/xr.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/light-probe from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/light-probe.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/terrain from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/terrain.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/webview from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/webview.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/tween from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tween.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/tiled-map from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tiled-map.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/vendor-google from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/vendor-google.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/spine from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/spine.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/dragon-bones from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/dragon-bones.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline-post-process from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline-post-process.
+15:40:40.553 debug: Resolve cce:/internal/x/cc-fu/legacy-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/legacy-pipeline.
+15:40:40.553 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 11:34:44 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
+15:40:40.553 debug: Inspect cce:/internal/x/prerequisite-imports
+15:40:40.571 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 18.20 ms
+15:40:40.579 debug: Target(editor) ends with cost 117.5577000000003ms.
+15:40:40.579 debug: Target(preview) build started.
+15:40:40.581 debug: Detected change: cce:/internal/x/cc. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
+15:40:40.582 debug: Inspect cce:/internal/x/cc
+15:40:40.618 debug: transform url: 'cce:/internal/x/cc' costs: 36.20 ms
+15:40:40.618 debug: Resolve cce:/internal/x/cc-fu/2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/2d.
+15:40:40.618 debug: Resolve cce:/internal/x/cc-fu/sorting from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/sorting.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/affine-transform from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/affine-transform.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/animation from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/animation.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/audio from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/audio.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/base from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/base.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/custom-pipeline from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/custom-pipeline.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/dragon-bones from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/dragon-bones.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/gfx-webgl2 from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/gfx-webgl2.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/graphics from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/graphics.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/intersection-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/intersection-2d.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/mask from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/mask.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/particle-2d from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/particle-2d.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/physics-2d-builtin from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-builtin.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/physics-2d-framework from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/physics-2d-framework.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/profiler from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/profiler.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/rich-text from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/rich-text.
+15:40:40.619 debug: Resolve cce:/internal/x/cc-fu/spine from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/spine.
+15:40:40.620 debug: Resolve cce:/internal/x/cc-fu/tiled-map from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tiled-map.
+15:40:40.620 debug: Resolve cce:/internal/x/cc-fu/tween from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/tween.
+15:40:40.620 debug: Resolve cce:/internal/x/cc-fu/ui from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/ui.
+15:40:40.620 debug: Resolve cce:/internal/x/cc-fu/video from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/video.
+15:40:40.620 debug: Resolve cce:/internal/x/cc-fu/webview from cce:/internal/x/cc as external dependency cce:/internal/x/cc-fu/webview.
+15:40:40.620 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 11:34:45 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间)
+15:40:40.620 debug: Inspect cce:/internal/x/prerequisite-imports
+15:40:40.634 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 13.80 ms
+15:40:40.638 debug: Target(preview) ends with cost 58.633600000000115ms.
+15:40:44.323 debug: Pulling asset-db.
+15:40:45.874 debug: Fetch asset-db cost: 1544.1664999999994ms.
+15:40:45.880 debug: Build iteration starts.
+Number of accumulated asset changes: 21
 Feature changed: false
-12:01:08.579 debug: Target(editor) build started.
-12:01:08.581 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:11 GMT+0800 (香港标准时间)
-12:01:08.581 debug: Inspect cce:/internal/x/prerequisite-imports
-12:01:08.611 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 29.70 ms
-12:01:08.613 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
-12:01:08.614 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
-12:01:08.614 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
-12:01:08.615 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
-12:01:08.616 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
-12:01:08.617 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
-12:01:08.617 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
-12:01:08.618 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
-12:01:08.621 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
-12:01:08.621 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
-12:01:08.622 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
-12:01:08.622 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
-12:01:08.623 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
-12:01:08.623 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
-12:01:08.624 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
-12:01:08.624 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
-12:01:08.625 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
-12:01:08.625 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
-12:01:08.626 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
-12:01:08.626 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
-12:01:08.627 debug: Detected change: cce:/internal/code-quality/cr.mjs. Last mtime: Mon Sep 22 2025 09:18:13 GMT+0800 (香港标准时间), Current mtime: Tue Sep 23 2025 12:00:57 GMT+0800 (香港标准时间)
-12:01:08.627 debug: Inspect cce:/internal/code-quality/cr.mjs
-12:01:08.641 debug: transform url: 'cce:/internal/code-quality/cr.mjs' costs: 14.50 ms
-12:01:08.654 debug: Target(editor) ends with cost 74.50650000000132ms.
-12:01:08.654 debug: Target(preview) build started.
-12:01:08.656 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:11 GMT+0800 (香港标准时间)
-12:01:08.656 debug: Inspect cce:/internal/x/prerequisite-imports
-12:01:08.672 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 15.80 ms
-12:01:08.673 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
-12:01:08.674 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
-12:01:08.675 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
-12:01:08.675 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
-12:01:08.676 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
-12:01:08.676 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
-12:01:08.677 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
-12:01:08.677 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
-12:01:08.678 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
-12:01:08.678 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
-12:01:08.678 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
-12:01:08.679 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
-12:01:08.679 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
-12:01:08.680 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
-12:01:08.680 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
-12:01:08.681 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
-12:01:08.681 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
-12:01:08.682 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
-12:01:08.682 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
-12:01:08.683 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
-12:01:08.683 debug: Detected change: cce:/internal/code-quality/cr.mjs. Last mtime: Mon Sep 22 2025 09:18:13 GMT+0800 (香港标准时间), Current mtime: Tue Sep 23 2025 12:00:57 GMT+0800 (香港标准时间)
-12:01:08.683 debug: Inspect cce:/internal/code-quality/cr.mjs
-12:01:08.697 debug: transform url: 'cce:/internal/code-quality/cr.mjs' costs: 13.50 ms
-12:01:08.709 debug: Target(preview) ends with cost 54.89300000000003ms.
+15:40:45.881 debug: Target(editor) build started.
+15:40:45.888 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:10 GMT+0800 (香港标准时间)
+15:40:45.888 debug: Inspect cce:/internal/x/prerequisite-imports
+15:40:45.916 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 27.90 ms
+15:40:45.918 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:40:45.919 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:40:45.920 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:40:45.921 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:40:45.923 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:40:45.924 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:40:45.924 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:40:45.925 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:40:45.926 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:40:45.927 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:40:45.927 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:40:45.928 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:40:45.928 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:40:45.929 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:40:45.929 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:40:45.930 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:40:45.930 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:40:45.931 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:40:45.931 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:40:45.931 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:40:45.932 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:40:45.932 debug: Detected change: cce:/internal/code-quality/cr.mjs. Last mtime: Tue Sep 23 2025 12:00:57 GMT+0800 (香港标准时间), Current mtime: Tue Sep 23 2025 15:40:35 GMT+0800 (香港标准时间)
+15:40:45.932 debug: Inspect cce:/internal/code-quality/cr.mjs
+15:40:45.946 debug: transform url: 'cce:/internal/code-quality/cr.mjs' costs: 13.90 ms
+15:40:45.962 debug: Target(editor) ends with cost 77.70249999999942ms.
+15:40:45.962 debug: Target(preview) build started.
+15:40:45.964 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:05 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:00:10 GMT+0800 (香港标准时间)
+15:40:45.964 debug: Inspect cce:/internal/x/prerequisite-imports
+15:40:45.982 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 17.30 ms
+15:40:45.983 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:40:45.984 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:40:45.984 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:40:45.985 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:40:45.986 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:40:45.986 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:40:45.987 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:40:45.987 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:40:45.987 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:40:45.988 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:40:45.988 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:40:45.989 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:40:45.989 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:40:45.990 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:40:45.990 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:40:45.991 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:40:45.991 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:40:45.991 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:40:45.993 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:40:45.994 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:40:45.994 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:40:45.995 debug: Detected change: cce:/internal/code-quality/cr.mjs. Last mtime: Tue Sep 23 2025 12:00:57 GMT+0800 (香港标准时间), Current mtime: Tue Sep 23 2025 15:40:35 GMT+0800 (香港标准时间)
+15:40:45.995 debug: Inspect cce:/internal/code-quality/cr.mjs
+15:40:46.008 debug: transform url: 'cce:/internal/code-quality/cr.mjs' costs: 13.30 ms
+15:40:46.020 debug: Target(preview) ends with cost 57.78980000000047ms.
+15:48:48.897 debug: Dispatch build request for time accumulated 1 asset changes.
+15:48:48.899 debug: Build iteration starts.
+Number of accumulated asset changes: 1
+Feature changed: false
+15:48:48.899 debug: Target(editor) build started.
+15:48:48.902 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:10 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:08:13 GMT+0800 (香港标准时间)
+15:48:48.902 debug: Inspect cce:/internal/x/prerequisite-imports
+15:48:48.925 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 22.50 ms
+15:48:48.927 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:48:48.927 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:48:48.928 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:48:48.928 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:48:48.929 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:48:48.930 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:48:48.931 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:48:48.931 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:48:48.932 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:48:48.932 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:48:48.932 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:48:48.933 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:48:48.933 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts. Last mtime: Tue Sep 23 2025 13:37:59 GMT+0800 (香港标准时间)@6bd473a9-b885-4cf7-ad19-f480985edc0e, Current mtime: Tue Sep 23 2025 15:48:42 GMT+0800 (香港标准时间)@6bd473a9-b885-4cf7-ad19-f480985edc0e
+15:48:48.933 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts
+15:48:49.007 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts' costs: 74.40 ms
+15:48:49.009 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:48:49.009 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:48:49.010 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:48:49.010 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:48:49.010 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:48:49.011 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:48:49.011 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:48:49.011 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:48:49.012 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:48:49.012 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/code-quality/cr.mjs.
+15:48:49.012 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.012 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.012 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.013 debug: Resolve ./ScreenAdapter from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:48:49.013 debug: Resolve ./Core/GameManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:48:49.025 debug: Target(editor) ends with cost 125.0107999999891ms.
+15:48:49.025 debug: Target(preview) build started.
+15:48:49.027 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:00:10 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:08:13 GMT+0800 (香港标准时间)
+15:48:49.027 debug: Inspect cce:/internal/x/prerequisite-imports
+15:48:49.042 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 15.20 ms
+15:48:49.044 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:48:49.044 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:48:49.045 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:48:49.046 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:48:49.046 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:48:49.047 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:48:49.048 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:48:49.048 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:48:49.049 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:48:49.049 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:48:49.049 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:48:49.050 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:48:49.050 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts. Last mtime: Tue Sep 23 2025 13:37:59 GMT+0800 (香港标准时间)@6bd473a9-b885-4cf7-ad19-f480985edc0e, Current mtime: Tue Sep 23 2025 15:48:42 GMT+0800 (香港标准时间)@6bd473a9-b885-4cf7-ad19-f480985edc0e
+15:48:49.050 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts
+15:48:49.104 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts' costs: 53.50 ms
+15:48:49.105 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:48:49.105 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:48:49.106 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:48:49.107 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:48:49.107 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:48:49.107 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:48:49.108 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:48:49.108 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:48:49.108 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:48:49.109 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/code-quality/cr.mjs.
+15:48:49.109 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.109 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.109 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as cce:/internal/x/cc.
+15:48:49.110 debug: Resolve ./ScreenAdapter from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:48:49.110 debug: Resolve ./Core/GameManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:48:49.120 debug: Target(preview) ends with cost 94.49189999996452ms.
+15:52:49.532 debug: Dispatch build request for time accumulated 2 asset changes.
+15:52:49.533 debug: Build iteration starts.
+Number of accumulated asset changes: 2
+Feature changed: false
+15:52:49.534 debug: Target(editor) build started.
+15:52:49.536 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:08:13 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:12:14 GMT+0800 (香港标准时间)
+15:52:49.536 debug: Inspect cce:/internal/x/prerequisite-imports
+15:52:49.550 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 13.70 ms
+15:52:49.552 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:52:49.552 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:52:49.553 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:52:49.553 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:52:49.554 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:52:49.555 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:52:49.555 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:49.556 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:49.556 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:52:49.559 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:52:49.559 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:52:49.560 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:52:49.560 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:52:49.561 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:52:49.561 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:52:49.561 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts. Last mtime: Tue Sep 23 2025 15:35:39 GMT+0800 (香港标准时间)@1d917e78-c927-49ad-8418-7a1e1e5ee711, Current mtime: Tue Sep 23 2025 15:52:03 GMT+0800 (香港标准时间)@1d917e78-c927-49ad-8418-7a1e1e5ee711
+15:52:49.561 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts
+15:52:49.663 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts' costs: 102.00 ms
+15:52:49.665 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:52:49.665 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:52:49.666 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts. Last mtime: Tue Sep 23 2025 15:35:39 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889, Current mtime: Tue Sep 23 2025 15:52:14 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889
+15:52:49.666 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts
+15:52:49.738 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts' costs: 72.50 ms
+15:52:49.740 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:52:49.740 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:52:49.741 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:52:49.741 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:52:49.741 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/code-quality/cr.mjs.
+15:52:49.741 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:49.742 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:49.742 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:49.742 debug: Resolve ./Flower from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:52:49.742 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:49.743 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:49.743 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/code-quality/cr.mjs.
+15:52:49.743 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:49.743 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:49.743 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:49.744 debug: Resolve ../Core/UIBase from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:52:49.745 debug: Resolve ../Core/UIManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:52:49.745 debug: Resolve ./UIData from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:52:49.745 debug: Resolve ./FlowerPlatform from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:52:49.746 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:49.746 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:49.760 debug: Target(editor) ends with cost 226.45250000001397ms.
+15:52:49.760 debug: Target(preview) build started.
+15:52:49.763 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:08:13 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:12:14 GMT+0800 (香港标准时间)
+15:52:49.763 debug: Inspect cce:/internal/x/prerequisite-imports
+15:52:49.780 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 17.40 ms
+15:52:49.782 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:52:49.783 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:52:49.784 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:52:49.785 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:52:49.785 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:52:49.786 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:52:49.786 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:49.787 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:49.787 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:52:49.788 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:52:49.788 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:52:49.789 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:52:49.789 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:52:49.790 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:52:49.791 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:52:49.791 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts. Last mtime: Tue Sep 23 2025 15:35:39 GMT+0800 (香港标准时间)@1d917e78-c927-49ad-8418-7a1e1e5ee711, Current mtime: Tue Sep 23 2025 15:52:03 GMT+0800 (香港标准时间)@1d917e78-c927-49ad-8418-7a1e1e5ee711
+15:52:49.791 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts
+15:52:49.928 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts' costs: 136.40 ms
+15:52:49.929 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:52:49.929 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:52:49.930 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts. Last mtime: Tue Sep 23 2025 15:35:39 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889, Current mtime: Tue Sep 23 2025 15:52:14 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889
+15:52:49.930 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts
+15:52:49.999 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts' costs: 69.10 ms
+15:52:50.000 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:52:50.000 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:52:50.001 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:52:50.001 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:52:50.002 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/code-quality/cr.mjs.
+15:52:50.002 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:50.002 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:50.002 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as cce:/internal/x/cc.
+15:52:50.002 debug: Resolve ./Flower from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:52:50.003 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:50.003 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:50.004 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/code-quality/cr.mjs.
+15:52:50.004 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:50.004 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:50.004 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:52:50.005 debug: Resolve ../Core/UIBase from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:52:50.005 debug: Resolve ../Core/UIManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:52:50.005 debug: Resolve ./UIData from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:52:50.006 debug: Resolve ./FlowerPlatform from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:52:50.006 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:52:50.007 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:52:50.018 debug: Target(preview) ends with cost 257.41680000000633ms.
+15:55:54.087 debug: Dispatch build request for time accumulated 1 asset changes.
+15:55:54.089 debug: Build iteration starts.
+Number of accumulated asset changes: 1
+Feature changed: false
+15:55:54.090 debug: Target(editor) build started.
+15:55:54.092 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:12:14 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:15:18 GMT+0800 (香港标准时间)
+15:55:54.092 debug: Inspect cce:/internal/x/prerequisite-imports
+15:55:54.107 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 14.60 ms
+15:55:54.108 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:55:54.109 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:55:54.109 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:55:54.110 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:55:54.110 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:55:54.111 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:55:54.112 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:55:54.112 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:55:54.113 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:55:54.113 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:55:54.113 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:55:54.114 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:55:54.114 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:55:54.114 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:55:54.115 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:55:54.115 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:55:54.115 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:55:54.116 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts. Last mtime: Tue Sep 23 2025 15:52:14 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889, Current mtime: Tue Sep 23 2025 15:55:52 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889
+15:55:54.116 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts
+15:55:54.183 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts' costs: 67.40 ms
+15:55:54.184 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:55:54.185 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:55:54.185 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:55:54.186 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:55:54.186 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/code-quality/cr.mjs.
+15:55:54.186 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.186 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.186 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.187 debug: Resolve ../Core/UIBase from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:55:54.187 debug: Resolve ../Core/UIManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:55:54.187 debug: Resolve ./UIData from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:55:54.188 debug: Resolve ./FlowerPlatform from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:55:54.188 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:55:54.189 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:55:54.290 debug: Target(editor) ends with cost 200.24340000003576ms.
+15:55:54.290 debug: Target(preview) build started.
+15:55:54.296 debug: Detected change: cce:/internal/x/prerequisite-imports. Last mtime: Thu Jan 01 1970 08:12:14 GMT+0800 (香港标准时间), Current mtime: Thu Jan 01 1970 08:15:19 GMT+0800 (香港标准时间)
+15:55:54.296 debug: Inspect cce:/internal/x/prerequisite-imports
+15:55:54.315 debug: transform url: 'cce:/internal/x/prerequisite-imports' costs: 18.80 ms
+15:55:54.316 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-dof-pass.ts.
+15:55:54.317 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-pass.ts.
+15:55:54.317 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-settings.ts.
+15:55:54.318 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline-types.ts.
+15:55:54.319 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/default_renderpipeline/builtin-pipeline.ts.
+15:55:54.320 debug: Resolve file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts from cce:/internal/x/prerequisite-imports as file:///C:/ProgramData/cocos/editors/Creator/3.8.7/resources/resources/3d/engine/editor/assets/tools/debug-view-runtime-control.ts.
+15:55:54.321 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:55:54.321 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:55:54.322 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/GameManager.ts.
+15:55:54.322 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:55:54.322 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:55:54.323 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts.
+15:55:54.323 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/ScreenAdapter.ts.
+15:55:54.323 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts.
+15:55:54.324 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:55:54.324 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePage.ts.
+15:55:54.325 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts.
+15:55:54.325 debug: Detected change: file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts. Last mtime: Tue Sep 23 2025 15:52:14 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889, Current mtime: Tue Sep 23 2025 15:55:52 GMT+0800 (香港标准时间)@ea5e5989-57b5-4e56-bec1-1988a2f4a889
+15:55:54.325 debug: Inspect file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts
+15:55:54.383 debug: transform url: 'file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts' costs: 58.50 ms
+15:55:54.385 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/LoadingPanel.ts.
+15:55:54.386 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts.
+15:55:54.386 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:55:54.387 debug: Resolve file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts from cce:/internal/x/prerequisite-imports as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/VictoryPanel.ts.
+15:55:54.387 debug: Resolve cce:/internal/code-quality/cr.mjs from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/code-quality/cr.mjs.
+15:55:54.388 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.388 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.388 debug: Resolve cc from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as cce:/internal/x/cc.
+15:55:54.388 debug: Resolve ../Core/UIBase from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIBase.ts.
+15:55:54.389 debug: Resolve ../Core/UIManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/UIManager.ts.
+15:55:54.389 debug: Resolve ./UIData from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/UIData.ts.
+15:55:54.389 debug: Resolve ./FlowerPlatform from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts.
+15:55:54.390 debug: Resolve ../Core/EventManager from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Core/EventManager.ts.
+15:55:54.390 debug: Resolve ../Config/Config from file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts as file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Config/Config.ts.
+15:55:54.401 debug: Target(preview) ends with cost 110.51459999999497ms.

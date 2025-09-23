@@ -1,7 +1,7 @@
 System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Camera, Component, director, Node, game, Game, PhysicsSystem2D, EPhysics2DDrawFlags, ScreenAdapter, GameManager, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, Launcher;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, Camera, Component, director, Node, game, Game, ScreenAdapter, GameManager, _dec, _dec2, _dec3, _dec4, _dec5, _class, _class2, _descriptor, _descriptor2, _descriptor3, _descriptor4, _crd, ccclass, property, Launcher;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -31,8 +31,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
       Node = _cc.Node;
       game = _cc.game;
       Game = _cc.Game;
-      PhysicsSystem2D = _cc.PhysicsSystem2D;
-      EPhysics2DDrawFlags = _cc.EPhysics2DDrawFlags;
     }, function (_unresolved_2) {
       ScreenAdapter = _unresolved_2.ScreenAdapter;
     }, function (_unresolved_3) {
@@ -66,8 +64,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
         }
 
         onLoad() {
+          /* 
           PhysicsSystem2D.instance.enable = true;
-          PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb | EPhysics2DDrawFlags.Pair | EPhysics2DDrawFlags.CenterOfMass | EPhysics2DDrawFlags.Joint | EPhysics2DDrawFlags.Shape;
+          PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb |
+          EPhysics2DDrawFlags.Pair |
+          EPhysics2DDrawFlags.CenterOfMass |
+          EPhysics2DDrawFlags.Joint |
+          EPhysics2DDrawFlags.Shape;
+          */
           director.addPersistRootNode(this.node); // 监听游戏进入后台事件
 
           game.on(Game.EVENT_HIDE, this.onGameHide, this); // 监听游戏回到前台事件

@@ -96,6 +96,11 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             error: Error()
           }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
             error: Error()
+          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
           }), CustomClientEvent) : CustomClientEvent).CheckVictory, this.onCheckVictory, this);
           (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
             error: Error()
@@ -111,6 +116,11 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
         }
 
         onClose() {
+          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
+            error: Error()
+          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
+            error: Error()
+          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
           (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
             error: Error()
           }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
@@ -134,6 +144,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
 
         onRetryLevel() {
           this.initGameLevel(this.m_CurLv);
+        }
+
+        onCheckFlowerDissolve(args) {
+          if (this.m_FlowerPlatformArr && this.m_FlowerPlatformArr.length > 0) {
+            this.m_FlowerPlatformArr.forEach(fPlatform => {
+              fPlatform.checkFlowerDissolve(args);
+            });
+          }
         }
 
         onCheckVictory(args) {
@@ -190,13 +208,6 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
             }
 
             this.m_CurLevelData = jsonAsset.json;
-
-            if (this.m_FlowerPlatformArr && this.m_FlowerPlatformArr.length > 0) {
-              this.m_FlowerPlatformArr.forEach(fPlatform => {
-                fPlatform.offNodeEvent();
-              });
-            }
-
             this.m_LevelRoot.removeAllChildren();
             resources.load("ui/FlowerPlatform", Prefab, (err, prefab) => {
               if (prefab) {

@@ -2879,5 +2879,12 @@
       "depends": []
     },
     "versionCode": 1
+  },
+  "673d0a65-a9fe-4ec8-aa56-2484f1edb268": {
+    "url": "db://assets/resources/levelData/level_3.json",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
   }
 }

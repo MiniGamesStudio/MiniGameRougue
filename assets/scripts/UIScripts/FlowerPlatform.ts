@@ -33,19 +33,14 @@ export class FlowerPlatform extends Component {
     }
 
     protected start(): void {        
-        EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
-        EventManager.getInstance().on(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
+        
     }
 
     protected onDestroy(): void {
-        this.offNodeEvent();
+        
     }
 
-    public offNodeEvent(): void{
-        EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
-    }
-
-    onCheckFlowerDissolve(args:any):void {
+    checkFlowerDissolve(args:any):void {
         //console.log("onCheckFlowerDissolve");
         if(!args){
             return;

@@ -85,32 +85,11 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
           return this.m_IsVictory;
         }
 
-        start() {
-          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
-            error: Error()
-          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
-            error: Error()
-          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
-          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
-            error: Error()
-          }), EventManager) : EventManager).getInstance().on((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
-            error: Error()
-          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
-        }
+        start() {}
 
-        onDestroy() {
-          this.offNodeEvent();
-        }
+        onDestroy() {}
 
-        offNodeEvent() {
-          (_crd && EventManager === void 0 ? (_reportPossibleCrUseOfEventManager({
-            error: Error()
-          }), EventManager) : EventManager).getInstance().off((_crd && CustomClientEvent === void 0 ? (_reportPossibleCrUseOfCustomClientEvent({
-            error: Error()
-          }), CustomClientEvent) : CustomClientEvent).FlowerDissolve, this.onCheckFlowerDissolve, this);
-        }
-
-        onCheckFlowerDissolve(args) {
+        checkFlowerDissolve(args) {
           //console.log("onCheckFlowerDissolve");
           if (!args) {
             return;

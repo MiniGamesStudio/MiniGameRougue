@@ -1,7 +1,7 @@
 {
   "modules": {
     "cce:/internal/x/cc": {
-      "mTimestamp": 5314.0025,
+      "mTimestamp": 5155.2792,
       "chunkId": "93ba276ea7b26ffcdc433fab14afc1ed6f05647b",
       "imports": [
         {
@@ -997,7 +997,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 12138181.7351,
+      "mTimestamp": 918843.0328,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -2325,7 +2325,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Launcher.ts": {
       "mTimestamp": {
-        "mtime": 1758605879095.8662,
+        "mtime": 1758613722328.3833,
         "uuid": "6bd473a9-b885-4cf7-ad19-f480985edc0e"
       },
       "chunkId": "e35b82836c454cea5a42eb6b84dd63452d168bff",
@@ -2743,7 +2743,7 @@
       ]
     },
     "cce:/internal/code-quality/cr.mjs": {
-      "mTimestamp": 1758600057391,
+      "mTimestamp": 1758613235284,
       "chunkId": "6a5019a719a9014c047e67aa1cf34453ab8392ce",
       "imports": [],
       "type": "esm",
@@ -2961,7 +2961,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/GamePanel.ts": {
       "mTimestamp": {
-        "mtime": 1758612187072.0684,
+        "mtime": 1758614152440.0447,
         "uuid": "ea5e5989-57b5-4e56-bec1-1988a2f4a889"
       },
       "chunkId": "7c3afa6f72cc51142efdd7377aaf9dd6b0d4b395",
@@ -3150,7 +3150,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/FlowerPlatform.ts": {
       "mTimestamp": {
-        "mtime": 1758612192652.649,
+        "mtime": 1758613923829.3926,
         "uuid": "1d917e78-c927-49ad-8418-7a1e1e5ee711"
       },
       "chunkId": "c49cca4f2e70ea229467afa8ec4c50f60abd4fc4",
@@ -3432,7 +3432,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/UIScripts/Flower.ts": {
       "mTimestamp": {
-        "mtime": 1758610094907.4373,
+        "mtime": 1758612576716.427,
         "uuid": "c50538aa-7778-4ac9-9299-be20c356b8ad"
       },
       "chunkId": "37df99fb108c57d335f31e2872f46de72838fe1c",

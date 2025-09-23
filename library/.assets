@@ -45,6 +45,7 @@
             "resources\\flowers\\flower09.png",
             "resources\\flowers\\flowerAtlas.pac",
             "resources\\levelData\\level_1.json",
+            "resources\\levelData\\level_2.json",
             "resources\\texture\\Background_ScreenDimed_Navy.png",
             "resources\\texture\\Icon_ImageIcon_Badge_Popular.png",
             "resources\\texture\\Icon_ImageIcon_Coin02.png",
@@ -72,6 +73,7 @@
             "resources\\ui\\MainPanel.prefab",
             "resources\\ui\\RankingPage.prefab",
             "resources\\ui\\ShopPage.prefab",
+            "resources\\ui\\VictoryPanel.prefab",
             "scripts\\Config\\Config.ts",
             "scripts\\Core\\EventManager.ts",
             "scripts\\Core\\GameManager.ts",
@@ -84,9 +86,8 @@
             "scripts\\UIScripts\\LoadingPanel.ts",
             "scripts\\UIScripts\\MainPanel.ts",
             "scripts\\UIScripts\\UIData.ts",
-            "resources\\ui\\VictoryPanel.prefab",
             "scripts\\UIScripts\\VictoryPanel.ts",
-            "resources\\levelData\\level_2.json"
+            "resources\\levelData\\level_3.json"
         ]
     }
 }
