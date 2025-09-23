@@ -10548,3 +10548,31 @@
 2025-9-23 12:00:03-debug: Run asset db hook engine-extends:afterRefresh success!
 2025-9-23 12:00:03-debug: asset-db-hook-engine-extends-afterRefresh (2ms)
 2025-9-23 12:00:03-debug: asset-db:worker-effect-data-processing (2ms)
+2025-9-23 12:00:19-debug: refresh db internal success
+2025-9-23 12:00:19-debug: refresh db assets success
+2025-9-23 12:00:19-debug: Run asset db hook engine-extends:afterRefresh success!
+2025-9-23 12:00:19-debug: Run asset db hook engine-extends:afterRefresh ...
+2025-9-23 12:00:19-debug: asset-db:refresh-all-database (49ms)
+2025-9-23 12:00:19-debug: asset-db:worker-effect-data-processing (2ms)
+2025-9-23 12:00:19-debug: asset-db-hook-engine-extends-afterRefresh (2ms)
+2025-9-23 12:00:30-debug: refresh db internal success
+2025-9-23 12:00:30-debug: refresh db assets success
+2025-9-23 12:00:30-debug: Run asset db hook engine-extends:afterRefresh ...
+2025-9-23 12:00:30-debug: Run asset db hook engine-extends:afterRefresh success!
+2025-9-23 12:00:30-debug: asset-db:refresh-all-database (42ms)
+2025-9-23 12:00:30-debug: asset-db:worker-effect-data-processing (2ms)
+2025-9-23 12:00:30-debug: asset-db-hook-engine-extends-afterRefresh (2ms)
+2025-9-23 12:00:34-debug: refresh db internal success
+2025-9-23 12:00:34-debug: Run asset db hook engine-extends:afterRefresh success!
+2025-9-23 12:00:34-debug: refresh db assets success
+2025-9-23 12:00:34-debug: Run asset db hook engine-extends:afterRefresh ...
+2025-9-23 12:00:34-debug: asset-db:refresh-all-database (43ms)
+2025-9-23 12:00:34-debug: asset-db:worker-effect-data-processing (1ms)
+2025-9-23 12:00:34-debug: asset-db-hook-engine-extends-afterRefresh (2ms)
+2025-9-23 12:00:36-debug: refresh db internal success
+2025-9-23 12:00:36-debug: refresh db assets success
+2025-9-23 12:00:36-debug: Run asset db hook engine-extends:afterRefresh ...
+2025-9-23 12:00:36-debug: Run asset db hook engine-extends:afterRefresh success!
+2025-9-23 12:00:36-debug: asset-db:refresh-all-database (68ms)
+2025-9-23 12:00:36-debug: asset-db:worker-effect-data-processing (1ms)
+2025-9-23 12:00:36-debug: asset-db-hook-engine-extends-afterRefresh (2ms)

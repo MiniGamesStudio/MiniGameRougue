@@ -9,6 +9,7 @@
             "resources\\buttons",
             "resources\\flowerpot",
             "resources\\flowers",
+            "resources\\levelData",
             "resources\\texture",
             "resources\\ui",
             "scripts\\Config",
@@ -42,6 +43,8 @@
             "resources\\flowers\\flower07.png",
             "resources\\flowers\\flower08.png",
             "resources\\flowers\\flower09.png",
+            "resources\\flowers\\flowerAtlas.pac",
+            "resources\\levelData\\level_1.json",
             "resources\\texture\\Background_ScreenDimed_Navy.png",
             "resources\\texture\\Icon_ImageIcon_Badge_Popular.png",
             "resources\\texture\\Icon_ImageIcon_Coin02.png",
@@ -70,20 +73,17 @@
             "resources\\ui\\RankingPage.prefab",
             "resources\\ui\\ShopPage.prefab",
             "scripts\\Config\\Config.ts",
+            "scripts\\Core\\EventManager.ts",
             "scripts\\Core\\GameManager.ts",
             "scripts\\Core\\UIBase.ts",
             "scripts\\Core\\UIManager.ts",
+            "scripts\\UIScripts\\Flower.ts",
             "scripts\\UIScripts\\FlowerPlatform.ts",
             "scripts\\UIScripts\\GamePage.ts",
             "scripts\\UIScripts\\GamePanel.ts",
             "scripts\\UIScripts\\LoadingPanel.ts",
             "scripts\\UIScripts\\MainPanel.ts",
-            "scripts\\UIScripts\\UIData.ts",
-            "scripts\\UIScripts\\Flower.ts",
-            "resources\\flowers\\flowerAtlas.pac",
-            "resources\\levelData",
-            "resources\\levelData\\level_1.json",
-            "scripts\\Core\\EventManager.ts"
+            "scripts\\UIScripts\\UIData.ts"
         ]
     }
 }
