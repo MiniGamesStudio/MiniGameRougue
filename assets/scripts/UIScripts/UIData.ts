@@ -3,7 +3,7 @@ import { UIBase } from '../Core/UIBase';
 const { ccclass, property } = _decorator;
 
 export enum UILayer{
-    Background = 0,    // 背景层（如登录背景）
+    Background = 0,    // 背景层（如登录背景） 
     Normal = 1000,     // 普通层（主界面、主菜单）
     PopUp = 2000,      // 弹出层（设置、商城）
     Tips = 3000,       // 提示层（飘字提示）

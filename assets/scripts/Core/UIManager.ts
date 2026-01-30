@@ -127,12 +127,12 @@ export class UIManager {
 
             var uiNode = instantiate(prefab);
             uiNode.parent = root;
+            uiNode.setPosition(0, 0);
             var uiScript = uiNode.getComponent(UIBase);
             if(uiScript){
                 uiScript.m_PanelID = this.m_PanelID;
                 uiScript.m_UIID = id;
                 uiScript.onOpen(...args);
-                uiNode.setPosition(0, 0);
             }
 
             var uiDatas = this.m_PanelDataMap.get(id);
