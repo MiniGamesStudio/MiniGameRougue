@@ -1,5 +1,5 @@
 import { _decorator, Component, instantiate, Node, Prefab, resources } from 'cc';
-import { UIDataSet, UIID, UIData } from '../UIScripts/UIData';
+import { UIDataSet, UIID, UIData, UILayer } from '../UIScripts/UIData';
 import { UIBase } from './UIBase';
 
 const { ccclass, property } = _decorator;
@@ -21,11 +21,62 @@ export class UIManager {
     private m_PanelDataMap:Map<UIID, Array<number>> = new Map();
     private m_PanelNodeMap:Map<number, Node> = new Map();
 
+    private m_UIBackgroundRoot : Node = null
+    private m_UINormalRoot : Node = null
+    private m_UIPopupRoot : Node = null
+    private m_UITipsRoot : Node = null
+    private m_UISystemRoot : Node = null
+    private m_UITopRoot : Node = null
+
     public Init(uiRoot : Node): void {
         this.m_UIRoot = uiRoot;
         this.m_PanelDataMap.clear();
         this.m_PanelNodeMap.clear();
         UIDataSet.InitUIDatas();
+
+        this.m_UIBackgroundRoot = new Node("UI_Background");     // 背景层（如登录背景）
+        this.m_UIBackgroundRoot.parent = this.m_UIRoot;
+        
+        this.m_UINormalRoot = new Node("UI_Normal");     // 普通层（主界面、主菜单）
+        this.m_UINormalRoot.parent = this.m_UIRoot;
+        
+        this.m_UIPopupRoot = new Node("UI_Popup");       // 弹出层（设置、商城）
+        this.m_UIPopupRoot.parent = this.m_UIRoot;
+        
+        this.m_UITipsRoot = new Node("UI_Tips");         // 提示层（飘字提示）
+        this.m_UITipsRoot.parent = this.m_UIRoot;
+        
+        this.m_UISystemRoot = new Node("UI_System");        // 系统层（加载、断线重连）
+        this.m_UISystemRoot.parent = this.m_UIRoot;
+        
+        this.m_UITopRoot = new Node("UI_Top");           // 最高层（GM命令、截屏提示）
+        this.m_UITopRoot.parent = this.m_UIRoot;
+    }
+
+    public GetUIRootByUILayer(layer:UILayer):Node {
+        var uiRoot:Node = null
+        switch(layer){
+            case UILayer.Background:
+                uiRoot = this.m_UIBackgroundRoot
+                break
+            case UILayer.Normal:
+                uiRoot = this.m_UINormalRoot
+                break
+            case UILayer.PopUp:
+                uiRoot = this.m_UIPopupRoot
+                break
+            case UILayer.Tips:
+                uiRoot = this.m_UITipsRoot
+                break
+            case UILayer.System:
+                uiRoot = this.m_UISystemRoot
+                break
+            case UILayer.TopMost:
+                uiRoot = this.m_UITopRoot
+                break
+        }
+
+        return uiRoot
     }
 
     public ClosePanelByID(panelID: number):Boolean {
@@ -69,17 +120,19 @@ export class UIManager {
         }
 
         resources.load(uidata.prefabPath, Prefab, (err, prefab)=>{
-            if(this.m_UIRoot == null){
+            var root = this.GetUIRootByUILayer(uidata.layer)
+            if(root == null){
                 return 0;
             }
 
             var uiNode = instantiate(prefab);
-            uiNode.parent = this.m_UIRoot;
+            uiNode.parent = root;
             var uiScript = uiNode.getComponent(UIBase);
             if(uiScript){
                 uiScript.m_PanelID = this.m_PanelID;
                 uiScript.m_UIID = id;
                 uiScript.onOpen(...args);
+                uiNode.setPosition(0, 0);
             }
 
             var uiDatas = this.m_PanelDataMap.get(id);
