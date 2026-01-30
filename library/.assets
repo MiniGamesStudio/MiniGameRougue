@@ -46,6 +46,7 @@
             "resources\\flowers\\flowerAtlas.pac",
             "resources\\levelData\\level_1.json",
             "resources\\levelData\\level_2.json",
+            "resources\\levelData\\level_3.json",
             "resources\\texture\\Background_ScreenDimed_Navy.png",
             "resources\\texture\\Icon_ImageIcon_Badge_Popular.png",
             "resources\\texture\\Icon_ImageIcon_Coin02.png",
@@ -86,8 +87,7 @@
             "scripts\\UIScripts\\LoadingPanel.ts",
             "scripts\\UIScripts\\MainPanel.ts",
             "scripts\\UIScripts\\UIData.ts",
-            "scripts\\UIScripts\\VictoryPanel.ts",
-            "resources\\levelData\\level_3.json"
+            "scripts\\UIScripts\\VictoryPanel.ts"
         ]
     }
 }
