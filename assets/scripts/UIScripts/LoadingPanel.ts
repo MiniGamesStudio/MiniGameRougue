@@ -21,7 +21,7 @@ export class LoadingPanel extends UIBase {
     }
 
     OnClose(): void {
-        
+        super.OnClose()        
     }
 
     protected update(dt: number): void {

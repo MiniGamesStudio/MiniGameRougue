@@ -20,6 +20,8 @@ export class MainPanel extends UIBase {
     m_PageOne:Node = null;
     @property(Node)
     m_PageTwo:Node = null;
+    @property(Node)
+    m_TopPageRoot:Node = null;
 
     private m_CurPage = null;
     private m_OtherPage = null;
@@ -42,11 +44,12 @@ export class MainPanel extends UIBase {
         this.m_PageName[3] = PageType.ChanllengePage;
         this.m_PageName[4] = PageType.RankingPage;
         
+        this.AttachUIPage(this.m_TopPageRoot, 'TopPage', "ui/MainTopPage");
         this.initUI();
     }
 
     OnClose(): void {
-
+        super.OnClose()
     }
 
     protected onDestroy(): void {

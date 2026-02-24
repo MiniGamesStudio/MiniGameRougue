@@ -60,7 +60,7 @@ export class VictoryPanel extends UIBase {
     }
 
     OnClose(): void {
-
+        super.OnClose()
     }
 }
 

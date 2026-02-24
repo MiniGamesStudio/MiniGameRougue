@@ -157,13 +157,7 @@
     "value": {
       "depends": [
         "fd3a19d6-81ed-4efa-84d3-7d8c045fa7aa@f9941",
-        "3451f789-e978-47be-8ca2-efbad9681fd7@f9941",
-        "45f26b7b-2c39-469f-8d8a-7ef51ccf6bd6@f9941",
         "3bf25aa3-df77-4011-a29d-020e61ca8403@f9941",
-        "c03983d3-1d8c-4408-9909-e9ac585800b3@f9941",
-        "83985e7f-c240-4752-b17d-27c185892c87@f9941",
-        "4f93b14d-6123-41ea-a5d7-52d3ae9c6848@f9941",
-        "4e9cfa13-dac5-4d82-861c-1cc1eaa9920d@f9941",
         "1dcf678f-00d7-4fb9-8e1e-bfa9609d814a@f9941",
         "12802953-430c-4b56-899e-68fd8ebabcb9@f9941",
         "68a421d3-6d8b-4781-9492-f0da468b0936@f9941",
@@ -2883,6 +2877,34 @@
     "value": {
       "depends": []
     },
+    "versionCode": 1
+  },
+  "6705c436-361d-4e6f-a723-9f89adbf48e7": {
+    "url": "db://assets/resources/ui/MainTopPage.prefab",
+    "value": {
+      "depends": [
+        "3451f789-e978-47be-8ca2-efbad9681fd7@f9941",
+        "45f26b7b-2c39-469f-8d8a-7ef51ccf6bd6@f9941",
+        "3bf25aa3-df77-4011-a29d-020e61ca8403@f9941",
+        "c03983d3-1d8c-4408-9909-e9ac585800b3@f9941",
+        "83985e7f-c240-4752-b17d-27c185892c87@f9941",
+        "4f93b14d-6123-41ea-a5d7-52d3ae9c6848@f9941",
+        "4e9cfa13-dac5-4d82-861c-1cc1eaa9920d@f9941"
+      ],
+      "dependScripts": [
+        "7b81d695-9d8f-4b50-8509-1723572c2b03"
+      ]
+    },
+    "versionCode": 2
+  },
+  "a2c3d81b-6752-47b5-a7d3-21d730afe846": {
+    "url": "db://assets/scripts/UIScripts/MainPanel - 副本.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "7b81d695-9d8f-4b50-8509-1723572c2b03": {
+    "url": "db://assets/scripts/UIScripts/MainTopPage.ts",
+    "value": {},
     "versionCode": 1
   }
 }

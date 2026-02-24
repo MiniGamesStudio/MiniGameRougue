@@ -87,7 +87,9 @@
             "resources\\ui\\MainPanel.prefab",
             "resources\\ui\\RankingPage.prefab",
             "resources\\ui\\ShopPage.prefab",
-            "resources\\ui\\VictoryPanel.prefab"
+            "resources\\ui\\VictoryPanel.prefab",
+            "resources\\ui\\MainTopPage.prefab",
+            "scripts\\UIScripts\\MainTopPage.ts"
         ]
     }
 }

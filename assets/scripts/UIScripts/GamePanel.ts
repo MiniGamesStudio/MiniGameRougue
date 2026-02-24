@@ -35,6 +35,7 @@ export class GamePanel extends UIBase {
     }
 
     OnClose(): void {
+        super.OnClose()
         EventManager.getInstance().off(CustomClientEvent.FlowerDissolve, this.onCheckFlowerDissolve, this);
         EventManager.getInstance().off(CustomClientEvent.CheckVictory, this.onCheckVictory, this);
         EventManager.getInstance().off(CustomClientEvent.RetryLevel, this.onRetryLevel, this);

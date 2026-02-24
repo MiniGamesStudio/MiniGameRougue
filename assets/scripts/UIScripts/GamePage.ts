@@ -21,6 +21,6 @@ export class GamePage extends UIBase {
     }
 
     OnClose(): void {
-        
+        super.OnClose()
     }
 }

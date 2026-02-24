@@ -1,22 +1,264 @@
-2026-2-23 09:57:09 - log: Load engine in D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine
-2026-2-23 09:57:09 - log: Register native engine in D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\native
-2026-2-23 09:57:09 - log: Request namespace: device-list
-2026-2-23 09:57:14 - info: [PreviewInEditor] 预览环境初始化完毕
-2026-2-23 09:57:15 - log: [Scene] meshopt wasm decoder initialized
-2026-2-23 09:57:15 - log: [Scene] [bullet]:bullet wasm lib loaded.
-2026-2-23 09:57:15 - log: [Scene] [box2d]:box2d wasm lib loaded.
-2026-2-23 09:57:15 - log: [Scene] [PHYSICS]: using builtin.
-2026-2-23 09:57:15 - log: [Scene] Cocos Creator v3.8.8
-2026-2-23 09:57:15 - log: [Scene] Using custom pipeline: Builtin
-2026-2-23 21:21:36 - log: [PreviewInEditor] meshopt wasm decoder initialized
-2026-2-23 21:21:36 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
-2026-2-23 21:21:36 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
-2026-2-23 21:21:36 - log: [PreviewInEditor] [PHYSICS]: using builtin.
-2026-2-23 21:21:36 - log: [PreviewInEditor] Cocos Creator v3.8.8
-2026-2-23 21:21:36 - log: [PreviewInEditor] Using custom pipeline: Builtin
-2026-2-23 21:21:50 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+2026-2-24 10:35:43 - log: Load engine in D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine
+2026-2-24 10:35:43 - log: Register native engine in D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\native
+2026-2-24 10:35:44 - log: Request namespace: device-list
+2026-2-24 10:35:48 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 10:35:49 - log: [Scene] meshopt wasm decoder initialized
+2026-2-24 10:35:49 - log: [Scene] [box2d]:box2d wasm lib loaded.
+2026-2-24 10:35:49 - log: [Scene] [bullet]:bullet wasm lib loaded.
+2026-2-24 10:35:49 - log: [Scene] [PHYSICS]: using builtin.
+2026-2-24 10:35:49 - log: [Scene] Cocos Creator v3.8.8
+2026-2-24 10:35:49 - log: [Scene] Using custom pipeline: Builtin
+2026-2-24 22:14:18 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:14:19 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:14:19 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:14:19 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:14:19 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:14:19 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:14:22 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:33:05 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:33:05 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:33:05 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:33:05 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:33:05 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:33:05 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:33:31 - error: [PreviewInEditor] Cannot read properties of null (reading 'length')TypeError: Cannot read properties of null (reading 'length')
+    at Function._findComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57023:39)
+    at Node.getComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57565:25)
+    at MainPanel.DettachUIPage (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:75:40)
+    at forEach (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:95:22)
+    at Map.forEach (<anonymous>)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:93:27)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/90/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts:56:15)
+    at eval (eval at tryCatchFunctor_EDITOR (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js), <anonymous>:4:10)
+    at NodeActivator.destroyComp (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55597:42)
+    at MainPanel._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:54101:44)
+    at MainPanel._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58183:22)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Scene._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Scene.Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Scene._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Function._deferredDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145587:19)
+    at Director.runSceneImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:15522:20)
+    at D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\scene\utils.ccc:1:1515
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:133842:17)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:141562:9)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:167821:9)
+    at sentryWrapped (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2026-2-24 22:33:32 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:33:47 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:33:47 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:33:47 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:33:47 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:33:47 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:33:47 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:34:50 - error: [PreviewInEditor] Cannot read properties of null (reading 'length')TypeError: Cannot read properties of null (reading 'length')
+    at Function._findComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57023:39)
+    at Node.getComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57565:25)
+    at MainPanel.DettachUIPage (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:75:40)
+    at forEach (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:95:22)
+    at Map.forEach (<anonymous>)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:93:27)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/90/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts:56:15)
+    at eval (eval at tryCatchFunctor_EDITOR (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js), <anonymous>:4:10)
+    at NodeActivator.destroyComp (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55597:42)
+    at MainPanel._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:54101:44)
+    at MainPanel._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58183:22)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Scene._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Scene.Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Scene._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Function._deferredDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145587:19)
+    at Director.runSceneImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:15522:20)
+    at D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\scene\utils.ccc:1:1515
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:133842:17)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:141562:9)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:167821:9)
+    at sentryWrapped (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2026-2-24 22:34:50 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
     at console.warn (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
     at IpcRenderer.<anonymous> (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
     at IpcRenderer.emit (node:events:519:28)
     at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
-2026-2-23 21:21:50 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:34:50 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+    at console.warn (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
+    at IpcRenderer.<anonymous> (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
+    at IpcRenderer.emit (node:events:519:28)
+    at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
+2026-2-24 22:34:50 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:36:06 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:36:06 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:36:06 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:36:06 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:36:06 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:36:06 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:36:19 - error: [PreviewInEditor] Cannot read properties of null (reading 'length')TypeError: Cannot read properties of null (reading 'length')
+    at Function._findComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57023:39)
+    at Node.getComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57565:25)
+    at MainPanel.DettachUIPage (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:75:40)
+    at forEach (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:95:22)
+    at Map.forEach (<anonymous>)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:93:27)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/90/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts:56:15)
+    at eval (eval at tryCatchFunctor_EDITOR (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js), <anonymous>:4:10)
+    at NodeActivator.destroyComp (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55597:42)
+    at MainPanel._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:54101:44)
+    at MainPanel._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58183:22)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Scene._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Scene.Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Scene._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Function._deferredDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145587:19)
+    at Director.runSceneImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:15522:20)
+    at D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\scene\utils.ccc:1:1515
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:133842:17)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:141562:9)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:167821:9)
+    at sentryWrapped (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2026-2-24 22:36:19 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+    at console.warn (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
+    at IpcRenderer.<anonymous> (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
+    at IpcRenderer.emit (node:events:519:28)
+    at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
+2026-2-24 22:36:20 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:36:35 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:36:35 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:36:35 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:36:35 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:36:35 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:36:35 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:36:40 - error: [PreviewInEditor] Cannot read properties of null (reading 'length')TypeError: Cannot read properties of null (reading 'length')
+    at Function._findComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57023:39)
+    at Node.getComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57565:25)
+    at MainPanel.DettachUIPage (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:75:40)
+    at forEach (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:95:22)
+    at Map.forEach (<anonymous>)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:93:27)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/90/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts:56:15)
+    at eval (eval at tryCatchFunctor_EDITOR (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js), <anonymous>:4:10)
+    at NodeActivator.destroyComp (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55597:42)
+    at MainPanel._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:54101:44)
+    at MainPanel._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58183:22)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Function._deferredDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145587:19)
+    at Director.tick (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:15835:24)
+    at Game._updateCallback (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:17506:22)
+    at updateCallback (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:88484:20)
+    at sentryWrapped (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2026-2-24 22:36:51 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+    at console.warn (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
+    at IpcRenderer.<anonymous> (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
+    at IpcRenderer.emit (node:events:519:28)
+    at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
+2026-2-24 22:36:51 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:36:52 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:36:52 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:36:52 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:36:52 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:36:52 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:36:52 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:36:58 - error: [PreviewInEditor] Cannot read properties of null (reading 'length')TypeError: Cannot read properties of null (reading 'length')
+    at Function._findComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57023:39)
+    at Node.getComponent (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:57565:25)
+    at MainPanel.DettachUIPage (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:75:40)
+    at forEach (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:95:22)
+    at Map.forEach (<anonymous>)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/34/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/Core/UIBase.ts:93:27)
+    at MainPanel.onDestroy (file:///D:/MyProjects/CocosProjects/FlowersArrangement/temp/programming/packer-driver/targets/editor/chunks/90/file:/D:/MyProjects/CocosProjects/FlowersArrangement/assets/scripts/UIScripts/MainPanel.ts:56:15)
+    at eval (eval at tryCatchFunctor_EDITOR (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js), <anonymous>:4:10)
+    at NodeActivator.destroyComp (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55597:42)
+    at MainPanel._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:54101:44)
+    at MainPanel._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58183:22)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Node._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Node._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Scene._onPreDestroyBase (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:58175:25)
+    at Scene.Node._onPreDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:55702:38)
+    at Scene._destroyImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145778:119)
+    at Function._deferredDestroy (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:145587:19)
+    at Director.runSceneImmediate (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:15522:20)
+    at D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\scene\utils.ccc:1:1515
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:133842:17)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:141562:9)
+    at eval (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\resources\3d\engine\bin\.cache\dev\editor\bundled\index.js:167821:9)
+    at sentryWrapped (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\browser\src\helpers.ts:116:17)
+2026-2-24 22:36:59 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:53:28 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:53:28 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:53:28 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:53:28 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:53:28 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:53:28 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:53:41 - warn: [PreviewInEditor] IPC message has been lost.Error: [PreviewInEditor] IPC message has been lost.
+    at console.warn (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\node_modules\@sentry\core\src\utils-hoist\instrument\console.ts:40:14)
+    at IpcRenderer.<anonymous> (D:\ProgramData\cocos_creator_data\Creator\3.8.8\resources\app.asar\builtin\scene\dist\script\3d\manager\ipc\web\webview.ccc:1:1464)
+    at IpcRenderer.emit (node:events:519:28)
+    at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
+2026-2-24 22:53:41 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:54:00 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:54:00 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:54:00 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:54:00 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:54:00 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:54:00 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:54:38 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:54:38 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:54:38 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:54:38 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:54:38 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:54:38 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:54:39 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:56:14 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-2-24 22:56:14 - log: [PreviewInEditor] meshopt wasm decoder initialized
+2026-2-24 22:56:14 - log: [PreviewInEditor] [bullet]:bullet wasm lib loaded.
+2026-2-24 22:56:14 - log: [PreviewInEditor] [box2d]:box2d wasm lib loaded.
+2026-2-24 22:56:14 - log: [PreviewInEditor] [PHYSICS]: using builtin.
+2026-2-24 22:56:14 - log: [PreviewInEditor] Cocos Creator v3.8.8
+2026-2-24 22:56:14 - log: [PreviewInEditor] Using custom pipeline: Builtin
+2026-2-24 22:57:36 - error: (node:21840) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 render-view-deleted listeners added to [WebContents]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `CocosCreator --trace-warnings ...` to show where the warning was created)
+2026-2-24 22:57:36 - error: (node:21840) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 new-window listeners added to [WebContents]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+2026-2-24 22:57:36 - info: [PreviewInEditor] 预览环境初始化完毕

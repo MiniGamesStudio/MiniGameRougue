@@ -52,7 +52,7 @@ export class UIDataSet {
 
     public static InitUIDatas(){
         this.InitUI(UIID.LoadingPanel, UILayer.System, "LoadingPanel", "ui/LoadingPanel");
-        this.InitUI(UIID.MainPanel, UILayer.Normal, "MainPanel", "ui/MainPanel");
+        this.InitUI(UIID.MainPanel, UILayer.Normal, "MainPanel", "ui/MainPanel", UIShowMode.Normal, 1);
         this.InitUI(UIID.GamePanel, UILayer.Normal, "GamePanel", "ui/GamePanel");
         this.InitUI(UIID.VictoryPanel, UILayer.Normal, "VictoryPanel", "ui/VictoryPanel");
     }
