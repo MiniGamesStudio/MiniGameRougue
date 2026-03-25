@@ -1,60 +1,52 @@
-import { _decorator, Camera, Component, director, instantiate, Node, resources, Sprite, SpriteFrame, Vec2, game, Game, PhysicsSystem2D, EPhysics2DDrawFlags } from 'cc';
+import { _decorator, Camera, Component, director, Node, game, Game } from 'cc';
 import { ScreenAdapter } from "./ScreenAdapter";
 import { GameManager } from "./Core/GameManager";
-import { UIManager } from './Core/UIManager';
-import { UIID } from './UIScripts/UIData';
 
 const { ccclass, property } = _decorator;
 
+/**
+ * 游戏入口 — 常驻节点，驱动 GameManager 生命周期
+ */
 @ccclass('Launcher')
 export class Launcher extends Component {
     @property(ScreenAdapter)
-    public m_ScreenAdapter = null;
+    public m_ScreenAdapter: ScreenAdapter = null;
     @property(Camera)
-    m_Camera = null;
+    m_Camera: Camera = null;
     @property(Node)
-    m_UIRoot = null;
+    m_UIRoot: Node = null;
     @property(Node)
-    m_GameWorld = null;
+    m_GameWorld: Node = null;
 
-    protected onLoad(): void {   
+    protected onLoad(): void {
         director.addPersistRootNode(this.node);
-        
-        // 监听游戏进入后台事件
+
         game.on(Game.EVENT_HIDE, this.onGameHide, this);
-        // 监听游戏回到前台事件
         game.on(Game.EVENT_SHOW, this.onGameShow, this);
 
-        GameManager.GetInstance().Init(this.m_GameWorld, this.m_UIRoot);
-    }
-
-    protected start(): void {
-        
+        // 传入 this.node 作为常驻节点，供 AudioManager 等挂载组件
+        GameManager.GetInstance().Init(this.m_GameWorld, this.m_UIRoot, this.node);
     }
 
     protected update(dt: number): void {
-        GameManager.GetInstance().Update(dt)
+        GameManager.GetInstance().Update(dt);
     }
-    
+
     protected lateUpdate(dt: number): void {
-        GameManager.GetInstance().LateUpdate(dt)
+        GameManager.GetInstance().LateUpdate(dt);
     }
 
     protected onDestroy(): void {
-        GameManager.GetInstance().Destory();
+        game.off(Game.EVENT_HIDE, this.onGameHide, this);
+        game.off(Game.EVENT_SHOW, this.onGameShow, this);
+        GameManager.GetInstance().Destroy();
     }
 
-     private onGameHide() {
-        console.log('游戏进入后台');
-        // 处理游戏进入后台的逻辑，例如暂停游戏、暂停音频等
+    private onGameHide(): void {
         GameManager.GetInstance().PauseGame();
     }
 
-    private onGameShow() {
-        console.log('游戏回到前台');
-        // 处理游戏回到前台的逻辑，例如恢复游戏、恢复音频等
+    private onGameShow(): void {
         GameManager.GetInstance().ResumeGame();
     }
 }
-
-

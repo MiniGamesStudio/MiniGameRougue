@@ -53,22 +53,22 @@
       "uuid": "798ca8d1-0b92-46eb-a837-ab4f0c07f759"
     },
     "scripts\\Core": {
-      "time": 1772077088099.9348,
+      "time": 1774424224881.184,
       "uuid": "34d9b340-0ce8-45ee-9a90-5de71fd1411d"
     },
     "scripts\\Launcher.ts": {
-      "time": 1758619746596.081,
+      "time": 1774423891350.0588,
       "uuid": "6bd473a9-b885-4cf7-ad19-f480985edc0e"
     },
     "scripts\\ScreenAdapter.ts": {
-      "time": 1758001474605.678,
+      "time": 1774423937821.4236,
       "uuid": "43b48910-34b5-4562-a46d-bc38d8f58eed"
     },
     "scripts\\Core\\GameManager.ts.meta": {
       "time": 1758002393124.16
     },
     "scripts\\Core\\GameManager.ts": {
-      "time": 1774422197911.3333,
+      "time": 1774423880045.2075,
       "uuid": "54644bc7-4998-47f7-887d-29c73780ca78"
     },
     "scripts\\Core\\UIBase.ts.meta": {
@@ -110,7 +110,7 @@
       "time": 1758010728059.9749
     },
     "scripts\\UIScripts\\LoadingPanel.ts": {
-      "time": 1774422410231.1301,
+      "time": 1774423927087.2268,
       "uuid": "48640665-0c64-4ac9-97d0-74b2f544a0d5"
     },
     "scripts\\UIScripts\\UIData.ts.meta": {
@@ -131,7 +131,7 @@
       "time": 1758024083996.2793
     },
     "scripts\\UIScripts\\MainPanel.ts": {
-      "time": 1772077088114.88,
+      "time": 1774423973730.0027,
       "uuid": "3fdc0d3b-7ffd-4f9b-b5af-1cbf88075fb3"
     },
     "resources\\texture.meta": {
@@ -313,7 +313,7 @@
       "time": 1758273698262.2737
     },
     "scripts\\Config\\Config.ts": {
-      "time": 1774422141217.2146,
+      "time": 1774423900036.5525,
       "uuid": "00a66e36-6ce7-4999-9f5d-382904b450e6"
     },
     "resources\\texture\\Slider_BasicTrapezoid01_Fill_Blue.png.meta": {
@@ -614,7 +614,7 @@
       "time": 1772077088115.8765
     },
     "scripts\\UIScripts\\MainTopPage.ts": {
-      "time": 1772077088115.8765,
+      "time": 1774423945336.6257,
       "uuid": "7b81d695-9d8f-4b50-8509-1723572c2b03"
     },
     "scripts\\Model": {
@@ -622,11 +622,11 @@
       "uuid": "1b09cbb0-87a6-4098-998c-1c3698b224f7"
     },
     "scripts\\Config\\GameConst.ts": {
-      "time": 1774422132908.1782,
+      "time": 1774423911291.8315,
       "uuid": "96af4eaa-95ea-43f3-b372-42c4528806b9"
     },
     "scripts\\Model\\GameState.ts": {
-      "time": 1774422167456.75,
+      "time": 1774423860325.0974,
       "uuid": "86539a39-eadd-4ca1-beec-31c3f64329ef"
     },
     "scripts\\Model\\LevelModel.ts": {
@@ -644,6 +644,41 @@
     },
     "scripts\\Model\\LevelModel.ts.meta": {
       "time": 1774423232280.4963
+    },
+    "scripts\\Core\\AudioManager.ts.meta": {
+      "time": 1774424224883.1775
+    },
+    "scripts\\Core\\ObjectPool.ts.meta": {
+      "time": 1774424224887.164
+    },
+    "scripts\\Core\\ResManager.ts.meta": {
+      "time": 1774424224887.164
+    },
+    "scripts\\Core\\StorageManager.ts.meta": {
+      "time": 1774424224887.164
+    },
+    "scripts\\Core\\TimerManager.ts.meta": {
+      "time": 1774424224888.1619
+    },
+    "scripts\\Core\\AudioManager.ts": {
+      "time": 1774423752035.27,
+      "uuid": "f7f7fee9-1d8f-4a8c-a8ea-1bdcdb911cc8"
+    },
+    "scripts\\Core\\ObjectPool.ts": {
+      "time": 1774423800827.0303,
+      "uuid": "b083b7d7-a947-4c67-9cce-ccd2d3e1c793"
+    },
+    "scripts\\Core\\ResManager.ts": {
+      "time": 1774423775394.1428,
+      "uuid": "dd11fe99-8b5d-49b1-aa10-245d0fb00b49"
+    },
+    "scripts\\Core\\StorageManager.ts": {
+      "time": 1774423847829.9104,
+      "uuid": "fbf5f300-4d71-45bf-a49c-cb70dbb07865"
+    },
+    "scripts\\Core\\TimerManager.ts": {
+      "time": 1774423826155.4734,
+      "uuid": "c967499c-3c1b-484a-8eef-de73132051d8"
     }
   },
   "missing": {}

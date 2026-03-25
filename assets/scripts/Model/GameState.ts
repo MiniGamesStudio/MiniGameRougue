@@ -1,5 +1,8 @@
+import { StorageManager } from '../Core/StorageManager';
+
 /**
  * 游戏状态管理 — 集中管理游戏运行时数据
+ * 使用 StorageManager 进行持久化
  */
 export class GameState {
     private static _instance: GameState;
@@ -13,6 +16,8 @@ export class GameState {
     /** 已解锁的最高关卡 */
     maxUnlockedLevel: number = 1;
 
+    private static readonly STORAGE_KEY = 'save_data';
+
     static getInstance(): GameState {
         if (!this._instance) {
             this._instance = new GameState();
@@ -23,26 +28,18 @@ export class GameState {
 
     /** 从本地存储加载进度 */
     load(): void {
-        try {
-            const saved = localStorage.getItem('flower_game_save');
-            if (saved) {
-                const data = JSON.parse(saved);
-                this.maxUnlockedLevel = data.maxUnlockedLevel ?? 1;
-            }
-        } catch (e) {
-            console.warn('GameState: 加载存档失败', e);
+        const storage = StorageManager.getInstance();
+        const data = storage.getObject<{ maxUnlockedLevel?: number }>(GameState.STORAGE_KEY);
+        if (data) {
+            this.maxUnlockedLevel = data.maxUnlockedLevel ?? 1;
         }
     }
 
     /** 保存进度到本地存储 */
     save(): void {
-        try {
-            localStorage.setItem('flower_game_save', JSON.stringify({
-                maxUnlockedLevel: this.maxUnlockedLevel,
-            }));
-        } catch (e) {
-            console.warn('GameState: 保存存档失败', e);
-        }
+        StorageManager.getInstance().setObject(GameState.STORAGE_KEY, {
+            maxUnlockedLevel: this.maxUnlockedLevel,
+        });
     }
 
     /** 通关当前关卡 */

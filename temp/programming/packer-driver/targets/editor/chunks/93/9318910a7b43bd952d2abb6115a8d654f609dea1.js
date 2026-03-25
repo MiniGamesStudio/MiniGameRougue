@@ -1,7 +1,7 @@
 System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__unresolved_3", "__unresolved_4"], function (_export, _context) {
   "use strict";
 
-  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, ProgressBar, UIBase, UIManager, UIID, GameConst, _dec, _dec2, _class, _class2, _descriptor, _crd, ccclass, property, LoadingPanel;
+  var _reporterNs, _cclegacy, __checkObsolete__, __checkObsoleteInNamespace__, _decorator, ProgressBar, UIBase, UIManager, UIID, FrameworkConst, _dec, _dec2, _class, _class2, _descriptor, _crd, ccclass, property, LoadingPanel;
 
   function _initializerDefineProperty(target, property, descriptor, context) { if (!descriptor) return; Object.defineProperty(target, property, { enumerable: descriptor.enumerable, configurable: descriptor.configurable, writable: descriptor.writable, value: descriptor.initializer ? descriptor.initializer.call(context) : void 0 }); }
 
@@ -21,8 +21,8 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
     _reporterNs.report("UIID", "./UIData", _context.meta, extras);
   }
 
-  function _reportPossibleCrUseOfGameConst(extras) {
-    _reporterNs.report("GameConst", "../Config/GameConst", _context.meta, extras);
+  function _reportPossibleCrUseOfFrameworkConst(extras) {
+    _reporterNs.report("FrameworkConst", "../Config/GameConst", _context.meta, extras);
   }
 
   return {
@@ -41,14 +41,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
     }, function (_unresolved_4) {
       UIID = _unresolved_4.UIID;
     }, function (_unresolved_5) {
-      GameConst = _unresolved_5.GameConst;
+      FrameworkConst = _unresolved_5.FrameworkConst;
     }],
     execute: function () {
       _crd = true;
 
       _cclegacy._RF.push({}, "48640ZlDGRKyZfQdLL1RKDV", "LoadingPanel", undefined);
 
-      __checkObsolete__(['_decorator', 'Component', 'Node', 'ProgressBar', 'Slider']);
+      __checkObsolete__(['_decorator', 'ProgressBar']);
 
       ({
         ccclass,
@@ -78,14 +78,11 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2", "__
         }
 
         update(dt) {
-          if (this.m_Progress == null || this.m_Progress == undefined) {
-            return;
-          }
-
+          if (!this.m_Progress) return;
           this.m_TimeDelta += dt;
-          this.m_Progress.progress = this.m_TimeDelta / (_crd && GameConst === void 0 ? (_reportPossibleCrUseOfGameConst({
+          this.m_Progress.progress = this.m_TimeDelta / (_crd && FrameworkConst === void 0 ? (_reportPossibleCrUseOfFrameworkConst({
             error: Error()
-          }), GameConst) : GameConst).LOADING_DURATION;
+          }), FrameworkConst) : FrameworkConst).LOADING_DURATION;
 
           if (this.m_Progress.progress >= 1) {
             this.m_TimeDelta = 0;

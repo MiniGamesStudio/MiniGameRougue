@@ -1,7 +1,15 @@
-import { _decorator, Component, Node } from 'cc';
-const { ccclass, property } = _decorator;
+/**
+ * 框架级事件 — 所有游戏通用
+ */
+export enum FrameworkEvent {
+    GamePaused = "Framework.GamePaused",
+    GameResumed = "Framework.GameResumed",
+    SceneChanged = "Framework.SceneChanged",
+}
 
-/** 客户端事件枚举 */
+/**
+ * 业务事件 — 插花游戏专用
+ */
 export enum CustomClientEvent {
     FlowerDissolve = "FlowerDissolve",
     CheckVictory = "CheckVictory",

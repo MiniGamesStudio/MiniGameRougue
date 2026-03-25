@@ -24,12 +24,15 @@ System.register(["cc"], function (_export, _context) {
 
       _cclegacy._RF.push({}, "43b48kQNLVFYqRtvDjY9Y7t", "ScreenAdapter", undefined);
 
-      __checkObsolete__(['_decorator', 'Component', 'view', 'Size', 'screen', 'Widget']);
+      __checkObsolete__(['_decorator', 'Component', 'view', 'Size']);
 
       ({
         ccclass,
         property
       } = _decorator);
+      /**
+       * 屏幕适配组件 — 根据屏幕比例动态选择适配策略
+       */
 
       _export("ScreenAdapter", ScreenAdapter = (_dec = ccclass('ScreenAdapter'), _dec2 = property(Size), _dec(_class = (_class2 = class ScreenAdapter extends Component {
         constructor(...args) {
@@ -39,9 +42,7 @@ System.register(["cc"], function (_export, _context) {
         }
 
         onLoad() {
-          // ��ʼ����
-          this.adjustScreen(); // ������Ļ��С�仯������������ڵ������豸��ת��
-
+          this.adjustScreen();
           view.on('resize', this.adjustScreen, this);
         }
 
@@ -54,14 +55,14 @@ System.register(["cc"], function (_export, _context) {
           if (!canvas) return;
           const screenSize = view.getVisibleSize();
           const designRatio = this.designResolution.width / this.designResolution.height;
-          const screenRatio = screenSize.width / screenSize.height; // ��̬ѡ���������
+          const screenRatio = screenSize.width / screenSize.height;
 
           if (screenRatio >= designRatio) {
-            // ��Ļ�����������ͬ -> �̶��߶ȣ�������ȿ��ܳ��ֵĺڱ�
+            // 屏幕更宽或相同 -> 固定高度
             canvas.fitHeight = true;
             canvas.fitWidth = false;
           } else {
-            // ��Ļ��խ -> �̶����ȣ�����߶ȿ��ܳ��ֵĺڱ�
+            // 屏幕更窄 -> 固定宽度
             canvas.fitHeight = false;
             canvas.fitWidth = true;
           }

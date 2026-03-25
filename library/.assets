@@ -93,7 +93,12 @@
             "resources\\ui\\MainTopPage.prefab",
             "resources\\ui\\RankingPage.prefab",
             "resources\\ui\\ShopPage.prefab",
-            "resources\\ui\\VictoryPanel.prefab"
+            "resources\\ui\\VictoryPanel.prefab",
+            "scripts\\Core\\AudioManager.ts",
+            "scripts\\Core\\ObjectPool.ts",
+            "scripts\\Core\\ResManager.ts",
+            "scripts\\Core\\StorageManager.ts",
+            "scripts\\Core\\TimerManager.ts"
         ]
     }
 }

@@ -2926,5 +2926,30 @@
     "url": "db://assets/scripts/Model/LevelModel.ts",
     "value": {},
     "versionCode": 1
+  },
+  "f7f7fee9-1d8f-4a8c-a8ea-1bdcdb911cc8": {
+    "url": "db://assets/scripts/Core/AudioManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b083b7d7-a947-4c67-9cce-ccd2d3e1c793": {
+    "url": "db://assets/scripts/Core/ObjectPool.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "dd11fe99-8b5d-49b1-aa10-245d0fb00b49": {
+    "url": "db://assets/scripts/Core/ResManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "fbf5f300-4d71-45bf-a49c-cb70dbb07865": {
+    "url": "db://assets/scripts/Core/StorageManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c967499c-3c1b-484a-8eef-de73132051d8": {
+    "url": "db://assets/scripts/Core/TimerManager.ts",
+    "value": {},
+    "versionCode": 1
   }
 }

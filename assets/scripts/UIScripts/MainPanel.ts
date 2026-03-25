@@ -1,10 +1,9 @@
-import { __private, _decorator, Button, Component, instantiate, Layout, math, Node, PageView, Prefab, ProgressBar, resources, Slider, SpriteFrame, Tween, tween, UITransform, Vec3, view } from 'cc';
+import { _decorator, Button, instantiate, Node, Prefab, resources, Tween, tween, Vec3, view } from 'cc';
 import { UIBase } from '../Core/UIBase';
-import { UIManager } from '../Core/UIManager';
-import { UIID } from './UIData';
+import { FrameworkConst } from '../Config/GameConst';
 const { ccclass, property } = _decorator;
 
-export enum PageType{
+export enum PageType {
     ShopPage = "ShopPage",
     AchievePage = "AchievePage",
     GamePage = "GamePage",
@@ -17,25 +16,23 @@ export class MainPanel extends UIBase {
     @property([Button])
     m_FuncBtns: Button[] = [];
     @property(Node)
-    m_PageOne:Node = null;
+    m_PageOne: Node = null;
     @property(Node)
-    m_PageTwo:Node = null;
+    m_PageTwo: Node = null;
     @property(Node)
-    m_TopPageRoot:Node = null;
+    m_TopPageRoot: Node = null;
 
-    private m_CurPage = null;
-    private m_OtherPage = null;
-    private m_LastIndex:number = 2;
-    private m_IsScrollingPage:boolean = false;
-    private m_ScreenWidth:number = 0;
-    private m_CurTween:Tween<any> = null;
-    private m_OtherTween:Tween<any> = null;
+    private m_CurPage: Node = null;
+    private m_OtherPage: Node = null;
+    private m_LastIndex: number = 2;
+    private m_IsScrollingPage: boolean = false;
+    private m_ScreenWidth: number = 0;
+    private m_CurTween: Tween<any> = null;
+    private m_OtherTween: Tween<any> = null;
 
-    private m_PageName:string[] = [];
+    private m_PageName: string[] = [];
 
-    OnInit(): void {
-        
-    }
+    OnInit(): void {}
 
     OnOpen(...args: any[]): void {
         this.m_PageName[0] = PageType.ShopPage;
@@ -43,99 +40,92 @@ export class MainPanel extends UIBase {
         this.m_PageName[2] = PageType.GamePage;
         this.m_PageName[3] = PageType.ChanllengePage;
         this.m_PageName[4] = PageType.RankingPage;
-        
+
         this.AttachUIPage(this.m_TopPageRoot, 'TopPage', "ui/MainTopPage");
         this.initUI();
     }
 
     OnClose(): void {
-        super.OnClose()
+        super.OnClose();
     }
 
     protected onDestroy(): void {
-        if(this.m_CurTween){
-            this.m_CurTween.stop();
-        }
-
-        if(this.m_OtherTween){
-            this.m_OtherTween.stop();
-        }
+        if (this.m_CurTween) this.m_CurTween.stop();
+        if (this.m_OtherTween) this.m_OtherTween.stop();
     }
 
-    initUI(): void {
-        var screenSize = view.getVisibleSize();
+    private initUI(): void {
+        const screenSize = view.getVisibleSize();
         this.m_ScreenWidth = screenSize.width;
         this.m_PageOne.setPosition(0, 0);
-        var pageName = this.m_PageName[2];
-        resources.load("ui/" + pageName, Prefab, (err, prefab)=>{
-            var tNode = instantiate(prefab);   
+
+        const pageName = this.m_PageName[2];
+        resources.load(FrameworkConst.RES_PATH.UI_PREFIX + pageName, Prefab, (err, prefab) => {
+            if (err || !prefab) return;
+            const tNode = instantiate(prefab);
             this.addPage(this.m_PageOne, tNode);
         });
 
         this.m_PageTwo.setPosition(this.m_ScreenWidth, 0);
-
         this.m_CurPage = this.m_PageOne;
         this.m_OtherPage = this.m_PageTwo;
 
-        this.m_FuncBtns.forEach((button, index) => {            
-            this.SetBtnEvent(button, ()=>{
-                if(index == this.m_LastIndex || this.m_IsScrollingPage)
-                {
-                    return;
-                }
+        this.m_FuncBtns.forEach((button, index) => {
+            this.SetBtnEvent(button, () => {
+                if (index === this.m_LastIndex || this.m_IsScrollingPage) return;
 
                 this.m_IsScrollingPage = true;
-                var screenSize = view.getVisibleSize();
-                this.m_ScreenWidth = screenSize.width;
-                var moveDis = 0;
-                if(this.m_LastIndex < index)
-                {
+                const size = view.getVisibleSize();
+                this.m_ScreenWidth = size.width;
+
+                let moveDis = 0;
+                if (this.m_LastIndex < index) {
                     this.m_OtherPage.setPosition(this.m_ScreenWidth, 0);
                     moveDis = -this.m_ScreenWidth;
-                }
-                else if(this.m_LastIndex > index)
-                {
+                } else {
                     this.m_OtherPage.setPosition(-this.m_ScreenWidth, 0);
                     moveDis = this.m_ScreenWidth;
                 }
 
                 this.m_LastIndex = index;
 
-                var pageName = this.m_PageName[index];
-                resources.load("ui/" + pageName, Prefab, (err, prefab)=>{
-                    var tNode = instantiate(prefab);   
+                const pName = this.m_PageName[index];
+                resources.load(FrameworkConst.RES_PATH.UI_PREFIX + pName, Prefab, (err, prefab) => {
+                    if (err || !prefab) return;
+                    const tNode = instantiate(prefab);
                     this.addPage(this.m_OtherPage, tNode);
-                    
-                    this.m_OtherTween = tween(this.m_OtherPage).by(0.5, {position:new Vec3(moveDis, 0, 0)}).start();
-                    this.m_CurTween = tween(this.m_CurPage).by(0.5, {position:new Vec3(moveDis, 0, 0)}).call(()=>{
-                        var temp = this.m_CurPage;
-                        this.m_CurPage = this.m_OtherPage;
-                        this.m_OtherPage = temp;
-                        this.m_IsScrollingPage = false;
-                    }).start();
+
+                    this.m_OtherTween = tween(this.m_OtherPage)
+                        .by(FrameworkConst.PAGE_SCROLL_DURATION, { position: new Vec3(moveDis, 0, 0) })
+                        .start();
+                    this.m_CurTween = tween(this.m_CurPage)
+                        .by(FrameworkConst.PAGE_SCROLL_DURATION, { position: new Vec3(moveDis, 0, 0) })
+                        .call(() => {
+                            const temp = this.m_CurPage;
+                            this.m_CurPage = this.m_OtherPage;
+                            this.m_OtherPage = temp;
+                            this.m_IsScrollingPage = false;
+                        })
+                        .start();
                 });
             });
         });
     }
 
-    addPage(root:Node, uiNode:Node){
-        if(root && uiNode){
-            root.children.forEach((node, index, arr)=>{
-                if(node){
-                    var pageScript = node.getComponent(UIBase);
-                    if(pageScript){
-                        pageScript.OnClose();
-                    }
-                    node.removeFromParent();
-                    node.destroy();
-                }
-            });
+    private addPage(root: Node, uiNode: Node): void {
+        if (!root || !uiNode) return;
 
-            var pScript = uiNode.getComponent(UIBase);
-            if(pScript){
-                pScript.OnOpen();
+        root.children.forEach(node => {
+            if (node) {
+                const pageScript = node.getComponent(UIBase);
+                if (pageScript) pageScript.OnClose();
+                node.removeFromParent();
+                node.destroy();
             }
-            root.addChild(uiNode);
-        }
+        });
+
+        const pScript = uiNode.getComponent(UIBase);
+        if (pScript) pScript.OnOpen();
+        root.addChild(uiNode);
     }
 }

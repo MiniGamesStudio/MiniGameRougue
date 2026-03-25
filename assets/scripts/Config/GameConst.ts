@@ -1,6 +1,22 @@
 import { Vec3 } from 'cc';
 
-/** 游戏常量配置，集中管理所有魔法数字 */
+/**
+ * 框架级常量 — 所有游戏通用
+ */
+export const FrameworkConst = {
+    /** 默认加载界面时长（秒） */
+    LOADING_DURATION: 1,
+    /** 页面滑动动画时长（秒） */
+    PAGE_SCROLL_DURATION: 0.5,
+    /** 资源路径前缀 */
+    RES_PATH: {
+        UI_PREFIX: 'ui/',
+    },
+} as const;
+
+/**
+ * 业务常量 — 插花游戏专用
+ */
 export const GameConst = {
     // 花朵相关
     FLOWER_FLY_SPEED: 1000,
@@ -10,17 +26,10 @@ export const GameConst = {
     FLOWER_ROTATION_RIGHT: new Vec3(0, 0, -30),
     FLOWER_DRAG_OFFSET_RATIO: 0.6,
 
-    // 加载相关
-    LOADING_DURATION: 1,
-
-    // 页面滑动
-    PAGE_SCROLL_DURATION: 0.5,
-
     // 资源路径
     RES_PATH: {
         FLOWERS: 'flowers/',
         LEVEL_DATA: 'levelData/level_',
-        UI_PREFIX: 'ui/',
         FLOWER_PLATFORM: 'ui/FlowerPlatform',
     },
 

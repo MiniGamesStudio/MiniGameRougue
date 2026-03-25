@@ -41,12 +41,15 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
 
       _cclegacy._RF.push({}, "6bd47OpuIVM960Z9ICYXtwO", "Launcher", undefined);
 
-      __checkObsolete__(['_decorator', 'Camera', 'Component', 'director', 'instantiate', 'Node', 'resources', 'Sprite', 'SpriteFrame', 'Vec2', 'game', 'Game', 'PhysicsSystem2D', 'EPhysics2DDrawFlags']);
+      __checkObsolete__(['_decorator', 'Camera', 'Component', 'director', 'Node', 'game', 'Game']);
 
       ({
         ccclass,
         property
       } = _decorator);
+      /**
+       * 游戏入口 — 常驻节点，驱动 GameManager 生命周期
+       */
 
       _export("Launcher", Launcher = (_dec = ccclass('Launcher'), _dec2 = property(_crd && ScreenAdapter === void 0 ? (_reportPossibleCrUseOfScreenAdapter({
         error: Error()
@@ -64,17 +67,14 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
         }
 
         onLoad() {
-          director.addPersistRootNode(this.node); // 监听游戏进入后台事件
+          director.addPersistRootNode(this.node);
+          game.on(Game.EVENT_HIDE, this.onGameHide, this);
+          game.on(Game.EVENT_SHOW, this.onGameShow, this); // 传入 this.node 作为常驻节点，供 AudioManager 等挂载组件
 
-          game.on(Game.EVENT_HIDE, this.onGameHide, this); // 监听游戏回到前台事件
-
-          game.on(Game.EVENT_SHOW, this.onGameShow, this);
           (_crd && GameManager === void 0 ? (_reportPossibleCrUseOfGameManager({
             error: Error()
-          }), GameManager) : GameManager).GetInstance().Init(this.m_GameWorld, this.m_UIRoot);
+          }), GameManager) : GameManager).GetInstance().Init(this.m_GameWorld, this.m_UIRoot, this.node);
         }
-
-        start() {}
 
         update(dt) {
           (_crd && GameManager === void 0 ? (_reportPossibleCrUseOfGameManager({
@@ -89,22 +89,20 @@ System.register(["__unresolved_0", "cc", "__unresolved_1", "__unresolved_2"], fu
         }
 
         onDestroy() {
+          game.off(Game.EVENT_HIDE, this.onGameHide, this);
+          game.off(Game.EVENT_SHOW, this.onGameShow, this);
           (_crd && GameManager === void 0 ? (_reportPossibleCrUseOfGameManager({
             error: Error()
-          }), GameManager) : GameManager).GetInstance().Destory();
+          }), GameManager) : GameManager).GetInstance().Destroy();
         }
 
         onGameHide() {
-          console.log('游戏进入后台'); // 处理游戏进入后台的逻辑，例如暂停游戏、暂停音频等
-
           (_crd && GameManager === void 0 ? (_reportPossibleCrUseOfGameManager({
             error: Error()
           }), GameManager) : GameManager).GetInstance().PauseGame();
         }
 
         onGameShow() {
-          console.log('游戏回到前台'); // 处理游戏回到前台的逻辑，例如恢复游戏、恢复音频等
-
           (_crd && GameManager === void 0 ? (_reportPossibleCrUseOfGameManager({
             error: Error()
           }), GameManager) : GameManager).GetInstance().ResumeGame();
