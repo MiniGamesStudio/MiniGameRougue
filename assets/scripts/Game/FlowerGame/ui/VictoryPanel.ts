@@ -1,9 +1,9 @@
 import { _decorator, Button, RichText } from 'cc';
-import { UIBase } from '../Core/UIBase';
-import { UIManager } from '../Core/UIManager';
-import { EventManager } from '../Core/EventManager';
-import { FlowerUIID } from '../Game/FlowerGame/FlowerUIConfig';
-import { FlowerEvent } from '../Game/FlowerGame/FlowerEvent';
+import { UIBase } from '../../../engine/ui/UIBase';
+import { UIManager } from '../../../engine/ui/UIManager';
+import { EventManager } from '../../../framework/EventManager';
+import { FlowerUIID } from '../FlowerUIConfig';
+import { FlowerEvent } from '../FlowerEvent';
 const { ccclass, property } = _decorator;
 
 @ccclass('VictoryPanel')

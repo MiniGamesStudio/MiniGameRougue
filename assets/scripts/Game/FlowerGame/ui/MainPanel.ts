@@ -1,6 +1,6 @@
 import { _decorator, Button, instantiate, Node, Prefab, resources, Tween, tween, Vec3, view } from 'cc';
-import { UIBase } from '../Core/UIBase';
-import { FrameworkConst } from '../Core/FrameworkConst';
+import { UIBase } from '../../../engine/ui/UIBase';
+import { FrameworkConst } from '../../../framework/FrameworkConst';
 const { ccclass, property } = _decorator;
 
 export enum PageType {

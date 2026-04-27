@@ -1,9 +1,9 @@
 import { _decorator, BoxCollider2D, color, Component, instantiate, Node, resources, Sprite, SpriteFrame, tween, UITransform } from 'cc';
 import { Flower } from './Flower';
-import { EventManager } from '../Core/EventManager';
-import { FlowerEvent } from '../Game/FlowerGame/FlowerEvent';
-import { FlowerConst } from '../Game/FlowerGame/FlowerConst';
-import { FlowerPosition } from '../Game/FlowerGame/FlowerLevelModel';
+import { EventManager } from '../../../framework/EventManager';
+import { FlowerEvent } from '../FlowerEvent';
+import { FlowerConst } from '../FlowerConst';
+import { FlowerPosition } from '../FlowerLevelModel';
 const { ccclass, property } = _decorator;
 
 /**

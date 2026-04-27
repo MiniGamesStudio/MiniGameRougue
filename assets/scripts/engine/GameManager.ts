@@ -1,17 +1,20 @@
 import { _decorator, Node } from "cc";
-import { UIManager } from "./UIManager";
+import { UIManager } from "./ui/UIManager";
 import { AudioManager } from "./AudioManager";
-import { TimerManager } from "./TimerManager";
-import { StorageManager } from "./StorageManager";
 import { ResManager } from "./ResManager";
-import { PoolManager } from "./ObjectPool";
-import { EventManager } from "./EventManager";
-import { FrameworkEvent } from "./FrameworkEvent";
+import { NodePoolManager } from "./NodePool";
+import { TimerManager } from "../framework/TimerManager";
+import { StorageManager } from "../framework/StorageManager";
+import { PoolManager } from "../framework/ObjectPool";
+import { EventManager } from "../framework/EventManager";
+import { FrameworkEvent } from "../framework/FrameworkEvent";
+
 const { ccclass } = _decorator;
 
 /**
- * 游戏管理器 — 纯框架级，统一初始化和驱动所有子系统
- * 不依赖任何业务代码，业务初始化通过 onGameReady 回调注入
+ * 游戏管理器 — 引擎层，统一初始化和驱动所有子系统
+ * 桥接框架层（纯逻辑）和引擎层（Cocos 依赖），
+ * 业务初始化通过 onGameReady 回调注入
  */
 @ccclass('GameManager')
 export class GameManager {
@@ -28,11 +31,11 @@ export class GameManager {
     private m_Initialized: boolean = false;
 
     /**
-     * 初始化所有框架子系统
+     * 初始化所有子系统
      * @param gameWorldRoot 游戏世界根节点
      * @param uiRoot UI 根节点
      * @param persistNode 常驻节点（用于挂载 AudioSource 等）
-     * @param onGameReady 业务侧初始化回调（注册 UI、加载首屏等）
+     * @param onGameReady 游戏层初始化回调（注册 UI、加载首屏等）
      */
     Init(
         gameWorldRoot: Node,
@@ -45,16 +48,16 @@ export class GameManager {
 
         this.m_GameWorldRoot = gameWorldRoot;
 
-        // 1. 存储
+        // 1. 框架层 — 存储
         StorageManager.getInstance();
 
-        // 2. 音频
+        // 2. 引擎层 — 音频
         AudioManager.getInstance().init(persistNode);
 
-        // 3. UI
+        // 3. 引擎层 — UI
         UIManager.GetInstance().Init(uiRoot);
 
-        // 4. 业务侧初始化（注册 UI 面板、设置存储前缀、打开首屏等）
+        // 4. 游戏层初始化（注册 UI 面板、设置存储前缀、打开首屏等）
         if (onGameReady) {
             onGameReady();
         }
@@ -74,6 +77,7 @@ export class GameManager {
     Destroy(): void {
         TimerManager.getInstance().clear();
         PoolManager.getInstance().clearAll();
+        NodePoolManager.getInstance().clearAll();
         AudioManager.getInstance().destroy();
         EventManager.getInstance().clear();
         ResManager.getInstance().releaseAll();

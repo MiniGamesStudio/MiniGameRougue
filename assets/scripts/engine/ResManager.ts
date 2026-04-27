@@ -2,11 +2,7 @@ import { Asset, Prefab, resources, instantiate, Node } from 'cc';
 
 /**
  * 资源管理器 — 统一管理 resources 目录下资源的加载、缓存和释放
- *
- * 使用方式:
- *   const sp = await ResManager.getInstance().loadAsync<SpriteFrame>('texture/icon', SpriteFrame);
- *   ResManager.getInstance().load<Prefab>('ui/MyPanel', Prefab, (err, prefab) => { ... });
- *   ResManager.getInstance().releaseDir('levelData');
+ * 引擎层：依赖 Cocos Creator 资源系统
  */
 export class ResManager {
     private static _instance: ResManager;
@@ -21,12 +17,7 @@ export class ResManager {
         return this._instance;
     }
 
-    /**
-     * 加载单个资源（回调方式）
-     * @param path resources 下的路径
-     * @param type 资源类型
-     * @param callback 完成回调
-     */
+    /** 加载单个资源（回调方式） */
     load<T extends Asset>(path: string, type: new (...args: any[]) => T, callback: (err: Error | null, asset: T) => void): void {
         resources.load(path, type, (err, asset) => {
             if (!err && asset) {
@@ -36,9 +27,7 @@ export class ResManager {
         });
     }
 
-    /**
-     * 加载单个资源（Promise 方式）
-     */
+    /** 加载单个资源（Promise 方式） */
     loadAsync<T extends Asset>(path: string, type: new (...args: any[]) => T): Promise<T> {
         return new Promise((resolve, reject) => {
             this.load(path, type, (err, asset) => {
@@ -48,22 +37,17 @@ export class ResManager {
         });
     }
 
-    /**
-     * 加载目录下所有资源
-     */
+    /** 加载目录下所有资源 */
     loadDir<T extends Asset>(dir: string, type: new (...args: any[]) => T, callback: (err: Error | null, assets: T[]) => void): void {
         resources.loadDir(dir, type, (err, assets) => {
             if (!err && assets) {
-                // 使用目录路径作为引用计数 key
                 this.addRef(dir);
             }
             callback(err, assets as T[]);
         });
     }
 
-    /**
-     * 实例化 Prefab 的便捷方法
-     */
+    /** 实例化 Prefab 的便捷方法 */
     instantiatePrefab(path: string, callback: (err: Error | null, node: Node | null) => void): void {
         this.load(path, Prefab, (err, prefab) => {
             if (err || !prefab) {
@@ -75,9 +59,7 @@ export class ResManager {
         });
     }
 
-    /**
-     * 释放单个资源（引用计数归零时真正释放）
-     */
+    /** 释放单个资源（引用计数归零时真正释放） */
     release(path: string): void {
         const count = this._refMap.get(path);
         if (count !== undefined) {
@@ -90,11 +72,8 @@ export class ResManager {
         }
     }
 
-    /**
-     * 释放目录下所有资源
-     */
+    /** 释放目录下所有资源 */
     releaseDir(dir: string): void {
-        // 清除该目录下的引用计数并逐个释放
         const keysToDelete: string[] = [];
         for (const [key] of this._refMap) {
             if (key === dir || key.startsWith(dir + '/')) {
@@ -107,9 +86,7 @@ export class ResManager {
         }
     }
 
-    /**
-     * 释放所有已缓存资源
-     */
+    /** 释放所有已缓存资源 */
     releaseAll(): void {
         this._refMap.clear();
         resources.releaseAll();

@@ -1,5 +1,5 @@
-import { StorageManager } from '../../Core/StorageManager';
-import { UIManager } from '../../Core/UIManager';
+import { StorageManager } from '../../framework/StorageManager';
+import { UIManager } from '../../engine/ui/UIManager';
 import { registerSurvivorGameUI, SurvivorUIID } from './SurvivorUIConfig';
 import { SurvivorGameState } from './SurvivorGameState';
 

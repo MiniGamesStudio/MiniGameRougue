@@ -1,4 +1,4 @@
-import { UIDataRegistry, UILayer, UIShowMode } from '../../Core/UIData';
+import { UIDataRegistry, UILayer, UIShowMode } from '../../engine/ui/UIData';
 
 /**
  * 幸存者游戏 UI ID

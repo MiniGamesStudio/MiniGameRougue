@@ -2,7 +2,7 @@ import { _decorator } from 'cc';
 const { ccclass } = _decorator;
 
 /**
- * UI 层级枚举 — 框架级，所有游戏通用
+ * UI 层级枚举 — 引擎层，所有游戏通用
  */
 export enum UILayer {
     Background = 0,
@@ -14,7 +14,7 @@ export enum UILayer {
 }
 
 /**
- * UI 打开模式 — 框架级
+ * UI 打开模式
  */
 export enum UIShowMode {
     Normal,       // 可同时打开多个
@@ -37,7 +37,7 @@ export class UIData {
 }
 
 /**
- * UI 数据注册表 — 框架提供注册/查找能力，业务侧负责注册具体面板
+ * UI 数据注册表 — 引擎层提供注册/查找能力，游戏层负责注册具体面板
  */
 @ccclass('UIDataRegistry')
 export class UIDataRegistry {

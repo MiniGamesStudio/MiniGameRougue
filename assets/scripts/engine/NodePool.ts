@@ -1,29 +1,20 @@
 import { instantiate, Node, Prefab } from 'cc';
 
 /**
- * 通用对象池 — 减少频繁 instantiate/destroy 的开销
+ * Cocos Node 对象池 — 减少频繁 instantiate/destroy 的开销
+ * 引擎层：依赖 Cocos Creator 节点系统
  *
  * 使用方式:
- *   // 创建池
- *   const pool = new ObjectPool(bulletPrefab, 20);
- *   // 获取节点
+ *   const pool = new NodePool(bulletPrefab, 20);
  *   const bullet = pool.get();
  *   bullet.parent = this.node;
- *   // 回收节点
  *   pool.put(bullet);
- *   // 销毁池
- *   pool.clear();
  */
-export class ObjectPool {
+export class NodePool {
     private _prefab: Prefab;
     private _pool: Node[] = [];
     private _maxSize: number;
 
-    /**
-     * @param prefab 预制体
-     * @param initSize 初始预创建数量
-     * @param maxSize 池最大容量（超出的回收节点直接销毁）
-     */
     constructor(prefab: Prefab, initSize: number = 0, maxSize: number = 100) {
         this._prefab = prefab;
         this._maxSize = maxSize;
@@ -78,31 +69,26 @@ export class ObjectPool {
 }
 
 /**
- * 对象池管理器 — 按名称管理多个对象池
- *
- * 使用方式:
- *   PoolManager.getInstance().createPool('bullet', bulletPrefab, 20);
- *   const bullet = PoolManager.getInstance().get('bullet');
- *   PoolManager.getInstance().put('bullet', bullet);
+ * Node 对象池管理器 — 按名称管理多个 Node 对象池
  */
-export class PoolManager {
-    private static _instance: PoolManager;
-    private _pools: Map<string, ObjectPool> = new Map();
+export class NodePoolManager {
+    private static _instance: NodePoolManager;
+    private _pools: Map<string, NodePool> = new Map();
 
-    static getInstance(): PoolManager {
+    static getInstance(): NodePoolManager {
         if (!this._instance) {
-            this._instance = new PoolManager();
+            this._instance = new NodePoolManager();
         }
         return this._instance;
     }
 
     /** 创建一个命名对象池 */
-    createPool(name: string, prefab: Prefab, initSize: number = 0, maxSize: number = 100): ObjectPool {
+    createPool(name: string, prefab: Prefab, initSize: number = 0, maxSize: number = 100): NodePool {
         if (this._pools.has(name)) {
-            console.warn(`PoolManager: 池 [${name}] 已存在，将被覆盖`);
+            console.warn(`NodePoolManager: 池 [${name}] 已存在，将被覆盖`);
             this._pools.get(name)!.clear();
         }
-        const pool = new ObjectPool(prefab, initSize, maxSize);
+        const pool = new NodePool(prefab, initSize, maxSize);
         this._pools.set(name, pool);
         return pool;
     }
@@ -111,7 +97,7 @@ export class PoolManager {
     get(name: string): Node | null {
         const pool = this._pools.get(name);
         if (!pool) {
-            console.warn(`PoolManager: 池 [${name}] 不存在`);
+            console.warn(`NodePoolManager: 池 [${name}] 不存在`);
             return null;
         }
         return pool.get();
@@ -121,7 +107,7 @@ export class PoolManager {
     put(name: string, node: Node): void {
         const pool = this._pools.get(name);
         if (!pool) {
-            console.warn(`PoolManager: 池 [${name}] 不存在，节点将被销毁`);
+            console.warn(`NodePoolManager: 池 [${name}] 不存在，节点将被销毁`);
             node.destroy();
             return;
         }

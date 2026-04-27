@@ -2,11 +2,7 @@ import { AudioClip, AudioSource, Node, resources } from 'cc';
 
 /**
  * 音频管理器 — 管理背景音乐和音效的播放
- * 
- * 使用方式:
- *   AudioManager.getInstance().init(persistNode);
- *   AudioManager.getInstance().playBGM('audio/bgm_main');
- *   AudioManager.getInstance().playSFX('audio/sfx_click');
+ * 引擎层：依赖 Cocos Creator 音频系统
  */
 export class AudioManager {
     private static _instance: AudioManager;
@@ -30,7 +26,7 @@ export class AudioManager {
     }
 
     /**
-     * 初始化，需要传入一个常驻节点（如 Launcher 节点）
+     * 初始化，需要传入一个常驻节点
      * AudioSource 组件会挂载到该节点上
      */
     init(persistNode: Node): void {
@@ -50,7 +46,6 @@ export class AudioManager {
 
     // ==================== BGM ====================
 
-    /** 播放背景音乐（resources 下的路径，不含后缀） */
     playBGM(path: string): void {
         this.loadClip(path, (clip) => {
             if (!this._bgmSource) return;
@@ -93,7 +88,6 @@ export class AudioManager {
 
     // ==================== SFX ====================
 
-    /** 播放音效（resources 下的路径，不含后缀） */
     playSFX(path: string): void {
         if (this._sfxMuted) return;
         this.loadClip(path, (clip) => {
@@ -131,7 +125,6 @@ export class AudioManager {
         });
     }
 
-    /** 清除音频缓存 */
     clearCache(): void {
         this._clipCache.clear();
     }

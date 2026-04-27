@@ -1,8 +1,8 @@
 import { _decorator, BoxCollider2D, Collider2D, Component, Contact2DType, EventTouch, Node, tween, UITransform, Vec2, Vec3 } from 'cc';
-import { EventManager } from '../Core/EventManager';
-import { FlowerEvent } from '../Game/FlowerGame/FlowerEvent';
-import { FlowerConst } from '../Game/FlowerGame/FlowerConst';
-import { FlowerPosition, SLOT_NAMES, SLOT_PRIORITY } from '../Game/FlowerGame/FlowerLevelModel';
+import { EventManager } from '../../../framework/EventManager';
+import { FlowerEvent } from '../FlowerEvent';
+import { FlowerConst } from '../FlowerConst';
+import { FlowerPosition, SLOT_NAMES, SLOT_PRIORITY } from '../FlowerLevelModel';
 const { ccclass } = _decorator;
 
 /**
@@ -96,7 +96,6 @@ export class Flower extends Component {
             }
         }
 
-        // 检查是否还有有效的碰撞
         for (let i = 0; i < this.m_ContactTags.length; i++) {
             if (this.m_ContactTags[i] >= 0) {
                 allCleared = false;

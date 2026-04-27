@@ -1,4 +1,4 @@
-import { StorageManager } from '../../Core/StorageManager';
+import { StorageManager } from '../../framework/StorageManager';
 
 /**
  * 插花游戏状态

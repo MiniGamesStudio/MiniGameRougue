@@ -1,7 +1,7 @@
 import { _decorator, Button } from 'cc';
-import { UIBase } from '../Core/UIBase';
-import { UIManager } from '../Core/UIManager';
-import { FlowerUIID } from '../Game/FlowerGame/FlowerUIConfig';
+import { UIBase } from '../../../engine/ui/UIBase';
+import { UIManager } from '../../../engine/ui/UIManager';
+import { FlowerUIID } from '../FlowerUIConfig';
 const { ccclass, property } = _decorator;
 
 @ccclass('GamePage')

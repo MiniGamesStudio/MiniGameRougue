@@ -1,15 +1,13 @@
 /**
  * 定时器管理器 — 提供与 Component 生命周期解耦的定时器
+ * 框架层：纯逻辑，不依赖任何引擎 API
  *
  * 使用方式:
- *   // 延迟执行
  *   const id = TimerManager.getInstance().once(2.0, () => { console.log('2秒后'); });
- *   // 循环执行
  *   const id = TimerManager.getInstance().loop(1.0, () => { console.log('每秒'); });
- *   // 取消
  *   TimerManager.getInstance().cancel(id);
  *
- * 需要在 GameManager.Update 中调用 TimerManager.getInstance().update(dt)
+ * 需要在引擎层每帧调用 TimerManager.getInstance().update(dt)
  */
 
 interface TimerEntry {
@@ -33,22 +31,12 @@ export class TimerManager {
         return this._instance;
     }
 
-    /**
-     * 注册一次性定时器
-     * @param delay 延迟秒数
-     * @param callback 回调
-     * @returns 定时器 ID
-     */
+    /** 注册一次性定时器 */
     once(delay: number, callback: () => void): number {
         return this.addTimer(delay, callback, false);
     }
 
-    /**
-     * 注册循环定时器
-     * @param interval 间隔秒数
-     * @param callback 回调
-     * @returns 定时器 ID
-     */
+    /** 注册循环定时器 */
     loop(interval: number, callback: () => void): number {
         return this.addTimer(interval, callback, true);
     }
@@ -87,7 +75,7 @@ export class TimerManager {
 
     /**
      * 每帧调用，驱动所有定时器
-     * 需要在 GameManager.Update(dt) 中调用
+     * 由引擎层 GameManager.Update(dt) 调用
      */
     update(dt: number): void {
         const toRemove: number[] = [];

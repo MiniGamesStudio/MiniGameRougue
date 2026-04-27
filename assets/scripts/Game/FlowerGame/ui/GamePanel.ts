@@ -1,13 +1,13 @@
 import { _decorator, Button, instantiate, JsonAsset, Node, Prefab, resources } from 'cc';
-import { UIBase } from '../Core/UIBase';
-import { UIManager } from '../Core/UIManager';
-import { EventManager } from '../Core/EventManager';
+import { UIBase } from '../../../engine/ui/UIBase';
+import { UIManager } from '../../../engine/ui/UIManager';
+import { EventManager } from '../../../framework/EventManager';
 import { FlowerPlatform } from './FlowerPlatform';
-import { FlowerUIID } from '../Game/FlowerGame/FlowerUIConfig';
-import { FlowerEvent } from '../Game/FlowerGame/FlowerEvent';
-import { FlowerConst } from '../Game/FlowerGame/FlowerConst';
-import { FlowerGameState } from '../Game/FlowerGame/FlowerGameState';
-import { FlowerLevelData } from '../Game/FlowerGame/FlowerLevelModel';
+import { FlowerUIID } from '../FlowerUIConfig';
+import { FlowerEvent } from '../FlowerEvent';
+import { FlowerConst } from '../FlowerConst';
+import { FlowerGameState } from '../FlowerGameState';
+import { FlowerLevelData } from '../FlowerLevelModel';
 const { ccclass, property } = _decorator;
 
 @ccclass('GamePanel')

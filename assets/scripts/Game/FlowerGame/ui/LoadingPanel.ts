@@ -1,8 +1,8 @@
 import { _decorator, ProgressBar } from 'cc';
-import { UIBase } from '../Core/UIBase';
-import { UIManager } from '../Core/UIManager';
-import { FrameworkConst } from '../Core/FrameworkConst';
-import { FlowerUIID } from '../Game/FlowerGame/FlowerUIConfig';
+import { UIBase } from '../../../engine/ui/UIBase';
+import { UIManager } from '../../../engine/ui/UIManager';
+import { FrameworkConst } from '../../../framework/FrameworkConst';
+import { FlowerUIID } from '../FlowerUIConfig';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoadingPanel')

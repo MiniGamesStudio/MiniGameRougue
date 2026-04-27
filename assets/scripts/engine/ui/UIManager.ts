@@ -6,7 +6,7 @@ const { ccclass } = _decorator;
 
 /**
  * UI 管理器 — 管理面板的打开、关闭、缓存和分层
- * 纯框架级，不依赖任何业务代码
+ * 引擎层：依赖 Cocos Creator 节点和资源系统
  */
 @ccclass('UIManager')
 export class UIManager {
@@ -113,7 +113,6 @@ export class UIManager {
         const pID = this.m_PanelID;
         this.m_PanelID++;
 
-        // 记录正在加载的面板 ID，防止加载期间被重复打开
         let uiDatas = this.m_PanelDataMap.get(id);
         if (!uiDatas) {
             uiDatas = [];
@@ -124,7 +123,6 @@ export class UIManager {
         resources.load(uidata.prefabPath, Prefab, (err, prefab) => {
             if (err) {
                 console.warn(`UIManager: 加载面板失败 [${uidata.name}]`, err);
-                // 加载失败，移除占位
                 const datas = this.m_PanelDataMap.get(id);
                 if (datas) {
                     const idx = datas.indexOf(pID);
@@ -133,10 +131,9 @@ export class UIManager {
                 return;
             }
 
-            // 加载完成后校验面板是否已被关闭
             const datas = this.m_PanelDataMap.get(id);
             if (!datas || !datas.includes(pID)) {
-                return; // 面板在加载期间已被关闭
+                return;
             }
 
             const root = this.GetUIRootByUILayer(uidata.layer);

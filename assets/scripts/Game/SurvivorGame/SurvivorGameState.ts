@@ -1,4 +1,4 @@
-import { StorageManager } from '../../Core/StorageManager';
+import { StorageManager } from '../../framework/StorageManager';
 
 /**
  * 幸存者游戏持久化状态

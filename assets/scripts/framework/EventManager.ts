@@ -1,5 +1,6 @@
 /**
- * 事件管理器 — 全局事件总线，不再继承 Component
+ * 事件管理器 — 全局事件总线
+ * 框架层：纯逻辑，不依赖任何引擎 API
  */
 
 interface EventHandler {
@@ -23,7 +24,6 @@ export class EventManager {
         if (!this._events.has(eventName)) {
             this._events.set(eventName, []);
         }
-        // 防止重复注册同一 callback + target
         const handlers = this._events.get(eventName)!;
         const exists = handlers.some(h => h.callback === callback && h.target === (target ?? null));
         if (!exists) {
@@ -48,7 +48,6 @@ export class EventManager {
                 handlers.splice(i, 1);
             }
         }
-        // 清理空数组
         if (handlers.length === 0) {
             this._events.delete(eventName);
         }
@@ -58,7 +57,6 @@ export class EventManager {
         const handlers = this._events.get(eventName);
         if (!handlers || handlers.length === 0) return;
 
-        // 复制一份避免遍历中修改
         const snapshot = handlers.slice();
         for (const handler of snapshot) {
             handler.callback.call(handler.target, ...args);

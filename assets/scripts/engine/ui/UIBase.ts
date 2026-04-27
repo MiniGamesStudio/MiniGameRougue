@@ -4,7 +4,7 @@ const { ccclass } = _decorator;
 
 /**
  * UI 基类 — 所有面板的父类，提供生命周期钩子和子页面管理
- * 纯框架级，不依赖任何业务代码
+ * 引擎层：依赖 Cocos Creator Component 系统
  */
 @ccclass('UIBase')
 export abstract class UIBase extends Component {

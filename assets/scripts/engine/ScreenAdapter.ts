@@ -3,6 +3,7 @@ const { ccclass, property } = _decorator;
 
 /**
  * 屏幕适配组件 — 根据屏幕比例动态选择适配策略
+ * 引擎层：依赖 Cocos Creator 视图系统
  */
 @ccclass('ScreenAdapter')
 export class ScreenAdapter extends Component {
@@ -27,11 +28,9 @@ export class ScreenAdapter extends Component {
         const screenRatio = screenSize.width / screenSize.height;
 
         if (screenRatio >= designRatio) {
-            // 屏幕更宽或相同 -> 固定高度
             canvas.fitHeight = true;
             canvas.fitWidth = false;
         } else {
-            // 屏幕更窄 -> 固定宽度
             canvas.fitHeight = false;
             canvas.fitWidth = true;
         }

@@ -1,5 +1,5 @@
-import { StorageManager } from '../../Core/StorageManager';
-import { UIManager } from '../../Core/UIManager';
+import { StorageManager } from '../../framework/StorageManager';
+import { UIManager } from '../../engine/ui/UIManager';
 import { registerFlowerGameUI, FlowerUIID } from './FlowerUIConfig';
 import { FlowerGameState } from './FlowerGameState';
 
