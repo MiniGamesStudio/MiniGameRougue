@@ -1,0 +1,6 @@
+{
+  "sourceDir": "../excel-config",
+  "outputDir": "../../assets/resources/config/roguelike",
+  "schemaDir": "./schemas",
+  "flatcPath": "flatc"
+}

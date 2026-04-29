@@ -36,42 +36,42 @@
 - [x] 3. 检查点 - 基础模块验证
   - 确保所有测试通过，如有疑问请询问用户。
 
-- [ ] 4. Excel 导出工具
-  - [ ] 4.1 初始化 `tools/excel-exporter/` 项目结构
+- [x] 4. Excel 导出工具
+  - [x] 4.1 初始化 `tools/excel-exporter/` 项目结构
     - 创建 `package.json`、`tsconfig.json`、`config.json`
     - 添加 xlsx、flatbuffers 等依赖
     - _需求: 17.20, 17.22_
-  - [ ] 4.2 实现 `tools/excel-exporter/src/ExcelReader.ts`
+  - [x] 4.2 实现 `tools/excel-exporter/src/ExcelReader.ts`
     - 读取 .xlsx 文件，解析表头行（字段名、字段类型、注释）和数据行
     - 跳过空行和以 # 开头的注释行
     - 类型不匹配时记录错误日志并中止该表导出
     - _需求: 17.1, 17.2, 17.6, 17.7_
-  - [ ] 4.3 实现 `tools/excel-exporter/src/SchemaGenerator.ts`
+  - [x] 4.3 实现 `tools/excel-exporter/src/SchemaGenerator.ts`
     - 根据 Excel 表头自动生成 FBS Schema 文件
     - 支持 int、float、bool、string、enum、array 类型映射
     - _需求: 17.2, 17.3_
-  - [ ] 4.4 实现 `tools/excel-exporter/src/SchemaCompiler.ts`
+  - [x] 4.4 实现 `tools/excel-exporter/src/SchemaCompiler.ts`
     - 调用 flatc 编译器将 FBS Schema 编译为 TypeScript 访问代码
     - _需求: 17.4_
-  - [ ] 4.5 实现 `tools/excel-exporter/src/BinaryExporter.ts`
+  - [x] 4.5 实现 `tools/excel-exporter/src/BinaryExporter.ts`
     - 将 Excel 数据行序列化为 FlatBuffers 二进制格式并输出 Binary_Config 文件
     - _需求: 17.5_
-  - [ ] 4.6 实现 `tools/excel-exporter/src/SchemaRegistry.ts`
+  - [x] 4.6 实现 `tools/excel-exporter/src/SchemaRegistry.ts`
     - 记录每个 FBS Schema 的内容哈希值和最后导出时间戳
     - 检测 Schema 兼容性变更（删除字段、修改字段类型），不兼容时输出详细说明
     - _需求: 17.10, 17.12, 17.13_
-  - [ ] 4.7 实现 `tools/excel-exporter/src/ExportPipeline.ts` 和 CLI 入口 `src/index.ts`
+  - [x] 4.7 实现 `tools/excel-exporter/src/ExportPipeline.ts` 和 CLI 入口 `src/index.ts`
     - 串联完整导出流程：扫描 → 增量检测 → 读取 → 生成 Schema → 编译 → 导出二进制 → 更新注册表
     - 支持批量导出和增量导出模式
     - 导出完成后输出统计摘要（处理文件数、成功数、失败数、总耗时）
     - 提供 `npm run export-config` 命令
     - _需求: 17.9, 17.11, 17.20, 17.21, 17.22_
-  - [ ] 4.8 创建示例 Excel 配置文件
+  - [x] 4.8 创建示例 Excel 配置文件
     - 在 `tools/excel-config/` 目录下创建 enemy.xlsx、weapon.xlsx 等示例配置文件
     - 按照表头约定（字段名、字段类型、注释、数据行）填充示例数据
     - _需求: 17.1, 17.2_
 
-- [ ] 5. 检查点 - 导出工具验证
+- [x] 5. 检查点 - 导出工具验证
   - 确保所有测试通过，如有疑问请询问用户。
 
 - [x] 6. 游戏模块基础文件
