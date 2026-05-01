@@ -3006,5 +3006,695 @@
     "url": "db://assets/scripts/Game/FlowerGame/FlowerUIConfig.ts",
     "value": {},
     "versionCode": 1
+  },
+  "211cab37-71d6-4ead-affc-1bd22b5825b3": {
+    "url": "db://assets/scripts/engine",
+    "value": {},
+    "versionCode": 1
+  },
+  "59b66024-ec7b-4c79-bf37-27f080eadcf7": {
+    "url": "db://assets/scripts/framework",
+    "value": {},
+    "versionCode": 1
+  },
+  "7df16e00-9eaa-45d0-9e40-b833854a2188": {
+    "url": "db://assets/scripts/engine/ui",
+    "value": {},
+    "versionCode": 1
+  },
+  "73edaae5-0b7a-425f-afe0-f601833012aa": {
+    "url": "db://assets/scripts/Game/FlowerGame",
+    "value": {},
+    "versionCode": 1
+  },
+  "da78de8d-ea1e-4991-8dd2-56529c650069": {
+    "url": "db://assets/scripts/Game/RoguelikeGame",
+    "value": {},
+    "versionCode": 1
+  },
+  "ff324f2a-7812-4e46-a49c-667da6f103da": {
+    "url": "db://assets/scripts/Game/SurvivorGame",
+    "value": {},
+    "versionCode": 1
+  },
+  "191bdeae-9286-465e-a518-a494dbf87eba": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui",
+    "value": {},
+    "versionCode": 1
+  },
+  "8ff3b979-e399-42ff-916b-237338d2115a": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data",
+    "value": {},
+    "versionCode": 1
+  },
+  "1acad9ed-ea87-4c19-aa87-cfcbd37dacd5": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime",
+    "value": {},
+    "versionCode": 1
+  },
+  "883b3e01-d147-4f85-985f-6bfe975e634e": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types",
+    "value": {},
+    "versionCode": 1
+  },
+  "969ae862-f40d-4fa4-b6cb-458e0ad7fde5": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI",
+    "value": {},
+    "versionCode": 1
+  },
+  "30da3a95-de95-406c-a3d8-7301acaeb3c4": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Data",
+    "value": {},
+    "versionCode": 1
+  },
+  "7b7f4819-2239-43e1-aff1-f50419e7d093": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime",
+    "value": {},
+    "versionCode": 1
+  },
+  "3e1ac1e3-fb0c-40df-839f-1c983227328f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces",
+    "value": {},
+    "versionCode": 1
+  },
+  "f17008ff-d009-40a4-b42d-7efd94a7230b": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Enemies",
+    "value": {},
+    "versionCode": 1
+  },
+  "9c62b787-5ec4-43f9-872b-b9ac2a29677f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Events",
+    "value": {},
+    "versionCode": 1
+  },
+  "1a8783d8-7634-4f75-83a4-3e0f70b726cd": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Npcs",
+    "value": {},
+    "versionCode": 1
+  },
+  "5470b3ec-7a47-4d2d-bf0c-09cb1720f1a9": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Pets",
+    "value": {},
+    "versionCode": 1
+  },
+  "a9a82e87-25e2-40b9-abca-3873291a2a86": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms",
+    "value": {},
+    "versionCode": 1
+  },
+  "5c733f36-cfa0-48eb-aad1-db1cd4494fa1": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Weapons",
+    "value": {},
+    "versionCode": 1
+  },
+  "65d5d2c0-a506-4f38-a37c-2aa3fe8e9c81": {
+    "url": "db://assets/scripts/engine/AudioManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a787068c-9747-42af-be56-ace086ba195d": {
+    "url": "db://assets/scripts/engine/ConfigManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "880e566e-df6c-4a54-bc82-c5bef1d4e049": {
+    "url": "db://assets/scripts/engine/FlatBuffersRuntime.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c6d1d8ee-b920-4aab-b685-1366461740a1": {
+    "url": "db://assets/scripts/engine/GameManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a8aceee6-ff61-4d7e-b9c6-07d67c2cf768": {
+    "url": "db://assets/scripts/engine/Launcher.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3e8d1741-f66b-4f37-b83f-da27d9bf817a": {
+    "url": "db://assets/scripts/engine/NodePool.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0e04bbbe-77d8-4386-8cdf-86916e843569": {
+    "url": "db://assets/scripts/engine/ResManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "536c5dc6-7880-4aca-916c-85a89bc02090": {
+    "url": "db://assets/scripts/engine/ScreenAdapter.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8d9ebb34-2307-4f11-8712-dfa50620aff6": {
+    "url": "db://assets/scripts/framework/EventManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "76f48a98-0329-4930-9897-1d133c6f66fa": {
+    "url": "db://assets/scripts/framework/FrameworkConst.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8714e158-e318-467a-8142-de76f29894bb": {
+    "url": "db://assets/scripts/framework/FrameworkEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "902019a8-f0e0-487d-bcc8-14b48e86b33d": {
+    "url": "db://assets/scripts/framework/ObjectPool.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f83a0421-5281-4443-b795-b35c7ade3faf": {
+    "url": "db://assets/scripts/framework/StorageManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "dde74a02-05e2-4e8c-93b9-cdf4cb71e61c": {
+    "url": "db://assets/scripts/framework/TimerManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "fc314bcc-afac-4b42-befc-9d580d673f0f": {
+    "url": "db://assets/scripts/framework/TypeFactory.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2bfe76bf-68a1-4227-a1bd-b584166c5e39": {
+    "url": "db://assets/scripts/framework/TypeRegistry.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6678fc54-bd49-4733-92a7-08e548ca8181": {
+    "url": "db://assets/scripts/engine/ui/UIBase.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "68b8b1d8-1503-4d37-8967-edc49faf7b76": {
+    "url": "db://assets/scripts/engine/ui/UIData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "09655416-66ee-480f-b261-8b2948cd74af": {
+    "url": "db://assets/scripts/engine/ui/UIManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "1638cddd-1afc-48bf-b31a-f81e8a39fe20": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/RoguelikeConst.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ce65027b-2443-4bad-8416-97b1b7e79ef2": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/RoguelikeEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "57ba1ac3-4741-4178-ae87-5983e8fa1ea4": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/RoguelikeGameEntry.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a715abf8-cd00-4e81-ab42-d25d32212fdc": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/RoguelikeGameState.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9d05b8af-00c5-4f09-a872-0d3bb4f7ce67": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/RoguelikeUIConfig.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0f68a90d-a128-4f5d-acbc-7f0a288a90c7": {
+    "url": "db://assets/scripts/Game/SurvivorGame/SurvivorConst.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9e1ac285-030e-4757-bf7e-af9c9662d822": {
+    "url": "db://assets/scripts/Game/SurvivorGame/SurvivorEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "7b128360-70ed-4e9a-93a8-bcfa2ac26e24": {
+    "url": "db://assets/scripts/Game/SurvivorGame/SurvivorGameEntry.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "777f5f3a-1efc-4518-a35b-3bf4312b0d5b": {
+    "url": "db://assets/scripts/Game/SurvivorGame/SurvivorGameState.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "90dad521-c149-4b34-9973-cc98b1231f89": {
+    "url": "db://assets/scripts/Game/SurvivorGame/SurvivorUIConfig.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "12954eab-3904-499a-8710-9b3bf257d54f": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/Flower.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "4e3d169b-f7a6-4bdb-8893-b09db3ba391b": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/FlowerPlatform.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2abf6f68-d59c-4808-ba8a-8bb644efb345": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/GamePage.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ad6f5a9a-e1f2-4cb2-8de3-e7f57e9e7ba5": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/GamePanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "010892b2-c000-4095-8903-97f9f9a4f400": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/LoadingPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "22de7818-fe8e-470c-bec7-91ab37d108dd": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/MainPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6f44112c-eb08-4297-9eca-4949a8af19e6": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/MainTopPage.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d6923da0-cbb8-4cd9-af02-f4ffb48ec076": {
+    "url": "db://assets/scripts/Game/FlowerGame/ui/VictoryPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5f4330cc-fc6e-4ae1-838d-30c9fb1f0452": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/ConfigTables.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "67981123-0b5c-4080-9e15-fc92cca3e88c": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/BattleController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c7c85842-dbfc-4846-b9fb-ce776d7d6a98": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/ClassManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "df82df18-d738-4d82-a612-263f902ecfe2": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/CostumeManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "e91a6cca-bd45-470f-9c68-6f3febeb3eed": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/DamageSystem.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "304015fb-4296-4016-a996-6d7c793298bd": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/DungeonManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c6671a9a-1d26-41be-9d43-18a684868808": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/EnemySpawner.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "86627b44-422b-458a-9919-4d03edca4886": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/EventRoomManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "4b8700c6-6141-4e88-8e3b-2b4efcedead5": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/InputHandler.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2eb17f40-36ec-4189-b0e4-c3d18ee8e63b": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/ItemManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3b1379db-1702-4006-8121-23180941c582": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/LevelUpManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "66bb0f78-4c77-4298-9a8c-072c42013210": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/LootSystem.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "03602ee6-23e9-406d-9d5f-09e16633745b": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/MetaProgressionManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "a50a13a9-59a4-4235-b36c-0f3e71afc8f1": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/NpcManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "7fda50d5-2a8f-4849-866e-029b161914f7": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/PetManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3a13553a-c83e-42db-8001-6507bb6caf23": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/PlayerController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "364ac414-08b3-44e8-a90b-631d71205039": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/RoomGenerator.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "e2a31856-d256-4a87-bd0f-49d459071dfe": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/ShopManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "e383684f-cd85-42a1-9031-228994d75daf": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Runtime/WeaponManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "616cbe14-6dc2-4268-a7a7-7e01dbd4b9b7": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/TypeRegistration.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5f6768a9-093f-47dd-8d85-43574b64b3e1": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgBattleHUD.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "047716fd-22d5-4ba6-a7ab-33a5b0d0726d": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgClassSelectPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ba46cb7f-e867-4227-a841-63220977f5db": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgCostumePanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "96e5420e-9f0e-4823-823d-ec3bbd16bada": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgDeathPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c45cdcd2-8faf-4d73-ba7a-78fdd023a604": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgEventPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "34363041-1848-44fe-80be-5db9d05556b9": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgLevelUpPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6dcbb61c-ed4b-411b-89d6-183502102764": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgLoadingPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "808fbf3b-a88b-4446-85ef-016b0ae79c51": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgMainPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0b56b0bc-b687-4010-ad23-64fb13131409": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgMetaUpgradePanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "7cba2b34-9eb2-48fa-987e-68047d35405f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgNpcPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c8d3a91e-ebb4-4ec5-95e7-db15f3809a21": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgPausePanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "1c276c29-666b-4189-b620-9f4d6a4a001f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgPetPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0d9764b0-47da-4125-a05e-55152d2d9d7c": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgShopPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "85e1b666-a58b-4635-802b-a8584281708a": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgTalentTreePanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "bc5ba7f0-2154-4ca7-ab4d-6f40f7a8aa00": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/UI/RgVictoryPanel.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "63128ea8-2388-4a38-bd74-84b63b15b754": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Data/CharacterData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3c5505e3-1697-4427-b6a8-d1a5f2fcb377": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Data/EnemyData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "98526603-574e-4a27-b92b-4b44cbd70c53": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Data/LevelUpData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "aa5697de-99d8-4825-8cde-c67311932f6f": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Data/WeaponData.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ee324a2e-ab56-4993-a5eb-ce36c010d3d3": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/BattleController.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "3950de97-60fd-430c-8a04-6c1531d22f92": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/BattleSession.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6e7ced58-7f36-4c7c-8d16-b71094703979": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/EnemySpawner.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "965f59de-1eac-4a2c-9c3e-98ab87c76b0c": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/LevelUpManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "bbfd2c3c-c4aa-414f-9433-1dc3206f12de": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/PassiveManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "199a1982-878b-45ef-9cd0-e89a7137e0ee": {
+    "url": "db://assets/scripts/Game/SurvivorGame/Runtime/WeaponManager.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "03fcfa59-134e-44d6-abbb-fa4e41ae5515": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IClassSkill.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9b1c6683-09c8-400f-9762-22bb1907e739": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IClassType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8a7fd9d8-df7c-49fc-add0-7e58fc708d5e": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IEnemyType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b85f63dd-f626-45c3-ab10-2b36555b272e": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IEventType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f102f547-cd1b-4691-9046-d4ddf5d17f5e": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IItemType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f27dc7e0-f5de-46ef-b7b9-d5995bd256a6": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/ILevelUpOption.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9ac54087-19b5-4373-872a-5350b46928e7": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/INpcType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "160871d6-a284-46bf-822f-eaf055c04580": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IPetType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "78a450f9-7dd1-4381-9b85-8e3f13945f0a": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IRoomType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "31b38e5a-73f7-4642-b9e3-789c7d13aafe": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IShopGoods.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c343aeb3-6b19-4ef6-8c21-87b7127bf0b6": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Data/Interfaces/IWeaponType.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "250ae639-2409-4d9d-8e6d-e1dcf0937a4d": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Enemies/BossEnemy.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "9dfe6b51-6001-45cd-98bc-c4ab2ca73725": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Enemies/EliteEnemy.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f971de7d-ab8e-47ce-bf3a-a4a50d3c2aa0": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Enemies/MeleeEnemy.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "c26018df-6577-4366-9150-a69aa5e79b70": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Enemies/RangedEnemy.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "49b3f212-199f-494f-92e2-53e02fbcd4bc": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Events/AltarEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "547bc647-a750-4979-8251-f733171884d2": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Events/NpcInteractEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "ec7ff853-7244-4b1a-ace3-0ca20cd16103": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Events/RewardEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "df0ba65a-b238-4e07-a819-ff1ffcba77a5": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Events/TrapEvent.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "b2cd5438-d170-4833-a4fc-ab6c15917502": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Npcs/BlacksmithNpc.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d9418320-b1fa-4fb2-821e-3f68e3bb635c": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Npcs/ClassMasterNpc.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8aaa3cdd-9c55-4b37-8e1a-ce250510bdf4": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Npcs/MerchantNpc.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "95f632b0-b0fd-4ff0-a647-cc82a77a5e78": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Npcs/SkillMasterNpc.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "0f879a6f-029c-46e8-a121-e45f046f7ae5": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Pets/AttackPet.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "038b29a2-8ca7-406c-9e35-95e68967562f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Pets/DefensePet.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6c09fa5a-34ca-40a9-9535-03e7f1b32958": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Pets/SupportPet.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "8bbd4eae-0ee4-4e42-99ce-99233aac19ba": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/BattleRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "49054cc4-cb0f-449f-bd8c-9b09fc4ab73f": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/BossRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "5bf9d6c3-67d2-4faf-999b-3c04f1f1d6e6": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/EliteRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "f9dce5c7-8c55-4627-a673-546d30c3f48a": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/EventRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "92603e38-ce7c-451e-a62b-d66d56771ed3": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/NpcRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "6dc02e17-f6c4-4e80-bef7-b4d68b6f9b07": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Rooms/ShopRoom.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "d9c979c9-57a3-4e52-abe4-9d0561235978": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Weapons/AoeWeapon.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "cd3c3de2-ce48-4832-a569-a3b4daed2f78": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Weapons/MeleeWeapon.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "77e176c7-638f-4fd7-afd0-efe0b5124dbb": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Weapons/OrbitWeapon.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "fc3d83b8-1d34-46cc-8e4a-99257ec06d0d": {
+    "url": "db://assets/scripts/Game/RoguelikeGame/Types/Weapons/ProjectileWeapon.ts",
+    "value": {},
+    "versionCode": 1
   }
 }

@@ -12,6 +12,13 @@ import {
     DungeonFloor,
     FloorConfig,
 } from '../Data/Interfaces/IRoomType';
+import { HexMapGenerator, HexMapConfig, TerrainTypeLookup } from './HexTerrain/HexMapGenerator';
+import { MapBoundaryShape } from './HexTerrain/HexGrid';
+import {
+    DEFAULT_MAP_GEN_CONFIGS,
+    DEFAULT_TERRAIN_CONFIGS,
+    MapGenConfigRow,
+} from '../Data/ConfigTables';
 
 /** 简易自增 ID 生成器 */
 let _roomIdCounter = 0;
@@ -37,12 +44,18 @@ export function resetRoomIdCounter(): void {
  */
 export class RoomGenerator {
     private _roomRegistry: TypeRegistry<IRoomType>;
+    private _hexMapGenerator: HexMapGenerator | null;
 
     /**
      * @param roomRegistry 房间类型注册表
+     * @param hexMapGenerator 可选的六角格地图生成器
      */
-    constructor(roomRegistry: TypeRegistry<IRoomType>) {
+    constructor(
+        roomRegistry: TypeRegistry<IRoomType>,
+        hexMapGenerator?: HexMapGenerator
+    ) {
         this._roomRegistry = roomRegistry;
+        this._hexMapGenerator = hexMapGenerator ?? null;
     }
 
     /**
@@ -72,12 +85,61 @@ export class RoomGenerator {
         const bossRoom = rooms.find(r => r.typeId === 'boss');
         const bossRoomId = bossRoom ? bossRoom.id : rooms[rooms.length - 1].id;
 
+        // 7. 如果有六角格地图生成器，为每个房间生成六角格地图
+        if (this._hexMapGenerator) {
+            for (const room of rooms) {
+                const hexMapConfig = this._getHexMapConfig(room.typeId, floorIndex);
+                if (hexMapConfig) {
+                    room.hexGrid = this._hexMapGenerator.generate(hexMapConfig);
+                }
+            }
+        }
+
         return {
             floorIndex,
             rooms,
             connections,
             startRoomId,
             bossRoomId,
+        };
+    }
+
+    /**
+     * 根据房间类型和楼层索引获取六角格地图生成配置
+     * @param roomTypeId 房间类型标识
+     * @param floorIndex 楼层索引
+     * @returns HexMapConfig 或 null（非战斗房间不生成地图）
+     */
+    private _getHexMapConfig(roomTypeId: string, floorIndex: number): HexMapConfig | null {
+        // 只为战斗类房间生成六角格地图
+        const battleRoomTypes = ['battle', 'elite', 'boss'];
+        if (!battleRoomTypes.includes(roomTypeId)) {
+            return null;
+        }
+
+        // 从默认配置中查找对应房间类型的地图生成参数
+        const configRow = DEFAULT_MAP_GEN_CONFIGS.find(c => c.roomTypeId === roomTypeId)
+            ?? DEFAULT_MAP_GEN_CONFIGS[0]; // 默认使用 battle 配置
+
+        // 构建海拔阈值映射
+        const elevationThresholds: Record<string, [number, number]> = {};
+        for (const terrain of DEFAULT_TERRAIN_CONFIGS) {
+            elevationThresholds[terrain.typeId] = [terrain.elevationMin, terrain.elevationMax];
+        }
+
+        return {
+            width: configRow.mapWidth,
+            height: configRow.mapHeight,
+            boundaryShape: configRow.boundaryShape as MapBoundaryShape,
+            seed: Date.now() + floorIndex * 1000 + Math.floor(Math.random() * 10000),
+            noiseFrequency: configRow.noiseFrequency,
+            noiseAmplitude: configRow.noiseAmplitude,
+            noiseOctaves: configRow.noiseOctaves,
+            elevationThresholds,
+            temperatureFrequency: configRow.temperatureFrequency,
+            temperatureThreshold: configRow.temperatureThreshold,
+            floorDepth: floorIndex,
+            difficultyBias: configRow.difficultyBias,
         };
     }
 

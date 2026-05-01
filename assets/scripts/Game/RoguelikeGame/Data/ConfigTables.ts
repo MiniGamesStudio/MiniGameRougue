@@ -334,6 +334,9 @@ export const CONFIG_TABLE_NAMES = {
     SHOP: 'shop',
     DUNGEON: 'dungeon',
     META_UPGRADE: 'meta_upgrade',
+    TERRAIN_TYPE: 'terrain_type',
+    BIOME: 'biome',
+    MAP_GEN: 'map_gen',
 } as const;
 
 // ─── 占位访问器 ────────────────────────────────────────────
@@ -440,3 +443,69 @@ export function registerConfigAccessors(): void {
         `[ConfigTables] 已注册 ${Object.keys(CONFIG_TABLE_NAMES).length} 个配置表占位访问器`
     );
 }
+
+// ─── 地形类型配置表 ────────────────────────────────────────
+
+export interface TerrainTypeConfigRow {
+    typeId: string;
+    displayName: string;
+    moveSpeedModifier: number;
+    walkable: boolean;
+    effectIds: string[];
+    visualAsset: string;
+    elevationMin: number;
+    elevationMax: number;
+}
+
+export interface TerrainTypeConfigTable {
+    terrains: TerrainTypeConfigRow[];
+}
+
+// ─── 生态群落配置表 ────────────────────────────────────────
+
+export interface BiomeConfigRow {
+    biomeId: string;
+    terrainWeights: Record<string, number>;
+    minFloor: number;
+    maxFloor: number;
+}
+
+export interface BiomeConfigTable {
+    biomes: BiomeConfigRow[];
+}
+
+// ─── 地图生成配置表 ────────────────────────────────────────
+
+export interface MapGenConfigRow {
+    roomTypeId: string;
+    mapWidth: number;
+    mapHeight: number;
+    boundaryShape: number;
+    noiseFrequency: number;
+    noiseAmplitude: number;
+    noiseOctaves: number;
+    temperatureFrequency: number;
+    temperatureThreshold: number;
+    difficultyBias: number;
+}
+
+export interface MapGenConfigTable {
+    configs: MapGenConfigRow[];
+}
+
+// ─── 默认地形配置数据 ──────────────────────────────────────
+
+export const DEFAULT_TERRAIN_CONFIGS: TerrainTypeConfigRow[] = [
+    { typeId: 'plains', displayName: '平原', moveSpeedModifier: 1.0, walkable: true, effectIds: ['speed_modifier'], visualAsset: 'terrain/plains', elevationMin: 0.4, elevationMax: 0.6 },
+    { typeId: 'forest', displayName: '森林', moveSpeedModifier: 0.7, walkable: true, effectIds: ['speed_modifier', 'evasion_boost'], visualAsset: 'terrain/forest', elevationMin: 0.6, elevationMax: 0.75 },
+    { typeId: 'mountain', displayName: '山地', moveSpeedModifier: 0.4, walkable: true, effectIds: ['speed_modifier', 'defense_boost'], visualAsset: 'terrain/mountain', elevationMin: 0.75, elevationMax: 0.9 },
+    { typeId: 'water', displayName: '水域', moveSpeedModifier: 0.0, walkable: false, effectIds: [], visualAsset: 'terrain/water', elevationMin: 0.0, elevationMax: 0.3 },
+    { typeId: 'desert', displayName: '沙漠', moveSpeedModifier: 0.8, walkable: true, effectIds: ['speed_modifier', 'cooldown_reduction'], visualAsset: 'terrain/desert', elevationMin: 0.4, elevationMax: 0.6 },
+    { typeId: 'swamp', displayName: '沼泽', moveSpeedModifier: 0.5, walkable: true, effectIds: ['speed_modifier', 'dot_damage'], visualAsset: 'terrain/swamp', elevationMin: 0.3, elevationMax: 0.4 },
+];
+
+export const DEFAULT_MAP_GEN_CONFIGS: MapGenConfigRow[] = [
+    { roomTypeId: 'battle', mapWidth: 15, mapHeight: 15, boundaryShape: 0, noiseFrequency: 0.08, noiseAmplitude: 1.0, noiseOctaves: 3, temperatureFrequency: 0.1, temperatureThreshold: 0.7, difficultyBias: 0.05 },
+    { roomTypeId: 'elite', mapWidth: 12, mapHeight: 12, boundaryShape: 0, noiseFrequency: 0.12, noiseAmplitude: 1.0, noiseOctaves: 4, temperatureFrequency: 0.1, temperatureThreshold: 0.7, difficultyBias: 0.08 },
+    { roomTypeId: 'boss', mapWidth: 18, mapHeight: 18, boundaryShape: 1, noiseFrequency: 0.05, noiseAmplitude: 1.0, noiseOctaves: 2, temperatureFrequency: 0.1, temperatureThreshold: 0.7, difficultyBias: 0.03 },
+];

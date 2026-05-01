@@ -12,6 +12,10 @@ import {
     FloorConfig,
     RoomNode,
 } from '../Data/Interfaces/IRoomType';
+import { HexGrid } from './HexTerrain/HexGrid';
+import { HexRenderer } from './HexTerrain/HexRenderer';
+import { FogOfWar } from './HexTerrain/FogOfWar';
+import { TerrainEffectManager } from './HexTerrain/TerrainEffectManager';
 
 /**
  * 地牢管理器
@@ -30,6 +34,13 @@ export class DungeonManager {
     private _exploredRoomIds: Set<string> = new Set();
     /** 当前楼层索引 */
     private _currentFloorIndex: number = 0;
+
+    /** 六角格渲染器（可选，运行时注入） */
+    private _hexRenderer: HexRenderer | null = null;
+    /** 战争迷雾系统（可选，运行时注入） */
+    private _fogOfWar: FogOfWar | null = null;
+    /** 地形效果管理器（可选，运行时注入） */
+    private _terrainEffectManager: TerrainEffectManager | null = null;
 
     /**
      * @param roomGenerator 房间生成器实例
@@ -60,6 +71,47 @@ export class DungeonManager {
     /** 获取已探索房间 ID 集合 */
     get exploredRoomIds(): ReadonlySet<string> {
         return this._exploredRoomIds;
+    }
+
+    /** 获取六角格渲染器 */
+    get hexRenderer(): HexRenderer | null {
+        return this._hexRenderer;
+    }
+
+    /** 获取战争迷雾系统 */
+    get fogOfWar(): FogOfWar | null {
+        return this._fogOfWar;
+    }
+
+    /** 获取地形效果管理器 */
+    get terrainEffectManager(): TerrainEffectManager | null {
+        return this._terrainEffectManager;
+    }
+
+    // ─── 六角格系统注入 ─────────────────────────────────────
+
+    /**
+     * 设置六角格渲染器
+     * @param renderer 六角格渲染器实例
+     */
+    setHexRenderer(renderer: HexRenderer): void {
+        this._hexRenderer = renderer;
+    }
+
+    /**
+     * 设置战争迷雾系统
+     * @param fogOfWar 战争迷雾实例
+     */
+    setFogOfWar(fogOfWar: FogOfWar): void {
+        this._fogOfWar = fogOfWar;
+    }
+
+    /**
+     * 设置地形效果管理器
+     * @param manager 地形效果管理器实例
+     */
+    setTerrainEffectManager(manager: TerrainEffectManager): void {
+        this._terrainEffectManager = manager;
     }
 
     // ─── 核心方法 ───────────────────────────────────────────
@@ -118,6 +170,11 @@ export class DungeonManager {
         this._currentRoomId = roomId;
         this._exploredRoomIds.add(roomId);
 
+        // 如果房间包含六角格地图，初始化/更新六角格子系统
+        if (room.hexGrid) {
+            this._initHexSystems(room.hexGrid);
+        }
+
         EventManager.getInstance().emit(
             RoguelikeEvent.RoomEnter,
             room
@@ -139,6 +196,11 @@ export class DungeonManager {
 
         room.cleared = true;
 
+        // 清除地形效果管理器的跟踪数据
+        if (this._terrainEffectManager) {
+            this._terrainEffectManager.clear();
+        }
+
         EventManager.getInstance().emit(
             RoguelikeEvent.RoomClear,
             room
@@ -155,6 +217,11 @@ export class DungeonManager {
         this._currentFloorIndex++;
         this._exploredRoomIds.clear();
         this._currentRoomId = null;
+
+        // 清理上一楼层的六角格渲染
+        if (this._hexRenderer) {
+            this._hexRenderer.clear();
+        }
 
         this._currentFloor = this._roomGenerator.generateFloor(
             this._currentFloorIndex,
@@ -200,9 +267,41 @@ export class DungeonManager {
      * 重置地牢状态
      */
     reset(): void {
+        // 清理六角格系统
+        if (this._hexRenderer) {
+            this._hexRenderer.clear();
+        }
+        if (this._terrainEffectManager) {
+            this._terrainEffectManager.clear();
+        }
+
         this._currentFloor = null;
         this._currentRoomId = null;
         this._exploredRoomIds.clear();
         this._currentFloorIndex = 0;
+    }
+
+    // ─── 六角格系统初始化 ───────────────────────────────────
+
+    /**
+     * 初始化/更新六角格子系统
+     * 当进入包含六角格地图的房间时调用
+     * @param hexGrid 房间的六角格网格数据
+     */
+    private _initHexSystems(hexGrid: HexGrid): void {
+        // 初始化战争迷雾
+        if (this._fogOfWar) {
+            this._fogOfWar.init(hexGrid);
+        }
+
+        // 清除之前房间的地形效果
+        if (this._terrainEffectManager) {
+            this._terrainEffectManager.clear();
+        }
+
+        // 清除之前的渲染并准备新地图
+        if (this._hexRenderer) {
+            this._hexRenderer.clear();
+        }
     }
 }

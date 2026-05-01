@@ -1,1 +1,24 @@
-{}
+{
+  "./chunks/5a/5a32af04228ec5e1dc2f3c7fe549c2b81b18fa81.js": {
+    "__unresolved_3": {
+      "error": "Error: 以 file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Game/SurvivorGame/Runtime/EnemySpawner.ts 为起点找不到模块 \"../../../Core/EventManager\"",
+      "messages": [
+        {
+          "level": "warn",
+          "text": "你是否遗漏了扩展名？请注意你不能在模块说明符中省略扩展名。"
+        }
+      ]
+    }
+  },
+  "./chunks/43/43152ba681338943ba4bb8a50ff4136633ccf75d.js": {
+    "__unresolved_1": {
+      "error": "Error: 以 file:///D:/Works/Cocos/WxMiniGames/FlowersArrangement/assets/scripts/Game/SurvivorGame/Runtime/BattleController.ts 为起点找不到模块 \"../../../Core/EventManager\"",
+      "messages": [
+        {
+          "level": "warn",
+          "text": "你是否遗漏了扩展名？请注意你不能在模块说明符中省略扩展名。"
+        }
+      ]
+    }
+  }
+}

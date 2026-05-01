@@ -13,6 +13,8 @@ import { IWeaponType } from '../Data/Interfaces/IWeaponType';
 import { IPetType } from '../Data/Interfaces/IPetType';
 import { IEventType } from '../Data/Interfaces/IEventType';
 import { INpcType } from '../Data/Interfaces/INpcType';
+import { IHexTerrainType } from '../Data/Interfaces/IHexTerrainType';
+import { ITerrainEffect } from '../Data/Interfaces/ITerrainEffect';
 
 // 房间类型导入
 import { BattleRoom } from './Rooms/BattleRoom';
@@ -51,6 +53,21 @@ import { SkillMasterNpc } from './Npcs/SkillMasterNpc';
 import { ClassMasterNpc } from './Npcs/ClassMasterNpc';
 import { MerchantNpc } from './Npcs/MerchantNpc';
 
+// 地形类型导入
+import { PlainsTerrain } from './Terrains/PlainsTerrain';
+import { ForestTerrain } from './Terrains/ForestTerrain';
+import { MountainTerrain } from './Terrains/MountainTerrain';
+import { WaterTerrain } from './Terrains/WaterTerrain';
+import { DesertTerrain } from './Terrains/DesertTerrain';
+import { SwampTerrain } from './Terrains/SwampTerrain';
+
+// 地形效果导入
+import { SpeedModifierEffect } from './TerrainEffects/SpeedModifierEffect';
+import { DefenseBoostEffect } from './TerrainEffects/DefenseBoostEffect';
+import { DotDamageEffect } from './TerrainEffects/DotDamageEffect';
+import { CooldownReductionEffect } from './TerrainEffects/CooldownReductionEffect';
+import { EvasionBoostEffect } from './TerrainEffects/EvasionBoostEffect';
+
 // ─── 注册表实例（全局单例） ───────────────────────────────
 
 /** 房间类型注册表 */
@@ -70,6 +87,12 @@ export const eventTypeRegistry = new TypeRegistry<IEventType>();
 
 /** NPC 类型注册表 */
 export const npcRegistry = new TypeRegistry<INpcType>();
+
+/** 地形类型注册表 */
+export const terrainRegistry = new TypeRegistry<IHexTerrainType>();
+
+/** 地形效果注册表 */
+export const terrainEffectRegistry = new TypeRegistry<ITerrainEffect>();
 
 // ─── 统一注册函数 ─────────────────────────────────────────
 
@@ -115,6 +138,21 @@ export function registerAllTypes(): void {
     npcRegistry.register('class_master', () => new ClassMasterNpc());
     npcRegistry.register('merchant', () => new MerchantNpc());
 
+    // 地形类型
+    terrainRegistry.register('plains', () => new PlainsTerrain());
+    terrainRegistry.register('forest', () => new ForestTerrain());
+    terrainRegistry.register('mountain', () => new MountainTerrain());
+    terrainRegistry.register('water', () => new WaterTerrain());
+    terrainRegistry.register('desert', () => new DesertTerrain());
+    terrainRegistry.register('swamp', () => new SwampTerrain());
+
+    // 地形效果
+    terrainEffectRegistry.register('speed_modifier', () => new SpeedModifierEffect());
+    terrainEffectRegistry.register('defense_boost', () => new DefenseBoostEffect());
+    terrainEffectRegistry.register('dot_damage', () => new DotDamageEffect());
+    terrainEffectRegistry.register('cooldown_reduction', () => new CooldownReductionEffect());
+    terrainEffectRegistry.register('evasion_boost', () => new EvasionBoostEffect());
+
     console.log(
         `[TypeRegistration] 类型注册完成：` +
         `房间 ${roomRegistry.getRegisteredTypes().length} 种，` +
@@ -122,6 +160,8 @@ export function registerAllTypes(): void {
         `武器 ${weaponRegistry.getRegisteredTypes().length} 种，` +
         `宠物 ${petRegistry.getRegisteredTypes().length} 种，` +
         `事件 ${eventTypeRegistry.getRegisteredTypes().length} 种，` +
-        `NPC ${npcRegistry.getRegisteredTypes().length} 种`
+        `NPC ${npcRegistry.getRegisteredTypes().length} 种，` +
+        `地形 ${terrainRegistry.getRegisteredTypes().length} 种，` +
+        `地形效果 ${terrainEffectRegistry.getRegisteredTypes().length} 种`
     );
 }

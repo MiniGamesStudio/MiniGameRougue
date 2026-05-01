@@ -41,6 +41,8 @@ export interface RoomNode {
     cleared: boolean;
     /** 从 Type_Config 加载的配置数据 */
     config: any;
+    /** 房间内的六角格地图数据（可选，战斗房间使用） */
+    hexGrid?: import('../../Runtime/HexTerrain/HexGrid').HexGrid;
 }
 
 /**
