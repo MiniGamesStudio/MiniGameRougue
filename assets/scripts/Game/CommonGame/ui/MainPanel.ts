@@ -1,4 +1,4 @@
-import { _decorator, Button, instantiate, Node, Prefab, resources, Tween, tween, Vec3, view } from 'cc';
+import { _decorator, Button, CCString, instantiate, Node, Prefab, resources, Tween, tween, Vec3, view } from 'cc';
 import { UIBase } from '../../../engine/ui/UIBase';
 import { FrameworkConst } from '../../../framework/FrameworkConst';
 const { ccclass, property } = _decorator;
@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 export class MainPanel extends UIBase {
     @property([Button])
     m_FuncBtns: Button[] = [];
-    @property([String])
+    @property([CCString])
     m_PagePrefabPaths: string[] = ["ui/MainPage"];
     @property
     m_DefaultPageIndex: number = 0;

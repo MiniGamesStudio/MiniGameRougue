@@ -1,0 +1,20 @@
+<div class="panel">
+    <h2>小羊关卡工具</h2>
+    <div class="row">
+        <label>关卡</label>
+        <ui-input id="level" value="1"></ui-input>
+    </div>
+    <div class="row">
+        <label>小羊种类及数量</label>
+        <ui-input id="type-counts" value="normal:8"></ui-input>
+    </div>
+    <div class="hint">格式：normal:8 或 normal:8,big:2</div>
+    <div class="buttons">
+        <ui-button id="generate">生成</ui-button>
+        <ui-button id="view">查看</ui-button>
+        <ui-button id="save">保存</ui-button>
+        <ui-button id="reload">重新加载</ui-button>
+    </div>
+    <ui-label id="status">等待加载关卡文件</ui-label>
+    <pre id="layout"></pre>
+</div>

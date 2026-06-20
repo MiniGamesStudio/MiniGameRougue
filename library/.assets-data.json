@@ -3869,5 +3869,10 @@
     "url": "db://assets/scripts/Game/CommonGame/level/SheepLevelGenerator.ts",
     "value": {},
     "versionCode": 1
+  },
+  "a3d5a225-bbd5-405f-b70d-b5e75253ef81": {
+    "url": "db://assets/scripts/Game/CommonGame/level/SheepLevelEditorWidget.ts",
+    "value": {},
+    "versionCode": 1
   }
 }

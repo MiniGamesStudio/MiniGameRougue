@@ -1,0 +1,23 @@
+{
+  "name": "sheep-level-editor",
+  "package_version": 2,
+  "version": "1.0.0",
+  "description": "Sheep level editor tools",
+  "author": "MiniGameArrow",
+  "main": "./main.js",
+  "panels": {
+    "default": {
+      "title": "小羊关卡工具",
+      "main": "./panels/default/index.js",
+      "type": "dockable"
+    }
+  },
+  "contributions": {
+    "menu": [
+      {
+        "path": "工具/小羊关卡工具",
+        "message": "openPanel"
+      }
+    ]
+  }
+}
