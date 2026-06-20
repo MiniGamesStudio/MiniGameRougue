@@ -6,6 +6,14 @@ const generator = require('../../lib/sheep-level-generator');
 
 const LEVEL_CONFIG_ASSET_URL = 'db://assets/resources/config/sheep_levels.json';
 const LEVEL_CONFIG_FILE_PATH = path.join('assets', 'resources', 'config', 'sheep_levels.json');
+const PREVIEW_CELL_SIZE = 40;
+const DEFAULT_EDITOR_TYPE_CONFIGS = {
+    normal: {
+        resource: 'texture/sheep/spriteFrame',
+        vertical: { rowSpan: 2, colSpan: 1 },
+        horizontal: { rowSpan: 1, colSpan: 2 },
+    },
+};
 
 function getProjectPath() {
     return Editor.Project && Editor.Project.path ? Editor.Project.path : process.cwd();
@@ -81,9 +89,11 @@ module.exports = Editor.Panel.define({
                 const level = this.getLevelInput();
                 const typeCounts = this.parseTypeCounts();
                 this.currentLevel = generator.generateLevel(level, typeCounts, this.getGeneratorTypeConfigs());
+                console.log('[sheep-level-editor] 生成结果：', JSON.stringify(this.currentLevel, null, 2));
                 this.renderLevel(this.currentLevel);
-                this.setStatus(`已生成第 ${level} 关，数量 ${this.currentLevel.sheep.length}`);
+                this.setStatus(`生成成功：第 ${level} 关，数量 ${this.currentLevel.sheep.length}`);
             } catch (error) {
+                console.error('[sheep-level-editor] 生成失败：', error);
                 this.setStatus(`生成失败：${error.message}`);
             }
         },
@@ -172,48 +182,62 @@ module.exports = Editor.Panel.define({
         getGeneratorTypeConfigs() {
             const configs = this.levelFile && this.levelFile.sheepTypeConfigs ? this.levelFile.sheepTypeConfigs : {};
             return {
+                ...DEFAULT_EDITOR_TYPE_CONFIGS,
                 ...generator.DefaultTypeConfigs,
                 ...configs,
             };
         },
 
         renderLevel(levelData) {
-            const text = [
-                `关卡：${levelData.level}`,
-                `行列：${levelData.rowCount} x ${levelData.colCount}`,
-                `数量：${levelData.sheep.length}`,
-                '',
-                this.createLayoutText(levelData),
-                '',
-                '图例：^ 上，v 下，< 左，> 右，. 空',
-            ].join('\n');
-            this.renderLayout(text);
-        },
-
-        createLayoutText(levelData) {
             const rows = Number(levelData.rowCount) || generator.ROW_COUNT;
             const cols = Number(levelData.colCount) || generator.COL_COUNT;
-            const grid = [];
+            this.$.layout.innerHTML = '';
+
+            const summary = document.createElement('div');
+            summary.className = 'level-summary';
+            summary.textContent = `关卡：${levelData.level}    行列：${rows} x ${cols}    数量：${levelData.sheep.length}`;
+            this.$.layout.appendChild(summary);
+
+            const board = document.createElement('div');
+            board.className = 'level-board';
+            board.style.setProperty('--rows', String(rows));
+            board.style.setProperty('--cols', String(cols));
+            this.$.layout.appendChild(board);
+
             for (let row = 0; row < rows; row++) {
-                grid.push(new Array(cols).fill('.'));
+                for (let col = 0; col < cols; col++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'level-cell';
+                    cell.style.gridRow = `${row + 1} / span 1`;
+                    cell.style.gridColumn = `${col + 1} / span 1`;
+                    board.appendChild(cell);
+                }
             }
 
+            this.renderSheepImages(board, levelData, rows, cols);
+        },
+
+        renderSheepImages(board, levelData, rows, cols) {
             const typeConfigs = this.getGeneratorTypeConfigs();
             levelData.sheep.forEach((sheep) => {
                 const footprint = this.getFootprint(sheep.direction, sheep.type, typeConfigs);
-                const mark = this.getDirectionChar(sheep.direction);
-                for (let rowOffset = 0; rowOffset < footprint.rowSpan; rowOffset++) {
-                    for (let colOffset = 0; colOffset < footprint.colSpan; colOffset++) {
-                        const row = sheep.row + rowOffset;
-                        const col = sheep.col + colOffset;
-                        if (row >= 0 && row < rows && col >= 0 && col < cols) {
-                            grid[row][col] = mark;
-                        }
-                    }
+                if (sheep.row < 0 || sheep.col < 0 || sheep.row + footprint.rowSpan > rows || sheep.col + footprint.colSpan > cols) {
+                    return;
                 }
-            });
 
-            return grid.map((row) => row.join(' ')).join('\n');
+                const wrapper = document.createElement('div');
+                wrapper.className = 'sheep-preview';
+                wrapper.title = `${sheep.type || generator.DEFAULT_TYPE} ${sheep.direction} (${sheep.row}, ${sheep.col})`;
+                wrapper.style.gridRow = `${sheep.row + 1} / span ${footprint.rowSpan}`;
+                wrapper.style.gridColumn = `${sheep.col + 1} / span ${footprint.colSpan}`;
+
+                const image = document.createElement('img');
+                image.src = this.getSheepImageUrl(sheep.type, typeConfigs);
+                this.applySheepImageSize(image, sheep.type, typeConfigs);
+                image.style.transform = `rotate(${this.getDirectionRotation(sheep.direction)}deg)`;
+                wrapper.appendChild(image);
+                board.appendChild(wrapper);
+            });
         },
 
         getFootprint(direction, type, typeConfigs) {
@@ -225,12 +249,43 @@ module.exports = Editor.Panel.define({
             return config.vertical;
         },
 
-        getDirectionChar(direction) {
-            if (direction === 'Up') return '^';
-            if (direction === 'Down') return 'v';
-            if (direction === 'Left') return '<';
-            if (direction === 'Right') return '>';
-            return '?';
+        applySheepImageSize(image, type, typeConfigs) {
+            const config = typeConfigs[type || generator.DEFAULT_TYPE] || typeConfigs[generator.DEFAULT_TYPE];
+            const vertical = config.vertical;
+            image.style.width = `${vertical.colSpan * PREVIEW_CELL_SIZE}px`;
+            image.style.height = `${vertical.rowSpan * PREVIEW_CELL_SIZE}px`;
+        },
+
+        getSheepImageUrl(type, typeConfigs) {
+            const config = typeConfigs[type || generator.DEFAULT_TYPE] || typeConfigs[generator.DEFAULT_TYPE];
+            const resource = config && config.resource ? config.resource : DEFAULT_EDITOR_TYPE_CONFIGS.normal.resource;
+            const assetPath = this.resolveResourceFilePath(resource);
+            return this.toFileUrl(assetPath);
+        },
+
+        resolveResourceFilePath(resource) {
+            const resourcePath = String(resource || '').replace(/\\/g, '/').replace(/\/spriteFrame$/, '');
+            const relativePath = path.join('assets', 'resources', resourcePath);
+            const basePath = path.join(getProjectPath(), relativePath);
+            const ext = path.extname(basePath);
+            if (ext && fs.existsSync(basePath)) {
+                return basePath;
+            }
+
+            const candidates = ['.png', '.jpg', '.jpeg', '.webp', '.Png'];
+            const found = candidates.map((candidateExt) => `${basePath}${candidateExt}`).find((candidatePath) => fs.existsSync(candidatePath));
+            return found || `${basePath}.png`;
+        },
+
+        toFileUrl(filePath) {
+            return `file:///${filePath.replace(/\\/g, '/')}`;
+        },
+
+        getDirectionRotation(direction) {
+            if (direction === 'Right') return 90;
+            if (direction === 'Down') return 180;
+            if (direction === 'Left') return -90;
+            return 0;
         },
 
         refreshAsset() {

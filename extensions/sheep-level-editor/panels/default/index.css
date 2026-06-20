@@ -48,7 +48,41 @@ h2 {
     border-radius: 4px;
     background: var(--color-normal-fill-important);
     color: var(--color-normal-contrast);
-    font-family: Consolas, Monaco, monospace;
-    font-size: 14px;
-    line-height: 1.45;
+}
+
+.level-summary {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.level-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 40px);
+    grid-template-rows: repeat(var(--rows), 40px);
+    width: max-content;
+    border-top: 1px solid var(--color-normal-border);
+    border-left: 1px solid var(--color-normal-border);
+    background: rgba(0, 0, 0, 0.14);
+}
+
+.level-cell {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border-right: 1px solid var(--color-normal-border);
+    border-bottom: 1px solid var(--color-normal-border);
+}
+
+.sheep-preview {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    pointer-events: none;
+}
+
+.sheep-preview img {
+    object-fit: contain;
 }
