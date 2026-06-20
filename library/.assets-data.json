@@ -3678,7 +3678,8 @@
     "url": "db://assets/resources/ui/MainPage.prefab",
     "value": {
       "depends": [
-        "fd3a19d6-81ed-4efa-84d3-7d8c045fa7aa@f9941"
+        "fd3a19d6-81ed-4efa-84d3-7d8c045fa7aa@f9941",
+        "a66726f4-f780-4d1d-b776-00cce3b6c51d@f9941"
       ],
       "dependScripts": [
         "5dac72fe-9aae-4a79-b72e-3eb8c3c18fac"
@@ -3701,19 +3702,150 @@
     "value": {
       "depends": [
         "fd3a19d6-81ed-4efa-84d3-7d8c045fa7aa@f9941",
-        "4e9cfa13-dac5-4d82-861c-1cc1eaa9920d@f9941",
-        "20835ba4-6145-4fbc-a58a-051ce700aa3e@f9941",
-        "544e49d6-3f05-4fa8-9a9e-091f98fc2ce8@f9941",
-        "951249e0-9f16-456d-8b85-a6ca954da16b@f9941",
-        "83985e7f-c240-4752-b17d-27c185892c87@f9941"
+        "9f0061d1-19dd-4e32-8c0b-2dcf7d57772e@f9941",
+        "483f80bc-31e2-47a5-9fae-d8fb24a81f95@f9941",
+        "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93@f9941",
+        "fc8553d7-131b-4691-98e7-6ceeaa07a1c7@f9941"
       ],
-      "dependScripts": []
+      "dependScripts": [
+        "0f6f935e-dd32-4f8f-870f-858c31678dec"
+      ]
     },
     "versionCode": 2
   },
   "0f6f935e-dd32-4f8f-870f-858c31678dec": {
     "url": "db://assets/scripts/Game/CommonGame/ui/GamePanel.ts",
     "value": {},
+    "versionCode": 1
+  },
+  "66c41a34-27f9-4521-9581-a81e8714a705": {
+    "url": "db://assets/resources/texture/sheep.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a66726f4-f780-4d1d-b776-00cce3b6c51d": {
+    "url": "db://assets/resources/texture/sheeptitle.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "a66726f4-f780-4d1d-b776-00cce3b6c51d@6c48a": {
+    "url": "db://assets/resources/texture/sheeptitle.png@6c48a",
+    "value": {
+      "depends": [
+        "a66726f4-f780-4d1d-b776-00cce3b6c51d"
+      ]
+    },
+    "versionCode": 1
+  },
+  "66c41a34-27f9-4521-9581-a81e8714a705@6c48a": {
+    "url": "db://assets/resources/texture/sheep.png@6c48a",
+    "value": {
+      "depends": [
+        "66c41a34-27f9-4521-9581-a81e8714a705"
+      ]
+    },
+    "versionCode": 1
+  },
+  "66c41a34-27f9-4521-9581-a81e8714a705@f9941": {
+    "url": "db://assets/resources/texture/sheep.png@f9941",
+    "value": {
+      "depends": [
+        "66c41a34-27f9-4521-9581-a81e8714a705@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "a66726f4-f780-4d1d-b776-00cce3b6c51d@f9941": {
+    "url": "db://assets/resources/texture/sheeptitle.png@f9941",
+    "value": {
+      "depends": [
+        "a66726f4-f780-4d1d-b776-00cce3b6c51d@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "c30cc32b-cb89-4481-b103-8f9095104ac8": {
+    "url": "db://assets/resources/Icons",
+    "value": {},
+    "versionCode": 1
+  },
+  "483f80bc-31e2-47a5-9fae-d8fb24a81f95": {
+    "url": "db://assets/resources/Icons/Skill_1.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93": {
+    "url": "db://assets/resources/Icons/Skill_2.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "fc8553d7-131b-4691-98e7-6ceeaa07a1c7": {
+    "url": "db://assets/resources/Icons/Skill_3.png",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
+  },
+  "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93@6c48a": {
+    "url": "db://assets/resources/Icons/Skill_2.png@6c48a",
+    "value": {
+      "depends": [
+        "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93"
+      ]
+    },
+    "versionCode": 1
+  },
+  "483f80bc-31e2-47a5-9fae-d8fb24a81f95@6c48a": {
+    "url": "db://assets/resources/Icons/Skill_1.png@6c48a",
+    "value": {
+      "depends": [
+        "483f80bc-31e2-47a5-9fae-d8fb24a81f95"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fc8553d7-131b-4691-98e7-6ceeaa07a1c7@6c48a": {
+    "url": "db://assets/resources/Icons/Skill_3.png@6c48a",
+    "value": {
+      "depends": [
+        "fc8553d7-131b-4691-98e7-6ceeaa07a1c7"
+      ]
+    },
+    "versionCode": 1
+  },
+  "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93@f9941": {
+    "url": "db://assets/resources/Icons/Skill_2.png@f9941",
+    "value": {
+      "depends": [
+        "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "483f80bc-31e2-47a5-9fae-d8fb24a81f95@f9941": {
+    "url": "db://assets/resources/Icons/Skill_1.png@f9941",
+    "value": {
+      "depends": [
+        "483f80bc-31e2-47a5-9fae-d8fb24a81f95@6c48a"
+      ]
+    },
+    "versionCode": 1
+  },
+  "fc8553d7-131b-4691-98e7-6ceeaa07a1c7@f9941": {
+    "url": "db://assets/resources/Icons/Skill_3.png@f9941",
+    "value": {
+      "depends": [
+        "fc8553d7-131b-4691-98e7-6ceeaa07a1c7@6c48a"
+      ]
+    },
     "versionCode": 1
   }
 }

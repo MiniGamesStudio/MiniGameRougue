@@ -15,6 +15,7 @@
             "scripts\\engine\\ui",
             "scripts\\Game\\CommonGame",
             "scripts\\Game\\CommonGame\\ui",
+            "scripts\\engine\\AdManager.ts",
             "scripts\\engine\\AudioManager.ts",
             "scripts\\engine\\ConfigManager.ts",
             "scripts\\engine\\FlatBuffersRuntime.ts",
@@ -36,7 +37,9 @@
             "scripts\\engine\\ui\\UIManager.ts",
             "scripts\\Game\\CommonGame\\CommonGameEntry.ts",
             "scripts\\Game\\CommonGame\\CommonUIConfig.ts",
+            "scripts\\Game\\CommonGame\\ui\\GamePanel.ts",
             "scripts\\Game\\CommonGame\\ui\\LoadingPanel.ts",
+            "scripts\\Game\\CommonGame\\ui\\MainPage.ts",
             "scripts\\Game\\CommonGame\\ui\\MainPanel.ts",
             "custom.animgraph",
             "scene\\main.scene",
@@ -62,13 +65,16 @@
             "resources\\texture\\Slider_BasicTrapezoid01_Fill_Blue.png",
             "resources\\texture\\Slider_BasicTrapezoid01_Fill_White.png",
             "resources\\texture\\title.png",
-            "resources\\ui\\LoadingPanel.prefab",
-            "resources\\ui\\MainPanel.prefab",
-            "resources\\ui\\MainPage.prefab",
-            "scripts\\Game\\CommonGame\\ui\\MainPage.ts",
-            "scripts\\engine\\AdManager.ts",
             "resources\\ui\\GamePanel.prefab",
-            "scripts\\Game\\CommonGame\\ui\\GamePanel.ts"
+            "resources\\ui\\LoadingPanel.prefab",
+            "resources\\ui\\MainPage.prefab",
+            "resources\\ui\\MainPanel.prefab",
+            "resources\\texture\\sheep.png",
+            "resources\\texture\\sheeptitle.png",
+            "resources\\Icons",
+            "resources\\Icons\\Skill_1.png",
+            "resources\\Icons\\Skill_2.png",
+            "resources\\Icons\\Skill_3.png"
         ]
     }
 }
