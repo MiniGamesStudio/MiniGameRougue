@@ -74,7 +74,9 @@
             "resources\\Icons",
             "resources\\Icons\\Skill_1.png",
             "resources\\Icons\\Skill_2.png",
-            "resources\\Icons\\Skill_3.png"
+            "resources\\Icons\\Skill_3.png",
+            "resources\\config",
+            "resources\\config\\sheep_levels.json"
         ]
     }
 }

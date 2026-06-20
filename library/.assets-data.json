@@ -3847,5 +3847,17 @@
       ]
     },
     "versionCode": 1
+  },
+  "e6cb8f45-78b8-4f55-8d8a-e5a35444d9df": {
+    "url": "db://assets/resources/config",
+    "value": {},
+    "versionCode": 1
+  },
+  "4c0814f7-b690-4a5f-a5c8-61b6f9219a96": {
+    "url": "db://assets/resources/config/sheep_levels.json",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
   }
 }

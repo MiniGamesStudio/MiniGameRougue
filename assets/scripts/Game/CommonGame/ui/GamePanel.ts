@@ -1,10 +1,11 @@
-import { _decorator, Button, Node, resources, Sprite, SpriteFrame, tween, UITransform, Vec3 } from 'cc';
+import { _decorator, Button, JsonAsset, Node, resources, RichText, Sprite, SpriteFrame, tween, UITransform, Vec3 } from 'cc';
 import { AdManager, AdPlayResult } from '../../../engine/AdManager';
 import { UIBase } from '../../../engine/ui/UIBase';
 const { ccclass, property } = _decorator;
 
 const MAX_ROW = 16;
 const MAX_COL = 8;
+const LEVEL_CONFIG_RESOURCE = 'config/sheep_levels';
 const SHEEP_RESOURCE = 'texture/sheep/spriteFrame';
 const SHEEP_FALLBACK_RESOURCE = 'texture/sheep';
 const DEFAULT_SHEEP_FILL_RATE = 0.42;
@@ -12,6 +13,7 @@ const DEFAULT_BOARD_PADDING_X = 40;
 const DEFAULT_BOARD_PADDING_Y = 120;
 const DEFAULT_BOARD_PADDING_BOTTOM = 220;
 const DEFAULT_UNIQUE_GENERATE_ATTEMPTS = 80;
+const DEFAULT_SHEEP_SCALE = 1;
 const MOVE_DURATION_PER_CELL = 0.08;
 const MIN_MOVE_DURATION = 0.12;
 const RUN_OUT_EXTRA_CELL = 2;
@@ -67,6 +69,7 @@ interface SimSheep {
 }
 
 export interface GameLevelConfig {
+    level?: number;
     rowCount?: number;
     colCount?: number;
     sheepCount?: number;
@@ -76,6 +79,10 @@ export interface GameLevelConfig {
     paddingTop?: number;
     paddingBottom?: number;
     uniqueGenerateAttempts?: number;
+}
+
+interface GameLevelTable {
+    levels?: GameLevelConfig[];
 }
 
 const DirectionConfigs: Record<SheepDirection, SheepDirectionConfig> = {
@@ -97,10 +104,12 @@ export class GamePanel extends UIBase {
     m_SkillTwoBtn: Button = null;
     @property(Button)
     m_SkillThreeBtn: Button = null;
+    @property(RichText)
+    m_LevelText: RichText = null;
 
-    @property({ tooltip: '关卡行数，最大 16' })
+    @property({ tooltip: '固定关卡行数：16' })
     m_LevelRowCount: number = MAX_ROW;
-    @property({ tooltip: '关卡列数，最大 8' })
+    @property({ tooltip: '固定关卡列数：8' })
     m_LevelColCount: number = MAX_COL;
     @property({ tooltip: '关卡小羊数量，填 0 时按随机填充率生成' })
     m_LevelSheepCount: number = 0;
@@ -114,6 +123,10 @@ export class GamePanel extends UIBase {
     m_BoardPaddingBottom: number = DEFAULT_BOARD_PADDING_BOTTOM;
     @property({ tooltip: '唯一解关卡生成重试次数' })
     m_UniqueGenerateAttempts: number = DEFAULT_UNIQUE_GENERATE_ATTEMPTS;
+    @property({ tooltip: '默认打开的关卡，从 1 开始' })
+    m_StartLevel: number = 1;
+    @property({ tooltip: '小羊固定缩放，不随关卡行列和数量变化' })
+    m_SheepScale: number = DEFAULT_SHEEP_SCALE;
 
     private m_SheepSpriteFrame: SpriteFrame = null;
     private m_SheepList: SheepData[] = [];
@@ -135,6 +148,8 @@ export class GamePanel extends UIBase {
     private m_SkillMode: SkillMode = 'none';
     private m_SkillRemoveRemain: number = 0;
     private m_LevelEnded: boolean = false;
+    private m_LevelConfigList: GameLevelConfig[] = [];
+    private m_CurrentLevel: number = 1;
     private m_OpenLevelConfig: GameLevelConfig = null;
 
     OnInit(): void {
@@ -143,12 +158,15 @@ export class GamePanel extends UIBase {
         this.SetBtnEvent(this.m_SkillThreeBtn, () => this.onSkillThreeBtnClick());
     }
 
-    OnOpen(levelConfig?: GameLevelConfig): void {
-        this.m_OpenLevelConfig = levelConfig || null;
-        this.resetGame();
-        this.loadSheepSpriteFrame(() => {
+    OnOpen(level: number | GameLevelConfig = this.m_StartLevel): void {
+        this.loadLocalLevelConfigs(() => {
             if (!this.isValid) return;
-            this.startLevel();
+            this.m_OpenLevelConfig = this.resolveOpenLevelConfig(level);
+            this.resetGame();
+            this.loadSheepSpriteFrame(() => {
+                if (!this.isValid) return;
+                this.startLevel();
+            });
         });
     }
 
@@ -160,19 +178,58 @@ export class GamePanel extends UIBase {
         this.m_LevelEnded = false;
     }
 
+    private loadLocalLevelConfigs(onComplete: () => void): void {
+        if (this.m_LevelConfigList.length > 0) {
+            onComplete();
+            return;
+        }
+
+        resources.load(LEVEL_CONFIG_RESOURCE, JsonAsset, (err, asset) => {
+            if (err || !asset) {
+                console.warn('GamePanel: 加载本地关卡配置失败，使用编辑器默认配置', err);
+                onComplete();
+                return;
+            }
+
+            const table = asset.json as GameLevelTable;
+            this.m_LevelConfigList = Array.isArray(table?.levels) ? table.levels : [];
+            if (this.m_LevelConfigList.length <= 0) {
+                console.warn('GamePanel: 本地关卡配置为空，使用编辑器默认配置');
+            }
+            onComplete();
+        });
+    }
+
+    private resolveOpenLevelConfig(level: number | GameLevelConfig): GameLevelConfig | null {
+        if (typeof level !== 'number') {
+            this.m_CurrentLevel = level?.level || this.m_StartLevel;
+            return level || null;
+        }
+
+        this.m_CurrentLevel = this.clampInt(level, 1, Math.max(1, this.m_LevelConfigList.length));
+        return this.m_LevelConfigList[this.m_CurrentLevel - 1] || null;
+    }
+
     private resetGame(): void {
         this.clearSheep();
         this.initLevelConfig();
+        this.updateLevelText();
         this.m_SkillMode = 'none';
         this.m_SkillRemoveRemain = 0;
         this.m_LevelEnded = false;
         this.initBoardSize();
     }
 
+    private updateLevelText(): void {
+        if (!this.m_LevelText) return;
+
+        this.m_LevelText.string = `关卡：${this.m_CurrentLevel}`;
+    }
+
     private initLevelConfig(): void {
         const config = this.m_OpenLevelConfig;
-        this.m_RowCount = this.clampInt(config?.rowCount ?? this.m_LevelRowCount, 1, MAX_ROW);
-        this.m_ColCount = this.clampInt(config?.colCount ?? this.m_LevelColCount, 1, MAX_COL);
+        this.m_RowCount = MAX_ROW;
+        this.m_ColCount = MAX_COL;
         this.m_FillRate = this.clampNumber(config?.fillRate ?? this.m_LevelFillRate, 0, 1);
         this.m_SheepCount = this.clampInt(config?.sheepCount ?? this.m_LevelSheepCount, 0, Math.floor(this.m_RowCount * this.m_ColCount * 0.5));
         this.m_PaddingX = Math.max(0, config?.paddingX ?? this.m_BoardPaddingX);
@@ -281,13 +338,12 @@ export class GamePanel extends UIBase {
     }
 
     private createSheepByFillRate(): void {
-        for (let row = 0; row < this.m_RowCount; row++) {
-            for (let col = 0; col < this.m_ColCount; col++) {
-                if (Math.random() > this.m_FillRate) continue;
+        const cells = this.getCenterWeightedCells();
+        cells.forEach(cell => {
+            if (Math.random() > this.m_FillRate) return;
 
-                this.createSheep(row, col, this.getRandomDirection());
-            }
-        }
+            this.createSheep(cell.row, cell.col, this.getRandomDirection());
+        });
     }
 
     private createFirstAvailableSheep(): void {
@@ -326,13 +382,14 @@ export class GamePanel extends UIBase {
         const chain: { row: number; col: number; direction: SheepDirection }[] = [];
         if (this.m_RowCount < 2 || this.m_ColCount < 1) return chain;
 
+        const startCol = Math.max(0, Math.floor((this.m_ColCount - 2) * 0.5));
         for (let row = 0; row + 1 < this.m_RowCount; row += 2) {
-            chain.push({ row, col: 0, direction: SheepDirection.Up });
+            chain.push({ row, col: startCol, direction: SheepDirection.Up });
         }
 
         const bottomRow = this.m_RowCount - 1;
-        let turnCol = 0;
-        for (let col = 1; col + 1 < this.m_ColCount; col += 2) {
+        let turnCol = startCol;
+        for (let col = startCol + 1; col + 1 < this.m_ColCount; col += 2) {
             chain.push({ row: bottomRow, col, direction: SheepDirection.Left });
             turnCol = col + 1;
         }
@@ -354,7 +411,6 @@ export class GamePanel extends UIBase {
     private createSheep(row: number, col: number, direction: SheepDirection): boolean {
         if (!this.canPlaceSheep(row, col, direction)) return false;
 
-        const footprint = this.getSheepFootprint(direction);
         const node = new Node(`Sheep_${row}_${col}`);
         node.layer = this.m_GameRoot.layer;
         this.m_GameRoot.addChild(node);
@@ -368,16 +424,12 @@ export class GamePanel extends UIBase {
 
         const spriteRect = this.m_SheepSpriteFrame.rect;
         transform.setContentSize(spriteRect.width, spriteRect.height);
-        const displayWidth = this.isHorizontalDirection(direction) ? spriteRect.height : spriteRect.width;
-        const displayHeight = this.isHorizontalDirection(direction) ? spriteRect.width : spriteRect.height;
-        const scale = Math.min(
-            this.m_CellWidth * footprint.colSpan * 0.85 / displayWidth,
-            this.m_CellHeight * footprint.rowSpan * 0.85 / displayHeight,
-        );
-        node.setScale(scale, scale, 1);
+        node.setScale(this.m_SheepScale, this.m_SheepScale, 1);
 
         const button = node.addComponent(Button);
         this.SetBtnEvent(button, () => this.onSheepClick(sheep));
+
+        const footprint = this.getSheepFootprint(direction);
 
         const sheep: SheepData = {
             node,
@@ -712,19 +764,24 @@ export class GamePanel extends UIBase {
     }
 
     private getShuffledCells(): { row: number; col: number }[] {
+        return this.getCenterWeightedCells();
+    }
+
+    private getCenterWeightedCells(): { row: number; col: number }[] {
         const cells: { row: number; col: number }[] = [];
+        const centerRow = (this.m_RowCount - 1) * 0.5;
+        const centerCol = (this.m_ColCount - 1) * 0.5;
         for (let row = 0; row < this.m_RowCount; row++) {
             for (let col = 0; col < this.m_ColCount; col++) {
                 cells.push({ row, col });
             }
         }
 
-        for (let i = cells.length - 1; i > 0; i--) {
-            const randomIndex = Math.floor(Math.random() * (i + 1));
-            const temp = cells[i];
-            cells[i] = cells[randomIndex];
-            cells[randomIndex] = temp;
-        }
+        cells.sort((a, b) => {
+            const aDistance = Math.abs(a.row - centerRow) + Math.abs(a.col - centerCol);
+            const bDistance = Math.abs(b.row - centerRow) + Math.abs(b.col - centerCol);
+            return aDistance - bDistance || Math.random() - 0.5;
+        });
 
         return cells;
     }

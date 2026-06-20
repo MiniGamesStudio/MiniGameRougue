@@ -12,7 +12,7 @@
       "time": 1781946493780.2888
     },
     "resources": {
-      "time": 1781959871977.8262,
+      "time": 1781964724670.4338,
       "uuid": "319640fa-293f-4197-855c-d1d2f7adc4e6"
     },
     "scene.meta": {
@@ -917,7 +917,7 @@
       "time": 1781946493799.288
     },
     "scripts\\Game\\CommonGame\\ui\\MainPage.ts": {
-      "time": 1781946493799.288,
+      "time": 1781965494825.5054,
       "uuid": "5dac72fe-9aae-4a79-b72e-3eb8c3c18fac"
     },
     "scripts\\engine\\AdManager.ts.meta": {
@@ -931,14 +931,14 @@
       "time": 1781946493794.2876
     },
     "resources\\ui\\GamePanel.prefab": {
-      "time": 1781963619035.9053,
+      "time": 1781965405212.5745,
       "uuid": "6c6bb7e7-df76-4af4-a1dc-2a97a7ff0c23"
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts.meta": {
       "time": 1781946493798.2878
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1781964517627.3828,
+      "time": 1781965449094.5715,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheep.png.meta": {
@@ -982,6 +982,20 @@
     "resources\\Icons\\Skill_3.png": {
       "time": 1746611646000,
       "uuid": "fc8553d7-131b-4691-98e7-6ceeaa07a1c7"
+    },
+    "resources\\config.meta": {
+      "time": 1781964724670.4338
+    },
+    "resources\\config": {
+      "time": 1781964727622.4329,
+      "uuid": "e6cb8f45-78b8-4f55-8d8a-e5a35444d9df"
+    },
+    "resources\\config\\sheep_levels.json.meta": {
+      "time": 1781964797303.4226
+    },
+    "resources\\config\\sheep_levels.json": {
+      "time": 1781964981870.606,
+      "uuid": "4c0814f7-b690-4a5f-a5c8-61b6f9219a96"
     }
   },
   "missing": {}

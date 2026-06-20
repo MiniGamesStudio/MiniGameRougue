@@ -1,0 +1,91 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "sheep_levels",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "levels": [
+      {
+        "level": 1,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 4,
+        "fillRate": 0.18,
+        "uniqueGenerateAttempts": 80
+      },
+      {
+        "level": 2,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 6,
+        "fillRate": 0.22,
+        "uniqueGenerateAttempts": 100
+      },
+      {
+        "level": 3,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 8,
+        "fillRate": 0.26,
+        "uniqueGenerateAttempts": 120
+      },
+      {
+        "level": 4,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 10,
+        "fillRate": 0.3,
+        "uniqueGenerateAttempts": 140
+      },
+      {
+        "level": 5,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 12,
+        "fillRate": 0.34,
+        "uniqueGenerateAttempts": 160
+      },
+      {
+        "level": 6,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 15,
+        "fillRate": 0.38,
+        "uniqueGenerateAttempts": 180
+      },
+      {
+        "level": 7,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 18,
+        "fillRate": 0.42,
+        "uniqueGenerateAttempts": 220
+      },
+      {
+        "level": 8,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 22,
+        "fillRate": 0.46,
+        "uniqueGenerateAttempts": 260
+      },
+      {
+        "level": 9,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 26,
+        "fillRate": 0.5,
+        "uniqueGenerateAttempts": 320
+      },
+      {
+        "level": 10,
+        "rowCount": 16,
+        "colCount": 8,
+        "sheepCount": 32,
+        "fillRate": 0.54,
+        "uniqueGenerateAttempts": 400
+      }
+    ]
+  }
+}
