@@ -917,7 +917,7 @@
       "time": 1781946493799.288
     },
     "scripts\\Game\\CommonGame\\ui\\MainPage.ts": {
-      "time": 1781966519665.2607,
+      "time": 1781966926076.0884,
       "uuid": "5dac72fe-9aae-4a79-b72e-3eb8c3c18fac"
     },
     "scripts\\engine\\AdManager.ts.meta": {
@@ -994,7 +994,7 @@
       "time": 1781964797303.4226
     },
     "resources\\config\\sheep_levels.json": {
-      "time": 1781966240221.428,
+      "time": 1781966774428.922,
       "uuid": "4c0814f7-b690-4a5f-a5c8-61b6f9219a96"
     },
     "scripts\\Game\\CommonGame\\level.meta": {
@@ -1008,7 +1008,7 @@
       "uuid": "b48b6737-a5b8-4a7f-bf67-b4e6149f4245"
     },
     "scripts\\Game\\CommonGame\\level\\SheepLevelGenerator.ts": {
-      "time": 1781966207616.378,
+      "time": 1781966716376.931,
       "uuid": "d01df568-33c9-4858-9008-167ad0b7fd89"
     }
   },

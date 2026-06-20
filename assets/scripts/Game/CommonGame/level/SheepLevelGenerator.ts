@@ -26,9 +26,20 @@ type Footprint = {
     colSpan: number;
 };
 
+type FootprintRect = Footprint & {
+    row: number;
+    col: number;
+};
+
 type DirectionConfig = {
     rowDelta: number;
     colDelta: number;
+};
+
+type SolveSheep = SheepLevelItem & {
+    rowSpan: number;
+    colSpan: number;
+    removed: boolean;
 };
 
 const DirectionCycle = [
@@ -49,21 +60,55 @@ const DefaultLevelCounts = [5, 7, 9, 10, 13, 16, 19, 23, 27, 32];
 
 export class SheepLevelGenerator {
     static generateLevels(levelCounts: number[] = DefaultLevelCounts): SheepLevelData[] {
-        const chain = this.generateCenterFoldedChain(Math.max(...levelCounts));
+        const maxCount = Math.max(...levelCounts);
+        const chain = this.generateSolvableLayout(maxCount);
+        if (chain.length < maxCount) {
+            throw new Error(`SheepLevelGenerator: only generated ${chain.length}/${maxCount} sheep`);
+        }
+
         return levelCounts.map((count, index) => ({
             level: index + 1,
             rowCount: SHEEP_LEVEL_ROW_COUNT,
             colCount: SHEEP_LEVEL_COL_COUNT,
             sheep: chain.slice(0, count),
-        }));
+        })).map(level => {
+            if (!this.canSolveLevel(level)) {
+                throw new Error(`SheepLevelGenerator: generated level ${level.level} is not solvable`);
+            }
+
+            return level;
+        });
     }
 
     static generateLevelJson(levelCounts: number[] = DefaultLevelCounts): string {
         return JSON.stringify({ levels: this.generateLevels(levelCounts) }, null, 2);
     }
 
-    private static generateCenterFoldedChain(maxCount: number): SheepLevelItem[] {
-        const chain: SheepLevelItem[] = [];
+    static canSolveLevel(level: SheepLevelData): boolean {
+        const sheepList = level.sheep.map(sheep => {
+            const footprint = this.getFootprint(sheep.direction);
+            return {
+                ...sheep,
+                rowSpan: footprint.rowSpan,
+                colSpan: footprint.colSpan,
+                removed: false,
+            };
+        });
+        let remainCount = sheepList.length;
+
+        while (remainCount > 0) {
+            const removable = sheepList.find(sheep => !sheep.removed && !this.isBlocked(sheep, sheepList));
+            if (!removable) return false;
+
+            removable.removed = true;
+            remainCount--;
+        }
+
+        return true;
+    }
+
+    private static generateSolvableLayout(maxCount: number): SheepLevelItem[] {
+        const placed: SheepLevelItem[] = [];
         const occupied = this.createOccupiedGrid();
         const centerRow = (SHEEP_LEVEL_ROW_COUNT - 1) * 0.5;
         const centerCol = (SHEEP_LEVEL_COL_COUNT - 1) * 0.5;
@@ -73,43 +118,42 @@ export class SheepLevelGenerator {
             direction: SheepLevelDirection.Up,
         };
 
-        if (!this.canPlace(first, occupied)) return chain;
+        if (!this.canPlace(first, occupied)) return placed;
 
-        chain.push(first);
+        placed.push(first);
         this.markOccupied(first, occupied);
 
-        while (chain.length < maxCount) {
-            const previous = chain[chain.length - 1];
-            const candidates = this.collectCandidates(previous, chain.length, occupied, centerRow, centerCol);
+        while (placed.length < maxCount) {
+            const candidates = this.collectCandidates(placed, occupied, centerRow, centerCol);
             if (candidates.length <= 0) break;
 
             candidates.sort((a, b) => a.score - b.score || a.item.row - b.item.row || a.item.col - b.item.col);
             const next = candidates[0].item;
-            chain.push(next);
+            placed.push(next);
             this.markOccupied(next, occupied);
         }
 
-        return chain;
+        return placed;
     }
 
     private static collectCandidates(
-        previous: SheepLevelItem,
-        chainLength: number,
+        placed: SheepLevelItem[],
         occupied: boolean[][],
         centerRow: number,
         centerCol: number,
     ): { item: SheepLevelItem; score: number }[] {
         const candidates: { item: SheepLevelItem; score: number }[] = [];
         for (let directionIndex = 0; directionIndex < DirectionCycle.length; directionIndex++) {
-            const direction = DirectionCycle[(chainLength + directionIndex) % DirectionCycle.length];
+            const direction = DirectionCycle[(placed.length + directionIndex) % DirectionCycle.length];
             for (let row = 0; row < SHEEP_LEVEL_ROW_COUNT; row++) {
                 for (let col = 0; col < SHEEP_LEVEL_COL_COUNT; col++) {
                     const item = { row, col, direction };
                     if (!this.canPlace(item, occupied)) continue;
-                    if (!this.overlapsPreviousAfterOneStep(item, previous)) continue;
+                    if (this.blocksAnyPlacedPath(item, placed)) continue;
 
                     const centerDistance = Math.abs(row - centerRow) + Math.abs(col - centerCol);
-                    candidates.push({ item, score: directionIndex * 100 + centerDistance });
+                    const dependencyScore = this.isPathBlockedByPlaced(item, placed) ? 0 : 30;
+                    candidates.push({ item, score: dependencyScore + directionIndex * 100 + centerDistance });
                 }
             }
         }
@@ -152,19 +196,63 @@ export class SheepLevelGenerator {
         }
     }
 
-    private static overlapsPreviousAfterOneStep(item: SheepLevelItem, previous: SheepLevelItem): boolean {
+    private static blocksAnyPlacedPath(item: SheepLevelItem, placed: SheepLevelItem[]): boolean {
+        const itemRect = this.getRect(item);
+        return placed.some(placedItem => this.getPathRects(placedItem).some(pathRect => this.rectsOverlap(itemRect, pathRect)));
+    }
+
+    private static isPathBlockedByPlaced(item: SheepLevelItem, placed: SheepLevelItem[]): boolean {
+        const pathRects = this.getPathRects(item);
+        return placed.some(placedItem => {
+            const placedRect = this.getRect(placedItem);
+            return pathRects.some(pathRect => this.rectsOverlap(placedRect, pathRect));
+        });
+    }
+
+    private static isBlocked(sheep: SolveSheep, sheepList: SolveSheep[]): boolean {
+        const pathRects = this.getPathRects(sheep);
+        return sheepList.some(other => {
+            if (other === sheep || other.removed) return false;
+
+            const otherRect = this.getRect(other);
+            return pathRects.some(pathRect => this.rectsOverlap(otherRect, pathRect));
+        });
+    }
+
+    private static getPathRects(item: SheepLevelItem): FootprintRect[] {
         const config = DirectionConfigs[item.direction];
         const footprint = this.getFootprint(item.direction);
-        const previousFootprint = this.getFootprint(previous.direction);
-        const nextRow = item.row + config.rowDelta;
-        const nextCol = item.col + config.colDelta;
+        const rects: FootprintRect[] = [];
+        let row = item.row + config.rowDelta;
+        let col = item.col + config.colDelta;
 
-        if (!this.isFootprintInside(nextRow, nextCol, footprint)) return false;
+        while (this.isFootprintInside(row, col, footprint)) {
+            rects.push({ row, col, rowSpan: footprint.rowSpan, colSpan: footprint.colSpan });
+            row += config.rowDelta;
+            col += config.colDelta;
+        }
 
-        return nextRow < previous.row + previousFootprint.rowSpan
-            && nextRow + footprint.rowSpan > previous.row
-            && nextCol < previous.col + previousFootprint.colSpan
-            && nextCol + footprint.colSpan > previous.col;
+        return rects;
+    }
+
+    private static getRect(item: SheepLevelItem | SolveSheep): FootprintRect {
+        const footprint = 'rowSpan' in item
+            ? { rowSpan: item.rowSpan, colSpan: item.colSpan }
+            : this.getFootprint(item.direction);
+
+        return {
+            row: item.row,
+            col: item.col,
+            rowSpan: footprint.rowSpan,
+            colSpan: footprint.colSpan,
+        };
+    }
+
+    private static rectsOverlap(a: FootprintRect, b: FootprintRect): boolean {
+        return a.row < b.row + b.rowSpan
+            && a.row + a.rowSpan > b.row
+            && a.col < b.col + b.colSpan
+            && a.col + a.colSpan > b.col;
     }
 
     private static isFootprintInside(row: number, col: number, footprint: Footprint): boolean {
