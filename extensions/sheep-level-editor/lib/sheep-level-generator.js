@@ -3,6 +3,7 @@
 const ROW_COUNT = 19;
 const COL_COUNT = 12;
 const DEFAULT_TYPE = 'normal';
+const GENERATE_ATTEMPTS = 80;
 
 const Direction = {
     Up: 'Up',
@@ -36,22 +37,33 @@ function normalizeTypeConfigs(typeConfigs) {
 function generateLevel(level, typeCounts, typeConfigs) {
     const normalizedTypeConfigs = normalizeTypeConfigs(typeConfigs);
     const typeSequence = createTypeSequence(typeCounts);
-    const sheep = generateSolvableLayout(typeSequence, normalizedTypeConfigs);
-    if (sheep.length < typeSequence.length) {
-        throw new Error(`只生成了 ${sheep.length}/${typeSequence.length} 只羊，请减少数量或调整类型占格`);
+    let bestLevelData = null;
+
+    for (let attempt = 0; attempt < GENERATE_ATTEMPTS; attempt++) {
+        const sheep = generateSolvableLayout(typeSequence, normalizedTypeConfigs);
+        if (sheep.length <= 0) continue;
+
+        const levelData = {
+            level,
+            rowCount: ROW_COUNT,
+            colCount: COL_COUNT,
+            sheep,
+        };
+        if (!canSolveLevel(levelData, normalizedTypeConfigs)) continue;
+
+        if (!bestLevelData || levelData.sheep.length > bestLevelData.sheep.length) {
+            bestLevelData = levelData;
+        }
+        if (levelData.sheep.length >= typeSequence.length) {
+            return levelData;
+        }
     }
 
-    const levelData = {
-        level,
-        rowCount: ROW_COUNT,
-        colCount: COL_COUNT,
-        sheep,
-    };
-    if (!canSolveLevel(levelData, normalizedTypeConfigs)) {
-        throw new Error(`第 ${level} 关生成后不可解`);
+    if (!bestLevelData) {
+        throw new Error(`第 ${level} 关生成失败，没有找到可解布局`);
     }
 
-    return levelData;
+    return bestLevelData;
 }
 
 function canSolveLevel(level, typeConfigs) {

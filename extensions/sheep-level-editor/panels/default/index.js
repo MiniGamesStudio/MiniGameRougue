@@ -88,10 +88,11 @@ module.exports = Editor.Panel.define({
             try {
                 const level = this.getLevelInput();
                 const typeCounts = this.parseTypeCounts();
+                const targetCount = typeCounts.reduce((sum, item) => sum + item.count, 0);
                 this.currentLevel = generator.generateLevel(level, typeCounts, this.getGeneratorTypeConfigs());
                 console.log('[sheep-level-editor] 生成结果：', JSON.stringify(this.currentLevel, null, 2));
                 this.renderLevel(this.currentLevel);
-                this.setStatus(`生成成功：第 ${level} 关，数量 ${this.currentLevel.sheep.length}`);
+                this.setStatus(`生成成功：第 ${level} 关，数量 ${this.currentLevel.sheep.length}/${targetCount}`);
             } catch (error) {
                 console.error('[sheep-level-editor] 生成失败：', error);
                 this.setStatus(`生成失败：${error.message}`);
