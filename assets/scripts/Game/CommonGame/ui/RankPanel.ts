@@ -1,4 +1,4 @@
-import { _decorator, assetManager, Button, Color, ImageAsset, instantiate, Label, Node, Sprite, SpriteFrame, Texture2D, UITransform } from 'cc';
+import { _decorator, assetManager, Button, Color, ImageAsset, instantiate, Label, Layout, Node, RichText, Sprite, SpriteFrame, Texture2D, UITransform, Widget } from 'cc';
 import { PlatformManager, PlatformRankUserData, PlatformResult } from '../../../engine/PlatformManager';
 import { UIBase } from '../../../engine/ui/UIBase';
 
@@ -65,12 +65,8 @@ export class RankPanel extends UIBase {
             return;
         }
 
-        const result = PlatformManager.getInstance().postOpenDataMessage({
-            type: 'showFriendRank',
-            key: RANK_KEY,
-        });
-        this.setStatus(result.result === PlatformResult.Success ? '排行榜已打开' : result.message || '当前环境不支持排行榜');
-        this.startRefreshRankCanvas();
+        this.renderRankList(this.getMockRankList());
+        this.setStatus('模拟排行榜数据');
     }
 
     private bindRankView(): void {
@@ -93,6 +89,10 @@ export class RankPanel extends UIBase {
         this.m_MyRankItem = this.findDirectChildByName(this.node, 'MyRankItem');
         this.m_RankItemTemplate = this.findChildByName(this.node, 'RankItem');
         this.m_RankContent = this.findChildByName(this.node, 'content') || this.m_RankItemTemplate?.parent || null;
+        this.setupRankContentLayout();
+        if (this.m_MyRankItem) {
+            this.m_MyRankItem.active = false;
+        }
         if (this.m_RankItemTemplate) {
             this.m_RankItemTemplate.active = false;
         }
@@ -124,16 +124,13 @@ export class RankPanel extends UIBase {
             const item = instantiate(this.m_RankItemTemplate);
             item.name = `RankItem_${index + 1}`;
             item.active = true;
+            this.removeRootWidget(item);
             item.parent = this.m_RankContent;
-            item.setPosition(this.m_RankItemTemplate.position.x, this.m_RankItemTemplate.position.y - index * 120, 0);
             this.renderRankItem(item, data, index + 1);
             this.m_DynamicRankItems.push(item);
         });
 
-        const contentTransform = this.m_RankContent.getComponent(UITransform);
-        if (contentTransform) {
-            contentTransform.setContentSize(contentTransform.contentSize.width, Math.max(120, rankList.length * 120));
-        }
+        this.refreshRankContentLayout();
 
         const selfData = self || rankList.find(item => item.isSelf);
         const selfRank = selfData ? Math.max(1, rankList.findIndex(item => item === selfData || item.isSelf) + 1) : 0;
@@ -143,9 +140,24 @@ export class RankPanel extends UIBase {
         }
     }
 
+    private getMockRankList(): PlatformRankUserData[] {
+        return [
+            { nickname: '玩家A', score: 32 },
+            { nickname: '玩家B', score: 29 },
+            { nickname: '玩家C', score: 27 },
+            { nickname: '玩家D', score: 24 },
+            { nickname: '玩家E', score: 22 },
+            { nickname: '玩家F', score: 19 },
+            { nickname: '玩家G', score: 17 },
+            { nickname: '玩家H', score: 15 },
+            { nickname: '玩家I', score: 12 },
+            { nickname: '玩家J', score: 9 },
+        ];
+    }
+
     private renderRankItem(item: Node, data: PlatformRankUserData, rank: number): void {
         this.setRankDisplay(item, rank);
-        this.setLabelText(item, 'PointTxt', String(data.score));
+        this.setText(item, 'PointTxt', String(data.score));
         this.setLabelText(item, 'NameTxt', data.nickname);
         this.loadAvatar(item, data.avatarUrl);
     }
@@ -164,13 +176,24 @@ export class RankPanel extends UIBase {
         if (rank3) rank3.active = rank === 3;
         if (rankNumTxt) {
             rankNumTxt.active = rank > 3;
-            const label = rankNumTxt.getComponent(Label);
-            if (label) label.string = String(rank);
+            this.setText(rankRoot, 'RankNumTxt', String(rank));
         }
     }
 
     private setLabelText(item: Node, labelNodeName: string, text: string): void {
         const label = this.findChildByName(item, labelNodeName)?.getComponent(Label);
+        if (label) label.string = text;
+    }
+
+    private setText(item: Node, nodeName: string, text: string): void {
+        const node = this.findChildByName(item, nodeName);
+        const richText = node?.getComponent(RichText);
+        if (richText) {
+            richText.string = text;
+            return;
+        }
+
+        const label = node?.getComponent(Label);
         if (label) label.string = text;
     }
 
@@ -194,6 +217,55 @@ export class RankPanel extends UIBase {
             if (item && item.isValid) item.destroy();
         });
         this.m_DynamicRankItems = [];
+    }
+
+    private setupRankContentLayout(): void {
+        if (!this.m_RankContent) return;
+
+        const layout = this.m_RankContent.getComponent(Layout) || this.m_RankContent.addComponent(Layout);
+        const layoutData = layout as any;
+        const layoutTypeEnum = (Layout as any).Type;
+        const resizeModeEnum = (Layout as any).ResizeMode;
+        const verticalDirectionEnum = (Layout as any).VerticalDirection;
+
+        layoutData.type = layoutTypeEnum?.VERTICAL ?? 2;
+        layoutData.resizeMode = resizeModeEnum?.CONTAINER ?? 2;
+        layoutData.verticalDirection = verticalDirectionEnum?.TOP_TO_BOTTOM ?? 1;
+        layoutData.spacingY = layoutData.spacingY || 20;
+    }
+
+    private removeRootWidget(item: Node): void {
+        const widget = item.getComponent(Widget);
+        if (widget) {
+            widget.destroy();
+        }
+    }
+
+    private refreshRankContentLayout(): void {
+        const layout = this.m_RankContent?.getComponent(Layout);
+        if (!layout) return;
+
+        this.refreshLayoutResizeMode(layout);
+        layout.updateLayout();
+        this.scheduleOnce(() => {
+            if (this.m_RankContent?.isValid) {
+                const nextLayout = this.m_RankContent.getComponent(Layout);
+                if (nextLayout) {
+                    this.refreshLayoutResizeMode(nextLayout);
+                    nextLayout.updateLayout();
+                }
+            }
+        }, 0);
+    }
+
+    private refreshLayoutResizeMode(layout: Layout): void {
+        const layoutData = layout as any;
+        const resizeMode = layoutData.resizeMode;
+        const resizeModeEnum = (Layout as any).ResizeMode;
+        const noneMode = resizeModeEnum?.NONE ?? 0;
+
+        layoutData.resizeMode = noneMode;
+        layoutData.resizeMode = resizeMode;
     }
 
     private createRankViewNode(referenceNode?: Node): Node {

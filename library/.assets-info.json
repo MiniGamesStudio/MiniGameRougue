@@ -1025,7 +1025,7 @@
       "time": 1782110618406.1548
     },
     "scripts\\Game\\CommonGame\\ui\\RankPanel.ts": {
-      "time": 1782121282519.09,
+      "time": 1782123547680.2632,
       "uuid": "b45da2d2-3f4c-4b69-a2bb-ea92ed3a7852"
     },
     "scripts\\engine\\PlatformManager.ts": {
@@ -1043,7 +1043,7 @@
       "time": 1782111159772.4463
     },
     "resources\\ui\\RankPanel.prefab": {
-      "time": 1782121391619.4883,
+      "time": 1782123608926.206,
       "uuid": "8ef6df47-0ec6-430e-accf-e7f7f77a5e07"
     },
     "resources\\ranking.meta": {
