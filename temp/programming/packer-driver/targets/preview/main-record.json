@@ -1,7 +1,7 @@
 {
   "modules": {
     "cce:/internal/x/cc": {
-      "mTimestamp": 13514.4605,
+      "mTimestamp": 6660.9867,
       "chunkId": "93ba276ea7b26ffcdc433fab14afc1ed6f05647b",
       "imports": [
         {
@@ -514,7 +514,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 15628929.9015,
+      "mTimestamp": 930888.2574,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -2701,7 +2701,7 @@
       ]
     },
     "cce:/internal/code-quality/cr.mjs": {
-      "mTimestamp": 1782107925629,
+      "mTimestamp": 1782131574794,
       "chunkId": "6a5019a719a9014c047e67aa1cf34453ab8392ce",
       "imports": [],
       "type": "esm",
@@ -21587,7 +21587,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameArrow/assets/scripts/Game/CommonGame/ui/MainPage.ts": {
       "mTimestamp": {
-        "mtime": 1782120854453.7307,
+        "mtime": 1782129568782.6726,
         "uuid": "5dac72fe-9aae-4a79-b72e-3eb8c3c18fac"
       },
       "chunkId": "87fdd7c6b013f263c32fb00fdf56be0fb471438a",
@@ -23148,7 +23148,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameArrow/assets/scripts/Game/CommonGame/ui/RankPanel.ts": {
       "mTimestamp": {
-        "mtime": 1782123547680.2632,
+        "mtime": 1782132503282.9958,
         "uuid": "b45da2d2-3f4c-4b69-a2bb-ea92ed3a7852"
       },
       "chunkId": "6628c7b1e1921055677524acd90ec7f35c5d6612",
@@ -23168,11 +23168,11 @@
           "loc": {
             "start": {
               "line": 1,
-              "column": 165
+              "column": 183
             },
             "end": {
               "line": 1,
-              "column": 169
+              "column": 187
             }
           }
         },

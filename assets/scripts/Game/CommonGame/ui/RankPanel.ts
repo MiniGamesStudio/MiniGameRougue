@@ -1,4 +1,4 @@
-import { _decorator, assetManager, Button, Color, ImageAsset, instantiate, Label, Layout, Node, RichText, Sprite, SpriteFrame, Texture2D, UITransform, Widget } from 'cc';
+import { _decorator, assetManager, Button, Color, ImageAsset, instantiate, Label, Layout, Node, RichText, ScrollView, Sprite, SpriteFrame, Texture2D, UITransform, Vec3, Widget } from 'cc';
 import { PlatformManager, PlatformRankUserData, PlatformResult } from '../../../engine/PlatformManager';
 import { UIBase } from '../../../engine/ui/UIBase';
 
@@ -7,6 +7,8 @@ const { ccclass } = _decorator;
 const RANK_KEY = 'level';
 const RANK_VIEW_WIDTH = 620;
 const RANK_VIEW_HEIGHT = 760;
+const MAX_RANK_COUNT = 20;
+const EXTRA_VISIBLE_ITEM_COUNT = 2;
 
 @ccclass('RankPanel')
 export class RankPanel extends UIBase {
@@ -17,7 +19,12 @@ export class RankPanel extends UIBase {
     private m_MyRankItem: Node = null;
     private m_RankItemTemplate: Node = null;
     private m_RankContent: Node = null;
+    private m_ScrollView: ScrollView = null;
     private m_DynamicRankItems: Node[] = [];
+    private m_RankDataList: PlatformRankUserData[] = [];
+    private m_ItemHeight: number = 120;
+    private m_ItemSpacing: number = 20;
+    private m_VisibleItemCount: number = 0;
 
     OnOpen(): void {
         this.bindPrefabUI();
@@ -26,6 +33,7 @@ export class RankPanel extends UIBase {
 
     OnClose(): void {
         this.stopRefreshRankCanvas();
+        this.unbindScrollEvents();
         this.clearDynamicRankItems();
         PlatformManager.getInstance().postOpenDataMessage({ type: 'hideFriendRank' });
         super.OnClose();
@@ -73,6 +81,7 @@ export class RankPanel extends UIBase {
         const scrollViewNode = this.findChildByName(this.node, 'ScrollView');
         if (scrollViewNode) {
             scrollViewNode.active = false;
+            this.m_ScrollView = scrollViewNode.getComponent(ScrollView);
         }
 
         const node = this.findChildByName(this.node, 'RankCanvasView') || this.createRankViewNode(scrollViewNode);
@@ -89,7 +98,8 @@ export class RankPanel extends UIBase {
         this.m_MyRankItem = this.findDirectChildByName(this.node, 'MyRankItem');
         this.m_RankItemTemplate = this.findChildByName(this.node, 'RankItem');
         this.m_RankContent = this.findChildByName(this.node, 'content') || this.m_RankItemTemplate?.parent || null;
-        this.setupRankContentLayout();
+        this.updateRankItemMetrics();
+        this.bindScrollEvents();
         if (this.m_MyRankItem) {
             this.m_MyRankItem.active = false;
         }
@@ -113,31 +123,108 @@ export class RankPanel extends UIBase {
             return;
         }
         this.m_RankItemTemplate.active = false;
+        this.m_RankDataList = rankList.slice(0, MAX_RANK_COUNT);
 
-        if (rankList.length <= 0) {
+        if (this.m_RankDataList.length <= 0) {
             if (this.m_MyRankItem) this.m_MyRankItem.active = false;
             this.setStatus('暂无排行榜数据');
             return;
         }
 
-        rankList.forEach((data, index) => {
+        this.updateVirtualContentSize();
+        this.createVirtualRankItems();
+        this.updateVirtualRankItems();
+        this.refreshRankContentLayout();
+
+        const selfData = self || this.m_RankDataList.find(item => item.isSelf);
+        const selfRank = selfData ? Math.max(1, this.m_RankDataList.findIndex(item => item === selfData || item.isSelf) + 1) : 0;
+        if (this.m_MyRankItem) {
+            this.m_MyRankItem.active = !!selfData;
+            if (selfData) this.renderRankItem(this.m_MyRankItem, selfData, selfRank || this.m_RankDataList.length);
+        }
+    }
+
+    private createVirtualRankItems(): void {
+        if (!this.m_RankItemTemplate || !this.m_RankContent) return;
+
+        const viewHeight = this.getScrollViewHeight();
+        this.m_VisibleItemCount = Math.min(
+            this.m_RankDataList.length,
+            Math.ceil(viewHeight / this.getRankItemStep()) + EXTRA_VISIBLE_ITEM_COUNT,
+        );
+
+        for (let index = 0; index < this.m_VisibleItemCount; index++) {
             const item = instantiate(this.m_RankItemTemplate);
             item.name = `RankItem_${index + 1}`;
             item.active = true;
             this.removeRootWidget(item);
             item.parent = this.m_RankContent;
-            this.renderRankItem(item, data, index + 1);
             this.m_DynamicRankItems.push(item);
-        });
-
-        this.refreshRankContentLayout();
-
-        const selfData = self || rankList.find(item => item.isSelf);
-        const selfRank = selfData ? Math.max(1, rankList.findIndex(item => item === selfData || item.isSelf) + 1) : 0;
-        if (this.m_MyRankItem) {
-            this.m_MyRankItem.active = !!selfData;
-            if (selfData) this.renderRankItem(this.m_MyRankItem, selfData, selfRank || rankList.length);
         }
+    }
+
+    private updateVirtualRankItems(): void {
+        if (!this.m_RankContent || this.m_RankDataList.length <= 0) return;
+
+        const startIndex = this.getVirtualStartIndex();
+        const itemStep = this.getRankItemStep();
+        const itemX = this.getRankItemX();
+
+        this.m_DynamicRankItems.forEach((item, poolIndex) => {
+            const dataIndex = startIndex + poolIndex;
+            const data = this.m_RankDataList[dataIndex];
+            item.active = !!data;
+            if (!data) return;
+
+            //item.setPosition(new Vec3(itemX, -dataIndex * itemStep - this.m_ItemHeight * 0.5, 0));
+            this.renderRankItem(item, data, dataIndex + 1);
+        });
+    }
+
+    private getVirtualStartIndex(): number {
+        if (!this.m_RankContent || this.m_RankDataList.length <= 0) return 0;
+
+        const contentY = Math.max(0, this.m_RankContent.position.y);
+        const maxStartIndex = Math.max(0, this.m_RankDataList.length - this.m_VisibleItemCount);
+        return Math.min(maxStartIndex, Math.floor(contentY / this.getRankItemStep()));
+    }
+
+    private updateVirtualContentSize(): void {
+        const contentTransform = this.m_RankContent?.getComponent(UITransform);
+        if (!contentTransform) return;
+
+        const totalHeight = Math.max(this.getScrollViewHeight(), this.m_RankDataList.length * this.getRankItemStep());
+        contentTransform.setContentSize(contentTransform.contentSize.width, totalHeight);
+        //this.m_RankContent.setPosition(this.m_RankContent.position.x, 0, this.m_RankContent.position.z);
+        this.m_ScrollView?.scrollToTop(0);
+    }
+
+    private updateRankItemMetrics(): void {
+        const templateTransform = this.m_RankItemTemplate?.getComponent(UITransform);
+        if (templateTransform && templateTransform.contentSize.height > 0) {
+            this.m_ItemHeight = templateTransform.contentSize.height;
+        }
+
+        const layout = this.m_RankContent?.getComponent(Layout) as any;
+        const spacingY = Number(layout?.spacingY);
+        this.m_ItemSpacing = Number.isFinite(spacingY) ? Math.max(0, spacingY) : this.m_ItemSpacing;
+    }
+
+    private getRankItemStep(): number {
+        return this.m_ItemHeight + this.m_ItemSpacing;
+    }
+
+    private getRankItemX(): number {
+        const contentTransform = this.m_RankContent?.getComponent(UITransform);
+        const templateTransform = this.m_RankItemTemplate?.getComponent(UITransform);
+        const contentWidth = contentTransform?.contentSize.width || 0;
+        const templateWidth = templateTransform?.contentSize.width || 0;
+        return -contentWidth * 0.5 + templateWidth * 0.5;
+    }
+
+    private getScrollViewHeight(): number {
+        const viewNode = this.findChildByName(this.node, 'view') || this.m_ScrollView?.node;
+        return viewNode?.getComponent(UITransform)?.contentSize.height || RANK_VIEW_HEIGHT;
     }
 
     private getMockRankList(): PlatformRankUserData[] {
@@ -217,21 +304,7 @@ export class RankPanel extends UIBase {
             if (item && item.isValid) item.destroy();
         });
         this.m_DynamicRankItems = [];
-    }
-
-    private setupRankContentLayout(): void {
-        if (!this.m_RankContent) return;
-
-        const layout = this.m_RankContent.getComponent(Layout) || this.m_RankContent.addComponent(Layout);
-        const layoutData = layout as any;
-        const layoutTypeEnum = (Layout as any).Type;
-        const resizeModeEnum = (Layout as any).ResizeMode;
-        const verticalDirectionEnum = (Layout as any).VerticalDirection;
-
-        layoutData.type = layoutTypeEnum?.VERTICAL ?? 2;
-        layoutData.resizeMode = resizeModeEnum?.CONTAINER ?? 2;
-        layoutData.verticalDirection = verticalDirectionEnum?.TOP_TO_BOTTOM ?? 1;
-        layoutData.spacingY = layoutData.spacingY || 20;
+        this.m_RankDataList = [];
     }
 
     private removeRootWidget(item: Node): void {
@@ -256,6 +329,19 @@ export class RankPanel extends UIBase {
                 }
             }
         }, 0);
+    }
+
+    private bindScrollEvents(): void {
+        if (!this.m_ScrollView?.node) return;
+
+        this.m_ScrollView.node.off(ScrollView.EventType.SCROLLING, this.updateVirtualRankItems, this);
+        this.m_ScrollView.node.on(ScrollView.EventType.SCROLLING, this.updateVirtualRankItems, this);
+    }
+
+    private unbindScrollEvents(): void {
+        if (!this.m_ScrollView?.node) return;
+
+        this.m_ScrollView.node.off(ScrollView.EventType.SCROLLING, this.updateVirtualRankItems, this);
     }
 
     private refreshLayoutResizeMode(layout: Layout): void {
