@@ -564,8 +564,8 @@ export class GamePanel extends UIBase {
     private async onSkillOneBtnClick(): Promise<void> {
         if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
 
-        const completed = await this.playRewardedAd();
-        if (!completed || !this.isValid) return;
+        const shared = await this.shareForReward();
+        if (!shared || !this.isValid) return;
 
         this.m_SkillMode = 'removeTwo';
         this.m_SkillRemoveRemain = Math.min(2, this.m_SheepList.length);
@@ -574,8 +574,8 @@ export class GamePanel extends UIBase {
     private async onSkillTwoBtnClick(): Promise<void> {
         if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
 
-        const completed = await this.playRewardedAd();
-        if (!completed || !this.isValid) return;
+        const shared = await this.shareForReward();
+        if (!shared || !this.isValid) return;
 
         this.getRandomSheepList(Math.min(5, this.m_SheepList.length)).forEach(sheep => {
             this.flipSheep(sheep);
@@ -585,11 +585,24 @@ export class GamePanel extends UIBase {
     private async onSkillThreeBtnClick(): Promise<void> {
         if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
 
-        const completed = await this.playRewardedAd();
-        if (!completed || !this.isValid) return;
+        const shared = await this.shareForReward();
+        if (!shared || !this.isValid) return;
 
         this.m_SkillMode = 'flipOne';
         this.m_SkillRemoveRemain = 0;
+    }
+
+    private async shareForReward(): Promise<boolean> {
+        const result = await PlatformManager.getInstance().shareAppMessage({
+            title: '快来一起玩吧',
+            query: `level=${this.m_CurrentLevel}`,
+        });
+        if (result.result !== PlatformResult.Success) {
+            console.warn('GamePanel: 分享未完成，技能未生效', result.message);
+            return false;
+        }
+
+        return true;
     }
 
     private async playRewardedAd(): Promise<boolean> {

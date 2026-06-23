@@ -45,7 +45,7 @@ export class MainPage extends UIBase {
                 buttonIcon: "buttons/Button01_145_Orange",
                 onClick: () => {
                     UIManager.GetInstance().ClosePanel(CommonUIID.MainPanel);
-                    UIManager.GetInstance().OpenPanel(CommonUIID.LoadingPanel, CommonUIID.GamePanel, 1, 7);
+                    UIManager.GetInstance().OpenPanel(CommonUIID.LoadingPanel, CommonUIID.GamePanel, 1, 1);
                 },
             },
             {

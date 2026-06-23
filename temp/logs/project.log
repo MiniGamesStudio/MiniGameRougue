@@ -804,3 +804,25 @@ Require stack:
     at IpcRenderer.emit (node:events:519:28)
     at Object.onMessage (node:electron/js2c/renderer_init:2:8837)
 2026-6-23 09:23:35 - info: [PreviewInEditor] 预览环境初始化完毕
+2026-6-23 11:05:09 - log: wechatgame 构建模板生成成功！({link(D:\Works\Cocos\WxMiniGames\MiniGameArrow\build-templates\wechatgame)})
+2026-6-23 11:05:20 - log: wechatgame 构建模板生成成功！({link(D:\Works\Cocos\WxMiniGames\MiniGameArrow\build-templates\wechatgame)})
+2026-6-23 11:05:48 - info: [Window] Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+2026-6-23 11:05:48 - info: [Window] You are running Vue in development mode.
+Make sure to turn on production mode when deploying for production.
+See more tips at https://vuejs.org/guide/deployment.html
+2026-6-23 11:05:53 - info: [Window] Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+2026-6-23 11:05:53 - info: [Window] You are running Vue in development mode.
+Make sure to turn on production mode when deploying for production.
+See more tips at https://vuejs.org/guide/deployment.html
+2026-6-23 11:08:51 - info: [Window] Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+2026-6-23 11:08:51 - info: [Window] You are running Vue in development mode.
+Make sure to turn on production mode when deploying for production.
+See more tips at https://vuejs.org/guide/deployment.html
+2026-6-23 11:12:29 - info: [Window] Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+2026-6-23 11:12:29 - info: [Window] You are running Vue in development mode.
+Make sure to turn on production mode when deploying for production.
+See more tips at https://vuejs.org/guide/deployment.html

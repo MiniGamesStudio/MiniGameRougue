@@ -28,6 +28,19 @@ export interface PlatformRankResult {
     err?: unknown;
 }
 
+export interface PlatformShareOptions {
+    title?: string;
+    imageUrl?: string;
+    query?: string;
+}
+
+export interface PlatformShareResult {
+    result: PlatformResult;
+    platform: MiniGamePlatform;
+    message?: string;
+    err?: unknown;
+}
+
 export interface PlatformRankUserData {
     nickname: string;
     avatarUrl?: string;
@@ -91,6 +104,13 @@ type MiniGameRuntime = {
     getFriendCloudStorage?: (options: {
         keyList: string[];
         success?: (res: { data?: MiniGameFriendCloudStorageItem[] }) => void;
+        fail?: (err: unknown) => void;
+    }) => void;
+    shareAppMessage?: (options: {
+        title?: string;
+        imageUrl?: string;
+        query?: string;
+        success?: () => void;
         fail?: (err: unknown) => void;
     }) => void;
     getOpenDataContext?: () => MiniGameOpenDataContext;
@@ -158,6 +178,46 @@ export class PlatformManager {
 
     async submitRankScore(key: string, score: number, platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformRankResult> {
         return this.setUserCloudStorage([{ key, value: String(Math.floor(score)) }], platform);
+    }
+
+    async shareAppMessage(
+        options: PlatformShareOptions = {},
+        platform: MiniGamePlatform = MiniGamePlatform.Auto,
+    ): Promise<PlatformShareResult> {
+        if (!this._initialized) this.init();
+
+        const resolvedPlatform = this.resolvePlatform(platform);
+        const runtime = this.getRuntimeByPlatform(resolvedPlatform);
+        if (resolvedPlatform === MiniGamePlatform.Auto || !runtime?.shareAppMessage) {
+            return {
+                result: PlatformResult.Unsupported,
+                platform: resolvedPlatform,
+                message: '当前环境不支持分享',
+            };
+        }
+
+        return new Promise(resolve => {
+            runtime.shareAppMessage({
+                title: options.title || '一起来玩小羊小游戏',
+                imageUrl: options.imageUrl,
+                query: options.query,
+                success: () => {
+                    resolve({
+                        result: PlatformResult.Success,
+                        platform: resolvedPlatform,
+                        message: '分享成功',
+                    });
+                },
+                fail: (err: unknown) => {
+                    resolve({
+                        result: PlatformResult.Failed,
+                        platform: resolvedPlatform,
+                        message: '分享失败',
+                        err,
+                    });
+                },
+            });
+        });
     }
 
     async setUserCloudStorage(
