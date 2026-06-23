@@ -26,7 +26,7 @@
       "uuid": "b5ad4379-da55-44a2-a5cd-3bbde1c09556"
     },
     "scene\\main.scene": {
-      "time": 1782196201552.8105,
+      "time": 1782197093139.016,
       "uuid": "832cd028-fca2-4694-bfcf-606b1fd6a211"
     },
     "scripts.meta": {
@@ -321,7 +321,7 @@
       "time": 1776483748808.626
     },
     "scripts\\engine": {
-      "time": 1782110938675.386,
+      "time": 1782197076822.0188,
       "uuid": "211cab37-71d6-4ead-affc-1bd22b5825b3"
     },
     "scripts\\framework": {
@@ -329,7 +329,7 @@
       "uuid": "59b66024-ec7b-4c79-bf37-27f080eadcf7"
     },
     "scripts\\engine\\ui": {
-      "time": 1781946493803.2888,
+      "time": 1782197076822.0188,
       "uuid": "7df16e00-9eaa-45d0-9e40-b833854a2188"
     },
     "scripts\\engine\\AudioManager.ts": {
@@ -361,7 +361,7 @@
       "uuid": "0e04bbbe-77d8-4386-8cdf-86916e843569"
     },
     "scripts\\engine\\ScreenAdapter.ts": {
-      "time": 1781946493802.289,
+      "time": 1782197076822.0188,
       "uuid": "536c5dc6-7880-4aca-916c-85a89bc02090"
     },
     "scripts\\framework\\EventManager.ts": {
@@ -405,7 +405,7 @@
       "uuid": "68b8b1d8-1503-4d37-8967-edc49faf7b76"
     },
     "scripts\\engine\\ui\\UIManager.ts": {
-      "time": 1781946493803.2888,
+      "time": 1782197076822.0188,
       "uuid": "09655416-66ee-480f-b261-8b2948cd74af"
     },
     "scripts\\engine.meta": {
@@ -887,7 +887,7 @@
       "uuid": "73edaae5-0b7a-425f-afe0-f601833012aa"
     },
     "scripts\\Game\\CommonGame\\ui": {
-      "time": 1782110618406.1548,
+      "time": 1782197076823.02,
       "uuid": "191bdeae-9286-465e-a518-a494dbf87eba"
     },
     "scripts\\Game\\CommonGame\\CommonGameEntry.ts": {
@@ -910,7 +910,7 @@
       "time": 1781946493794.2876
     },
     "resources\\ui\\MainPage.prefab": {
-      "time": 1781959662003.4421,
+      "time": 1782197844257.96,
       "uuid": "f7e7fc73-23fc-4f8f-838a-3643ae2e8713"
     },
     "scripts\\Game\\CommonGame\\ui\\MainPage.ts.meta": {
@@ -1025,7 +1025,7 @@
       "time": 1782110618406.1548
     },
     "scripts\\Game\\CommonGame\\ui\\RankPanel.ts": {
-      "time": 1782133089367.0764,
+      "time": 1782197076823.02,
       "uuid": "b45da2d2-3f4c-4b69-a2bb-ea92ed3a7852"
     },
     "scripts\\engine\\PlatformManager.ts": {
@@ -1043,7 +1043,7 @@
       "time": 1782111159772.4463
     },
     "resources\\ui\\RankPanel.prefab": {
-      "time": 1782123608926.206,
+      "time": 1782197797652.4556,
       "uuid": "8ef6df47-0ec6-430e-accf-e7f7f77a5e07"
     },
     "resources\\ranking.meta": {
