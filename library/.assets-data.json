@@ -4177,5 +4177,25 @@
     "url": "db://assets/scripts/Game/CommonGame/ui/LoginPanel.ts",
     "value": {},
     "versionCode": 1
+  },
+  "2c8b954c-0045-4bcb-8ec1-847ad387b338": {
+    "url": "db://assets/resources/ui/PausePanel.prefab",
+    "value": {
+      "depends": [
+        "db239a29-fd7f-482c-8a49-82b641d5e489@f9941",
+        "a66726f4-f780-4d1d-b776-00cce3b6c51d@f9941",
+        "a4840e4c-51eb-40b5-ae6f-035d58ec0152@f9941",
+        "ee9a4b5e-9cf7-4e80-82f7-1295f0ae2500@f9941"
+      ],
+      "dependScripts": [
+        "22222222-2222-4222-8222-222222222222"
+      ]
+    },
+    "versionCode": 2
+  },
+  "22222222-2222-4222-8222-222222222222": {
+    "url": "db://assets/scripts/Game/CommonGame/ui/PausePanel.ts",
+    "value": {},
+    "versionCode": 1
   }
 }

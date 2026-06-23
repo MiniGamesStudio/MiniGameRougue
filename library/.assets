@@ -80,7 +80,9 @@
             "resources\\ui\\MainPage.prefab",
             "resources\\ui\\MainPanel.prefab",
             "resources\\ui\\RankPanel.prefab",
-            "scripts\\Game\\CommonGame\\ui\\LoginPanel.ts"
+            "scripts\\Game\\CommonGame\\ui\\LoginPanel.ts",
+            "resources\\ui\\PausePanel.prefab",
+            "scripts\\Game\\CommonGame\\ui\\PausePanel.ts"
         ]
     }
 }

@@ -55,7 +55,7 @@
       "time": 1781946493793.289
     },
     "resources\\ui": {
-      "time": 1782111159766.3875,
+      "time": 1782205297242.4187,
       "uuid": "6c60be67-475a-43dc-a592-251e41add936"
     },
     "resources\\ui\\LoadingPanel.prefab.meta": {
@@ -817,7 +817,7 @@
       "uuid": "73edaae5-0b7a-425f-afe0-f601833012aa"
     },
     "scripts\\Game\\CommonGame\\ui": {
-      "time": 1782204801434.8628,
+      "time": 1782206117112.4111,
       "uuid": "191bdeae-9286-465e-a518-a494dbf87eba"
     },
     "scripts\\Game\\CommonGame\\CommonGameEntry.ts": {
@@ -825,7 +825,7 @@
       "uuid": "c63a2908-67d7-4c12-a0ce-6c9030278f78"
     },
     "scripts\\Game\\CommonGame\\CommonUIConfig.ts": {
-      "time": 1782204806290.8054,
+      "time": 1782206121551.684,
       "uuid": "1ddebbfb-1c31-4d1a-8cc1-b8ee53713dfb"
     },
     "scripts\\Game\\CommonGame\\ui\\LoadingPanel.ts": {
@@ -868,7 +868,7 @@
       "time": 1781946493798.2878
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1782194402346.3838,
+      "time": 1782206150281.6987,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheep.png.meta": {
@@ -1024,6 +1024,20 @@
     "scripts\\Game\\CommonGame\\ui\\LoginPanel.ts": {
       "time": 1782205017858.7153,
       "uuid": "11111111-1111-4111-8111-111111111111"
+    },
+    "resources\\ui\\PausePanel.prefab.meta": {
+      "time": 1782205297302.203
+    },
+    "resources\\ui\\PausePanel.prefab": {
+      "time": 1782206248086.7334,
+      "uuid": "2c8b954c-0045-4bcb-8ec1-847ad387b338"
+    },
+    "scripts\\Game\\CommonGame\\ui\\PausePanel.ts.meta": {
+      "time": 1782206117113.4106
+    },
+    "scripts\\Game\\CommonGame\\ui\\PausePanel.ts": {
+      "time": 1782206113461.7405,
+      "uuid": "22222222-2222-4222-8222-222222222222"
     }
   },
   "missing": {}

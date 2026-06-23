@@ -2,6 +2,8 @@ import { _decorator, Button, JsonAsset, Node, resources, RichText, Sprite, Sprit
 import { AdManager, AdPlayResult } from '../../../engine/AdManager';
 import { PlatformManager, PlatformResult } from '../../../engine/PlatformManager';
 import { UIBase } from '../../../engine/ui/UIBase';
+import { UIManager } from '../../../engine/ui/UIManager';
+import { CommonUIID } from '../CommonUIConfig';
 const { ccclass, property } = _decorator;
 
 const MAX_ROW = 19;
@@ -152,8 +154,10 @@ export class GamePanel extends UIBase {
     private m_LevelConfigList: GameLevelConfig[] = [];
     private m_CurrentLevel: number = 1;
     private m_OpenLevelConfig: GameLevelConfig = null;
+    private m_IsPaused: boolean = false;
 
     OnInit(): void {
+        this.SetBtnEvent(this.m_PauseBtn, () => this.onPauseBtnClick());
         this.SetBtnEvent(this.m_SkillOneBtn, () => this.onSkillOneBtnClick());
         this.SetBtnEvent(this.m_SkillTwoBtn, () => this.onSkillTwoBtnClick());
         this.SetBtnEvent(this.m_SkillThreeBtn, () => this.onSkillThreeBtnClick());
@@ -162,12 +166,7 @@ export class GamePanel extends UIBase {
     OnOpen(level: number | GameLevelConfig = this.m_StartLevel): void {
         this.loadLocalLevelConfigs(() => {
             if (!this.isValid) return;
-            this.m_OpenLevelConfig = this.resolveOpenLevelConfig(level);
-            this.resetGame();
-            this.loadSheepSpriteFrames(() => {
-                if (!this.isValid) return;
-                this.startLevel();
-            });
+            this.loadLevel(level);
         });
     }
 
@@ -177,6 +176,16 @@ export class GamePanel extends UIBase {
         this.m_SkillMode = 'none';
         this.m_SkillRemoveRemain = 0;
         this.m_LevelEnded = false;
+        this.m_IsPaused = false;
+    }
+
+    private loadLevel(level: number | GameLevelConfig): void {
+        this.m_OpenLevelConfig = this.resolveOpenLevelConfig(level);
+        this.resetGame();
+        this.loadSheepSpriteFrames(() => {
+            if (!this.isValid) return;
+            this.startLevel();
+        });
     }
 
     private loadLocalLevelConfigs(onComplete: () => void): void {
@@ -274,6 +283,7 @@ export class GamePanel extends UIBase {
         this.m_SkillMode = 'none';
         this.m_SkillRemoveRemain = 0;
         this.m_LevelEnded = false;
+        this.m_IsPaused = false;
         this.initBoardSize();
     }
 
@@ -465,7 +475,7 @@ export class GamePanel extends UIBase {
     }
 
     private onSheepClick(sheep: SheepData): void {
-        if (!sheep || sheep.removed || sheep.moving || this.m_LevelEnded) return;
+        if (!sheep || sheep.removed || sheep.moving || this.m_LevelEnded || this.m_IsPaused) return;
 
         if (this.m_SkillMode === 'removeTwo') {
             this.removeSheepBySkill(sheep);
@@ -561,8 +571,34 @@ export class GamePanel extends UIBase {
         };
     }
 
+    private onPauseBtnClick(): void {
+        if (this.m_LevelEnded || this.m_IsPaused) return;
+
+        this.m_IsPaused = true;
+        UIManager.GetInstance().OpenPanel(CommonUIID.PausePanel, {
+            onContinue: () => this.continueCurrentLevel(),
+            onRestart: () => this.restartCurrentLevel(),
+            onGoBack: () => this.goBackMainPanel(),
+        });
+    }
+
+    private continueCurrentLevel(): void {
+        this.m_IsPaused = false;
+    }
+
+    private restartCurrentLevel(): void {
+        this.m_IsPaused = false;
+        this.loadLevel(this.m_CurrentLevel);
+    }
+
+    private goBackMainPanel(): void {
+        this.m_IsPaused = false;
+        UIManager.GetInstance().ClosePanel(CommonUIID.GamePanel);
+        UIManager.GetInstance().OpenPanel(CommonUIID.MainPanel);
+    }
+
     private async onSkillOneBtnClick(): Promise<void> {
-        if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
+        if (this.m_LevelEnded || this.m_IsPaused || this.m_SheepList.length <= 0) return;
 
         const shared = await this.shareForReward();
         if (!shared || !this.isValid) return;
@@ -572,7 +608,7 @@ export class GamePanel extends UIBase {
     }
 
     private async onSkillTwoBtnClick(): Promise<void> {
-        if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
+        if (this.m_LevelEnded || this.m_IsPaused || this.m_SheepList.length <= 0) return;
 
         const shared = await this.shareForReward();
         if (!shared || !this.isValid) return;
@@ -583,7 +619,7 @@ export class GamePanel extends UIBase {
     }
 
     private async onSkillThreeBtnClick(): Promise<void> {
-        if (this.m_LevelEnded || this.m_SheepList.length <= 0) return;
+        if (this.m_LevelEnded || this.m_IsPaused || this.m_SheepList.length <= 0) return;
 
         const shared = await this.shareForReward();
         if (!shared || !this.isValid) return;
@@ -778,6 +814,17 @@ export class GamePanel extends UIBase {
         this.m_SkillRemoveRemain = 0;
         console.log('GamePanel: 关卡结束');
         this.submitRankScore();
+        this.startNextLevel();
+    }
+
+    private startNextLevel(): void {
+        const nextLevel = this.m_CurrentLevel + 1;
+        if (this.m_LevelConfigList.length > 0 && nextLevel > this.m_LevelConfigList.length) {
+            console.log('GamePanel: 已完成全部关卡');
+            return;
+        }
+
+        this.loadLevel(nextLevel);
     }
 
     private async submitRankScore(): Promise<void> {
