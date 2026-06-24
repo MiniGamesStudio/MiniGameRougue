@@ -216,32 +216,38 @@ export class PlatformManager {
         const resolvedPlatform = this.resolvePlatform(platform);
         const runtime = this.getRuntimeByPlatform(resolvedPlatform);
         if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.getPrivacySetting) {
-            return {
+            const result: PlatformPrivacySettingResult = {
                 result: PlatformResult.Unsupported,
                 platform: resolvedPlatform,
                 needAuthorization: false,
                 message: '当前环境不支持隐私授权状态查询',
             };
+            this.logPrivacyStep('查询隐私授权状态', result);
+            return result;
         }
 
         return new Promise(resolve => {
             runtime.getPrivacySetting({
                 success: (res) => {
-                    resolve({
+                    const result: PlatformPrivacySettingResult = {
                         result: PlatformResult.Success,
                         platform: resolvedPlatform,
                         needAuthorization: !!res.needAuthorization,
                         privacyContractName: res.privacyContractName,
                         message: res.needAuthorization ? '需要用户同意隐私协议' : '已同步隐私授权状态',
-                    });
+                    };
+                    this.logPrivacyStep('查询隐私授权状态', result);
+                    resolve(result);
                 },
                 fail: (err: unknown) => {
-                    resolve({
+                    const result: PlatformPrivacySettingResult = {
                         result: PlatformResult.Failed,
                         platform: resolvedPlatform,
                         message: '隐私授权状态查询失败',
                         err,
-                    });
+                    };
+                    this.logPrivacyStep('查询隐私授权状态', result);
+                    resolve(result);
                 },
             });
         });
@@ -253,29 +259,35 @@ export class PlatformManager {
         const resolvedPlatform = this.resolvePlatform(platform);
         const runtime = this.getRuntimeByPlatform(resolvedPlatform);
         if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.requirePrivacyAuthorize) {
-            return {
+            const result: PlatformPrivacyAuthorizeResult = {
                 result: PlatformResult.Unsupported,
                 platform: resolvedPlatform,
                 message: '当前环境不支持隐私授权弹窗',
             };
+            this.logPrivacyStep('拉起隐私授权弹窗', result);
+            return result;
         }
 
         return new Promise(resolve => {
             runtime.requirePrivacyAuthorize({
                 success: () => {
-                    resolve({
+                    const result: PlatformPrivacyAuthorizeResult = {
                         result: PlatformResult.Success,
                         platform: resolvedPlatform,
                         message: '隐私授权成功',
-                    });
+                    };
+                    this.logPrivacyStep('拉起隐私授权弹窗', result);
+                    resolve(result);
                 },
                 fail: (err: unknown) => {
-                    resolve({
+                    const result: PlatformPrivacyAuthorizeResult = {
                         result: PlatformResult.Failed,
                         platform: resolvedPlatform,
                         message: '隐私授权失败',
                         err,
-                    });
+                    };
+                    this.logPrivacyStep('拉起隐私授权弹窗', result);
+                    resolve(result);
                 },
             });
         });
@@ -287,29 +299,35 @@ export class PlatformManager {
         const resolvedPlatform = this.resolvePlatform(platform);
         const runtime = this.getRuntimeByPlatform(resolvedPlatform);
         if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.openPrivacyContract) {
-            return {
+            const result: PlatformPrivacyAuthorizeResult = {
                 result: PlatformResult.Unsupported,
                 platform: resolvedPlatform,
                 message: '当前环境不支持展示隐私协议',
             };
+            this.logPrivacyStep('展示隐私协议', result);
+            return result;
         }
 
         return new Promise(resolve => {
             runtime.openPrivacyContract({
                 success: () => {
-                    resolve({
+                    const result: PlatformPrivacyAuthorizeResult = {
                         result: PlatformResult.Success,
                         platform: resolvedPlatform,
                         message: '已展示隐私协议',
-                    });
+                    };
+                    this.logPrivacyStep('展示隐私协议', result);
+                    resolve(result);
                 },
                 fail: (err: unknown) => {
-                    resolve({
+                    const result: PlatformPrivacyAuthorizeResult = {
                         result: PlatformResult.Failed,
                         platform: resolvedPlatform,
                         message: '展示隐私协议失败',
                         err,
-                    });
+                    };
+                    this.logPrivacyStep('展示隐私协议', result);
+                    resolve(result);
                 },
             });
         });
@@ -318,22 +336,28 @@ export class PlatformManager {
     async ensurePrivacyAuthorize(platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformPrivacyAuthorizeResult> {
         const setting = await this.getPrivacySetting(platform);
         if (setting.result === PlatformResult.Unsupported || setting.needAuthorization === false) {
-            return {
+            const result: PlatformPrivacyAuthorizeResult = {
                 result: PlatformResult.Success,
                 platform: setting.platform,
                 message: setting.message,
             };
+            this.logPrivacyStep('隐私授权流程完成', result);
+            return result;
         }
         if (setting.result !== PlatformResult.Success) {
-            return {
+            const result: PlatformPrivacyAuthorizeResult = {
                 result: setting.result,
                 platform: setting.platform,
                 message: setting.message,
                 err: setting.err,
             };
+            this.logPrivacyStep('隐私授权流程中断', result);
+            return result;
         }
 
-        return this.requirePrivacyAuthorize(setting.platform);
+        const result = await this.requirePrivacyAuthorize(setting.platform);
+        this.logPrivacyStep('隐私授权流程完成', result);
+        return result;
     }
 
     async submitRankScore(key: string, score: number, platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformRankResult> {
@@ -588,5 +612,17 @@ export class PlatformManager {
         if (platform === MiniGamePlatform.WeChat) return globalObj.wx ?? null;
         if (platform === MiniGamePlatform.Douyin) return globalObj.tt ?? null;
         return null;
+    }
+
+    private logPrivacyStep(
+        step: string,
+        result: PlatformPrivacySettingResult | PlatformPrivacyAuthorizeResult,
+    ): void {
+        const logMessage = `PlatformManager: 隐私授权步骤 [${step}] 结果 [${result.result}]`;
+        if (result.result === PlatformResult.Success) {
+            console.log(logMessage, result);
+            return;
+        }
+        console.warn(logMessage, result);
     }
 }
