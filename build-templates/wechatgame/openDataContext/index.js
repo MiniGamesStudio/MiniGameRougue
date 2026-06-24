@@ -71,6 +71,15 @@ function loadMedalImages(callback) {
     });
 }
 
+function setSharedCanvasSize(width, height) {
+    if (!sharedCanvas) return;
+
+    const nextWidth = Number(width) || 620;
+    const nextHeight = Number(height) || 760;
+    if (sharedCanvas.width !== nextWidth) sharedCanvas.width = nextWidth;
+    if (sharedCanvas.height !== nextHeight) sharedCanvas.height = nextHeight;
+}
+
 function drawRankMark(rank, x, y) {
     const medal = medalImages[rank - 1];
     if (rank <= 3 && medal) {
@@ -101,11 +110,13 @@ function drawRankList(dataList, key) {
             return {
                 nickname: item.nickname || '匿名玩家',
                 avatarUrl: item.avatarUrl,
+                isSelf: !!item.isSelf,
                 score: Number(kv && kv.value ? kv.value : 0),
             };
         })
         .sort((a, b) => b.score - a.score)
         .slice(0, 20);
+    console.log('OpenDataContext: drawRankList data count', sortedList.length, sortedList);
 
     if (sortedList.length <= 0) {
         drawMessage('暂无好友排行数据');
@@ -116,7 +127,7 @@ function drawRankList(dataList, key) {
     sortedList.forEach((item, index) => {
         const rank = index + 1;
         const y = 110 + index * 48;
-        context.fillStyle = index % 2 === 0 ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.06)';
+        context.fillStyle = item.isSelf ? 'rgba(255, 196, 74, 0.32)' : index % 2 === 0 ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.06)';
         context.fillRect(40, y - 30, sharedCanvas.width - 80, 40);
 
         drawRankMark(rank, 58, y);
@@ -129,16 +140,44 @@ function drawRankList(dataList, key) {
     });
 }
 
-function showFriendRank(key) {
+function getSelfCloudStorage(key, callback) {
+    if (!runtime || !runtime.getUserCloudStorage) {
+        callback(null);
+        return;
+    }
+
+    runtime.getUserCloudStorage({
+        keyList: [key],
+        success: (res) => {
+            callback({
+                nickname: '我',
+                KVDataList: res.KVDataList || [],
+                isSelf: true,
+            });
+        },
+        fail: (err) => {
+            console.warn('OpenDataContext: getUserCloudStorage fail', err);
+            callback(null);
+        },
+    });
+}
+
+function showFriendRank(key, width, height) {
     if (!runtime || !runtime.getFriendCloudStorage) {
         drawMessage('当前平台不支持好友排行榜');
         return;
     }
 
+    setSharedCanvasSize(width, height);
     runtime.getFriendCloudStorage({
         keyList: [key],
         success: (res) => {
-            loadMedalImages(() => drawRankList(res.data || [], key));
+            console.log('OpenDataContext: getFriendCloudStorage success data', res.data);
+            getSelfCloudStorage(key, (selfData) => {
+                const rankData = res.data ? res.data.slice() : [];
+                if (selfData) rankData.push(selfData);
+                loadMedalImages(() => drawRankList(rankData, key));
+            });
         },
         fail: () => {
             drawMessage('好友排行榜加载失败');
@@ -150,7 +189,7 @@ if (runtime && runtime.onMessage) {
     runtime.onMessage((message) => {
         if (!message || !message.type) return;
         if (message.type === 'showFriendRank') {
-            showFriendRank(message.key || 'level');
+            showFriendRank(message.key || 'level', message.width, message.height);
         } else if (message.type === 'hideFriendRank') {
             clear();
         }

@@ -64,7 +64,12 @@ export class RankPanel extends UIBase {
 
     private showOpenDataRank(): boolean {
         const rankManager = PlatformManager.getInstance();
-        const postResult = rankManager.postOpenDataMessage({ type: 'showFriendRank', key: RANK_KEY });
+        const postResult = rankManager.postOpenDataMessage({
+            type: 'showFriendRank',
+            key: RANK_KEY,
+            width: RANK_VIEW_WIDTH,
+            height: RANK_VIEW_HEIGHT,
+        });
         const canvas = rankManager.getOpenDataCanvas();
         if (postResult.result !== PlatformResult.Success || !canvas) {
             return false;
