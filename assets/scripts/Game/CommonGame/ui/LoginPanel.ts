@@ -18,6 +18,7 @@ export class LoginPanel extends UIBase {
         this.ensureEnterButton();
         this.ensurePrivacyButton();
         this.setEnterButtonVisible(false);
+        this.setPrivacyButtonVisible(false);
         this.login();
     }
 
@@ -85,6 +86,7 @@ export class LoginPanel extends UIBase {
         );
         if (this.m_PrivacyButton) {
             this.m_PrivacyButton.node.setPosition(0, -420, 0);
+            this.setPrivacyButtonVisible(false);
         }
     }
 
@@ -98,6 +100,12 @@ export class LoginPanel extends UIBase {
     private setEnterButtonVisible(visible: boolean): void {
         if (this.m_EnterButton && this.m_EnterButton.isValid) {
             this.m_EnterButton.node.active = visible;
+        }
+    }
+
+    private setPrivacyButtonVisible(visible: boolean): void {
+        if (this.m_PrivacyButton && this.m_PrivacyButton.isValid) {
+            this.m_PrivacyButton.node.active = visible;
         }
     }
 }

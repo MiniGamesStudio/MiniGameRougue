@@ -5,7 +5,7 @@ import { UIBase } from '../../../engine/ui/UIBase';
 const { ccclass } = _decorator;
 
 const RANK_KEY = 'level';
-const RANK_VIEW_WIDTH = 620;
+const RANK_VIEW_WIDTH = 500;
 const RANK_VIEW_HEIGHT = 760;
 
 @ccclass('RankPanel')
@@ -14,6 +14,8 @@ export class RankPanel extends UIBase {
     private m_RankSprite: Sprite = null;
     private m_RankTexture: Texture2D = null;
     private m_RefreshTimer: ReturnType<typeof setInterval> = null;
+    private m_ShowBackgroundTimer: ReturnType<typeof setTimeout> = null;
+    private m_BackgroundNode: Node = null;
 
     OnOpen(): void {
         this.bindPrefabUI();
@@ -22,6 +24,7 @@ export class RankPanel extends UIBase {
 
     OnClose(): void {
         this.stopRefreshRankCanvas();
+        this.clearShowBackgroundTimer();
         PlatformManager.getInstance().postOpenDataMessage({ type: 'hideFriendRank' });
         super.OnClose();
     }
@@ -31,21 +34,12 @@ export class RankPanel extends UIBase {
         transform.setContentSize(750, 1334);
 
         const background = this.getBackgroundNode();
+        this.m_BackgroundNode = background;
+        this.setBackgroundVisible(false);
         const closeNode = this.findChildByName(background, 'CloseBtn');
         const closeButton = closeNode?.getComponent(Button) || closeNode?.addComponent(Button);
         if (closeButton) {
             this.SetBtnEvent(closeButton, () => this.closeRankPanel());
-        }
-
-        const titleLabel = this.findChildByName(background, 'TitleTxt')?.getComponent(Label);
-        if (titleLabel) {
-            titleLabel.string = '好友排行榜';
-        }
-
-        const statusNode = this.findChildByName(this.node, 'StatusTxt');
-        this.m_StatusLabel = statusNode?.getComponent(Label) || this.createLabelNode('StatusTxt', '正在打开排行榜...', 24, 0, 430);
-        if (this.m_StatusLabel) {
-            this.m_StatusLabel.color = Color.WHITE;
         }
 
         this.bindRankView(background);
@@ -53,31 +47,34 @@ export class RankPanel extends UIBase {
     }
 
     private showFriendRank(): void {
-        this.setStatus('正在加载排行榜...');
         if (this.showOpenDataRank()) {
-            this.setStatus('排行榜已加载');
             return;
         }
 
-        this.setStatus('当前环境不支持开放数据域排行榜');
+        this.setBackgroundVisible(true);
     }
 
     private showOpenDataRank(): boolean {
         const rankManager = PlatformManager.getInstance();
+        const canvas = rankManager.getOpenDataCanvas();
+        if (!canvas) {
+            return false;
+        }
+
+        this.setOpenDataCanvasSize(canvas);
         const postResult = rankManager.postOpenDataMessage({
             type: 'showFriendRank',
             key: RANK_KEY,
             width: RANK_VIEW_WIDTH,
             height: RANK_VIEW_HEIGHT,
         });
-        const canvas = rankManager.getOpenDataCanvas();
-        if (postResult.result !== PlatformResult.Success || !canvas) {
+        if (postResult.result !== PlatformResult.Success) {
             return false;
         }
 
         this.m_RankSprite.node.active = true;
 
-        this.startRefreshRankCanvas();
+        this.startRefreshRankCanvas(canvas);
         return true;
     }
 
@@ -108,10 +105,9 @@ export class RankPanel extends UIBase {
         return node;
     }
 
-    private startRefreshRankCanvas(): void {
+    private startRefreshRankCanvas(canvas: unknown): void {
         this.stopRefreshRankCanvas();
 
-        const canvas = PlatformManager.getInstance().getOpenDataCanvas();
         if (!canvas || !this.m_RankSprite) return;
 
         this.m_RankTexture = new Texture2D();
@@ -126,6 +122,7 @@ export class RankPanel extends UIBase {
 
         this.refreshRankCanvas(canvas);
         this.m_RefreshTimer = setInterval(() => this.refreshRankCanvas(canvas), 500);
+        this.scheduleShowBackground(canvas);
     }
 
     private stopRefreshRankCanvas(): void {
@@ -136,12 +133,40 @@ export class RankPanel extends UIBase {
         this.m_RankTexture = null;
     }
 
+    private scheduleShowBackground(canvas: unknown): void {
+        this.clearShowBackgroundTimer();
+        this.m_ShowBackgroundTimer = setTimeout(() => {
+            this.refreshRankCanvas(canvas);
+            this.setBackgroundVisible(true);
+            this.m_ShowBackgroundTimer = null;
+        }, 800);
+    }
+
+    private clearShowBackgroundTimer(): void {
+        if (this.m_ShowBackgroundTimer) {
+            clearTimeout(this.m_ShowBackgroundTimer);
+            this.m_ShowBackgroundTimer = null;
+        }
+    }
+
     private refreshRankCanvas(canvas: unknown): void {
         if (!this.m_RankTexture || !this.m_RankSprite || !this.m_RankSprite.isValid) return;
 
         const texture = this.m_RankTexture as any;
         if (texture.uploadData) {
             texture.uploadData(canvas);
+        }
+    }
+
+    private setOpenDataCanvasSize(canvas: unknown): void {
+        const openDataCanvas = canvas as { width?: number; height?: number };
+        openDataCanvas.width = RANK_VIEW_WIDTH;
+        openDataCanvas.height = RANK_VIEW_HEIGHT;
+    }
+
+    private setBackgroundVisible(visible: boolean): void {
+        if (this.m_BackgroundNode && this.m_BackgroundNode.isValid) {
+            this.m_BackgroundNode.active = visible;
         }
     }
 
@@ -161,12 +186,6 @@ export class RankPanel extends UIBase {
         label.horizontalAlign = Label.HorizontalAlign.CENTER;
         label.verticalAlign = Label.VerticalAlign.CENTER;
         return label;
-    }
-
-    private setStatus(status: string): void {
-        if (this.m_StatusLabel) {
-            this.m_StatusLabel.string = status;
-        }
     }
 
     private closeRankPanel(): void {

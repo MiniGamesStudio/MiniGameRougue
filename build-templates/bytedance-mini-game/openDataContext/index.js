@@ -4,11 +4,12 @@ const runtime = typeof tt !== 'undefined' ? tt : typeof wx !== 'undefined' ? wx 
 const sharedCanvas = runtime && runtime.getSharedCanvas ? runtime.getSharedCanvas() : null;
 const context = sharedCanvas ? sharedCanvas.getContext('2d') : null;
 const MEDAL_IMAGE_SOURCES = [
-    'images/Icon_ImageIcon_Medal_Gold.png',
-    'images/Icon_ImageIcon_Medal_Silver.png',
-    'images/Icon_ImageIcon_Medal_Bronze.png',
+    'openDataContext/images/Icon_ImageIcon_Medal_Gold.png',
+    'openDataContext/images/Icon_ImageIcon_Medal_Silver.png',
+    'openDataContext/images/Icon_ImageIcon_Medal_Bronze.png',
 ];
 const medalImages = [];
+const avatarImages = {};
 let medalImagesLoaded = false;
 let medalImagesLoading = false;
 
@@ -58,15 +59,20 @@ function loadMedalImages(callback) {
     MEDAL_IMAGE_SOURCES.forEach((src, index) => {
         const image = createImage();
         if (!image) {
+            console.warn('OpenDataContext: create medal image failed', src);
             finishOne();
             return;
         }
 
         image.onload = () => {
+            console.log('OpenDataContext: medal image loaded', src);
             medalImages[index] = image;
             finishOne();
         };
-        image.onerror = finishOne;
+        image.onerror = (err) => {
+            console.warn('OpenDataContext: medal image load failed', src, err);
+            finishOne();
+        };
         image.src = src;
     });
 }
@@ -76,8 +82,7 @@ function setSharedCanvasSize(width, height) {
 
     const nextWidth = Number(width) || 620;
     const nextHeight = Number(height) || 760;
-    if (sharedCanvas.width !== nextWidth) sharedCanvas.width = nextWidth;
-    if (sharedCanvas.height !== nextHeight) sharedCanvas.height = nextHeight;
+    console.log('OpenDataContext: sharedCanvas size', sharedCanvas.width, sharedCanvas.height, nextWidth, nextHeight);
 }
 
 function drawRankMark(rank, x, y) {
@@ -90,6 +95,67 @@ function drawRankMark(rank, x, y) {
     context.fillStyle = '#ffffff';
     context.textAlign = 'center';
     context.fillText(String(rank), x + 18, y);
+}
+
+function drawAvatar(item, x, y, size) {
+    const image = item.avatarUrl ? avatarImages[item.avatarUrl] : null;
+
+    context.save();
+    context.beginPath();
+    context.arc(x + size * 0.5, y + size * 0.5, size * 0.5, 0, Math.PI * 2);
+    context.clip();
+    if (image) {
+        context.drawImage(image, x, y, size, size);
+    } else {
+        context.fillStyle = item.isSelf ? '#ffc44a' : '#7f8fa6';
+        context.fillRect(x, y, size, size);
+        context.fillStyle = '#ffffff';
+        context.font = '20px Arial';
+        context.textAlign = 'center';
+        context.fillText((item.nickname || '?').charAt(0), x + size * 0.5, y + size * 0.68);
+    }
+    context.restore();
+}
+
+function formatNickname(nickname) {
+    const text = nickname || '匿名玩家';
+    return text.length > 6 ? `${text.slice(0, 6)}..` : text;
+}
+
+function loadAvatarImages(dataList, callback) {
+    const avatarUrls = dataList
+        .map((item) => item && item.avatarUrl)
+        .filter((url) => !!url && avatarImages[url] === undefined);
+    if (avatarUrls.length <= 0) {
+        callback();
+        return;
+    }
+
+    let finishedCount = 0;
+    const finishOne = () => {
+        finishedCount += 1;
+        if (finishedCount >= avatarUrls.length) callback();
+    };
+
+    avatarUrls.forEach((url) => {
+        const image = createImage();
+        if (!image) {
+            avatarImages[url] = null;
+            finishOne();
+            return;
+        }
+
+        image.onload = () => {
+            avatarImages[url] = image;
+            finishOne();
+        };
+        image.onerror = (err) => {
+            console.warn('OpenDataContext: avatar image load failed', url, err);
+            avatarImages[url] = null;
+            finishOne();
+        };
+        image.src = url;
+    });
 }
 
 function drawRankList(dataList, key) {
@@ -108,7 +174,8 @@ function drawRankList(dataList, key) {
         .map((item) => {
             const kv = (item.KVDataList || []).find((data) => data.key === key);
             return {
-                nickname: item.nickname || '匿名玩家',
+                nickname: formatNickname(item.nickname),
+                avatarUrl: item.avatarUrl,
                 isSelf: !!item.isSelf,
                 score: Number(kv && kv.value ? kv.value : 0),
             };
@@ -126,14 +193,20 @@ function drawRankList(dataList, key) {
     sortedList.forEach((item, index) => {
         const rank = index + 1;
         const y = 110 + index * 48;
-        context.fillStyle = item.isSelf ? 'rgba(255, 196, 74, 0.32)' : index % 2 === 0 ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.06)';
+        context.fillStyle = item.isSelf ? 'rgba(255, 220, 96, 0.58)' : index % 2 === 0 ? 'rgba(255, 255, 255, 0.12)' : 'rgba(255, 255, 255, 0.06)';
         context.fillRect(40, y - 30, sharedCanvas.width - 80, 40);
+        if (item.isSelf) {
+            context.strokeStyle = 'rgba(255, 255, 255, 0.82)';
+            context.lineWidth = 2;
+            context.strokeRect(40, y - 30, sharedCanvas.width - 80, 40);
+        }
 
         drawRankMark(rank, 58, y);
+        drawAvatar(item, 104, y - 28, 36);
 
         context.fillStyle = '#ffffff';
         context.textAlign = 'left';
-        context.fillText(item.nickname, 110, y);
+        context.fillText(item.nickname, 152, y);
         context.textAlign = 'right';
         context.fillText(String(item.score), sharedCanvas.width - 60, y);
     });
@@ -161,6 +234,30 @@ function getSelfCloudStorage(key, callback) {
     });
 }
 
+function getCloudStorageValue(item, key) {
+    const kv = (item && item.KVDataList || []).find((data) => data.key === key);
+    return kv && kv.value ? String(kv.value) : '';
+}
+
+function hasSelfRankData(rankData, selfData, key) {
+    if (!selfData) return true;
+    const selfValue = getCloudStorageValue(selfData, key);
+    if (!selfValue) return false;
+
+    return rankData.some((item) => {
+        if (item.isSelf) return true;
+        return getCloudStorageValue(item, key) === selfValue;
+    });
+}
+
+function buildRankData(friendData, selfData, key) {
+    const rankData = friendData ? friendData.slice() : [];
+    if (!hasSelfRankData(rankData, selfData, key)) {
+        rankData.push(selfData);
+    }
+    return rankData;
+}
+
 function showFriendRank(key, width, height) {
     if (!runtime || !runtime.getFriendCloudStorage) {
         drawMessage('当前平台不支持好友排行榜');
@@ -173,10 +270,11 @@ function showFriendRank(key, width, height) {
         success: (res) => {
             console.log('OpenDataContext: getFriendCloudStorage success data', res.data);
             getSelfCloudStorage(key, (selfData) => {
-                const rankData = res.data ? res.data.slice() : [];
-                if (selfData) rankData.push(selfData);
+                const rankData = buildRankData(res.data, selfData, key);
+                console.log('OpenDataContext: merged rank data', rankData);
                 drawRankList(rankData, key);
                 loadMedalImages(() => drawRankList(rankData, key));
+                loadAvatarImages(rankData, () => drawRankList(rankData, key));
             });
         },
         fail: () => {
