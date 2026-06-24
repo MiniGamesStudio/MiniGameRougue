@@ -26,8 +26,8 @@
         "progress": 1,
         "state": "success",
         "stage": "build",
-        "message": "2026-6-24 11:18:20 build success in 10 s!",
-        "detailMessage": "// ---- build task cocos-service：onAfterCompressSettings ----\r",
+        "message": "2026-6-24 13:20:02 build success in 9 s!",
+        "detailMessage": "// ---- build task wechatgame：onAfterBuild ----\r",
         "options": {
           "name": "SheepRunning",
           "server": "",
@@ -88,7 +88,7 @@
           "__version__": "1.3.9",
           "logDest": "project://temp/builder/log/wechatgame2026-6-23 13-14.log"
         },
-        "time": "2026-6-24 11:18:10",
+        "time": "2026-6-24 13:19:53",
         "dirty": false
       }
     }

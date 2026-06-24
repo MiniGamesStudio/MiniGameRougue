@@ -41,6 +41,22 @@ export interface PlatformShareResult {
     err?: unknown;
 }
 
+export interface PlatformPrivacySettingResult {
+    result: PlatformResult;
+    platform: MiniGamePlatform;
+    needAuthorization?: boolean;
+    privacyContractName?: string;
+    message?: string;
+    err?: unknown;
+}
+
+export interface PlatformPrivacyAuthorizeResult {
+    result: PlatformResult;
+    platform: MiniGamePlatform;
+    message?: string;
+    err?: unknown;
+}
+
 export interface PlatformRankUserData {
     nickname: string;
     avatarUrl?: string;
@@ -64,6 +80,11 @@ type MiniGameLoginResult = {
 
 type MiniGameUserInfoResult = {
     userInfo?: unknown;
+};
+
+type MiniGamePrivacySettingResult = {
+    needAuthorization?: boolean;
+    privacyContractName?: string;
 };
 
 type MiniGameOpenDataContext = {
@@ -110,6 +131,19 @@ type MiniGameRuntime = {
         title?: string;
         imageUrl?: string;
         query?: string;
+        success?: () => void;
+        fail?: (err: unknown) => void;
+    }) => void;
+    getPrivacySetting?: (options: {
+        success?: (res: MiniGamePrivacySettingResult) => void;
+        fail?: (err: unknown) => void;
+    }) => void;
+    requirePrivacyAuthorize?: (options: {
+        success?: () => void;
+        fail?: (err: unknown) => void;
+        complete?: () => void;
+    }) => void;
+    openPrivacyContract?: (options: {
         success?: () => void;
         fail?: (err: unknown) => void;
     }) => void;
@@ -174,6 +208,132 @@ export class PlatformManager {
                 err,
             };
         }
+    }
+
+    async getPrivacySetting(platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformPrivacySettingResult> {
+        if (!this._initialized) this.init();
+
+        const resolvedPlatform = this.resolvePlatform(platform);
+        const runtime = this.getRuntimeByPlatform(resolvedPlatform);
+        if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.getPrivacySetting) {
+            return {
+                result: PlatformResult.Unsupported,
+                platform: resolvedPlatform,
+                needAuthorization: false,
+                message: '当前环境不支持隐私授权状态查询',
+            };
+        }
+
+        return new Promise(resolve => {
+            runtime.getPrivacySetting({
+                success: (res) => {
+                    resolve({
+                        result: PlatformResult.Success,
+                        platform: resolvedPlatform,
+                        needAuthorization: !!res.needAuthorization,
+                        privacyContractName: res.privacyContractName,
+                        message: res.needAuthorization ? '需要用户同意隐私协议' : '已同步隐私授权状态',
+                    });
+                },
+                fail: (err: unknown) => {
+                    resolve({
+                        result: PlatformResult.Failed,
+                        platform: resolvedPlatform,
+                        message: '隐私授权状态查询失败',
+                        err,
+                    });
+                },
+            });
+        });
+    }
+
+    async requirePrivacyAuthorize(platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformPrivacyAuthorizeResult> {
+        if (!this._initialized) this.init();
+
+        const resolvedPlatform = this.resolvePlatform(platform);
+        const runtime = this.getRuntimeByPlatform(resolvedPlatform);
+        if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.requirePrivacyAuthorize) {
+            return {
+                result: PlatformResult.Unsupported,
+                platform: resolvedPlatform,
+                message: '当前环境不支持隐私授权弹窗',
+            };
+        }
+
+        return new Promise(resolve => {
+            runtime.requirePrivacyAuthorize({
+                success: () => {
+                    resolve({
+                        result: PlatformResult.Success,
+                        platform: resolvedPlatform,
+                        message: '隐私授权成功',
+                    });
+                },
+                fail: (err: unknown) => {
+                    resolve({
+                        result: PlatformResult.Failed,
+                        platform: resolvedPlatform,
+                        message: '隐私授权失败',
+                        err,
+                    });
+                },
+            });
+        });
+    }
+
+    async openPrivacyContract(platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformPrivacyAuthorizeResult> {
+        if (!this._initialized) this.init();
+
+        const resolvedPlatform = this.resolvePlatform(platform);
+        const runtime = this.getRuntimeByPlatform(resolvedPlatform);
+        if (resolvedPlatform !== MiniGamePlatform.WeChat || !runtime?.openPrivacyContract) {
+            return {
+                result: PlatformResult.Unsupported,
+                platform: resolvedPlatform,
+                message: '当前环境不支持展示隐私协议',
+            };
+        }
+
+        return new Promise(resolve => {
+            runtime.openPrivacyContract({
+                success: () => {
+                    resolve({
+                        result: PlatformResult.Success,
+                        platform: resolvedPlatform,
+                        message: '已展示隐私协议',
+                    });
+                },
+                fail: (err: unknown) => {
+                    resolve({
+                        result: PlatformResult.Failed,
+                        platform: resolvedPlatform,
+                        message: '展示隐私协议失败',
+                        err,
+                    });
+                },
+            });
+        });
+    }
+
+    async ensurePrivacyAuthorize(platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformPrivacyAuthorizeResult> {
+        const setting = await this.getPrivacySetting(platform);
+        if (setting.result === PlatformResult.Unsupported || setting.needAuthorization === false) {
+            return {
+                result: PlatformResult.Success,
+                platform: setting.platform,
+                message: setting.message,
+            };
+        }
+        if (setting.result !== PlatformResult.Success) {
+            return {
+                result: setting.result,
+                platform: setting.platform,
+                message: setting.message,
+                err: setting.err,
+            };
+        }
+
+        return this.requirePrivacyAuthorize(setting.platform);
     }
 
     async submitRankScore(key: string, score: number, platform: MiniGamePlatform = MiniGamePlatform.Auto): Promise<PlatformRankResult> {

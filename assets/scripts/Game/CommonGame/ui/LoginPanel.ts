@@ -8,6 +8,7 @@ const { ccclass } = _decorator;
 @ccclass('LoginPanel')
 export class LoginPanel extends UIBase {
     private m_EnterButton: Button = null;
+    private m_PrivacyButton: Button = null;
     private m_IsLoggingIn: boolean = false;
     private m_LoginSerial: number = 0;
 
@@ -15,6 +16,7 @@ export class LoginPanel extends UIBase {
 
     OnOpen(): void {
         this.ensureEnterButton();
+        this.ensurePrivacyButton();
         this.setEnterButtonVisible(false);
         this.login();
     }
@@ -31,6 +33,15 @@ export class LoginPanel extends UIBase {
         this.m_IsLoggingIn = true;
         const serial = ++this.m_LoginSerial;
         this.setEnterButtonVisible(false);
+
+        const privacyResult = await PlatformManager.getInstance().ensurePrivacyAuthorize();
+        if (serial !== this.m_LoginSerial || !this.isValid) return;
+        if (privacyResult.result !== PlatformResult.Success) {
+            this.m_IsLoggingIn = false;
+            console.warn('LoginPanel: 隐私授权失败', privacyResult);
+            this.setEnterButtonVisible(true);
+            return;
+        }
 
         const result = await PlatformManager.getInstance().login();
         if (serial !== this.m_LoginSerial || !this.isValid) return;
@@ -59,6 +70,28 @@ export class LoginPanel extends UIBase {
         );
         if (this.m_EnterButton) {
             this.m_EnterButton.node.setPosition(0, -300, 0);
+        }
+    }
+
+    private ensurePrivacyButton(): void {
+        if (this.m_PrivacyButton && this.m_PrivacyButton.isValid) return;
+
+        this.m_PrivacyButton = this.CreateUIButton(
+            this.node,
+            'PrivacyContract',
+            '隐私协议',
+            'buttons/Button01_145_Orange',
+            () => this.openPrivacyContract(),
+        );
+        if (this.m_PrivacyButton) {
+            this.m_PrivacyButton.node.setPosition(0, -420, 0);
+        }
+    }
+
+    private async openPrivacyContract(): Promise<void> {
+        const result = await PlatformManager.getInstance().openPrivacyContract();
+        if (result.result !== PlatformResult.Success) {
+            console.warn('LoginPanel: 展示隐私协议失败', result);
         }
     }
 

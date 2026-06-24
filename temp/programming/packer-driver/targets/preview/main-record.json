@@ -1,7 +1,7 @@
 {
   "modules": {
     "cce:/internal/x/cc": {
-      "mTimestamp": 5879.9544,
+      "mTimestamp": 5741.8175,
       "chunkId": "93ba276ea7b26ffcdc433fab14afc1ed6f05647b",
       "imports": [
         {
@@ -514,7 +514,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 3770219.9097,
+      "mTimestamp": 8235.014,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -2806,7 +2806,7 @@
       ]
     },
     "cce:/internal/code-quality/cr.mjs": {
-      "mTimestamp": 1782267237259,
+      "mTimestamp": 1782278336107,
       "chunkId": "6a5019a719a9014c047e67aa1cf34453ab8392ce",
       "imports": [],
       "type": "esm",
@@ -23421,7 +23421,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameArrow/assets/scripts/engine/PlatformManager.ts": {
       "mTimestamp": {
-        "mtime": 1782194374236.6055,
+        "mtime": 1782277943832.379,
         "uuid": "a609ec9c-c7c4-4c81-b730-8f2bef02d1ab"
       },
       "chunkId": "f6659026b9e37eba1c03c58b09813b082b4e7f12",
@@ -23473,7 +23473,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameArrow/assets/scripts/Game/CommonGame/ui/LoginPanel.ts": {
       "mTimestamp": {
-        "mtime": 1782205017858.7153,
+        "mtime": 1782277961706.4739,
         "uuid": "11111111-1111-4111-8111-111111111111"
       },
       "chunkId": "50e6f3a8f6f4aa3988b9f6d4d3d3a5b113c56625",
