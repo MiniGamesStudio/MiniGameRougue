@@ -26,6 +26,8 @@ export abstract class UIBase extends Component {
 
     protected m_SubPageMap: Map<string, Node> = new Map();
     protected m_PendingSubPageSet: Set<string> = new Set();
+    private m_IsWaitingOpenReady: boolean = false;
+    private m_OpenReadyCallback: (() => void) | null = null;
 
     /** 初始化（仅首次创建时调用） */
     OnInit(): void {}
@@ -33,8 +35,35 @@ export abstract class UIBase extends Component {
     /** 打开面板（每次显示时调用） */
     OnOpen(...args: any[]): void {}
 
+    /** 设置打开完成回调，由 UIManager 在需要无缝切换时调用 */
+    SetOpenReadyCallback(callback: (() => void) | null): void {
+        this.m_IsWaitingOpenReady = false;
+        this.m_OpenReadyCallback = callback;
+    }
+
+    /** 子类调用后，UIManager 会等待子类主动 NotifyOpenReady */
+    protected WaitOpenReady(): void {
+        this.m_IsWaitingOpenReady = true;
+    }
+
+    /** 子类在异步资源或子页面准备完成后调用 */
+    protected NotifyOpenReady(): void {
+        const callback = this.m_OpenReadyCallback;
+        this.m_OpenReadyCallback = null;
+        this.m_IsWaitingOpenReady = false;
+        callback?.();
+    }
+
+    /** 如果子类没有声明需要等待，则默认认为 OnOpen 后就绪 */
+    NotifyOpenReadyIfNotWaiting(): void {
+        if (!this.m_IsWaitingOpenReady) {
+            this.NotifyOpenReady();
+        }
+    }
+
     /** 关闭面板 */
     OnClose(): void {
+        this.SetOpenReadyCallback(null);
         this.m_PendingSubPageSet.clear();
         Array.from(this.m_SubPageMap.entries()).forEach(([key, value]) => {
             if (value) {

@@ -183,18 +183,32 @@ export class UIManager {
             const uiNode = instantiate(prefab);
             uiNode.parent = root;
             uiNode.setPosition(0, 0);
-            uiNode.active = true;
+            uiNode.active = !onOpened;
 
             const uiScript = uiNode.getComponent(UIBase);
             if (uiScript) {
                 uiScript.m_PanelID = pID;
                 uiScript.m_UIID = id;
+                if (onOpened) {
+                    uiScript.SetOpenReadyCallback(() => {
+                        if (uiNode && uiNode.isValid) {
+                            uiNode.active = true;
+                            onOpened(pID, uiNode);
+                        }
+                    });
+                }
                 uiScript.OnInit();
                 uiScript.OnOpen(...args);
+                if (onOpened) {
+                    uiScript.NotifyOpenReadyIfNotWaiting();
+                }
             }
 
             this.m_PanelNodeMap.set(pID, uiNode);
-            onOpened?.(pID, uiNode);
+            if (!uiScript && onOpened) {
+                uiNode.active = true;
+                onOpened(pID, uiNode);
+            }
         });
 
         return pID;
@@ -242,12 +256,23 @@ export class UIManager {
             }
 
             if (!panelNode.active) {
-                panelNode.active = true;
                 const uiScript = panelNode.getComponent(UIBase);
-                if (uiScript) {
+                if (uiScript && onOpened) {
+                    uiScript.SetOpenReadyCallback(() => {
+                        if (panelNode && panelNode.isValid) {
+                            panelNode.active = true;
+                            onOpened(panelID, panelNode);
+                        }
+                    });
                     uiScript.OnOpen(...args);
+                    uiScript.NotifyOpenReadyIfNotWaiting();
+                } else {
+                    panelNode.active = true;
+                    if (uiScript) {
+                        uiScript.OnOpen(...args);
+                    }
+                    onOpened?.(panelID, panelNode);
                 }
-                onOpened?.(panelID, panelNode);
                 rID = panelID;
                 break;
             } else {

@@ -167,6 +167,7 @@ export class GamePanel extends UIBase {
     }
 
     OnOpen(level: number | GameLevelConfig = this.m_StartLevel): void {
+        this.WaitOpenReady();
         this.loadLocalLevelConfigs(() => {
             if (!this.isValid) return;
             this.loadLevel(level);
@@ -373,10 +374,14 @@ export class GamePanel extends UIBase {
     }
 
     private startLevel(): void {
-        if (!this.m_GameRoot || !this.m_GameRoot.isValid) return;
+        if (!this.m_GameRoot || !this.m_GameRoot.isValid) {
+            this.NotifyOpenReady();
+            return;
+        }
 
         this.initGrid();
         this.createSheepByLevelConfig();
+        this.NotifyOpenReady();
     }
 
     private initBoardSize(): void {

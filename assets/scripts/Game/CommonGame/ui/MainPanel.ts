@@ -29,6 +29,7 @@ export class MainPanel extends UIBase {
     OnInit(): void {}
 
     OnOpen(): void {
+        this.WaitOpenReady();
         this.m_LastIndex = this.clampPageIndex(this.m_DefaultPageIndex);
         this.initUI();
     }
@@ -57,7 +58,7 @@ export class MainPanel extends UIBase {
         this.clearPage(this.m_PageOne);
         this.clearPage(this.m_PageTwo);
 
-        this.loadInitialPage();
+        this.loadInitialPage(() => this.NotifyOpenReady());
         this.refreshBottomRoot();
         this.bindPageButtons();
     }
@@ -68,8 +69,8 @@ export class MainPanel extends UIBase {
         }
     }
 
-    private loadInitialPage(): void {
-        this.loadPage(this.m_LastIndex, this.m_PageOne);
+    private loadInitialPage(onLoaded?: () => void): void {
+        this.loadPage(this.m_LastIndex, this.m_PageOne, onLoaded);
     }
 
     private bindPageButtons(): void {
@@ -126,6 +127,7 @@ export class MainPanel extends UIBase {
         resources.load(prefabPath, Prefab, (err, prefab) => {
             if (err || !prefab || !root.isValid) {
                 this.m_IsScrollingPage = false;
+                onLoaded?.();
                 return;
             }
 
