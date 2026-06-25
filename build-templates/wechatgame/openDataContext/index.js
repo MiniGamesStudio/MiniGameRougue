@@ -162,6 +162,7 @@ function drawRankList(dataList, key) {
     if (!context || !sharedCanvas) return;
     clear();
 
+    context.textBaseline = 'alphabetic';
     context.fillStyle = 'rgba(0, 0, 0, 0.62)';
     context.fillRect(0, 0, sharedCanvas.width, sharedCanvas.height);
 
@@ -170,7 +171,7 @@ function drawRankList(dataList, key) {
     context.textAlign = 'center';
     context.fillText('好友排行榜', sharedCanvas.width * 0.5, 56);
 
-    const sortedList = dataList
+    const fullList = dataList
         .map((item) => {
             const kv = (item.KVDataList || []).find((data) => data.key === key);
             return {
@@ -180,8 +181,13 @@ function drawRankList(dataList, key) {
                 score: Number(kv && kv.value ? kv.value : 0),
             };
         })
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 20);
+        .sort((a, b) => b.score - a.score);
+
+    const selfIndex = fullList.findIndex((item) => item.isSelf);
+    const selfItem = selfIndex >= 0 ? fullList[selfIndex] : null;
+    const hasSelfScore = !!(selfItem && selfItem.score > 0);
+
+    const sortedList = fullList.slice(0, 13);
     console.log('OpenDataContext: drawRankList data count', sortedList.length, sortedList);
 
     if (sortedList.length <= 0) {
@@ -210,6 +216,49 @@ function drawRankList(dataList, key) {
         context.textAlign = 'right';
         context.fillText(String(item.score), sharedCanvas.width - 60, y);
     });
+
+    drawSelfRankFooter(hasSelfScore, selfIndex, selfItem);
+}
+
+function drawSelfRankFooter(hasSelfScore, selfIndex, selfItem) {
+    if (!context || !sharedCanvas) return;
+
+    const y = sharedCanvas.height - 14;
+    const rectX = 40;
+    const rectW = sharedCanvas.width - 80;
+    const rectTop = y - 30;
+
+    if (!hasSelfScore || !selfItem) {
+        context.fillStyle = 'rgba(255, 220, 96, 0.18)';
+        context.fillRect(rectX, rectTop, rectW, 40);
+        context.strokeStyle = 'rgba(255, 220, 96, 0.5)';
+        context.lineWidth = 1;
+        context.strokeRect(rectX, rectTop, rectW, 40);
+        context.fillStyle = '#ffe27a';
+        context.font = '26px Arial';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText('暂未进入排行榜', sharedCanvas.width * 0.5, rectTop + 20);
+        context.textBaseline = 'alphabetic';
+        return;
+    }
+
+    // Mirrors a leaderboard row so the footer reads like an entry in the list.
+    context.fillStyle = 'rgba(255, 220, 96, 0.58)';
+    context.fillRect(rectX, rectTop, rectW, 40);
+    context.strokeStyle = 'rgba(255, 255, 255, 0.82)';
+    context.lineWidth = 2;
+    context.strokeRect(rectX, rectTop, rectW, 40);
+
+    context.font = '24px Arial';
+    drawRankMark(selfIndex + 1, 58, y);
+    drawAvatar(selfItem, 104, y - 28, 36);
+
+    context.fillStyle = '#ffffff';
+    context.textAlign = 'left';
+    context.fillText(selfItem.nickname || '我', 152, y);
+    context.textAlign = 'right';
+    context.fillText(String(selfItem.score), sharedCanvas.width - 60, y);
 }
 
 function getSelfCloudStorage(key, callback) {
@@ -239,22 +288,41 @@ function getCloudStorageValue(item, key) {
     return kv && kv.value ? String(kv.value) : '';
 }
 
-function hasSelfRankData(rankData, selfData, key) {
-    if (!selfData) return true;
-    const selfValue = getCloudStorageValue(selfData, key);
-    if (!selfValue) return false;
-
-    return rankData.some((item) => {
-        if (item.isSelf) return true;
-        return getCloudStorageValue(item, key) === selfValue;
-    });
-}
-
 function buildRankData(friendData, selfData, key) {
-    const rankData = friendData ? friendData.slice() : [];
-    if (!hasSelfRankData(rankData, selfData, key)) {
+    // Shallow-clone each entry so we can flag the current user without mutating the source.
+    const rankData = friendData ? friendData.map((item) => ({ ...item })) : [];
+
+    // Some platforms already flag the current user via isSelf — trust it when present.
+    if (rankData.some((item) => item.isSelf)) {
+        return rankData;
+    }
+
+    if (!selfData) {
+        return rankData;
+    }
+
+    const selfValue = getCloudStorageValue(selfData, key);
+    // No score submitted yet: self is not ranked, nothing to flag.
+    if (!selfValue) {
+        return rankData;
+    }
+
+    // Friend list includes self but didn't flag it — mark the entry whose stored
+    // value matches self's. (Falls back to value match because the open-data domain
+    // cannot reliably compare openids with the current user.)
+    let marked = false;
+    for (const item of rankData) {
+        if (getCloudStorageValue(item, key) === selfValue) {
+            item.isSelf = true;
+            marked = true;
+        }
+    }
+
+    // Self isn't in the friend list at all — append the self entry.
+    if (!marked) {
         rankData.push(selfData);
     }
+
     return rankData;
 }
 
