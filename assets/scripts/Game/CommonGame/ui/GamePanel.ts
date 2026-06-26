@@ -497,10 +497,14 @@ export class GamePanel extends UIBase {
         const label = labelNode.addComponent(Label);
         label.fontSize = 28;
         label.lineHeight = 32;
-        label.color = new Color(255, 255, 255, 255);
+        label.isBold = true;
+        label.color = new Color(0xFE, 0xFE, 0x18, 0xFF);
+        label.enableOutline = true;
+        label.outlineColor = new Color(0x93, 0x13, 0x09, 0xFF);
+        label.outlineWidth = 2;
         label.horizontalAlign = HorizontalTextAlignment.CENTER;
         label.verticalAlign = VerticalTextAlignment.CENTER;
-        label.string = `还差 ${eliminateCount}`;
+        label.string = `${eliminateCount}`;
 
         const fence: FenceData = {
             node,
@@ -563,7 +567,7 @@ export class GamePanel extends UIBase {
     private updateFenceLabel(fence: FenceData): void {
         if (!fence.label || !fence.label.isValid) return;
         const remain = Math.max(0, fence.eliminateCount - this.m_EliminatedCount);
-        fence.label.string = `还差 ${remain}`;
+        fence.label.string = `${remain}`;
     }
 
     private getAvailableSheepCount(): number {

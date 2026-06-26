@@ -18,45 +18,57 @@
             "type": "black"
           },
           {
-            "row": 9,
-            "col": 8,
+            "row": 10,
+            "col": 6,
             "direction": "Left",
             "type": "black"
           },
           {
-            "row": 7,
-            "col": 8,
-            "direction": "Down",
-            "type": "black"
-          },
-          {
-            "row": 7,
+            "row": 9,
             "col": 6,
-            "direction": "Right",
+            "direction": "Left",
             "type": "black"
-          },
-          {
-            "row": 10,
-            "col": 2,
-            "direction": "Right",
-            "type": "normal"
           },
           {
             "row": 8,
-            "col": 9,
-            "direction": "Left",
+            "col": 6,
+            "direction": "Right",
             "type": "normal"
           },
           {
             "row": 6,
             "col": 6,
-            "direction": "Left",
+            "direction": "Down",
+            "type": "black"
+          },
+          {
+            "row": 7,
+            "col": 3,
+            "direction": "Right",
             "type": "normal"
           },
           {
-            "row": 3,
+            "row": 8,
+            "col": 1,
+            "direction": "Right",
+            "type": "normal"
+          },
+          {
+            "row": 7,
+            "col": 1,
+            "direction": "Right",
+            "type": "normal"
+          },
+          {
+            "row": 5,
             "col": 7,
             "direction": "Down",
+            "type": "normal"
+          },
+          {
+            "row": 10,
+            "col": 9,
+            "direction": "Left",
             "type": "normal"
           },
           {
@@ -66,22 +78,26 @@
             "type": "normal"
           },
           {
-            "row": 12,
+            "row": 11,
             "col": 2,
-            "direction": "Right",
-            "type": "normal"
-          },
-          {
-            "row": 3,
-            "col": 6,
-            "direction": "Down",
-            "type": "normal"
-          },
-          {
-            "row": 13,
-            "col": 3,
             "direction": "Up",
             "type": "normal"
+          }
+        ],
+        "fences": [
+          {
+            "row": 7,
+            "col": 0,
+            "rowSpan": 3,
+            "colSpan": 3,
+            "eliminateCount": 4
+          },
+          {
+            "row": 9,
+            "col": 8,
+            "rowSpan": 4,
+            "colSpan": 4,
+            "eliminateCount": 4
           }
         ]
       },

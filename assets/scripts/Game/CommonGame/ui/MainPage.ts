@@ -44,7 +44,7 @@ export class MainPage extends UIBase {
                 buttonText: "开始游戏",
                 buttonIcon: "buttons/Button01_145_Orange",
                 onClick: () => {
-                    const currentLevel = CommonGameProgress.getCurrentLevel(1);
+                    const currentLevel = 1;//CommonGameProgress.getCurrentLevel(1);
                     UIManager.GetInstance().OpenPanelWithCallback(CommonUIID.GamePanel, () => {
                         UIManager.GetInstance().ClosePanel(CommonUIID.MainPanel);
                     }, currentLevel);
