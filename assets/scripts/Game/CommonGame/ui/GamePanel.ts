@@ -495,8 +495,8 @@ export class GamePanel extends UIBase {
         const labelTransform = labelNode.addComponent(UITransform);
         labelTransform.setContentSize(width, height);
         const label = labelNode.addComponent(Label);
-        label.fontSize = 28;
-        label.lineHeight = 32;
+        label.fontSize = 56;
+        label.lineHeight = 64;
         label.isBold = true;
         label.color = new Color(0xFE, 0xFE, 0x18, 0xFF);
         label.enableOutline = true;

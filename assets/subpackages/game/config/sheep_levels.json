@@ -76,20 +76,32 @@
           "col": 2,
           "direction": "Up",
           "type": "normal"
+        },
+        {
+          "row": 13,
+          "col": 2,
+          "direction": "Left",
+          "type": "normal"
+        },
+        {
+          "row": 11,
+          "col": 3,
+          "direction": "Left",
+          "type": "normal"
         }
       ],
       "fences": [
         {
           "row": 7,
-          "col": 0,
-          "rowSpan": 3,
-          "colSpan": 3,
+          "col": 1,
+          "rowSpan": 2,
+          "colSpan": 4,
           "eliminateCount": 4
         },
         {
-          "row": 9,
-          "col": 8,
-          "rowSpan": 4,
+          "row": 11,
+          "col": 2,
+          "rowSpan": 3,
           "colSpan": 4,
           "eliminateCount": 4
         }

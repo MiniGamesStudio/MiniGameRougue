@@ -165,6 +165,9 @@ module.exports = Editor.Panel.define({
                 return;
             }
 
+            // 保存前直接从输入框 DOM 读取最新值写回模型，避免事件未触发（如点击 ui-button 未失焦）导致围挡改动丢失。
+            this.flushFenceInputs();
+
             const typeConfigs = this.getGeneratorTypeConfigs();
             if (this.isRequireSolvable() && !this.isLevelSolvable(this.currentLevel, typeConfigs)) {
                 this.setStatus(`保存失败：第 ${this.currentLevel.level} 关不可解`);
@@ -416,6 +419,9 @@ module.exports = Editor.Panel.define({
             input.min = '0';
             input.step = '1';
             input.value = Number(value) || 0;
+            // 用 input 事件即时写回模型，避免点击 ui-button 时输入框未失焦导致 change 不触发、最新值丢失。
+            input.addEventListener('input', () => this.onFenceInputChange(index, key, input.value));
+            // 兜底：失焦时也同步一次，保证 spinner 等场景下的值已落盘。
             input.addEventListener('change', () => this.onFenceInputChange(index, key, input.value));
             wrap.appendChild(span);
             wrap.appendChild(input);
@@ -433,7 +439,27 @@ module.exports = Editor.Panel.define({
             } else {
                 fence[key] = value;
             }
-            this.renderLevel(levelData);
+            this.renderBoard(levelData);
+        },
+
+        // 直接从围挡输入框 DOM 读取最新值写回 this.currentLevel.fences。
+        // 不依赖 change/input 事件是否触发，保证保存时拿到的是屏幕上看到的值。
+        flushFenceInputs() {
+            const levelData = this.currentLevel;
+            if (!levelData || !Array.isArray(levelData.fences)) return;
+            const keys = ['row', 'col', 'rowSpan', 'colSpan', 'eliminateCount'];
+            const rows = this.$.fenceList.querySelectorAll('.fence-row');
+            rows.forEach((rowEl, index) => {
+                const fence = levelData.fences[index];
+                if (!fence) return;
+                const inputs = rowEl.querySelectorAll('input');
+                inputs.forEach((input, i) => {
+                    const key = keys[i];
+                    if (!key) return;
+                    const value = Math.max(0, Math.floor(Number(input.value) || 0));
+                    fence[key] = (key === 'rowSpan' || key === 'colSpan') ? Math.max(1, value) : value;
+                });
+            });
         },
 
         addFence() {
@@ -465,6 +491,11 @@ module.exports = Editor.Panel.define({
         },
 
         renderLevel(levelData) {
+            this.renderBoard(levelData);
+            this.renderFenceList(levelData);
+        },
+
+        renderBoard(levelData) {
             const rows = Number(levelData.rowCount) || generator.ROW_COUNT;
             const cols = Number(levelData.colCount) || generator.COL_COUNT;
             this.$.layout.innerHTML = '';
@@ -496,7 +527,6 @@ module.exports = Editor.Panel.define({
 
             this.renderSheepImages(board, levelData, rows, cols);
             this.renderFences(board, levelData);
-            this.renderFenceList(levelData);
         },
 
         renderFences(board, levelData) {
