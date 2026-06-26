@@ -830,8 +830,8 @@
       "contentRect": {
         "x": 0,
         "y": 0,
-        "width": 277,
-        "height": 493
+        "width": 967,
+        "height": 669
       },
       "scale": 1
     }
@@ -896,12 +896,12 @@
   },
   "game-view": {
     "devicesInfo": {
-      "name": "i18n:scene.game_view.design_resolution",
-      "type": "design",
-      "width": 750,
-      "height": 1334
+      "name": "Apple iPad 10.2",
+      "type": "device",
+      "width": 1620,
+      "height": 2160
     },
-    "scaleValue": 37,
-    "sliderValue": 15
+    "scaleValue": 29,
+    "sliderValue": 11
   }
 }
