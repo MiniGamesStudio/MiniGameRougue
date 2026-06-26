@@ -40,6 +40,8 @@ module.exports = Editor.Panel.define({
         editMode: '#edit-mode',
         placeType: '#place-type',
         placeDirection: '#place-direction',
+        addFence: '#add-fence',
+        fenceList: '#fence-list',
         generate: '#generate',
         view: '#view',
         save: '#save',
@@ -63,6 +65,8 @@ module.exports = Editor.Panel.define({
         this.$.clear.addEventListener('confirm', () => this.clearLevelSheep());
         this.$.clear.addEventListener('click', () => this.clearLevelSheep());
         this.$.editMode.addEventListener('change', () => this.onEditModeChange());
+        this.$.addFence.addEventListener('confirm', () => this.addFence());
+        this.$.addFence.addEventListener('click', () => this.addFence());
 
         this.loadLevelFile();
         this.populatePlaceTypeOptions();
@@ -372,6 +376,85 @@ module.exports = Editor.Panel.define({
                 && aCol < bCol + bColSpan && aCol + aColSpan > bCol;
         },
 
+        renderFenceList(levelData) {
+            const container = this.$.fenceList;
+            container.innerHTML = '';
+            if (!levelData) return;
+            const fences = Array.isArray(levelData.fences) ? levelData.fences : (levelData.fences = []);
+            if (fences.length <= 0) {
+                const empty = document.createElement('div');
+                empty.className = 'hint';
+                empty.textContent = '暂无围挡，点「添加围挡」新建一个';
+                container.appendChild(empty);
+                return;
+            }
+            fences.forEach((fence, index) => {
+                const row = document.createElement('div');
+                row.className = 'fence-row';
+                row.appendChild(this.createFenceInput(index, 'row', fence.row, '行'));
+                row.appendChild(this.createFenceInput(index, 'col', fence.col, '列'));
+                row.appendChild(this.createFenceInput(index, 'rowSpan', fence.rowSpan, '高'));
+                row.appendChild(this.createFenceInput(index, 'colSpan', fence.colSpan, '宽'));
+                row.appendChild(this.createFenceInput(index, 'eliminateCount', fence.eliminateCount, '消除数'));
+                const del = document.createElement('button');
+                del.type = 'button';
+                del.textContent = '删除';
+                del.className = 'fence-delete';
+                del.addEventListener('click', () => this.removeFenceAt(index));
+                row.appendChild(del);
+                container.appendChild(row);
+            });
+        },
+
+        createFenceInput(index, key, value, label) {
+            const wrap = document.createElement('label');
+            wrap.className = 'fence-field';
+            const span = document.createElement('span');
+            span.textContent = label;
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = '0';
+            input.step = '1';
+            input.value = Number(value) || 0;
+            input.addEventListener('change', () => this.onFenceInputChange(index, key, input.value));
+            wrap.appendChild(span);
+            wrap.appendChild(input);
+            return wrap;
+        },
+
+        onFenceInputChange(index, key, raw) {
+            const levelData = this.currentLevel;
+            if (!levelData || !Array.isArray(levelData.fences)) return;
+            const fence = levelData.fences[index];
+            if (!fence) return;
+            const value = Math.max(0, Math.floor(Number(raw) || 0));
+            if (key === 'rowSpan' || key === 'colSpan') {
+                fence[key] = Math.max(1, value);
+            } else {
+                fence[key] = value;
+            }
+            this.renderLevel(levelData);
+        },
+
+        addFence() {
+            if (!this.ensureLevelFile()) return;
+            const levelData = this.ensureEditableLevel();
+            const fences = Array.isArray(levelData.fences) ? levelData.fences : (levelData.fences = []);
+            const sheepCount = (levelData.sheep || []).length;
+            const eliminateCount = Math.max(1, Math.floor(sheepCount * 0.5));
+            fences.push({ row: 6, col: 4, rowSpan: 3, colSpan: 3, eliminateCount });
+            this.renderLevel(levelData);
+            this.setStatus(`已添加围挡 ${fences.length}，调整行/列/高/宽/消除数后保存`);
+        },
+
+        removeFenceAt(index) {
+            const levelData = this.currentLevel;
+            if (!levelData || !Array.isArray(levelData.fences)) return;
+            levelData.fences.splice(index, 1);
+            this.renderLevel(levelData);
+            this.setStatus(`已删除围挡 ${index + 1}`);
+        },
+
         getGeneratorTypeConfigs() {
             const configs = this.levelFile && this.levelFile.sheepTypeConfigs ? this.levelFile.sheepTypeConfigs : {};
             return {
@@ -413,6 +496,7 @@ module.exports = Editor.Panel.define({
 
             this.renderSheepImages(board, levelData, rows, cols);
             this.renderFences(board, levelData);
+            this.renderFenceList(levelData);
         },
 
         renderFences(board, levelData) {
