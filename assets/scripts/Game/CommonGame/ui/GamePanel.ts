@@ -1,4 +1,4 @@
-import { _decorator, Button, Color, Graphics, HorizontalTextAlignment, JsonAsset, Label, Node, RichText, Sprite, SpriteFrame, tween, UITransform, Vec3, VerticalTextAlignment } from 'cc';
+import { _decorator, Button, Color, Graphics, HorizontalTextAlignment, JsonAsset, Label, Node, RichText, Sprite, SpriteFrame, tween, UITransform, Vec3, VerticalTextAlignment, view } from 'cc';
 import { AdManager, AdPlayResult } from '../../../engine/AdManager';
 import { PlatformManager, PlatformResult } from '../../../engine/PlatformManager';
 import { ResManager } from '../../../engine/ResManager';
@@ -18,6 +18,8 @@ const DEFAULT_BOARD_PADDING_X = 40;
 const DEFAULT_BOARD_PADDING_Y = 120;
 const DEFAULT_BOARD_PADDING_BOTTOM = 220;
 const DEFAULT_SHEEP_SCALE = 1;
+const DESIGN_ROOT_WIDTH = 750;
+const DESIGN_ROOT_HEIGHT = 1334;
 const MOVE_DURATION_PER_CELL = 0.08;
 const MIN_MOVE_DURATION = 0.12;
 const RUN_OUT_EXTRA_CELL = 2;
@@ -149,6 +151,12 @@ export class GamePanel extends UIBase {
     m_StartLevel: number = 1;
     @property({ tooltip: '小羊固定缩放，不随关卡行列和数量变化' })
     m_SheepScale: number = DEFAULT_SHEEP_SCALE;
+    @property({ tooltip: '游戏根节点设计宽度，用于按屏幕分辨率缩放，保证小羊完整显示' })
+    m_DesignWidth: number = DESIGN_ROOT_WIDTH;
+    @property({ tooltip: '游戏根节点设计高度，用于按屏幕分辨率缩放，保证小羊完整显示' })
+    m_DesignHeight: number = DESIGN_ROOT_HEIGHT;
+    @property({ tooltip: '游戏根节点最大缩放，1 表示不超过设计尺寸（保持清晰），可调大以在大屏铺满' })
+    m_GameRootMaxScale: number = 1;
 
     private m_SheepSpriteFrameMap: Map<string, SpriteFrame> = new Map();
     private m_SheepTypeResourceMap: Map<string, string> = new Map([[DEFAULT_SHEEP_TYPE, DEFAULT_SHEEP_RESOURCE]]);
@@ -186,6 +194,11 @@ export class GamePanel extends UIBase {
         this.SetBtnEvent(this.m_SkillOneBtn, () => this.onSkillOneBtnClick());
         this.SetBtnEvent(this.m_SkillTwoBtn, () => this.onSkillTwoBtnClick());
         this.SetBtnEvent(this.m_SkillThreeBtn, () => this.onSkillThreeBtnClick());
+        view.on('resize', this.adjustGameRootScale, this);
+    }
+
+    onDestroy(): void {
+        view.off('resize', this.adjustGameRootScale, this);
     }
 
     OnOpen(level: number | GameLevelConfig = this.m_StartLevel): void {
@@ -412,10 +425,8 @@ export class GamePanel extends UIBase {
     }
 
     private initBoardSize(): void {
-        const transform = this.m_GameRoot?.getComponent(UITransform);
-        const contentSize = transform?.contentSize;
-        const rootWidth = contentSize?.width || 600;
-        const rootHeight = contentSize?.height || 1200;
+        const rootWidth = Math.max(1, this.m_DesignWidth);
+        const rootHeight = Math.max(1, this.m_DesignHeight);
         const paddingX = this.clampNumber(this.m_PaddingX, 0, rootWidth * 0.45);
         const paddingTop = this.clampNumber(this.m_PaddingTop, 0, rootHeight * 0.45);
         const paddingBottom = this.clampNumber(this.m_PaddingBottom, 0, rootHeight * 0.45);
@@ -425,6 +436,26 @@ export class GamePanel extends UIBase {
         this.m_BoardTop = rootHeight * 0.5 - paddingTop;
         this.m_CellWidth = this.m_BoardWidth / this.m_ColCount;
         this.m_CellHeight = this.m_BoardHeight / this.m_RowCount;
+        this.adjustGameRootScale();
+    }
+
+    /**
+     * 按屏幕分辨率对游戏根节点做 contain 缩放：
+     * 以设计尺寸为基准，取可见区域与设计尺寸比值的较小值，
+     * 保证设计尺寸内的棋盘与小羊完整显示在屏幕内，
+     * 避免部分分辨率（如窄屏 fitHeight 横向裁边）下边缘小羊被切掉。
+     */
+    private adjustGameRootScale(): void {
+        if (!this.m_GameRoot || !this.m_GameRoot.isValid) return;
+        const designWidth = Math.max(1, this.m_DesignWidth);
+        const designHeight = Math.max(1, this.m_DesignHeight);
+        const visibleSize = view.getVisibleSize();
+        const visibleWidth = visibleSize?.width || 0;
+        const visibleHeight = visibleSize?.height || 0;
+        if (visibleWidth <= 0 || visibleHeight <= 0) return;
+        const maxScale = Math.max(0.01, this.m_GameRootMaxScale);
+        const scale = Math.min(maxScale, visibleWidth / designWidth, visibleHeight / designHeight);
+        this.m_GameRoot.setScale(scale, scale, 1);
     }
 
     private initGrid(): void {
