@@ -1,8 +1,0 @@
-{
-  "__type__": "cc.TextAsset",
-  "_name": "pixel-monster.README",
-  "_objFlags": 0,
-  "__editorExtras__": {},
-  "_native": "",
-  "text": "# Pixel Monster Shader\r\n\r\n用于 Cocos Creator 3.8 的 32x32 程序化像素怪物 shader，主色从 `assets/subpackages/game/palettes/monster_palette.png` 这张色板图里采样。\r\n\r\n## 使用方式\r\n\r\n1. 在场景里创建一个带 `Sprite` 的节点。\r\n2. 添加 `PixelMonsterSprite` 组件。\r\n3. 可以不手动拖资源：组件会自动创建 32x32 SpriteFrame 载体，并从 `game` Bundle 的 `effects/pixel-monster`、`palettes/monster_palette/texture` 加载默认 shader 和色板。\r\n4. 如果要换 shader 或色板，也可以手动将资源拖到 `effectAsset` / `paletteTexture` 覆盖默认值。\r\n5. 调整参数：\r\n   - `seed`：改变斑点和局部明暗。\r\n   - `hueBias`：选择色环上的主色，范围建议 0-1。\r\n   - `paletteRadius`：控制取色饱和度，越大越靠近色板外圈。\r\n   - `pixelCount`：默认 32，对应 32x32 像素网格。\r\n\r\n## 微信小游戏注意点\r\n\r\n- shader 没有动态循环，也没有依赖 `textureSize`，适合 WebGL 1 兼容路径。\r\n- 色板纹理 meta 已设置为 `nearest` 和 `clamp-to-edge`，避免取色被线性过滤混色。\r\n- 如果要导出真实 32x32 图片素材，可以在编辑器中用该节点渲染到 `RenderTexture` 后保存为图片。\r\n"
-}
