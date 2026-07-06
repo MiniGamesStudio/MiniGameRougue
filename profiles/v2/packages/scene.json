@@ -787,9 +787,9 @@
     },
     "6c6bb7e7-df76-4af4-a1dc-2a97a7ff0c23": {
       "position": {
-        "x": 375,
-        "y": 667,
-        "z": 2076.1182751828533
+        "x": 242.9281577746947,
+        "y": 662.6124027480698,
+        "z": 1952.341585875053
       },
       "rotation": {
         "x": 0,
@@ -798,8 +798,8 @@
         "w": 1
       },
       "viewCenter": {
-        "x": 375,
-        "y": 667,
+        "x": 242.9281577746947,
+        "y": 662.6124027480698,
         "z": 0
       },
       "contentRect": {
@@ -896,12 +896,12 @@
   },
   "game-view": {
     "devicesInfo": {
-      "name": "Apple iPad Air 10.9",
-      "type": "device",
-      "width": 1640,
-      "height": 2360
+      "name": "i18n:scene.game_view.design_resolution",
+      "type": "design",
+      "width": 750,
+      "height": 1334
     },
-    "scaleValue": 24,
-    "sliderValue": 8
+    "scaleValue": 28,
+    "sliderValue": 10
   }
 }
