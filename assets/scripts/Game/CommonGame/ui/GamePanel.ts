@@ -22,6 +22,7 @@ const ENEMY_SPAWN_INTERVAL = 0.18;
 const ATTACK_LUNGE_RATIO = 0.38;
 const DEFAULT_ATTACK_RANGE = 1;
 const RANGED_CAST_SCALE = 1.18;
+const UNIT_SPAWN_EFFECT_TIME = 0.16;
 
 interface PendingEnemySpawn {
     config: AutoChessEnemyConfig;
@@ -292,8 +293,8 @@ export class GamePanel extends UIBase {
             grid,
             node,
             state: 'idle',
-            moveCooldown: 0,
-            attackCooldown: 0,
+            moveCooldown: UNIT_SPAWN_EFFECT_TIME,
+            attackCooldown: UNIT_SPAWN_EFFECT_TIME,
             targetUid: INVALID_UID,
         };
         this.m_Units.push(unit);
@@ -326,8 +327,8 @@ export class GamePanel extends UIBase {
             grid,
             node,
             state: 'idle',
-            moveCooldown: 0,
-            attackCooldown: 0,
+            moveCooldown: UNIT_SPAWN_EFFECT_TIME,
+            attackCooldown: UNIT_SPAWN_EFFECT_TIME,
             targetUid: INVALID_UID,
         };
         this.m_Units.push(unit);
@@ -338,6 +339,7 @@ export class GamePanel extends UIBase {
     }
 
     private playUnitSpawnEffect(node: Node): void {
+        tween(node).stop();
         const originScale = node.scale.clone();
         node.setScale(originScale.x * 0.1, originScale.y * 0.1, originScale.z);
         tween(node)
