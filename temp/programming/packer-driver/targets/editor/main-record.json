@@ -997,7 +997,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 94153235.2882,
+      "mTimestamp": 94892865.7915,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -24960,7 +24960,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/GamePanel.ts": {
       "mTimestamp": {
-        "mtime": 1783408528518.3604,
+        "mtime": 1783409267436.027,
         "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
       },
       "chunkId": "a401de9dbfacdcf0f2251544d5a33412f3788b1e",

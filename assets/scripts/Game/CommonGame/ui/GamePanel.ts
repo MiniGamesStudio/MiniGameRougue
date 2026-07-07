@@ -18,7 +18,7 @@ export class GamePanel extends UIBase {
     @property(Button)
     m_PauseBtn: Button = null;
     @property(RichText)
-    m_LevelText: RichText = null;
+    m_TitleText: RichText = null;
     @property(Button)
     m_LvUpBtn: Button = null;
     @property(Button)
@@ -31,6 +31,8 @@ export class GamePanel extends UIBase {
     m_ItemSelectLayout: Node = null;
     @property(Node)
     m_Item: Node = null;
+    @property(Label)
+    m_LvText: Label = null;
 
     @property({ tooltip: '游戏根节点设计宽度，用于按屏幕分辨率缩放' })
     m_DesignWidth: number = DESIGN_ROOT_WIDTH;
