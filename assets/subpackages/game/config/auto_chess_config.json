@@ -134,8 +134,8 @@
   ],
   "waves": {
     "firstDelay": 5,
-    "minInterval": 24,
-    "maxInterval": 34,
+    "minInterval": 14,
+    "maxInterval": 24,
     "baseCount": 3,
     "countPerWave": 1,
     "maxCount": 18,
