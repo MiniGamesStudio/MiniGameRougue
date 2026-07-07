@@ -293,6 +293,7 @@ export class GamePanel extends UIBase {
         this.m_Units.push(unit);
         this.setGridOccupied(grid, unit.uid);
         this.refreshUnitView(unit);
+        this.playUnitSpawnEffect(node);
         return unit;
     }
 
@@ -302,8 +303,6 @@ export class GamePanel extends UIBase {
         node.active = true;
         node.setParent(this.m_CharacterRoot);
         node.setPosition(this.gridToPosition(grid));
-        const originScale = node.scale.clone();
-        node.setScale(originScale.x * 0.1, originScale.y * 0.1, originScale.z);
         const unit: AutoChessUnitRuntime = {
             uid: this.m_UnitUid++,
             camp: 'enemy',
@@ -328,11 +327,17 @@ export class GamePanel extends UIBase {
         this.m_Units.push(unit);
         this.setGridOccupied(grid, unit.uid);
         this.refreshUnitView(unit);
+        this.playUnitSpawnEffect(node);
+        return unit;
+    }
+
+    private playUnitSpawnEffect(node: Node): void {
+        const originScale = node.scale.clone();
+        node.setScale(originScale.x * 0.1, originScale.y * 0.1, originScale.z);
         tween(node)
             .to(0.08, { scale: new Vec3(originScale.x * 1.15, originScale.y * 1.15, originScale.z) })
             .to(0.08, { scale: originScale })
             .start();
-        return unit;
     }
 
     private refreshUnitView(unit: AutoChessUnitRuntime): void {
@@ -629,11 +634,12 @@ export class GamePanel extends UIBase {
                 if (!config || !config.nextId) continue;
                 const nextConfig = this.m_CharacterMap.get(config.nextId);
                 if (!nextConfig) continue;
-                units.sort((a, b) => a.grid.row - b.grid.row || a.grid.col - b.grid.col);
+                units.sort((a, b) => b.grid.row - a.grid.row || a.grid.col - b.grid.col);
                 const keep = units[0];
                 const removeUnits = units.slice(1, 3);
                 removeUnits.forEach(unit => this.killUnitForMerge(unit));
                 this.applyCharacterConfig(keep, nextConfig);
+                this.playMergeEffect(keep.node);
                 this.setTitle(`合成成功：${nextConfig.name}`);
                 merged = true;
                 break;
@@ -665,6 +671,15 @@ export class GamePanel extends UIBase {
         unit.attackCooldown = 0;
         unit.state = 'idle';
         this.refreshUnitView(unit);
+    }
+
+    private playMergeEffect(node: Node): void {
+        if (!node || !node.isValid) return;
+        const originScale = node.scale.clone();
+        tween(node)
+            .to(0.08, { scale: new Vec3(originScale.x * 1.25, originScale.y * 1.25, originScale.z) })
+            .to(0.1, { scale: originScale })
+            .start();
     }
 
     private checkFailState(): void {
