@@ -76,6 +76,7 @@ export class GamePanel extends UIBase {
     private m_TitleHoldTime: number = 0;
     private m_EnemySpawnQueue: PendingEnemySpawn[] = [];
     private m_EnemySpawnCountdown: number = 0;
+    private m_IsWaveActive: boolean = false;
 
     OnInit(): void {
         this.SetBtnEvent(this.m_PauseBtn, () => this.onPauseBtnClick());
@@ -149,6 +150,7 @@ export class GamePanel extends UIBase {
         this.m_TitleHoldTime = 0;
         this.m_EnemySpawnQueue.length = 0;
         this.m_EnemySpawnCountdown = 0;
+        this.m_IsWaveActive = false;
         this.m_IsRunning = false;
     }
 
@@ -169,6 +171,7 @@ export class GamePanel extends UIBase {
         this.m_ShopItems.length = 0;
         this.m_EnemySpawnQueue.length = 0;
         this.m_EnemySpawnCountdown = 0;
+        this.m_IsWaveActive = false;
         this.m_OccupiedGrid.clear();
     }
 
@@ -413,6 +416,7 @@ export class GamePanel extends UIBase {
             this.m_EnemySpawnQueue.push({ config: enemyConfig, powerScale });
         }
         this.m_EnemySpawnCountdown = 0;
+        this.m_IsWaveActive = true;
         this.setTitle(`第 ${this.m_WaveIndex} 波怪物来袭，共 ${count} 只`);
     }
 
@@ -661,6 +665,31 @@ export class GamePanel extends UIBase {
             unit.node.destroy();
         }
         this.refreshHud();
+        this.checkWaveCleared();
+    }
+
+    private checkWaveCleared(): void {
+        if (!this.m_IsWaveActive) return;
+        if (this.m_EnemySpawnQueue.length > 0) return;
+        const hasEnemy = this.m_Units.some(unit => unit.camp === 'enemy' && unit.state !== 'dead');
+        if (hasEnemy) return;
+        this.m_IsWaveActive = false;
+        this.recoverPlayerUnits();
+    }
+
+    private recoverPlayerUnits(): void {
+        let recoverCount = 0;
+        this.m_Units.forEach(unit => {
+            if (unit.camp !== 'player' || unit.state === 'dead') return;
+            if (unit.hp < unit.maxHp) {
+                unit.hp = unit.maxHp;
+                this.refreshUnitView(unit);
+                recoverCount++;
+            }
+        });
+        if (recoverCount > 0) {
+            this.setTitle(`第 ${this.m_WaveIndex} 波结束，剩余棋子已恢复血量`);
+        }
     }
 
     private checkMerge(): void {
