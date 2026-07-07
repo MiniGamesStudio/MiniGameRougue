@@ -395,7 +395,7 @@ export class GamePanel extends UIBase {
             if (!unit.node || !unit.node.isValid || unit.state === 'dead') return;
             unit.moveCooldown = Math.max(0, unit.moveCooldown - dt);
             unit.attackCooldown = Math.max(0, unit.attackCooldown - dt);
-            if (unit.state === 'moving' || unit.state === 'attacking') return;
+            if (unit.state === 'attacking') return;
 
             const target = this.findNearestTarget(unit);
             if (!target) {
@@ -404,6 +404,16 @@ export class GamePanel extends UIBase {
             }
             unit.targetUid = target.uid;
             const distance = this.getGridDistance(unit.grid, target.grid);
+            if (unit.attackRange > 1) {
+                if (distance <= unit.attackRange) {
+                    this.tryAttack(unit, target);
+                }
+                if (unit.state !== 'moving') {
+                    this.tryMoveToward(unit, target);
+                }
+                return;
+            }
+            if (unit.state === 'moving') return;
             if (distance <= unit.attackRange) {
                 this.tryAttack(unit, target);
             } else {
@@ -420,6 +430,7 @@ export class GamePanel extends UIBase {
             unit.moveCooldown = unit.moveInterval;
             return;
         }
+        if (moveGoal.col === unit.grid.col && moveGoal.row === unit.grid.row) return;
         const nextGrid = this.findNextStep(unit.grid, moveGoal);
         if (!nextGrid) {
             unit.moveCooldown = unit.moveInterval;
@@ -444,12 +455,12 @@ export class GamePanel extends UIBase {
         if (unit.attackCooldown > 0 || !target.node || !target.node.isValid) return;
         if (!this.canAttackTarget(unit, target)) return;
         unit.attackCooldown = unit.attackInterval;
-        unit.state = 'attacking';
         if (unit.attackRange > 1) {
             this.playRangedAttack(unit, target);
             return;
         }
-        const origin = this.gridToPosition(unit.grid);
+        unit.state = 'attacking';
+        const origin = unit.node.position.clone();
         const targetPosition = this.gridToPosition(target.grid);
         const attackPosition = new Vec3(
             origin.x + (targetPosition.x - origin.x) * ATTACK_LUNGE_RATIO,
@@ -487,9 +498,6 @@ export class GamePanel extends UIBase {
                 }
             })
             .to(0.08, { scale: originScale })
-            .call(() => {
-                if (unit.state !== 'dead') unit.state = 'idle';
-            })
             .start();
     }
 
@@ -529,7 +537,10 @@ export class GamePanel extends UIBase {
     }
 
     private canAttackTarget(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime, checkUnitPosition: boolean = true): boolean {
-        if ((unit.state !== 'idle' && unit.state !== 'attacking') || target.state === 'dead') return false;
+        const canActByState = unit.attackRange > 1
+            ? unit.state !== 'dead'
+            : (unit.state === 'idle' || unit.state === 'attacking');
+        if (!canActByState || target.state === 'dead') return false;
         const distance = this.getGridDistance(unit.grid, target.grid);
         if (distance <= 0 || distance > unit.attackRange) return false;
         if (!this.isGridOccupiedByUid(unit.grid, unit.uid) || !this.isGridOccupiedByUid(target.grid, target.uid)) return false;
@@ -541,7 +552,7 @@ export class GamePanel extends UIBase {
         const unitCenter = this.gridToPosition(unit.grid);
         const targetCenter = this.gridToPosition(target.grid);
         const tolerance = Math.max(2, this.m_Config.board.cellSize * 0.08);
-        if (checkUnitPosition && Vec3.distance(unit.node.position, unitCenter) > tolerance) return false;
+        if (checkUnitPosition && unit.attackRange <= 1 && Vec3.distance(unit.node.position, unitCenter) > tolerance) return false;
         return Vec3.distance(target.node.position, targetCenter) <= tolerance;
     }
 
@@ -751,11 +762,33 @@ export class GamePanel extends UIBase {
     }
 
     private findMoveGoal(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): AutoChessGridPos | null {
-        if (unit.attackRange > 1) return target.grid;
+        if (unit.attackRange > 1) return this.findRangedMoveGoal(unit, target);
         const slots = this.getAttackSlots(target.grid)
             .filter(slot => this.isMeleeAttackSlotAvailable(unit, target, slot))
             .sort((a, b) => this.getGridDistance(unit.grid, a) - this.getGridDistance(unit.grid, b));
         return slots[0] || null;
+    }
+
+    private findRangedMoveGoal(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): AutoChessGridPos | null {
+        let bestGrid: AutoChessGridPos = null;
+        let bestScore = Number.MAX_SAFE_INTEGER;
+        for (let row = 0; row < this.m_Config.board.rows; row++) {
+            for (let col = 0; col < this.m_Config.board.cols; col++) {
+                const grid = { col, row };
+                if (!this.isGridOccupiedByUid(grid, unit.uid) && this.isGridOccupied(grid)) continue;
+                const targetDistance = this.getGridDistance(grid, target.grid);
+                if (targetDistance <= 0) continue;
+                const rangePenalty = Math.abs(unit.attackRange - targetDistance) * 10;
+                const currentPenalty = this.getGridDistance(unit.grid, grid);
+                const outOfRangePenalty = targetDistance > unit.attackRange ? 1000 : 0;
+                const score = rangePenalty + currentPenalty + outOfRangePenalty;
+                if (score < bestScore) {
+                    bestScore = score;
+                    bestGrid = grid;
+                }
+            }
+        }
+        return bestGrid;
     }
 
     private isMeleeAttackSlotAvailable(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime, slot: AutoChessGridPos): boolean {
