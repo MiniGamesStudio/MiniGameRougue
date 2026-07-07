@@ -18,6 +18,12 @@ const DESIGN_ROOT_WIDTH = 750;
 const DESIGN_ROOT_HEIGHT = 1334;
 const SHOP_ITEM_COUNT = 5;
 const INVALID_UID = 0;
+const ENEMY_SPAWN_INTERVAL = 0.18;
+
+interface PendingEnemySpawn {
+    config: AutoChessEnemyConfig;
+    powerScale: number;
+}
 
 @ccclass('GamePanel')
 export class GamePanel extends UIBase {
@@ -62,6 +68,8 @@ export class GamePanel extends UIBase {
     private m_UnitUid: number = 1;
     private m_OpenVersion: number = 0;
     private m_TitleHoldTime: number = 0;
+    private m_EnemySpawnQueue: PendingEnemySpawn[] = [];
+    private m_EnemySpawnCountdown: number = 0;
 
     OnInit(): void {
         this.SetBtnEvent(this.m_PauseBtn, () => this.onPauseBtnClick());
@@ -97,6 +105,7 @@ export class GamePanel extends UIBase {
         if (!this.m_IsRunning || !this.m_Config) return;
         this.m_TitleHoldTime = Math.max(0, this.m_TitleHoldTime - dt);
         this.updateWave(dt);
+        this.updateEnemySpawnQueue(dt);
         this.updateUnits(dt);
         this.checkFailState();
     }
@@ -132,6 +141,8 @@ export class GamePanel extends UIBase {
         this.m_NextWaveCountdown = Math.max(0, this.m_Config.waves.firstDelay);
         this.m_UnitUid = 1;
         this.m_TitleHoldTime = 0;
+        this.m_EnemySpawnQueue.length = 0;
+        this.m_EnemySpawnCountdown = 0;
         this.m_IsRunning = false;
     }
 
@@ -150,6 +161,8 @@ export class GamePanel extends UIBase {
         });
         this.m_Units.length = 0;
         this.m_ShopItems.length = 0;
+        this.m_EnemySpawnQueue.length = 0;
+        this.m_EnemySpawnCountdown = 0;
         this.m_OccupiedGrid.clear();
     }
 
@@ -284,6 +297,8 @@ export class GamePanel extends UIBase {
         node.active = true;
         node.setParent(this.m_CharacterRoot);
         node.setPosition(this.gridToPosition(grid));
+        const originScale = node.scale.clone();
+        node.setScale(originScale.x * 0.1, originScale.y * 0.1, originScale.z);
         const unit: AutoChessUnitRuntime = {
             uid: this.m_UnitUid++,
             camp: 'enemy',
@@ -306,6 +321,10 @@ export class GamePanel extends UIBase {
         this.m_Units.push(unit);
         this.setGridOccupied(grid, unit.uid);
         this.refreshUnitView(unit);
+        tween(node)
+            .to(0.08, { scale: new Vec3(originScale.x * 1.15, originScale.y * 1.15, originScale.z) })
+            .to(0.08, { scale: originScale })
+            .start();
         return unit;
     }
 
@@ -329,18 +348,26 @@ export class GamePanel extends UIBase {
     private spawnWave(): void {
         this.m_WaveIndex++;
         const waveConfig = this.m_Config.waves;
-        const count = Math.min(waveConfig.maxCount, waveConfig.baseCount + this.m_WaveIndex * waveConfig.countPerWave);
+        const count = Math.min(waveConfig.maxCount, waveConfig.baseCount + Math.max(0, this.m_WaveIndex - 1) * waveConfig.countPerWave);
         const enemyConfig = this.getWaveEnemyConfig();
         const powerScale = 1 + Math.max(0, this.m_WaveIndex - 1) * waveConfig.powerScalePerWave;
-        let spawned = 0;
         for (let i = 0; i < count; i++) {
-            const grid = this.findEnemySpawnGrid();
-            if (!grid) break;
-            if (this.createUnitFromEnemy(enemyConfig, grid, powerScale)) {
-                spawned++;
-            }
+            this.m_EnemySpawnQueue.push({ config: enemyConfig, powerScale });
         }
-        this.setTitle(`第 ${this.m_WaveIndex} 波怪物来袭，共 ${spawned} 只`);
+        this.m_EnemySpawnCountdown = 0;
+        this.setTitle(`第 ${this.m_WaveIndex} 波怪物来袭，共 ${count} 只`);
+    }
+
+    private updateEnemySpawnQueue(dt: number): void {
+        if (this.m_EnemySpawnQueue.length <= 0) return;
+        this.m_EnemySpawnCountdown -= dt;
+        if (this.m_EnemySpawnCountdown > 0) return;
+        const pending = this.m_EnemySpawnQueue.shift();
+        const grid = this.findEnemySpawnGrid();
+        if (pending && grid) {
+            this.createUnitFromEnemy(pending.config, grid, pending.powerScale);
+        }
+        this.m_EnemySpawnCountdown = ENEMY_SPAWN_INTERVAL;
     }
 
     private getWaveEnemyConfig(): AutoChessEnemyConfig {
@@ -386,33 +413,64 @@ export class GamePanel extends UIBase {
             unit.moveCooldown = unit.moveInterval;
             return;
         }
-        this.clearGridOccupied(unit.grid);
-        unit.grid = nextGrid;
-        this.setGridOccupied(unit.grid, unit.uid);
+        const fromGrid = { col: unit.grid.col, row: unit.grid.row };
+        this.setGridOccupied(nextGrid, unit.uid);
         unit.moveCooldown = unit.moveInterval;
         unit.state = 'moving';
         tween(unit.node)
             .to(0.16, { position: this.gridToPosition(nextGrid) })
             .call(() => {
-                if (unit.state !== 'dead') unit.state = 'idle';
+                if (unit.state === 'dead') return;
+                this.clearGridOccupied(fromGrid);
+                unit.grid = nextGrid;
+                unit.state = 'idle';
             })
             .start();
     }
 
     private tryAttack(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): void {
         if (unit.attackCooldown > 0 || !target.node || !target.node.isValid) return;
+        if (!this.canAttackTarget(unit, target)) return;
         unit.attackCooldown = unit.attackInterval;
         unit.state = 'attacking';
         const origin = this.gridToPosition(unit.grid);
         const targetPosition = this.gridToPosition(target.grid);
         tween(unit.node)
             .to(0.08, { position: targetPosition })
-            .call(() => this.damageUnit(target.uid, unit.attack, unit.camp))
+            .call(() => {
+                const currentTarget = this.getUnitByUid(target.uid);
+                if (currentTarget && this.canAttackTarget(unit, currentTarget, false)) {
+                    this.damageUnit(currentTarget.uid, unit.attack, unit.camp);
+                }
+            })
             .to(0.08, { position: origin })
             .call(() => {
                 if (unit.state !== 'dead') unit.state = 'idle';
             })
             .start();
+    }
+
+    private canAttackTarget(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime, checkUnitPosition: boolean = true): boolean {
+        if ((unit.state !== 'idle' && unit.state !== 'attacking') || target.state === 'dead') return false;
+        if (this.getGridDistance(unit.grid, target.grid) !== 1) return false;
+        if (!this.isFaceToFaceWithTarget(unit, target)) return false;
+        const unitCenter = this.gridToPosition(unit.grid);
+        const targetCenter = this.gridToPosition(target.grid);
+        const tolerance = Math.max(2, this.m_Config.board.cellSize * 0.08);
+        if (checkUnitPosition && Vec3.distance(unit.node.position, unitCenter) > tolerance) return false;
+        return Vec3.distance(target.node.position, targetCenter) <= tolerance;
+    }
+
+    private isFaceToFaceWithTarget(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): boolean {
+        const deltaCol = target.grid.col - unit.grid.col;
+        const deltaRow = target.grid.row - unit.grid.row;
+        if (Math.abs(deltaCol) + Math.abs(deltaRow) !== 1) return false;
+        const frontGrid = {
+            col: unit.grid.col + Math.sign(deltaCol),
+            row: unit.grid.row + Math.sign(deltaRow),
+        };
+        const frontUid = this.m_OccupiedGrid.get(this.getGridKey(frontGrid));
+        return frontUid === target.uid;
     }
 
     private damageUnit(targetUid: number, damage: number, attackerCamp: string): void {
@@ -427,7 +485,7 @@ export class GamePanel extends UIBase {
     private killUnit(unit: AutoChessUnitRuntime, attackerCamp: string): void {
         if (unit.state === 'dead') return;
         unit.state = 'dead';
-        this.clearGridOccupied(unit.grid);
+        this.clearGridOccupiedByUid(unit.uid);
         if (unit.camp === 'enemy' && attackerCamp === 'player') {
             this.m_Gold += unit.goldReward;
             this.setTitle(`击杀 ${unit.name}，获得 ${unit.goldReward} 金币`);
@@ -470,7 +528,7 @@ export class GamePanel extends UIBase {
 
     private killUnitForMerge(unit: AutoChessUnitRuntime): void {
         unit.state = 'dead';
-        this.clearGridOccupied(unit.grid);
+        this.clearGridOccupiedByUid(unit.uid);
         if (unit.node && unit.node.isValid) {
             unit.node.removeFromParent();
             unit.node.destroy();
@@ -558,32 +616,42 @@ export class GamePanel extends UIBase {
 
     private findNearestTarget(unit: AutoChessUnitRuntime): AutoChessUnitRuntime | null {
         let nearest: AutoChessUnitRuntime = null;
-        let nearestDistance = Number.MAX_SAFE_INTEGER;
+        let nearestScore = Number.MAX_SAFE_INTEGER;
         this.m_Units.forEach(target => {
             if (target.state === 'dead' || target.camp === unit.camp) return;
             const distance = this.getGridDistance(unit.grid, target.grid);
-            if (distance < nearestDistance) {
+            const hasAttackSlot = distance <= 1 || this.getAttackSlots(target.grid).some(grid => !this.isGridOccupied(grid));
+            const score = distance + (hasAttackSlot ? 0 : 1000);
+            if (score < nearestScore) {
                 nearest = target;
-                nearestDistance = distance;
+                nearestScore = score;
             }
         });
         return nearest;
     }
 
     private findNextStep(from: AutoChessGridPos, to: AutoChessGridPos): AutoChessGridPos | null {
-        const deltaCol = to.col - from.col;
-        const deltaRow = to.row - from.row;
-        const candidates: AutoChessGridPos[] = [];
-        if (Math.abs(deltaCol) >= Math.abs(deltaRow) && deltaCol !== 0) {
-            candidates.push({ col: from.col + Math.sign(deltaCol), row: from.row });
-        }
-        if (deltaRow !== 0) {
-            candidates.push({ col: from.col, row: from.row + Math.sign(deltaRow) });
-        }
-        if (Math.abs(deltaCol) < Math.abs(deltaRow) && deltaCol !== 0) {
-            candidates.push({ col: from.col + Math.sign(deltaCol), row: from.row });
-        }
-        return candidates.find(grid => this.isGridInside(grid) && !this.isGridOccupied(grid)) || null;
+        const candidates = this.getMoveNeighbors(from)
+            .filter(grid => this.isGridInside(grid) && !this.isGridOccupied(grid))
+            .sort((a, b) => {
+                const distanceDiff = this.getGridDistance(a, to) - this.getGridDistance(b, to);
+                if (distanceDiff !== 0) return distanceDiff;
+                return Math.abs(a.col - to.col) - Math.abs(b.col - to.col);
+            });
+        return candidates[0] || null;
+    }
+
+    private getMoveNeighbors(grid: AutoChessGridPos): AutoChessGridPos[] {
+        return [
+            { col: grid.col + 1, row: grid.row },
+            { col: grid.col - 1, row: grid.row },
+            { col: grid.col, row: grid.row + 1 },
+            { col: grid.col, row: grid.row - 1 },
+        ];
+    }
+
+    private getAttackSlots(grid: AutoChessGridPos): AutoChessGridPos[] {
+        return this.getMoveNeighbors(grid).filter(item => this.isGridInside(item));
     }
 
     private findPlayerSpawnGrid(): AutoChessGridPos | null {
@@ -631,6 +699,14 @@ export class GamePanel extends UIBase {
 
     private clearGridOccupied(grid: AutoChessGridPos): void {
         this.m_OccupiedGrid.delete(this.getGridKey(grid));
+    }
+
+    private clearGridOccupiedByUid(uid: number): void {
+        Array.from(this.m_OccupiedGrid.entries()).forEach(([key, value]) => {
+            if (value === uid) {
+                this.m_OccupiedGrid.delete(key);
+            }
+        });
     }
 
     private getGridKey(grid: AutoChessGridPos): string {

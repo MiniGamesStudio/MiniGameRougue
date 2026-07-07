@@ -134,12 +134,12 @@
   ],
   "waves": {
     "firstDelay": 5,
-    "minInterval": 20,
-    "maxInterval": 30,
+    "minInterval": 24,
+    "maxInterval": 34,
     "baseCount": 3,
-    "countPerWave": 2,
-    "maxCount": 20,
+    "countPerWave": 1,
+    "maxCount": 18,
     "enemyTierEveryWaves": 2,
-    "powerScalePerWave": 0.1
+    "powerScalePerWave": 0.08
   }
 }

@@ -861,7 +861,7 @@
       "time": 1783302340029.3225
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1783413972450.8726,
+      "time": 1783416227780.7847,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheeptitle.png.meta": {
@@ -970,15 +970,15 @@
       "uuid": "b8ee6cb0-96db-4c3b-96d1-d14d1e8d5201"
     },
     "subpackages\\game\\config": {
-      "time": 1783413906662.934,
+      "time": 1783415418621.5837,
       "uuid": "e6cb8f45-78b8-4f55-8d8a-e5a35444d9df"
     },
     "subpackages\\game\\Icons": {
-      "time": 1783302340087.3242,
+      "time": 1783415430751.0962,
       "uuid": "c30cc32b-cb89-4481-b103-8f9095104ac8"
     },
     "subpackages\\game\\texture": {
-      "time": 1783302340120.323,
+      "time": 1783415430759.0957,
       "uuid": "dbdbb2c4-2818-4a64-9df1-b1a9ac920201"
     },
     "subpackages\\game\\ui": {
@@ -992,24 +992,6 @@
     "subpackages\\rank\\ui": {
       "time": 1783302340143.3225,
       "uuid": "052b7b89-95cf-4f28-a371-7bb037939301"
-    },
-    "subpackages\\game\\config\\sheep_levels.json.meta": {
-      "time": 1783302340097.3242
-    },
-    "subpackages\\game\\Icons\\Skill_1.png.meta": {
-      "time": 1783302340085.325
-    },
-    "subpackages\\game\\Icons\\Skill_2.png.meta": {
-      "time": 1783302340085.325
-    },
-    "subpackages\\game\\Icons\\Skill_3.png.meta": {
-      "time": 1783302340090.325
-    },
-    "subpackages\\game\\texture\\sheep.png.meta": {
-      "time": 1783302340119.3228
-    },
-    "subpackages\\game\\texture\\sheepblack.png.meta": {
-      "time": 1783302340121.3225
     },
     "subpackages\\game\\ui\\GamePanel.prefab.meta": {
       "time": 1783302340122.3225
@@ -1032,26 +1014,6 @@
     "subpackages\\rank\\ui\\RankPanel.prefab.meta": {
       "time": 1783302340143.3225
     },
-    "subpackages\\game\\config\\sheep_levels.json": {
-      "time": 1783302340092.3252,
-      "uuid": "4c0814f7-b690-4a5f-a5c8-61b6f9219a96"
-    },
-    "subpackages\\game\\Icons\\Skill_2.png": {
-      "time": 1783302340085.325,
-      "uuid": "d0a9d6da-1e4e-46d3-8e0f-5b9c66014d93"
-    },
-    "subpackages\\game\\Icons\\Skill_1.png": {
-      "time": 1783302340085.325,
-      "uuid": "483f80bc-31e2-47a5-9fae-d8fb24a81f95"
-    },
-    "subpackages\\game\\Icons\\Skill_3.png": {
-      "time": 1783302340087.3242,
-      "uuid": "fc8553d7-131b-4691-98e7-6ceeaa07a1c7"
-    },
-    "subpackages\\game\\texture\\sheep.png": {
-      "time": 1783302340112.3235,
-      "uuid": "66c41a34-27f9-4521-9581-a81e8714a705"
-    },
     "subpackages\\game\\ui\\GamePanel.prefab": {
       "time": 1783414166891.2083,
       "uuid": "6c6bb7e7-df76-4af4-a1dc-2a97a7ff0c23"
@@ -1063,10 +1025,6 @@
     "subpackages\\game\\ui\\TransitionPanel.prefab": {
       "time": 1783302340125.3225,
       "uuid": "83902b23-c019-4bc5-8a63-c1703769b66e"
-    },
-    "subpackages\\game\\texture\\sheepblack.png": {
-      "time": 1783302340120.323,
-      "uuid": "33d215cc-48ee-40b8-bbe8-aa21226b5f4b"
     },
     "subpackages\\rank\\ranking\\Menu_TopBtn.png": {
       "time": 1783302340141.3225,
@@ -1123,7 +1081,7 @@
       "time": 1783413906663.934
     },
     "subpackages\\game\\config\\auto_chess_config.json": {
-      "time": 1783413702025.0498,
+      "time": 1783415425989.0952,
       "uuid": "8c6e6a14-ec6b-4a24-9149-bf0f2d3dc8a1"
     }
   },
