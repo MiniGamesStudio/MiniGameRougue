@@ -230,7 +230,10 @@ export class GamePanel extends UIBase {
     private setShopItemView(itemNode: Node, characterConfig: AutoChessCharacterConfig): void {
         this.applyCharacterBgColor(itemNode, characterConfig.line);
         const typeLabel = this.findNode(itemNode, 'CharacterType')?.getComponent(Label);
-        if (typeLabel) typeLabel.string = characterConfig.name;
+        if (typeLabel) {
+            typeLabel.string = characterConfig.name;
+            typeLabel.color = this.getCharacterTypeColor(characterConfig.tier);
+        }
         const coinLabel = this.findNode(itemNode, 'Coin')?.getComponent(Label);
         if (coinLabel) coinLabel.string = `${characterConfig.price}`;
         const itemBtn = this.findNode(itemNode, 'ItemBtn')?.getComponent(Button);
@@ -344,7 +347,10 @@ export class GamePanel extends UIBase {
     private refreshUnitView(unit: AutoChessUnitRuntime): void {
         if (!unit.node || !unit.node.isValid) return;
         const typeLabel = this.findNode(unit.node, 'CharacterBg/CharacterType')?.getComponent(Label);
-        if (typeLabel) typeLabel.string = unit.name;
+        if (typeLabel) {
+            typeLabel.string = unit.name;
+            typeLabel.color = this.getCharacterTypeColor(unit.tier);
+        }
         const hpBar = this.findNode(unit.node, 'CharacterBg/Hp')?.getComponent(ProgressBar);
         if (hpBar) hpBar.progress = unit.maxHp > 0 ? Math.max(0, Math.min(1, unit.hp / unit.maxHp)) : 0;
         const characterConfig = this.m_CharacterMap.get(unit.configId);
@@ -373,6 +379,15 @@ export class GamePanel extends UIBase {
             default:
                 return new Color(245, 245, 245, 255);
         }
+    }
+
+    private getCharacterTypeColor(tier: number): Color {
+        if (tier <= 0) return new Color(40, 40, 40, 255);
+        if (tier <= 2) return new Color(30, 130, 40, 255);
+        if (tier <= 4) return new Color(40, 90, 230, 255);
+        if (tier <= 6) return new Color(150, 70, 230, 255);
+        if (tier <= 9) return new Color(230, 120, 30, 255);
+        return new Color(220, 40, 40, 255);
     }
 
     private updateWave(dt: number): void {
