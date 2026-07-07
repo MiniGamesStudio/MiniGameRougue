@@ -4363,5 +4363,27 @@
       ]
     },
     "versionCode": 1
+  },
+  "b55382b5-d18e-4ec3-ab34-ccc9ada20352": {
+    "url": "db://assets/scripts/Game/CommonGame/rogue/AutoChessConfigLoader.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "55a594d9-4de3-4a5d-a284-8171fec94a73": {
+    "url": "db://assets/scripts/Game/CommonGame/rogue/AutoChessTypes.ts",
+    "value": {},
+    "versionCode": 1
+  },
+  "2f571db1-a868-4d0a-b213-8b31bd5f53c4": {
+    "url": "db://assets/scripts/Game/CommonGame/rogue",
+    "value": {},
+    "versionCode": 1
+  },
+  "8c6e6a14-ec6b-4a24-9149-bf0f2d3dc8a1": {
+    "url": "db://assets/subpackages/game/config/auto_chess_config.json",
+    "value": {
+      "depends": []
+    },
+    "versionCode": 1
   }
 }

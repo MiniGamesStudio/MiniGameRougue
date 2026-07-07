@@ -1,0 +1,145 @@
+{
+  "board": {
+    "cellSize": 80,
+    "cols": 8,
+    "rows": 10
+  },
+  "economy": {
+    "initialGold": 10,
+    "refreshCost": 2,
+    "initialCharacterId": "human",
+    "maxEnemyCount": 60
+  },
+  "levels": [
+    {
+      "level": 1,
+      "upgradeCost": 6,
+      "shopWeights": [
+        { "characterId": "human", "weight": 45 },
+        { "characterId": "extra_awaken", "weight": 20 },
+        { "characterId": "martial_warrior", "weight": 25 },
+        { "characterId": "xian_qi", "weight": 10 }
+      ]
+    },
+    {
+      "level": 2,
+      "upgradeCost": 10,
+      "shopWeights": [
+        { "characterId": "human", "weight": 25 },
+        { "characterId": "extra_awaken", "weight": 25 },
+        { "characterId": "extra_elite", "weight": 8 },
+        { "characterId": "martial_warrior", "weight": 24 },
+        { "characterId": "martial_master", "weight": 8 },
+        { "characterId": "xian_qi", "weight": 10 }
+      ]
+    },
+    {
+      "level": 3,
+      "upgradeCost": 16,
+      "shopWeights": [
+        { "characterId": "extra_elite", "weight": 22 },
+        { "characterId": "extra_master", "weight": 8 },
+        { "characterId": "martial_master", "weight": 22 },
+        { "characterId": "martial_zong", "weight": 10 },
+        { "characterId": "xian_qi", "weight": 18 },
+        { "characterId": "xian_foundation", "weight": 8 },
+        { "characterId": "human", "weight": 12 }
+      ]
+    },
+    {
+      "level": 4,
+      "upgradeCost": 24,
+      "shopWeights": [
+        { "characterId": "extra_master", "weight": 20 },
+        { "characterId": "extra_epic", "weight": 10 },
+        { "characterId": "martial_zong", "weight": 18 },
+        { "characterId": "martial_king", "weight": 12 },
+        { "characterId": "xian_foundation", "weight": 18 },
+        { "characterId": "xian_core", "weight": 10 },
+        { "characterId": "human", "weight": 12 }
+      ]
+    },
+    {
+      "level": 5,
+      "upgradeCost": 36,
+      "shopWeights": [
+        { "characterId": "extra_epic", "weight": 18 },
+        { "characterId": "extra_legend", "weight": 8 },
+        { "characterId": "martial_king", "weight": 16 },
+        { "characterId": "martial_saint", "weight": 12 },
+        { "characterId": "xian_core", "weight": 18 },
+        { "characterId": "xian_nascent", "weight": 12 },
+        { "characterId": "xian_spirit", "weight": 6 },
+        { "characterId": "human", "weight": 10 }
+      ]
+    },
+    {
+      "level": 6,
+      "upgradeCost": 0,
+      "shopWeights": [
+        { "characterId": "extra_legend", "weight": 18 },
+        { "characterId": "martial_saint", "weight": 16 },
+        { "characterId": "martial_honor", "weight": 12 },
+        { "characterId": "xian_nascent", "weight": 18 },
+        { "characterId": "xian_spirit", "weight": 14 },
+        { "characterId": "xian_void", "weight": 10 },
+        { "characterId": "xian_union", "weight": 5 },
+        { "characterId": "human", "weight": 7 }
+      ]
+    }
+  ],
+  "characters": [
+    { "id": "human", "name": "凡人", "line": "common", "tier": 0, "nextId": "xian_qi", "price": 1, "hp": 90, "attack": 10, "attackInterval": 1.0, "moveInterval": 0.42 },
+    { "id": "xian_qi", "name": "练气", "line": "xian", "tier": 1, "nextId": "xian_foundation", "price": 5, "hp": 140, "attack": 20, "attackInterval": 1.0, "moveInterval": 0.44 },
+    { "id": "xian_foundation", "name": "筑基", "line": "xian", "tier": 2, "nextId": "xian_core", "price": 9, "hp": 210, "attack": 38, "attackInterval": 1.0, "moveInterval": 0.44 },
+    { "id": "xian_core", "name": "结丹", "line": "xian", "tier": 3, "nextId": "xian_nascent", "price": 14, "hp": 320, "attack": 68, "attackInterval": 1.0, "moveInterval": 0.45 },
+    { "id": "xian_nascent", "name": "元婴", "line": "xian", "tier": 4, "nextId": "xian_spirit", "price": 21, "hp": 470, "attack": 115, "attackInterval": 0.95, "moveInterval": 0.45 },
+    { "id": "xian_spirit", "name": "化神", "line": "xian", "tier": 5, "nextId": "xian_void", "price": 30, "hp": 680, "attack": 185, "attackInterval": 0.95, "moveInterval": 0.46 },
+    { "id": "xian_void", "name": "炼虚", "line": "xian", "tier": 6, "nextId": "xian_union", "price": 42, "hp": 960, "attack": 290, "attackInterval": 0.9, "moveInterval": 0.46 },
+    { "id": "xian_union", "name": "合体", "line": "xian", "tier": 7, "nextId": "xian_tribulation", "price": 56, "hp": 1340, "attack": 440, "attackInterval": 0.9, "moveInterval": 0.47 },
+    { "id": "xian_tribulation", "name": "渡劫", "line": "xian", "tier": 8, "nextId": "xian_mahayana", "price": 74, "hp": 1850, "attack": 660, "attackInterval": 0.88, "moveInterval": 0.47 },
+    { "id": "xian_mahayana", "name": "大乘", "line": "xian", "tier": 9, "nextId": "xian_heaven", "price": 96, "hp": 2550, "attack": 980, "attackInterval": 0.86, "moveInterval": 0.48 },
+    { "id": "xian_heaven", "name": "天仙", "line": "xian", "tier": 10, "nextId": "xian_true", "price": 122, "hp": 3500, "attack": 1420, "attackInterval": 0.84, "moveInterval": 0.48 },
+    { "id": "xian_true", "name": "真仙", "line": "xian", "tier": 11, "nextId": "xian_mystic", "price": 154, "hp": 4800, "attack": 2050, "attackInterval": 0.82, "moveInterval": 0.49 },
+    { "id": "xian_mystic", "name": "玄仙", "line": "xian", "tier": 12, "nextId": "xian_gold", "price": 192, "hp": 6500, "attack": 2900, "attackInterval": 0.8, "moveInterval": 0.49 },
+    { "id": "xian_gold", "name": "金仙", "line": "xian", "tier": 13, "nextId": "xian_taiyi", "price": 238, "hp": 8800, "attack": 4050, "attackInterval": 0.78, "moveInterval": 0.5 },
+    { "id": "xian_taiyi", "name": "太乙", "line": "xian", "tier": 14, "nextId": "xian_daluo", "price": 292, "hp": 11800, "attack": 5600, "attackInterval": 0.76, "moveInterval": 0.5 },
+    { "id": "xian_daluo", "name": "大罗", "line": "xian", "tier": 15, "nextId": "xian_hunyuan", "price": 356, "hp": 15800, "attack": 7600, "attackInterval": 0.74, "moveInterval": 0.5 },
+    { "id": "xian_hunyuan", "name": "混元", "line": "xian", "tier": 16, "nextId": "", "price": 430, "hp": 21000, "attack": 10200, "attackInterval": 0.72, "moveInterval": 0.5 },
+    { "id": "extra_awaken", "name": "觉醒", "line": "extra", "tier": 1, "nextId": "extra_elite", "price": 2, "hp": 125, "attack": 16, "attackInterval": 0.9, "moveInterval": 0.38 },
+    { "id": "extra_elite", "name": "精英", "line": "extra", "tier": 2, "nextId": "extra_master", "price": 4, "hp": 190, "attack": 27, "attackInterval": 0.88, "moveInterval": 0.38 },
+    { "id": "extra_master", "name": "大师", "line": "extra", "tier": 3, "nextId": "extra_epic", "price": 7, "hp": 290, "attack": 44, "attackInterval": 0.86, "moveInterval": 0.39 },
+    { "id": "extra_epic", "name": "史诗", "line": "extra", "tier": 4, "nextId": "extra_legend", "price": 11, "hp": 430, "attack": 70, "attackInterval": 0.84, "moveInterval": 0.39 },
+    { "id": "extra_legend", "name": "传奇", "line": "extra", "tier": 5, "nextId": "", "price": 17, "hp": 640, "attack": 110, "attackInterval": 0.82, "moveInterval": 0.4 },
+    { "id": "martial_warrior", "name": "武者", "line": "martial", "tier": 1, "nextId": "martial_master", "price": 3, "hp": 180, "attack": 14, "attackInterval": 1.05, "moveInterval": 0.42 },
+    { "id": "martial_master", "name": "武师", "line": "martial", "tier": 2, "nextId": "martial_zong", "price": 5, "hp": 290, "attack": 24, "attackInterval": 1.04, "moveInterval": 0.42 },
+    { "id": "martial_zong", "name": "武宗", "line": "martial", "tier": 3, "nextId": "martial_king", "price": 8, "hp": 450, "attack": 40, "attackInterval": 1.02, "moveInterval": 0.43 },
+    { "id": "martial_king", "name": "武王", "line": "martial", "tier": 4, "nextId": "martial_saint", "price": 12, "hp": 680, "attack": 64, "attackInterval": 1.0, "moveInterval": 0.43 },
+    { "id": "martial_saint", "name": "武圣", "line": "martial", "tier": 5, "nextId": "martial_honor", "price": 18, "hp": 1000, "attack": 98, "attackInterval": 0.98, "moveInterval": 0.44 },
+    { "id": "martial_honor", "name": "武尊", "line": "martial", "tier": 6, "nextId": "martial_emperor", "price": 26, "hp": 1450, "attack": 150, "attackInterval": 0.96, "moveInterval": 0.44 },
+    { "id": "martial_emperor", "name": "武皇", "line": "martial", "tier": 7, "nextId": "martial_di", "price": 36, "hp": 2050, "attack": 225, "attackInterval": 0.94, "moveInterval": 0.45 },
+    { "id": "martial_di", "name": "武帝", "line": "martial", "tier": 8, "nextId": "martial_god", "price": 50, "hp": 2850, "attack": 335, "attackInterval": 0.92, "moveInterval": 0.45 },
+    { "id": "martial_god", "name": "武神", "line": "martial", "tier": 9, "nextId": "", "price": 68, "hp": 3950, "attack": 500, "attackInterval": 0.9, "moveInterval": 0.46 }
+  ],
+  "enemies": [
+    { "id": "enemy_beast", "name": "妖兽", "tier": 1, "hp": 80, "attack": 8, "attackInterval": 1.1, "moveInterval": 0.48, "gold": 2 },
+    { "id": "enemy_little", "name": "小妖", "tier": 2, "hp": 135, "attack": 14, "attackInterval": 1.08, "moveInterval": 0.47, "gold": 3 },
+    { "id": "enemy_big", "name": "大妖", "tier": 3, "hp": 220, "attack": 24, "attackInterval": 1.06, "moveInterval": 0.46, "gold": 4 },
+    { "id": "enemy_general", "name": "妖将", "tier": 4, "hp": 360, "attack": 40, "attackInterval": 1.04, "moveInterval": 0.45, "gold": 6 },
+    { "id": "enemy_king", "name": "妖王", "tier": 5, "hp": 560, "attack": 66, "attackInterval": 1.02, "moveInterval": 0.44, "gold": 8 },
+    { "id": "enemy_emperor", "name": "妖皇", "tier": 6, "hp": 860, "attack": 105, "attackInterval": 1.0, "moveInterval": 0.43, "gold": 11 },
+    { "id": "enemy_di", "name": "妖帝", "tier": 7, "hp": 1280, "attack": 165, "attackInterval": 0.98, "moveInterval": 0.42, "gold": 14 },
+    { "id": "enemy_god", "name": "妖神", "tier": 8, "hp": 1900, "attack": 250, "attackInterval": 0.96, "moveInterval": 0.41, "gold": 18 },
+    { "id": "enemy_immortal", "name": "妖仙", "tier": 9, "hp": 2800, "attack": 370, "attackInterval": 0.94, "moveInterval": 0.4, "gold": 24 }
+  ],
+  "waves": {
+    "firstDelay": 5,
+    "minInterval": 20,
+    "maxInterval": 30,
+    "baseCount": 3,
+    "countPerWave": 2,
+    "maxCount": 20,
+    "enemyTierEveryWaves": 2,
+    "powerScalePerWave": 0.1
+  }
+}

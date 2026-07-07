@@ -90,7 +90,11 @@
             "subpackages\\rank\\ranking\\Menu_TopBtn.png",
             "subpackages\\rank\\ranking\\RankingBackground.png",
             "subpackages\\rank\\ui\\RankPanel.prefab",
-            "resources\\texture\\square.png"
+            "resources\\texture\\square.png",
+            "scripts\\Game\\CommonGame\\rogue",
+            "scripts\\Game\\CommonGame\\rogue\\AutoChessConfigLoader.ts",
+            "scripts\\Game\\CommonGame\\rogue\\AutoChessTypes.ts",
+            "subpackages\\game\\config\\auto_chess_config.json"
         ]
     }
 }

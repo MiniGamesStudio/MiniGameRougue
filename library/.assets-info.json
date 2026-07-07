@@ -813,7 +813,7 @@
       "time": 1783302340032.3225
     },
     "scripts\\Game\\CommonGame": {
-      "time": 1783310072549.627,
+      "time": 1783414075586.8357,
       "uuid": "73edaae5-0b7a-425f-afe0-f601833012aa"
     },
     "scripts\\Game\\CommonGame\\ui": {
@@ -861,7 +861,7 @@
       "time": 1783302340029.3225
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1783409267436.027,
+      "time": 1783413972450.8726,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheeptitle.png.meta": {
@@ -970,7 +970,7 @@
       "uuid": "b8ee6cb0-96db-4c3b-96d1-d14d1e8d5201"
     },
     "subpackages\\game\\config": {
-      "time": 1783302340097.3242,
+      "time": 1783413906662.934,
       "uuid": "e6cb8f45-78b8-4f55-8d8a-e5a35444d9df"
     },
     "subpackages\\game\\Icons": {
@@ -1053,7 +1053,7 @@
       "uuid": "66c41a34-27f9-4521-9581-a81e8714a705"
     },
     "subpackages\\game\\ui\\GamePanel.prefab": {
-      "time": 1783413149113.5935,
+      "time": 1783414166891.2083,
       "uuid": "6c6bb7e7-df76-4af4-a1dc-2a97a7ff0c23"
     },
     "subpackages\\game\\ui\\PausePanel.prefab": {
@@ -1097,6 +1097,34 @@
     "resources\\texture\\square.png": {
       "time": 1783326946804.856,
       "uuid": "a5661d79-7ee4-488c-bf43-576bcc6a11c1"
+    },
+    "scripts\\Game\\CommonGame\\rogue.meta": {
+      "time": 1783414075596.8372
+    },
+    "scripts\\Game\\CommonGame\\rogue\\AutoChessConfigLoader.ts.meta": {
+      "time": 1783414075601.8347
+    },
+    "scripts\\Game\\CommonGame\\rogue\\AutoChessTypes.ts.meta": {
+      "time": 1783414075602.8354
+    },
+    "scripts\\Game\\CommonGame\\rogue": {
+      "time": 1783414075589.8362,
+      "uuid": "2f571db1-a868-4d0a-b213-8b31bd5f53c4"
+    },
+    "scripts\\Game\\CommonGame\\rogue\\AutoChessConfigLoader.ts": {
+      "time": 1783413727276.4216,
+      "uuid": "b55382b5-d18e-4ec3-ab34-ccc9ada20352"
+    },
+    "scripts\\Game\\CommonGame\\rogue\\AutoChessTypes.ts": {
+      "time": 1783413719690.9868,
+      "uuid": "55a594d9-4de3-4a5d-a284-8171fec94a73"
+    },
+    "subpackages\\game\\config\\auto_chess_config.json.meta": {
+      "time": 1783413906663.934
+    },
+    "subpackages\\game\\config\\auto_chess_config.json": {
+      "time": 1783413702025.0498,
+      "uuid": "8c6e6a14-ec6b-4a24-9149-bf0f2d3dc8a1"
     }
   },
   "missing": {}

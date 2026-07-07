@@ -514,7 +514,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 94892990.4245,
+      "mTimestamp": 99699933.8744,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -644,7 +644,7 @@
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/GamePanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessConfigLoader.ts",
           "resolved": "__unresolved_9",
           "loc": {
             "start": {
@@ -653,12 +653,12 @@
             },
             "end": {
               "line": 13,
-              "column": 105
+              "column": 120
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/LoadingPanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessTypes.ts",
           "resolved": "__unresolved_10",
           "loc": {
             "start": {
@@ -667,12 +667,12 @@
             },
             "end": {
               "line": 14,
-              "column": 108
+              "column": 113
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/LoginPanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/GamePanel.ts",
           "resolved": "__unresolved_11",
           "loc": {
             "start": {
@@ -681,12 +681,12 @@
             },
             "end": {
               "line": 15,
-              "column": 106
+              "column": 105
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/MainPage.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/LoadingPanel.ts",
           "resolved": "__unresolved_12",
           "loc": {
             "start": {
@@ -695,12 +695,12 @@
             },
             "end": {
               "line": 16,
-              "column": 104
+              "column": 108
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/MainPanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/LoginPanel.ts",
           "resolved": "__unresolved_13",
           "loc": {
             "start": {
@@ -709,12 +709,12 @@
             },
             "end": {
               "line": 17,
-              "column": 105
+              "column": 106
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/PausePanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/MainPage.ts",
           "resolved": "__unresolved_14",
           "loc": {
             "start": {
@@ -723,12 +723,12 @@
             },
             "end": {
               "line": 18,
-              "column": 106
+              "column": 104
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/RankPanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/MainPanel.ts",
           "resolved": "__unresolved_15",
           "loc": {
             "start": {
@@ -742,7 +742,7 @@
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/TransitionPanel.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/PausePanel.ts",
           "resolved": "__unresolved_16",
           "loc": {
             "start": {
@@ -751,12 +751,12 @@
             },
             "end": {
               "line": 20,
-              "column": 111
+              "column": 106
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/AdManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/RankPanel.ts",
           "resolved": "__unresolved_17",
           "loc": {
             "start": {
@@ -765,12 +765,12 @@
             },
             "end": {
               "line": 21,
-              "column": 93
+              "column": 105
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/AudioManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/TransitionPanel.ts",
           "resolved": "__unresolved_18",
           "loc": {
             "start": {
@@ -779,12 +779,12 @@
             },
             "end": {
               "line": 22,
-              "column": 96
+              "column": 111
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ConfigManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/AdManager.ts",
           "resolved": "__unresolved_19",
           "loc": {
             "start": {
@@ -793,12 +793,12 @@
             },
             "end": {
               "line": 23,
-              "column": 97
+              "column": 93
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/FlatBuffersRuntime.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/AudioManager.ts",
           "resolved": "__unresolved_20",
           "loc": {
             "start": {
@@ -807,12 +807,12 @@
             },
             "end": {
               "line": 24,
-              "column": 102
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/GameManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ConfigManager.ts",
           "resolved": "__unresolved_21",
           "loc": {
             "start": {
@@ -821,12 +821,12 @@
             },
             "end": {
               "line": 25,
-              "column": 95
+              "column": 97
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/Launcher.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/FlatBuffersRuntime.ts",
           "resolved": "__unresolved_22",
           "loc": {
             "start": {
@@ -835,12 +835,12 @@
             },
             "end": {
               "line": 26,
-              "column": 92
+              "column": 102
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/NodePool.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/GameManager.ts",
           "resolved": "__unresolved_23",
           "loc": {
             "start": {
@@ -849,12 +849,12 @@
             },
             "end": {
               "line": 27,
-              "column": 92
+              "column": 95
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/PlatformManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/Launcher.ts",
           "resolved": "__unresolved_24",
           "loc": {
             "start": {
@@ -863,12 +863,12 @@
             },
             "end": {
               "line": 28,
-              "column": 99
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ResManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/NodePool.ts",
           "resolved": "__unresolved_25",
           "loc": {
             "start": {
@@ -877,12 +877,12 @@
             },
             "end": {
               "line": 29,
-              "column": 94
+              "column": 92
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ScreenAdapter.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/PlatformManager.ts",
           "resolved": "__unresolved_26",
           "loc": {
             "start": {
@@ -891,12 +891,12 @@
             },
             "end": {
               "line": 30,
-              "column": 97
+              "column": 99
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIBase.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ResManager.ts",
           "resolved": "__unresolved_27",
           "loc": {
             "start": {
@@ -905,12 +905,12 @@
             },
             "end": {
               "line": 31,
-              "column": 93
+              "column": 94
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIData.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ScreenAdapter.ts",
           "resolved": "__unresolved_28",
           "loc": {
             "start": {
@@ -919,12 +919,12 @@
             },
             "end": {
               "line": 32,
-              "column": 93
+              "column": 97
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIBase.ts",
           "resolved": "__unresolved_29",
           "loc": {
             "start": {
@@ -933,12 +933,12 @@
             },
             "end": {
               "line": 33,
-              "column": 96
+              "column": 93
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/EventManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIData.ts",
           "resolved": "__unresolved_30",
           "loc": {
             "start": {
@@ -947,12 +947,12 @@
             },
             "end": {
               "line": 34,
-              "column": 99
+              "column": 93
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/FrameworkConst.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIManager.ts",
           "resolved": "__unresolved_31",
           "loc": {
             "start": {
@@ -961,12 +961,12 @@
             },
             "end": {
               "line": 35,
-              "column": 101
+              "column": 96
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/FrameworkEvent.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/EventManager.ts",
           "resolved": "__unresolved_32",
           "loc": {
             "start": {
@@ -975,12 +975,12 @@
             },
             "end": {
               "line": 36,
-              "column": 101
+              "column": 99
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/ObjectPool.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/FrameworkConst.ts",
           "resolved": "__unresolved_33",
           "loc": {
             "start": {
@@ -989,12 +989,12 @@
             },
             "end": {
               "line": 37,
-              "column": 97
+              "column": 101
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/StorageManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/FrameworkEvent.ts",
           "resolved": "__unresolved_34",
           "loc": {
             "start": {
@@ -1008,7 +1008,7 @@
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TimerManager.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/ObjectPool.ts",
           "resolved": "__unresolved_35",
           "loc": {
             "start": {
@@ -1017,12 +1017,12 @@
             },
             "end": {
               "line": 39,
-              "column": 99
+              "column": 97
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TypeFactory.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/StorageManager.ts",
           "resolved": "__unresolved_36",
           "loc": {
             "start": {
@@ -1031,12 +1031,12 @@
             },
             "end": {
               "line": 40,
-              "column": 98
+              "column": 101
             }
           }
         },
         {
-          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TypeRegistry.ts",
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TimerManager.ts",
           "resolved": "__unresolved_37",
           "loc": {
             "start": {
@@ -1045,6 +1045,34 @@
             },
             "end": {
               "line": 41,
+              "column": 99
+            }
+          }
+        },
+        {
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TypeFactory.ts",
+          "resolved": "__unresolved_38",
+          "loc": {
+            "start": {
+              "line": 42,
+              "column": 7
+            },
+            "end": {
+              "line": 42,
+              "column": 98
+            }
+          }
+        },
+        {
+          "value": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/framework/TypeRegistry.ts",
+          "resolved": "__unresolved_39",
+          "loc": {
+            "start": {
+              "line": 43,
+              "column": 7
+            },
+            "end": {
+              "line": 43,
               "column": 99
             }
           }
@@ -1112,6 +1140,20 @@
           "resolved": {
             "type": "module",
             "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/CommonUIConfig.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessConfigLoader.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessTypes.ts"
           },
           "messages": []
         },
@@ -24477,7 +24519,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/GamePanel.ts": {
       "mTimestamp": {
-        "mtime": 1783409267436.027,
+        "mtime": 1783413972450.8726,
         "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
       },
       "chunkId": "a401de9dbfacdcf0f2251544d5a33412f3788b1e",
@@ -24497,11 +24539,11 @@
           "loc": {
             "start": {
               "line": 1,
-              "column": 187
+              "column": 116
             },
             "end": {
               "line": 1,
-              "column": 191
+              "column": 120
             }
           }
         },
@@ -24510,12 +24552,54 @@
           "resolved": "__unresolved_1",
           "loc": {
             "start": {
-              "line": 5,
+              "line": 2,
               "column": 23
             },
             "end": {
-              "line": 5,
+              "line": 2,
               "column": 50
+            }
+          }
+        },
+        {
+          "value": "../../../engine/ui/UIManager",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 26
+            },
+            "end": {
+              "line": 3,
+              "column": 56
+            }
+          }
+        },
+        {
+          "value": "../rogue/AutoChessConfigLoader",
+          "resolved": "__unresolved_3",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 38
+            },
+            "end": {
+              "line": 4,
+              "column": 70
+            }
+          }
+        },
+        {
+          "value": "../CommonUIConfig",
+          "resolved": "__unresolved_4",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 27
+            },
+            "end": {
+              "line": 14,
+              "column": 46
             }
           }
         }
@@ -24554,6 +24638,27 @@
           "resolved": {
             "type": "module",
             "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIBase.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ui/UIManager.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessConfigLoader.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/CommonUIConfig.ts"
           },
           "messages": []
         }
@@ -26866,6 +26971,143 @@
       ],
       "type": "esm",
       "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessConfigLoader.ts": {
+      "mTimestamp": {
+        "mtime": 1783413727276.4216,
+        "uuid": "b55382b5-d18e-4ec3-ab34-ccc9ada20352"
+      },
+      "chunkId": "01c31e75512b07aa7742e5a4031603c9fe32bfe4",
+      "imports": [
+        {
+          "value": "cce:/internal/code-quality/cr.mjs",
+          "resolved": "__unresolved_0"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 26
+            },
+            "end": {
+              "line": 1,
+              "column": 30
+            }
+          }
+        },
+        {
+          "value": "../../../engine/ResManager",
+          "resolved": "__unresolved_1",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 27
+            },
+            "end": {
+              "line": 2,
+              "column": 55
+            }
+          }
+        },
+        {
+          "value": "../CommonUIConfig",
+          "resolved": "__unresolved_2",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 33
+            },
+            "end": {
+              "line": 3,
+              "column": 52
+            }
+          }
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/code-quality/cr.mjs"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/engine/ResManager.ts"
+          },
+          "messages": []
+        },
+        {
+          "resolved": {
+            "type": "module",
+            "url": "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/CommonUIConfig.ts"
+          },
+          "messages": []
+        }
+      ]
+    },
+    "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessTypes.ts": {
+      "mTimestamp": {
+        "mtime": 1783413719690.9868,
+        "uuid": "55a594d9-4de3-4a5d-a284-8171fec94a73"
+      },
+      "chunkId": "5967ba87b3d4b805c73900ed6e8a87cfea819ce2",
+      "imports": [
+        {
+          "value": "cc"
+        },
+        {
+          "value": "cc"
+        }
+      ],
+      "type": "esm",
+      "resolutions": [
+        {
+          "resolved": {
+            "type": "module",
+            "url": "cce:/internal/x/cc"
+          },
+          "messages": []
+        },
         {
           "resolved": {
             "type": "module",
