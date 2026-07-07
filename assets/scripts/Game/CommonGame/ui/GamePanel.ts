@@ -681,7 +681,7 @@ export class GamePanel extends UIBase {
                 const removeUnits = units.slice(1, 3);
                 removeUnits.forEach(unit => this.killUnitForMerge(unit));
                 this.applyCharacterConfig(keep, nextConfig);
-                this.playMergeEffect(keep.node);
+                this.playMergeEffect(keep);
                 this.setTitle(`合成成功：${nextConfig.name}`);
                 merged = true;
                 break;
@@ -715,12 +715,16 @@ export class GamePanel extends UIBase {
         this.refreshUnitView(unit);
     }
 
-    private playMergeEffect(node: Node): void {
+    private playMergeEffect(unit: AutoChessUnitRuntime): void {
+        const node = unit.node;
         if (!node || !node.isValid) return;
-        const originScale = node.scale.clone();
+        tween(node).stop();
+        const originScale = this.m_CharacterItem ? this.m_CharacterItem.scale.clone() : new Vec3(1, 1, 1);
+        node.setPosition(this.gridToPosition(unit.grid));
+        node.setScale(originScale);
         tween(node)
-            .to(0.08, { scale: new Vec3(originScale.x * 1.25, originScale.y * 1.25, originScale.z) })
-            .to(0.1, { scale: originScale })
+            .to(0.1, { scale: new Vec3(originScale.x * 1.45, originScale.y * 1.45, originScale.z) })
+            .to(0.12, { scale: originScale })
             .start();
     }
 
@@ -907,13 +911,32 @@ export class GamePanel extends UIBase {
     }
 
     private findPlayerSpawnGrid(): AutoChessGridPos | null {
+        const colOrder = this.getCenterOutColumnOrder(this.m_Config.board.cols);
         for (let row = 0; row < this.m_Config.board.rows; row++) {
-            for (let col = 0; col < this.m_Config.board.cols; col++) {
+            for (const col of colOrder) {
                 const grid = { col, row };
                 if (!this.isGridOccupied(grid)) return grid;
             }
         }
         return null;
+    }
+
+    private getCenterOutColumnOrder(cols: number): number[] {
+        const order: number[] = [];
+        const leftCenter = Math.floor((cols - 1) * 0.5);
+        const rightCenter = Math.ceil((cols - 1) * 0.5);
+        if (leftCenter === rightCenter) {
+            order.push(leftCenter);
+        } else {
+            order.push(leftCenter, rightCenter);
+        }
+        for (let offset = 1; order.length < cols; offset++) {
+            const left = leftCenter - offset;
+            const right = rightCenter + offset;
+            if (left >= 0) order.push(left);
+            if (right < cols) order.push(right);
+        }
+        return order;
     }
 
     private findEnemySpawnGrid(): AutoChessGridPos | null {
