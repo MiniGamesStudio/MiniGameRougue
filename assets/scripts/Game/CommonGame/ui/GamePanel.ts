@@ -1,4 +1,4 @@
-import { _decorator, Button, Color, instantiate, Label, Node, ProgressBar, RichText, tween, UITransform, Vec3, view } from 'cc';
+import { _decorator, Button, Color, instantiate, Label, Node, ProgressBar, RichText, Sprite, tween, UITransform, Vec3, view } from 'cc';
 import { UIBase } from '../../../engine/ui/UIBase';
 import { UIManager } from '../../../engine/ui/UIManager';
 import { AutoChessConfigLoader } from '../rogue/AutoChessConfigLoader';
@@ -228,6 +228,7 @@ export class GamePanel extends UIBase {
     }
 
     private setShopItemView(itemNode: Node, characterConfig: AutoChessCharacterConfig): void {
+        this.applyCharacterBgColor(itemNode, characterConfig.line);
         const typeLabel = this.findNode(itemNode, 'CharacterType')?.getComponent(Label);
         if (typeLabel) typeLabel.string = characterConfig.name;
         const coinLabel = this.findNode(itemNode, 'Coin')?.getComponent(Label);
@@ -346,6 +347,32 @@ export class GamePanel extends UIBase {
         if (typeLabel) typeLabel.string = unit.name;
         const hpBar = this.findNode(unit.node, 'CharacterBg/Hp')?.getComponent(ProgressBar);
         if (hpBar) hpBar.progress = unit.maxHp > 0 ? Math.max(0, Math.min(1, unit.hp / unit.maxHp)) : 0;
+        const characterConfig = this.m_CharacterMap.get(unit.configId);
+        this.applyCharacterBgColor(unit.node, unit.camp === 'enemy' ? 'enemy' : characterConfig?.line || 'common');
+    }
+
+    private applyCharacterBgColor(root: Node, type: string): void {
+        const bgNode = this.findNode(root, 'CharacterBg');
+        const sprite = bgNode?.getComponent(Sprite);
+        if (sprite) {
+            sprite.color = this.getCharacterBgColor(type);
+        }
+    }
+
+    private getCharacterBgColor(type: string): Color {
+        switch (type) {
+            case 'xian':
+                return new Color(90, 210, 255, 255);
+            case 'extra':
+                return new Color(120, 255, 160, 255);
+            case 'martial':
+                return new Color(255, 210, 90, 255);
+            case 'enemy':
+                return new Color(255, 110, 110, 255);
+            case 'common':
+            default:
+                return new Color(245, 245, 245, 255);
+        }
     }
 
     private updateWave(dt: number): void {
