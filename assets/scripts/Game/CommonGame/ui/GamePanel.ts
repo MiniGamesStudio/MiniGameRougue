@@ -415,7 +415,12 @@ export class GamePanel extends UIBase {
 
     private tryMoveToward(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): void {
         if (unit.moveCooldown > 0) return;
-        const nextGrid = this.findNextStep(unit.grid, target.grid);
+        const moveGoal = this.findMoveGoal(unit, target);
+        if (!moveGoal) {
+            unit.moveCooldown = unit.moveInterval;
+            return;
+        }
+        const nextGrid = this.findNextStep(unit.grid, moveGoal);
         if (!nextGrid) {
             unit.moveCooldown = unit.moveInterval;
             return;
@@ -556,6 +561,7 @@ export class GamePanel extends UIBase {
         const attackDirection = this.getAttackDirection(unit, target);
         return this.m_Units.some(other => {
             if (other.uid === unit.uid || other.camp !== unit.camp || other.state === 'dead') return false;
+            if (other.attackRange > 1) return false;
             if (other.targetUid !== target.uid) return false;
             if (this.getGridDistance(other.grid, target.grid) !== 1) return false;
             if (!this.isFaceToFaceWithTarget(other, target)) return false;
@@ -722,7 +728,7 @@ export class GamePanel extends UIBase {
             const distance = this.getGridDistance(unit.grid, target.grid);
             const canAttackNow = distance <= unit.attackRange && this.canAttackTarget(unit, target);
             const canApproach = canAttackNow || unit.attackRange > 1 || this.getAttackSlots(target.grid).some(grid => {
-                return this.isGridOccupiedByUid(grid, unit.uid) || !this.isGridOccupied(grid);
+                return this.isMeleeAttackSlotAvailable(unit, target, grid);
             });
             const score = distance + (canAttackNow ? -100 : 0) + (canApproach ? 0 : 1000);
             if (score < nearestScore) {
@@ -742,6 +748,31 @@ export class GamePanel extends UIBase {
                 return Math.abs(a.col - to.col) - Math.abs(b.col - to.col);
             });
         return candidates[0] || null;
+    }
+
+    private findMoveGoal(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): AutoChessGridPos | null {
+        if (unit.attackRange > 1) return target.grid;
+        const slots = this.getAttackSlots(target.grid)
+            .filter(slot => this.isMeleeAttackSlotAvailable(unit, target, slot))
+            .sort((a, b) => this.getGridDistance(unit.grid, a) - this.getGridDistance(unit.grid, b));
+        return slots[0] || null;
+    }
+
+    private isMeleeAttackSlotAvailable(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime, slot: AutoChessGridPos): boolean {
+        if (!this.isGridInside(slot)) return false;
+        const slotUid = this.m_OccupiedGrid.get(this.getGridKey(slot));
+        if (slotUid !== undefined && slotUid !== unit.uid) return false;
+        const direction = {
+            col: Math.sign(target.grid.col - slot.col),
+            row: Math.sign(target.grid.row - slot.row),
+        };
+        return !this.m_Units.some(other => {
+            if (other.uid === unit.uid || other.camp !== unit.camp || other.state === 'dead') return false;
+            if (other.attackRange > 1 || other.targetUid !== target.uid) return false;
+            if (this.getGridDistance(other.grid, target.grid) !== 1) return false;
+            const otherDirection = this.getAttackDirection(other, target);
+            return otherDirection.col === direction.col && otherDirection.row === direction.row;
+        });
     }
 
     private getAttackRange(config: { attackRange?: number }): number {
