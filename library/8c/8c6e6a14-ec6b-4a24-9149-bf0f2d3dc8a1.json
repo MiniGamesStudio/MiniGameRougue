@@ -224,7 +224,7 @@
         "price": 1,
         "hp": 90,
         "attack": 10,
-        "attackInterval": 1,
+        "attackInterval": 0.78,
         "moveInterval": 0.42
       },
       {
@@ -236,7 +236,7 @@
         "price": 5,
         "hp": 140,
         "attack": 20,
-        "attackInterval": 1,
+        "attackInterval": 1.18,
         "moveInterval": 0.44,
         "attackRange": 3,
         "bulletType": "qi"
@@ -250,7 +250,7 @@
         "price": 9,
         "hp": 210,
         "attack": 38,
-        "attackInterval": 1,
+        "attackInterval": 1.2,
         "moveInterval": 0.44,
         "attackRange": 3,
         "bulletType": "qi"
@@ -264,7 +264,7 @@
         "price": 14,
         "hp": 320,
         "attack": 68,
-        "attackInterval": 1,
+        "attackInterval": 1.24,
         "moveInterval": 0.45,
         "attackRange": 3,
         "bulletType": "fire"
@@ -278,7 +278,7 @@
         "price": 21,
         "hp": 470,
         "attack": 115,
-        "attackInterval": 0.95,
+        "attackInterval": 1.28,
         "moveInterval": 0.45,
         "attackRange": 3,
         "bulletType": "fire"
@@ -292,7 +292,7 @@
         "price": 30,
         "hp": 680,
         "attack": 185,
-        "attackInterval": 0.95,
+        "attackInterval": 1.32,
         "moveInterval": 0.46,
         "attackRange": 4,
         "bulletType": "thunder"
@@ -306,7 +306,7 @@
         "price": 42,
         "hp": 960,
         "attack": 290,
-        "attackInterval": 0.9,
+        "attackInterval": 1.36,
         "moveInterval": 0.46,
         "attackRange": 4,
         "bulletType": "thunder"
@@ -320,7 +320,7 @@
         "price": 56,
         "hp": 1340,
         "attack": 440,
-        "attackInterval": 0.9,
+        "attackInterval": 1.4,
         "moveInterval": 0.47,
         "attackRange": 4,
         "bulletType": "sword"
@@ -334,7 +334,7 @@
         "price": 74,
         "hp": 1850,
         "attack": 660,
-        "attackInterval": 0.88,
+        "attackInterval": 1.44,
         "moveInterval": 0.47,
         "attackRange": 4,
         "bulletType": "sword"
@@ -348,7 +348,7 @@
         "price": 96,
         "hp": 2550,
         "attack": 980,
-        "attackInterval": 0.86,
+        "attackInterval": 1.5,
         "moveInterval": 0.48,
         "attackRange": 5,
         "bulletType": "star"
@@ -362,7 +362,7 @@
         "price": 122,
         "hp": 3500,
         "attack": 1420,
-        "attackInterval": 0.84,
+        "attackInterval": 1.56,
         "moveInterval": 0.48,
         "attackRange": 5,
         "bulletType": "star"
@@ -376,7 +376,7 @@
         "price": 154,
         "hp": 4800,
         "attack": 2050,
-        "attackInterval": 0.82,
+        "attackInterval": 1.62,
         "moveInterval": 0.49,
         "attackRange": 5,
         "bulletType": "star"
@@ -390,7 +390,7 @@
         "price": 192,
         "hp": 6500,
         "attack": 2900,
-        "attackInterval": 0.8,
+        "attackInterval": 1.68,
         "moveInterval": 0.49,
         "attackRange": 5,
         "bulletType": "star"
@@ -404,7 +404,7 @@
         "price": 238,
         "hp": 8800,
         "attack": 4050,
-        "attackInterval": 0.78,
+        "attackInterval": 1.74,
         "moveInterval": 0.5,
         "attackRange": 5,
         "bulletType": "star"
@@ -418,7 +418,7 @@
         "price": 292,
         "hp": 11800,
         "attack": 5600,
-        "attackInterval": 0.76,
+        "attackInterval": 1.8,
         "moveInterval": 0.5,
         "attackRange": 5,
         "bulletType": "star"
@@ -432,7 +432,7 @@
         "price": 356,
         "hp": 15800,
         "attack": 7600,
-        "attackInterval": 0.74,
+        "attackInterval": 1.86,
         "moveInterval": 0.5,
         "attackRange": 5,
         "bulletType": "star"
@@ -446,7 +446,7 @@
         "price": 430,
         "hp": 21000,
         "attack": 10200,
-        "attackInterval": 0.72,
+        "attackInterval": 1.95,
         "moveInterval": 0.5,
         "attackRange": 5,
         "bulletType": "star"
@@ -460,7 +460,7 @@
         "price": 2,
         "hp": 125,
         "attack": 16,
-        "attackInterval": 0.9,
+        "attackInterval": 0.62,
         "moveInterval": 0.38,
         "attackRange": 2,
         "bulletType": "energy"
@@ -474,7 +474,7 @@
         "price": 4,
         "hp": 190,
         "attack": 27,
-        "attackInterval": 0.88,
+        "attackInterval": 0.66,
         "moveInterval": 0.38,
         "attackRange": 2,
         "bulletType": "energy"
@@ -488,7 +488,7 @@
         "price": 7,
         "hp": 290,
         "attack": 44,
-        "attackInterval": 0.86,
+        "attackInterval": 0.72,
         "moveInterval": 0.39,
         "attackRange": 2,
         "bulletType": "energy"
@@ -502,7 +502,7 @@
         "price": 11,
         "hp": 430,
         "attack": 70,
-        "attackInterval": 0.84,
+        "attackInterval": 0.8,
         "moveInterval": 0.39,
         "attackRange": 2,
         "bulletType": "energy"
@@ -516,7 +516,7 @@
         "price": 17,
         "hp": 640,
         "attack": 110,
-        "attackInterval": 0.82,
+        "attackInterval": 0.9,
         "moveInterval": 0.4,
         "attackRange": 3,
         "bulletType": "energy"
@@ -530,7 +530,7 @@
         "price": 3,
         "hp": 180,
         "attack": 14,
-        "attackInterval": 1.05,
+        "attackInterval": 0.95,
         "moveInterval": 0.42
       },
       {
@@ -542,7 +542,7 @@
         "price": 5,
         "hp": 290,
         "attack": 24,
-        "attackInterval": 1.04,
+        "attackInterval": 1,
         "moveInterval": 0.42
       },
       {
@@ -554,7 +554,7 @@
         "price": 8,
         "hp": 450,
         "attack": 40,
-        "attackInterval": 1.02,
+        "attackInterval": 1.08,
         "moveInterval": 0.43
       },
       {
@@ -566,7 +566,7 @@
         "price": 12,
         "hp": 680,
         "attack": 64,
-        "attackInterval": 1,
+        "attackInterval": 1.16,
         "moveInterval": 0.43
       },
       {
@@ -578,7 +578,7 @@
         "price": 18,
         "hp": 1000,
         "attack": 98,
-        "attackInterval": 0.98,
+        "attackInterval": 1.24,
         "moveInterval": 0.44
       },
       {
@@ -590,7 +590,7 @@
         "price": 26,
         "hp": 1450,
         "attack": 150,
-        "attackInterval": 0.96,
+        "attackInterval": 1.32,
         "moveInterval": 0.44
       },
       {
@@ -602,7 +602,7 @@
         "price": 36,
         "hp": 2050,
         "attack": 225,
-        "attackInterval": 0.94,
+        "attackInterval": 1.4,
         "moveInterval": 0.45
       },
       {
@@ -614,7 +614,7 @@
         "price": 50,
         "hp": 2850,
         "attack": 335,
-        "attackInterval": 0.92,
+        "attackInterval": 1.5,
         "moveInterval": 0.45
       },
       {
@@ -626,7 +626,7 @@
         "price": 68,
         "hp": 3950,
         "attack": 500,
-        "attackInterval": 0.9,
+        "attackInterval": 1.6,
         "moveInterval": 0.46
       }
     ],
@@ -637,7 +637,7 @@
         "tier": 1,
         "hp": 80,
         "attack": 8,
-        "attackInterval": 1.1,
+        "attackInterval": 1.18,
         "moveInterval": 0.48,
         "gold": 2
       },
@@ -647,7 +647,7 @@
         "tier": 2,
         "hp": 135,
         "attack": 14,
-        "attackInterval": 1.08,
+        "attackInterval": 1.14,
         "moveInterval": 0.47,
         "gold": 3
       },
@@ -657,7 +657,7 @@
         "tier": 3,
         "hp": 220,
         "attack": 24,
-        "attackInterval": 1.06,
+        "attackInterval": 1.1,
         "moveInterval": 0.46,
         "gold": 4
       },
@@ -667,7 +667,7 @@
         "tier": 4,
         "hp": 360,
         "attack": 40,
-        "attackInterval": 1.04,
+        "attackInterval": 1.06,
         "moveInterval": 0.45,
         "gold": 6
       },
@@ -687,7 +687,7 @@
         "tier": 6,
         "hp": 860,
         "attack": 105,
-        "attackInterval": 1,
+        "attackInterval": 0.98,
         "moveInterval": 0.43,
         "gold": 11
       },
@@ -697,7 +697,7 @@
         "tier": 7,
         "hp": 1280,
         "attack": 165,
-        "attackInterval": 0.98,
+        "attackInterval": 0.94,
         "moveInterval": 0.42,
         "gold": 14
       },
@@ -707,7 +707,7 @@
         "tier": 8,
         "hp": 1900,
         "attack": 250,
-        "attackInterval": 0.96,
+        "attackInterval": 0.9,
         "moveInterval": 0.41,
         "gold": 18
       },
@@ -717,7 +717,7 @@
         "tier": 9,
         "hp": 2800,
         "attack": 370,
-        "attackInterval": 0.94,
+        "attackInterval": 0.86,
         "moveInterval": 0.4,
         "gold": 24
       }
