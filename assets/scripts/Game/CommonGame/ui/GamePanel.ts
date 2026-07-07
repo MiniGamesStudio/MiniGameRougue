@@ -50,6 +50,8 @@ export class GamePanel extends UIBase {
     m_Item: Node = null;
     @property(Label)
     m_LvText: Label = null;
+    @property(Label)
+    m_CoinTxt: Label = null;
 
     @property({ tooltip: '游戏根节点设计宽度，用于按屏幕分辨率缩放' })
     m_DesignWidth: number = DESIGN_ROOT_WIDTH;
@@ -747,10 +749,12 @@ export class GamePanel extends UIBase {
 
     private refreshHud(): void {
         if (this.m_LvText) {
-            const levelConfig = this.getLevelConfig(this.m_PlayerLevel);
-            const upgradeText = levelConfig && levelConfig.upgradeCost > 0 ? ` 升级:${levelConfig.upgradeCost}` : ' 满级';
-            this.m_LvText.string = `Lv.${this.m_PlayerLevel} 金币:${this.m_Gold}${upgradeText}`;
+            this.m_LvText.string = `Lv.${this.m_PlayerLevel}`;
         }
+        if (this.m_CoinTxt) {
+            this.m_CoinTxt.string = `${this.m_Gold}`;
+        }
+        this.refreshCostTexts();
         if (!this.m_TitleText || !this.m_IsRunning) return;
         if (this.m_TitleHoldTime > 0) return;
         const seconds = Math.max(0, Math.ceil(this.m_NextWaveCountdown));
@@ -759,6 +763,18 @@ export class GamePanel extends UIBase {
         } else if (seconds > 0) {
             this.m_TitleText.string = `第 ${this.m_WaveIndex + 1} 波怪物将在 ${seconds} 秒后抵达`;
         }
+    }
+
+    private refreshCostTexts(): void {
+        const refreshLabel = this.findNode(this.m_RefreshBtn?.node, 'RefreshBtnTxt')?.getComponent(Label);
+        if (refreshLabel && this.m_Config) {
+            refreshLabel.string = `刷新:${this.m_Config.economy.refreshCost}`;
+        }
+        const lvUpLabel = this.findNode(this.m_LvUpBtn?.node, 'LvUpTxt')?.getComponent(Label);
+        if (!lvUpLabel || !this.m_Config) return;
+        const levelConfig = this.getLevelConfig(this.m_PlayerLevel);
+        const nextLevel = this.getLevelConfig(this.m_PlayerLevel + 1);
+        lvUpLabel.string = levelConfig && nextLevel ? `升级:${levelConfig.upgradeCost}` : '满级';
     }
 
     private setTitle(text: string, holdTime: number = 1.2): void {
