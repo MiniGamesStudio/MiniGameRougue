@@ -19,10 +19,22 @@ export class GamePanel extends UIBase {
     m_PauseBtn: Button = null;
     @property(RichText)
     m_LevelText: RichText = null;
+    @property(Button)
+    m_LvUpBtn: Button = null;
+    @property(Button)
+    m_RefreshBtn: Button = null;
+    @property(Node)
+    m_CharacterRoot: Node = null;
+    @property(Node)
+    m_CharacterItem: Node = null;
+    @property(Node)
+    m_ItemSelectLayout: Node = null;
+    @property(Node)
+    m_Item: Node = null;
 
-    @property({ tooltip: '游戏根节点设计宽度，用于按屏幕分辨率缩放，保证小羊完整显示' })
+    @property({ tooltip: '游戏根节点设计宽度，用于按屏幕分辨率缩放' })
     m_DesignWidth: number = DESIGN_ROOT_WIDTH;
-    @property({ tooltip: '游戏根节点设计高度，用于按屏幕分辨率缩放，保证小羊完整显示' })
+    @property({ tooltip: '游戏根节点设计高度，用于按屏幕分辨率缩放' })
     m_DesignHeight: number = DESIGN_ROOT_HEIGHT;
     @property({ tooltip: '游戏根节点最大缩放，1 表示不超过设计尺寸（保持清晰），可调大以在大屏铺满' })
     m_GameRootMaxScale: number = 1;

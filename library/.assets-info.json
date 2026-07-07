@@ -861,7 +861,7 @@
       "time": 1783302340029.3225
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1783310105340.1238,
+      "time": 1783408528518.3604,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheeptitle.png.meta": {
@@ -1053,7 +1053,7 @@
       "uuid": "66c41a34-27f9-4521-9581-a81e8714a705"
     },
     "subpackages\\game\\ui\\GamePanel.prefab": {
-      "time": 1783341820004.9956,
+      "time": 1783408552846.9993,
       "uuid": "6c6bb7e7-df76-4af4-a1dc-2a97a7ff0c23"
     },
     "subpackages\\game\\ui\\PausePanel.prefab": {
