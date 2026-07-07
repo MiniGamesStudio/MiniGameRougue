@@ -861,7 +861,7 @@
       "time": 1783302340029.3225
     },
     "scripts\\Game\\CommonGame\\ui\\GamePanel.ts": {
-      "time": 1783416227780.7847,
+      "time": 1783417142360.8489,
       "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
     },
     "resources\\texture\\sheeptitle.png.meta": {
@@ -1074,14 +1074,14 @@
       "uuid": "b55382b5-d18e-4ec3-ab34-ccc9ada20352"
     },
     "scripts\\Game\\CommonGame\\rogue\\AutoChessTypes.ts": {
-      "time": 1783413719690.9868,
+      "time": 1783416938313.5388,
       "uuid": "55a594d9-4de3-4a5d-a284-8171fec94a73"
     },
     "subpackages\\game\\config\\auto_chess_config.json.meta": {
       "time": 1783413906663.934
     },
     "subpackages\\game\\config\\auto_chess_config.json": {
-      "time": 1783415425989.0952,
+      "time": 1783416968963.627,
       "uuid": "8c6e6a14-ec6b-4a24-9149-bf0f2d3dc8a1"
     }
   },

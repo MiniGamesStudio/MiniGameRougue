@@ -237,7 +237,9 @@
         "hp": 140,
         "attack": 20,
         "attackInterval": 1,
-        "moveInterval": 0.44
+        "moveInterval": 0.44,
+        "attackRange": 3,
+        "bulletType": "qi"
       },
       {
         "id": "xian_foundation",
@@ -249,7 +251,9 @@
         "hp": 210,
         "attack": 38,
         "attackInterval": 1,
-        "moveInterval": 0.44
+        "moveInterval": 0.44,
+        "attackRange": 3,
+        "bulletType": "qi"
       },
       {
         "id": "xian_core",
@@ -261,7 +265,9 @@
         "hp": 320,
         "attack": 68,
         "attackInterval": 1,
-        "moveInterval": 0.45
+        "moveInterval": 0.45,
+        "attackRange": 3,
+        "bulletType": "fire"
       },
       {
         "id": "xian_nascent",
@@ -273,7 +279,9 @@
         "hp": 470,
         "attack": 115,
         "attackInterval": 0.95,
-        "moveInterval": 0.45
+        "moveInterval": 0.45,
+        "attackRange": 3,
+        "bulletType": "fire"
       },
       {
         "id": "xian_spirit",
@@ -285,7 +293,9 @@
         "hp": 680,
         "attack": 185,
         "attackInterval": 0.95,
-        "moveInterval": 0.46
+        "moveInterval": 0.46,
+        "attackRange": 4,
+        "bulletType": "thunder"
       },
       {
         "id": "xian_void",
@@ -297,7 +307,9 @@
         "hp": 960,
         "attack": 290,
         "attackInterval": 0.9,
-        "moveInterval": 0.46
+        "moveInterval": 0.46,
+        "attackRange": 4,
+        "bulletType": "thunder"
       },
       {
         "id": "xian_union",
@@ -309,7 +321,9 @@
         "hp": 1340,
         "attack": 440,
         "attackInterval": 0.9,
-        "moveInterval": 0.47
+        "moveInterval": 0.47,
+        "attackRange": 4,
+        "bulletType": "sword"
       },
       {
         "id": "xian_tribulation",
@@ -321,7 +335,9 @@
         "hp": 1850,
         "attack": 660,
         "attackInterval": 0.88,
-        "moveInterval": 0.47
+        "moveInterval": 0.47,
+        "attackRange": 4,
+        "bulletType": "sword"
       },
       {
         "id": "xian_mahayana",
@@ -333,7 +349,9 @@
         "hp": 2550,
         "attack": 980,
         "attackInterval": 0.86,
-        "moveInterval": 0.48
+        "moveInterval": 0.48,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_heaven",
@@ -345,7 +363,9 @@
         "hp": 3500,
         "attack": 1420,
         "attackInterval": 0.84,
-        "moveInterval": 0.48
+        "moveInterval": 0.48,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_true",
@@ -357,7 +377,9 @@
         "hp": 4800,
         "attack": 2050,
         "attackInterval": 0.82,
-        "moveInterval": 0.49
+        "moveInterval": 0.49,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_mystic",
@@ -369,7 +391,9 @@
         "hp": 6500,
         "attack": 2900,
         "attackInterval": 0.8,
-        "moveInterval": 0.49
+        "moveInterval": 0.49,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_gold",
@@ -381,7 +405,9 @@
         "hp": 8800,
         "attack": 4050,
         "attackInterval": 0.78,
-        "moveInterval": 0.5
+        "moveInterval": 0.5,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_taiyi",
@@ -393,7 +419,9 @@
         "hp": 11800,
         "attack": 5600,
         "attackInterval": 0.76,
-        "moveInterval": 0.5
+        "moveInterval": 0.5,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_daluo",
@@ -405,7 +433,9 @@
         "hp": 15800,
         "attack": 7600,
         "attackInterval": 0.74,
-        "moveInterval": 0.5
+        "moveInterval": 0.5,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "xian_hunyuan",
@@ -417,7 +447,9 @@
         "hp": 21000,
         "attack": 10200,
         "attackInterval": 0.72,
-        "moveInterval": 0.5
+        "moveInterval": 0.5,
+        "attackRange": 5,
+        "bulletType": "star"
       },
       {
         "id": "extra_awaken",
@@ -429,7 +461,9 @@
         "hp": 125,
         "attack": 16,
         "attackInterval": 0.9,
-        "moveInterval": 0.38
+        "moveInterval": 0.38,
+        "attackRange": 2,
+        "bulletType": "energy"
       },
       {
         "id": "extra_elite",
@@ -441,7 +475,9 @@
         "hp": 190,
         "attack": 27,
         "attackInterval": 0.88,
-        "moveInterval": 0.38
+        "moveInterval": 0.38,
+        "attackRange": 2,
+        "bulletType": "energy"
       },
       {
         "id": "extra_master",
@@ -453,7 +489,9 @@
         "hp": 290,
         "attack": 44,
         "attackInterval": 0.86,
-        "moveInterval": 0.39
+        "moveInterval": 0.39,
+        "attackRange": 2,
+        "bulletType": "energy"
       },
       {
         "id": "extra_epic",
@@ -465,7 +503,9 @@
         "hp": 430,
         "attack": 70,
         "attackInterval": 0.84,
-        "moveInterval": 0.39
+        "moveInterval": 0.39,
+        "attackRange": 2,
+        "bulletType": "energy"
       },
       {
         "id": "extra_legend",
@@ -477,7 +517,9 @@
         "hp": 640,
         "attack": 110,
         "attackInterval": 0.82,
-        "moveInterval": 0.4
+        "moveInterval": 0.4,
+        "attackRange": 3,
+        "bulletType": "energy"
       },
       {
         "id": "martial_warrior",

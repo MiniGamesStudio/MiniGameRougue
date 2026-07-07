@@ -997,7 +997,7 @@
       ]
     },
     "cce:/internal/x/prerequisite-imports": {
-      "mTimestamp": 101868484.7884,
+      "mTimestamp": 102867296.8864,
       "chunkId": "6d8fd2b0177941b032ddc0733af48a561fb60657",
       "imports": [
         {
@@ -25002,7 +25002,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/ui/GamePanel.ts": {
       "mTimestamp": {
-        "mtime": 1783416227780.7847,
+        "mtime": 1783417142360.8489,
         "uuid": "0f6f935e-dd32-4f8f-870f-858c31678dec"
       },
       "chunkId": "a401de9dbfacdcf0f2251544d5a33412f3788b1e",
@@ -25022,11 +25022,11 @@
           "loc": {
             "start": {
               "line": 1,
-              "column": 116
+              "column": 123
             },
             "end": {
               "line": 1,
-              "column": 120
+              "column": 127
             }
           }
         },
@@ -27570,7 +27570,7 @@
     },
     "file:///D:/Works/Cocos/WxMiniGames/MiniGameRougue/assets/scripts/Game/CommonGame/rogue/AutoChessTypes.ts": {
       "mTimestamp": {
-        "mtime": 1783413719690.9868,
+        "mtime": 1783416938313.5388,
         "uuid": "55a594d9-4de3-4a5d-a284-8171fec94a73"
       },
       "chunkId": "5967ba87b3d4b805c73900ed6e8a87cfea819ce2",

@@ -35,6 +35,8 @@ export interface AutoChessCharacterConfig {
     attack: number;
     attackInterval: number;
     moveInterval: number;
+    attackRange?: number;
+    bulletType?: string;
 }
 
 export interface AutoChessEnemyConfig {
@@ -45,6 +47,8 @@ export interface AutoChessEnemyConfig {
     attack: number;
     attackInterval: number;
     moveInterval: number;
+    attackRange?: number;
+    bulletType?: string;
     gold: number;
 }
 
@@ -87,6 +91,8 @@ export interface AutoChessUnitRuntime {
     attack: number;
     attackInterval: number;
     moveInterval: number;
+    attackRange: number;
+    bulletType: string;
     goldReward: number;
     grid: AutoChessGridPos;
     node: Node;

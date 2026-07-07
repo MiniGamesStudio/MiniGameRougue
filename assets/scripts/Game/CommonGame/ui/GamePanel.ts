@@ -1,4 +1,4 @@
-import { _decorator, Button, instantiate, Label, Node, ProgressBar, RichText, tween, UITransform, Vec3, view } from 'cc';
+import { _decorator, Button, Color, instantiate, Label, Node, ProgressBar, RichText, tween, UITransform, Vec3, view } from 'cc';
 import { UIBase } from '../../../engine/ui/UIBase';
 import { UIManager } from '../../../engine/ui/UIManager';
 import { AutoChessConfigLoader } from '../rogue/AutoChessConfigLoader';
@@ -19,6 +19,9 @@ const DESIGN_ROOT_HEIGHT = 1334;
 const SHOP_ITEM_COUNT = 5;
 const INVALID_UID = 0;
 const ENEMY_SPAWN_INTERVAL = 0.18;
+const ATTACK_LUNGE_RATIO = 0.38;
+const DEFAULT_ATTACK_RANGE = 1;
+const RANGED_CAST_SCALE = 1.18;
 
 interface PendingEnemySpawn {
     config: AutoChessEnemyConfig;
@@ -277,6 +280,8 @@ export class GamePanel extends UIBase {
             attack: config.attack,
             attackInterval: config.attackInterval,
             moveInterval: config.moveInterval,
+            attackRange: this.getAttackRange(config),
+            bulletType: config.bulletType || '',
             goldReward: 0,
             grid,
             node,
@@ -310,6 +315,8 @@ export class GamePanel extends UIBase {
             attack: Math.ceil(config.attack * powerScale),
             attackInterval: config.attackInterval,
             moveInterval: config.moveInterval,
+            attackRange: this.getAttackRange(config),
+            bulletType: config.bulletType || '',
             goldReward: config.gold,
             grid,
             node,
@@ -397,7 +404,7 @@ export class GamePanel extends UIBase {
             }
             unit.targetUid = target.uid;
             const distance = this.getGridDistance(unit.grid, target.grid);
-            if (distance <= 1) {
+            if (distance <= unit.attackRange) {
                 this.tryAttack(unit, target);
             } else {
                 this.tryMoveToward(unit, target);
@@ -433,10 +440,19 @@ export class GamePanel extends UIBase {
         if (!this.canAttackTarget(unit, target)) return;
         unit.attackCooldown = unit.attackInterval;
         unit.state = 'attacking';
+        if (unit.attackRange > 1) {
+            this.playRangedAttack(unit, target);
+            return;
+        }
         const origin = this.gridToPosition(unit.grid);
         const targetPosition = this.gridToPosition(target.grid);
+        const attackPosition = new Vec3(
+            origin.x + (targetPosition.x - origin.x) * ATTACK_LUNGE_RATIO,
+            origin.y + (targetPosition.y - origin.y) * ATTACK_LUNGE_RATIO,
+            origin.z,
+        );
         tween(unit.node)
-            .to(0.08, { position: targetPosition })
+            .to(0.08, { position: attackPosition })
             .call(() => {
                 const currentTarget = this.getUnitByUid(target.uid);
                 if (currentTarget && this.canAttackTarget(unit, currentTarget, false)) {
@@ -450,10 +466,73 @@ export class GamePanel extends UIBase {
             .start();
     }
 
+    private playRangedAttack(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): void {
+        const originScale = unit.node.scale.clone();
+        const castScale = new Vec3(
+            originScale.x * RANGED_CAST_SCALE,
+            originScale.y * RANGED_CAST_SCALE,
+            originScale.z,
+        );
+        tween(unit.node)
+            .to(0.08, { scale: castScale })
+            .call(() => {
+                const currentTarget = this.getUnitByUid(target.uid);
+                if (currentTarget && this.canAttackTarget(unit, currentTarget, false)) {
+                    this.fireBullet(unit, currentTarget);
+                }
+            })
+            .to(0.08, { scale: originScale })
+            .call(() => {
+                if (unit.state !== 'dead') unit.state = 'idle';
+            })
+            .start();
+    }
+
+    private fireBullet(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): void {
+        const bullet = this.createBulletNode(unit.bulletType);
+        if (!bullet || !this.m_CharacterRoot) return;
+        const origin = this.gridToPosition(unit.grid);
+        const targetPosition = this.gridToPosition(target.grid);
+        bullet.setParent(this.m_CharacterRoot);
+        bullet.setPosition(origin);
+        tween(bullet)
+            .to(0.18, { position: targetPosition })
+            .call(() => {
+                const currentTarget = this.getUnitByUid(target.uid);
+                if (currentTarget && this.canAttackTarget(unit, currentTarget, false)) {
+                    this.damageUnit(currentTarget.uid, unit.attack, unit.camp);
+                }
+                if (bullet.isValid) {
+                    bullet.removeFromParent();
+                    bullet.destroy();
+                }
+            })
+            .start();
+    }
+
+    private createBulletNode(bulletType: string): Node {
+        const bullet = new Node('Bullet');
+        bullet.layer = this.m_CharacterRoot ? this.m_CharacterRoot.layer : bullet.layer;
+        const transform = bullet.addComponent(UITransform);
+        transform.setContentSize(36, 36);
+        const label = bullet.addComponent(Label);
+        label.string = this.getBulletText(bulletType);
+        label.fontSize = 28;
+        label.lineHeight = 32;
+        label.color = this.getBulletColor(bulletType);
+        return bullet;
+    }
+
     private canAttackTarget(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime, checkUnitPosition: boolean = true): boolean {
         if ((unit.state !== 'idle' && unit.state !== 'attacking') || target.state === 'dead') return false;
-        if (this.getGridDistance(unit.grid, target.grid) !== 1) return false;
-        if (!this.isFaceToFaceWithTarget(unit, target)) return false;
+        const distance = this.getGridDistance(unit.grid, target.grid);
+        if (distance <= 0 || distance > unit.attackRange) return false;
+        if (!this.isGridOccupiedByUid(unit.grid, unit.uid) || !this.isGridOccupiedByUid(target.grid, target.uid)) return false;
+        if (unit.attackRange <= 1) {
+            if (distance !== 1) return false;
+            if (!this.isFaceToFaceWithTarget(unit, target)) return false;
+            if (this.isMeleeDirectionLockedByAlly(unit, target)) return false;
+        }
         const unitCenter = this.gridToPosition(unit.grid);
         const targetCenter = this.gridToPosition(target.grid);
         const tolerance = Math.max(2, this.m_Config.board.cellSize * 0.08);
@@ -471,6 +550,25 @@ export class GamePanel extends UIBase {
         };
         const frontUid = this.m_OccupiedGrid.get(this.getGridKey(frontGrid));
         return frontUid === target.uid;
+    }
+
+    private isMeleeDirectionLockedByAlly(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): boolean {
+        const attackDirection = this.getAttackDirection(unit, target);
+        return this.m_Units.some(other => {
+            if (other.uid === unit.uid || other.camp !== unit.camp || other.state === 'dead') return false;
+            if (other.targetUid !== target.uid) return false;
+            if (this.getGridDistance(other.grid, target.grid) !== 1) return false;
+            if (!this.isFaceToFaceWithTarget(other, target)) return false;
+            const otherDirection = this.getAttackDirection(other, target);
+            return otherDirection.col === attackDirection.col && otherDirection.row === attackDirection.row;
+        });
+    }
+
+    private getAttackDirection(unit: AutoChessUnitRuntime, target: AutoChessUnitRuntime): AutoChessGridPos {
+        return {
+            col: Math.sign(target.grid.col - unit.grid.col),
+            row: Math.sign(target.grid.row - unit.grid.row),
+        };
     }
 
     private damageUnit(targetUid: number, damage: number, attackerCamp: string): void {
@@ -544,6 +642,8 @@ export class GamePanel extends UIBase {
         unit.attack = config.attack;
         unit.attackInterval = config.attackInterval;
         unit.moveInterval = config.moveInterval;
+        unit.attackRange = this.getAttackRange(config);
+        unit.bulletType = config.bulletType || '';
         unit.moveCooldown = 0;
         unit.attackCooldown = 0;
         unit.state = 'idle';
@@ -620,8 +720,11 @@ export class GamePanel extends UIBase {
         this.m_Units.forEach(target => {
             if (target.state === 'dead' || target.camp === unit.camp) return;
             const distance = this.getGridDistance(unit.grid, target.grid);
-            const hasAttackSlot = distance <= 1 || this.getAttackSlots(target.grid).some(grid => !this.isGridOccupied(grid));
-            const score = distance + (hasAttackSlot ? 0 : 1000);
+            const canAttackNow = distance <= unit.attackRange && this.canAttackTarget(unit, target);
+            const canApproach = canAttackNow || unit.attackRange > 1 || this.getAttackSlots(target.grid).some(grid => {
+                return this.isGridOccupiedByUid(grid, unit.uid) || !this.isGridOccupied(grid);
+            });
+            const score = distance + (canAttackNow ? -100 : 0) + (canApproach ? 0 : 1000);
             if (score < nearestScore) {
                 nearest = target;
                 nearestScore = score;
@@ -639,6 +742,34 @@ export class GamePanel extends UIBase {
                 return Math.abs(a.col - to.col) - Math.abs(b.col - to.col);
             });
         return candidates[0] || null;
+    }
+
+    private getAttackRange(config: { attackRange?: number }): number {
+        return Math.max(DEFAULT_ATTACK_RANGE, Math.floor(config.attackRange || DEFAULT_ATTACK_RANGE));
+    }
+
+    private getBulletText(bulletType: string): string {
+        switch (bulletType) {
+            case 'qi': return '气';
+            case 'fire': return '火';
+            case 'thunder': return '雷';
+            case 'sword': return '剑';
+            case 'star': return '星';
+            case 'energy': return '能';
+            default: return '弹';
+        }
+    }
+
+    private getBulletColor(bulletType: string): Color {
+        switch (bulletType) {
+            case 'qi': return new Color(100, 220, 255, 255);
+            case 'fire': return new Color(255, 110, 60, 255);
+            case 'thunder': return new Color(190, 120, 255, 255);
+            case 'sword': return new Color(230, 240, 255, 255);
+            case 'star': return new Color(255, 230, 90, 255);
+            case 'energy': return new Color(80, 255, 150, 255);
+            default: return Color.WHITE;
+        }
     }
 
     private getMoveNeighbors(grid: AutoChessGridPos): AutoChessGridPos[] {
@@ -691,6 +822,10 @@ export class GamePanel extends UIBase {
 
     private isGridOccupied(grid: AutoChessGridPos): boolean {
         return this.m_OccupiedGrid.has(this.getGridKey(grid));
+    }
+
+    private isGridOccupiedByUid(grid: AutoChessGridPos, uid: number): boolean {
+        return this.m_OccupiedGrid.get(this.getGridKey(grid)) === uid;
     }
 
     private setGridOccupied(grid: AutoChessGridPos, uid: number): void {
